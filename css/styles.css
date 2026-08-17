@@ -50,13 +50,13 @@ body{ font-optical-sizing:none; }  /* pin opsz manually (Max uses opsz 10, not a
 /* ============================================================
    STREAMLINED TYPE SCALE — whole site uses only these 6
    ============================================================ */
-.t-display{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 88;font-size:clamp(38px,5.4vw,80px);line-height:.94;letter-spacing:0;color:var(--paper);margin:0;}
+.t-display{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 88;font-size:clamp(44px,6.9vw,97px);line-height:.94;letter-spacing:0;color:var(--paper);margin:0;}
 .t-display .amp{font-style:italic;}
-.t-title{font-family:var(--sans);font-weight:700;font-size:clamp(19px,2.1vw,23px);letter-spacing:.03em;text-transform:uppercase;margin:0;color:var(--paper);}
+.t-title{font-family:var(--sans);font-weight:600;font-size:18px;letter-spacing:.03em;text-transform:uppercase;margin:0;color:var(--coral);}
 .t-sub{font-family:var(--sans);font-weight:600;font-size:15px;line-height:1.2;letter-spacing:.075em;text-transform:uppercase;margin:0;color:var(--paper);}
-.t-label{font-family:var(--serif);font-variation-settings:var(--pf);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-dim);margin:0;}
-.t-body{font-family:var(--serif);font-variation-settings:var(--pf);font-size:17px;line-height:1.5;color:var(--paper);margin:0;}
-.t-body-sm{font-family:var(--serif);font-variation-settings:var(--pf);font-size:15px;line-height:1.5;color:var(--paper-dim);margin:0;}
+.t-label{font-family:var(--serif);font-variation-settings:var(--pf);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);margin:0;}
+.t-body{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.5;color:var(--paper);margin:0;}
+.t-body-sm{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.5;color:var(--paper);margin:0;}
 
 /* ============================================================ BASE */
 *{box-sizing:border-box;}
@@ -140,7 +140,7 @@ section{padding:52px 0;}
 .reveal.in{opacity:1;transform:none;}
 
 /* footer */
-.foot{padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper-dim);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.foot{padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .foot a:hover{color:var(--coral);}
 
 /* responsive */
