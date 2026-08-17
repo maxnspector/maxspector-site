@@ -50,7 +50,7 @@ body{ font-optical-sizing:none; }  /* pin opsz manually (Max uses opsz 10, not a
 /* ============================================================
    STREAMLINED TYPE SCALE — whole site uses only these 6
    ============================================================ */
-.t-display{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 400;font-size:clamp(38px,5.4vw,80px);line-height:.94;letter-spacing:0;color:var(--paper);margin:0;}
+.t-display{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 88;font-size:clamp(38px,5.4vw,80px);line-height:.94;letter-spacing:0;color:var(--paper);margin:0;}
 .t-display .amp{font-style:italic;}
 .t-title{font-family:var(--sans);font-weight:700;font-size:clamp(19px,2.1vw,23px);letter-spacing:.03em;text-transform:uppercase;margin:0;color:var(--paper);}
 .t-sub{font-family:var(--sans);font-weight:600;font-size:15px;line-height:1.2;letter-spacing:.075em;text-transform:uppercase;margin:0;color:var(--paper);}
