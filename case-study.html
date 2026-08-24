@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case Study — Max Spector</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Max Spector — home">
+      <img class="monogram" src="/assets/Max_logo_icon_01.svg" alt="Max Spector" width="54" height="54" />
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- OVERLAY MENU -->
+<div class="overlay" id="overlay">
+  <nav>
+    <a href="/#featured">Featured Work</a>
+    <a href="#">Fandom Brand</a>
+    <a href="#">Campaigns &amp; Content</a>
+    <a href="#">Events &amp; Experiences</a>
+    <a href="#">Fandom Family Brands</a>
+    <a href="#">Presentation Design</a>
+    <a href="#">Client Brand Highlights</a>
+    <a href="#">About</a>
+  </nav>
+</div>
+
+<!-- COVER -->
+<section class="cs-cover">
+  <div class="cs-cover-media"></div>
+  <a class="cs-scroll" href="#intro" aria-label="Scroll to content">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- INTRO (light) -->
+<section class="cs-light" id="intro">
+  <div class="wrap cs-intro">
+    <div class="cs-intro-statement reveal">
+      <p class="cs-label">The Fandom Brand</p>
+      <h1 class="cs-statement">The power of design is to make the hidden visible, the visible relevant, and the relevant of passionate concern. The job of design is to spark intrigue and curiosity—to captivate the user, inspire them to disregard distractions, focus on your message—and of course, always, to tell amazing stories.</h1>
+    </div>
+    <div class="cs-intro-meta reveal">
+      <div class="cs-meta-block">
+        <p class="cs-label">Roles &amp; Responsibilities</p>
+        <p class="cs-body">Art director and lead designer. Team leadership, project management, and production. Honoring the client as partner and subject matter expert.</p>
+      </div>
+      <div class="cs-meta-block">
+        <p class="cs-label">Design Agencies of Record</p>
+        <p class="cs-body">Work produced at the esteemed Chen Design Associates, and my independent design practice.</p>
+      </div>
+      <p class="cs-body cs-link">View the <a href="#">online brand</a> assets or download the full <a href="#">brand guide</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA SECTION — 2-up grid -->
+<section class="cs-light cs-media">
+  <div class="wrap">
+    <div class="cs-head reveal">
+      <h2 class="cs-h">Section Header</h2>
+      <p class="cs-hsub">Section subhead — a short line describing this body of work.</p>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA SECTION — 3-up grid -->
+<section class="cs-light cs-media">
+  <div class="wrap">
+    <div class="cs-head reveal">
+      <h2 class="cs-h">Coffee Cultures</h2>
+      <p class="cs-hsub">Founded with an international spirit. Travel as the ends, not the means. Equal parts Olde England and Mel’s Diner.</p>
+    </div>
+    <div class="cs-grid cs-grid-3 reveal">
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+      <div class="cs-img">IMAGE</div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA SECTION — feature (wide + column) -->
+<section class="cs-light cs-media">
+  <div class="wrap">
+    <div class="cs-head reveal">
+      <h2 class="cs-h">Trademarks &amp; Monograms</h2>
+      <p class="cs-hsub">The brand symbol at its purest and most direct.</p>
+    </div>
+    <div class="cs-grid cs-grid-feature reveal">
+      <div class="cs-col">
+        <div class="cs-img">IMAGE</div>
+        <div class="cs-img wide">IMAGE</div>
+      </div>
+      <div class="cs-col">
+        <div class="cs-img tall">IMAGE</div>
+        <div class="cs-img tall">IMAGE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot wrap">
+  <span>© Max Spector 2026</span>
+  <span><a href="mailto:max@maxspector.com">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/maxspector/">LinkedIn</a></span>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40);},{passive:true});
+const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
+menuBtn.addEventListener('click',()=>{const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
+overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';}));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

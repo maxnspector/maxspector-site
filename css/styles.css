@@ -1,9 +1,5 @@
 /* ============================================================
-   FONTS
-   Playfair = the VARIABLE family (opsz + wdth + wght), self-hosted.
-   Drop the file at /fonts/playfair.ttf (see fonts/README — download
-   "Playfair" from Google Fonts, rename to playfair.ttf).
-   Poppins comes from Google Fonts (static weights, no optical axis).
+   FONTS  — self-hosted Playfair variable + Poppins (Google)
    ============================================================ */
 @font-face {
   font-family: "Playfair";
@@ -13,7 +9,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Playfair";
   src: url("/fonts/playfair-italic.ttf") format("truetype");
@@ -24,39 +19,48 @@
 }
 
 /* ============================================================
-   DESIGN TOKENS  (exact values from Max's Illustrator swatches)
+   DESIGN TOKENS  (from Figma "Portfolio site 2026 – v1")
    ============================================================ */
 :root{
-  --bg:        #25341B;   /* deep forest green   R37 G52 B27   */
+  --bg:        #25341B;   /* Spector 2026 Dark  */
   --bg-soft:   #2C3D22;
-  --paper:     #CFC5AA;   /* cream body/hero     R207 G197 B170 */
-  --paper-2:   #F7F7F1;   /* near-white          R247 G247 B241 */
-  --paper-dim: #8E8D73;   /* muted olive — placeholder box only */
-  --coral:     #F37053;   /* accent              R243 G112 B83  */
+  --paper:     #CFC5AA;   /* Spector 2026 Beige — main text */
+  --paper-2:   #F7F7F1;   /* Spector 2026 Cream — light sections */
+  --paper-dim: #8E8D73;   /* placeholder box only */
+  --coral:     #F37053;   /* Spector 2026 Coral */
   --line:      #434C36;   /* hairlines */
+  --text-dark: #545E3D;   /* Spector 2026 Text — text on LIGHT sections */
 
   --serif: "Playfair", Georgia, serif;
   --sans:  "Poppins", system-ui, sans-serif;
-  /* Playfair variable axes — Max's spec */
+  /* Playfair body axes (opsz 10 text cut) */
   --pf: 'opsz' 10, 'wdth' 103, 'wght' 400;
 
-  --maxw: 1360px;
-  --gutter: clamp(20px, 3.6vw, 50px);   /* outer side margins */
-  --col-gap: 24px;                       /* 12-col gutter */
+  /* GRID — Figma: 1200 content, 120 margins @1440, 12 col, 24 gutter, 78 col */
+  --content: 1200px;
+  --edge:    clamp(20px, 4vw, 40px);   /* min side gap on small screens */
+  --col-gap: 24px;
   --ease: cubic-bezier(.22,.61,.36,1);
 }
-body{ font-optical-sizing:none; }  /* pin opsz manually (Max uses opsz 10, not auto) */
+body{ font-optical-sizing:none; }
 
 /* ============================================================
-   STREAMLINED TYPE SCALE — whole site uses only these 6
+   TYPE SCALE — exact Figma values
    ============================================================ */
-.t-display{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 88;font-size:clamp(44px,6.9vw,97px);line-height:.94;letter-spacing:0;color:var(--paper);margin:0;}
+/* Hero: Playfair Light 90 / opsz 50 / wdth 87.5 / lh .93 */
+.t-display{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 87.5;font-size:clamp(40px,6.25vw,90px);line-height:.93;letter-spacing:0;color:var(--paper);margin:0;}
 .t-display .amp{font-style:italic;}
-.t-title{font-family:var(--sans);font-weight:600;font-size:18px;letter-spacing:.03em;text-transform:uppercase;margin:0;color:var(--coral);}
-.t-sub{font-family:var(--sans);font-weight:600;font-size:15px;line-height:1.2;letter-spacing:.075em;text-transform:uppercase;margin:0;color:var(--paper);}
-.t-label{font-family:var(--serif);font-variation-settings:var(--pf);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);margin:0;}
-.t-body{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.5;color:var(--paper);margin:0;}
-.t-body-sm{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.5;color:var(--paper);margin:0;}
+/* Case card title: Poppins SemiBold 18 coral, tracking 1.26px */
+.t-title{font-family:var(--sans);font-weight:600;font-size:18px;line-height:1;letter-spacing:.07em;text-transform:uppercase;margin:0;color:var(--coral);}
+/* Subhead (Lead Designer): Poppins SemiBold 14, tracking 1.4px */
+.t-sub{font-family:var(--sans);font-weight:600;font-size:14px;line-height:1.28;letter-spacing:.1em;text-transform:uppercase;margin:0;color:var(--paper);}
+/* Labels (MAX SPECTOR, Ex., Featured Case Study): Playfair 550 / 14 / opsz10 wdth103 / tracking 2px */
+.t-label{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 550;font-size:14px;line-height:1.28;letter-spacing:.143em;text-transform:uppercase;color:var(--paper);margin:0;}
+/* Intro / case description: Playfair Light 21 / opsz 7.5 / wdth 99 / lh 1.3 */
+.t-body-lg{font-family:var(--serif);font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:21px;line-height:1.3;letter-spacing:-.025em;color:var(--paper);margin:0;}
+/* Body (Ex column / general): Playfair 400 / 16 / opsz10 wdth103 / lh 1.3 */
+.t-body{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.3;letter-spacing:.01em;color:var(--paper);margin:0;}
+.t-body-sm{font-family:var(--serif);font-variation-settings:var(--pf);font-size:16px;line-height:1.3;letter-spacing:.01em;color:var(--paper);margin:0;}
 
 /* ============================================================ BASE */
 *{box-sizing:border-box;}
@@ -65,11 +69,10 @@ body{margin:0;background:var(--bg);color:var(--paper);font-family:var(--serif);-
 a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 
-/* 12-COLUMN GRID — every content row rides these same 12 tracks */
+/* 12-COLUMN GRID — content 1200 centered (120 margins @1440), 24 gutter */
 .wrap{
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:0 var(--gutter);
+  width:min(calc(100% - 2*var(--edge)), var(--content));
+  margin-inline:auto;
   display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));
   column-gap:var(--col-gap);
@@ -77,10 +80,10 @@ img{display:block;max-width:100%;}
 .rule{border:0;border-top:1px solid var(--line);margin:0;}
 section{padding:52px 0;}
 
-/* ============================================================ NAV */
+/* ============================================================ NAV (transparent, on-grid) */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:padding .4s var(--ease);}
-.nav-inner{max-width:var(--maxw);margin:0 auto;padding:22px var(--gutter);display:flex;align-items:center;justify-content:space-between;transition:padding .4s var(--ease);}
-.nav.scrolled .nav-inner{padding-top:14px;padding-bottom:14px;}
+.nav-inner{width:min(calc(100% - 2*var(--edge)), var(--content));margin-inline:auto;padding-block:22px;display:flex;align-items:center;justify-content:space-between;transition:padding .4s var(--ease);}
+.nav.scrolled .nav-inner{padding-block:14px;}
 .monogram{width:54px;height:54px;flex:none;}
 .menu-btn{appearance:none;background:none;border:0;cursor:pointer;width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;gap:7px;align-items:flex-end;}
 .menu-btn span{display:block;height:2px;width:32px;background:var(--coral);transition:transform .35s var(--ease),opacity .25s;}
@@ -88,9 +91,9 @@ section{padding:52px 0;}
 .menu-btn.open span:nth-child(2){opacity:0;}
 .menu-btn.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
 
-.overlay{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:0 var(--gutter);clip-path:circle(0% at calc(100% - 46px) 44px);transition:clip-path .6s var(--ease);pointer-events:none;}
+.overlay{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:0 var(--edge);clip-path:circle(0% at calc(100% - 46px) 44px);transition:clip-path .6s var(--ease);pointer-events:none;}
 .overlay.open{clip-path:circle(150% at calc(100% - 46px) 44px);pointer-events:auto;}
-.overlay nav{max-width:var(--maxw);margin:0 auto;width:100%;}
+.overlay nav{width:min(calc(100% - 2*var(--edge)), var(--content));margin-inline:auto;}
 .overlay a{display:block;font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 500;font-size:clamp(28px,5.4vw,58px);line-height:1.16;color:var(--paper);padding:5px 0;opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease),color .2s;}
 .overlay a:hover{color:var(--coral);}
 .overlay.open a{opacity:1;transform:none;}
@@ -100,15 +103,13 @@ section{padding:52px 0;}
 .overlay.open a:nth-child(7){transition-delay:.40s;}.overlay.open a:nth-child(8){transition-delay:.45s;}
 
 /* ============================================================ HERO
-   Content sits on columns 5–12 (the editorial indent, on-grid). */
-.hero{padding:172px 0 60px;}
-.hero .inner{grid-column:5 / -1;}
-.hero .eyebrow{margin-bottom:20px;}
-/* four Ex. columns = 2 grid-columns each (4 × 2 = 8 = cols 5–12) */
-.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;margin-top:56px;}
-.hero-grid .k{margin-bottom:9px;}
-.hero-grid .t-sub{margin-bottom:9px;}
-.hero-links{margin-top:38px;font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--coral);}
+   Content on columns 5–12; 40px vertical rhythm (Figma). */
+.hero{padding:100px 0 60px;}
+.hero .inner{grid-column:5 / -1;display:flex;flex-direction:column;gap:40px;}
+/* four Ex. columns = 2 grid-columns each */
+.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;}
+.hero-grid .col{display:flex;flex-direction:column;gap:16px;}
+.hero-links{font-family:var(--sans);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--coral);}
 .hero-links a:hover{text-decoration:underline;}
 
 /* ============================================================ SECTION HEADER */
@@ -130,19 +131,16 @@ section{padding:52px 0;}
 .slider-arrow:hover{color:var(--coral);}
 .slider-arrow.prev{left:-6px;}.slider-arrow.next{right:-6px;}
 .slider-arrow svg{width:28px;height:28px;}
-/* slider footer rides the 12-col grid: dots cols 1–4, caption cols 5–12 */
 .slider-foot{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);align-items:start;margin-top:20px;}
 .dots{grid-column:1 / 5;display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding-top:4px;}
 .dots button{width:24px;height:3px;border:0;background:var(--line);cursor:pointer;padding:0;transition:background .3s;}
 .dots button.active{background:var(--coral);}
 .slider-caption{grid-column:5 / -1;max-width:60ch;}
 
-/* ============================================================ CASE STUDY
-   Rides the 12-col grid: meta cols 1–4, media cols 5–12. */
+/* ============================================================ CASE STUDY (homepage) */
 .case{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);align-items:start;}
-.case .meta{grid-column:1 / 5;}
-.case .meta .t-title{color:var(--coral);margin-bottom:16px;}
-.case .meta .tag{margin-top:16px;}
+.case .meta{grid-column:1 / 5;display:flex;flex-direction:column;gap:13px;}
+.case .meta .tag{margin-top:6px;}
 .case .media{grid-column:5 / -1;display:grid;gap:15px;}
 .case .media .full{grid-column:1/-1;}
 .case .media .pair{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
@@ -153,7 +151,7 @@ section{padding:52px 0;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
 .reveal.in{opacity:1;transform:none;}
 
-/* footer (stays flex, not on the 12-col grid) */
+/* footer */
 .foot{grid-column:1 / -1;padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .foot a:hover{color:var(--coral);}
 
@@ -170,6 +168,56 @@ section{padding:52px 0;}
   .case .media{grid-column:1 / -1;}
 }
 @media(max-width:520px){ .case .media .pair{grid-template-columns:1fr;} }
+/* ============================================================ CASE STUDY TEMPLATE (reusable)
+   Light sections: cream bg #F7F7F1, dark-olive text #545E3D, coral links. ============================================================ */
+.cs-light{background:var(--paper-2);color:var(--text-dark);}
+.cs-light a{color:var(--coral);}
+
+/* cover */
+.cs-cover{position:relative;height:min(90vh,900px);min-height:520px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
+.cs-cover-media{position:absolute;inset:0;background:linear-gradient(160deg,#2c3d22,#18220f);}
+.cs-cover-media::after{content:"COVER IMAGE";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.35);font:600 12px/1 var(--sans);letter-spacing:.18em;}
+.cs-scroll{position:relative;z-index:2;margin-bottom:34px;color:var(--paper);display:flex;flex-direction:column;align-items:center;gap:6px;}
+.cs-scroll svg{width:22px;height:22px;animation:cs-bob 2s var(--ease) infinite;}
+@keyframes cs-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* case-study type (color inherits from section) */
+.cs-label{font-family:var(--sans);font-weight:600;font-size:15px;line-height:1.2;letter-spacing:.07em;text-transform:uppercase;margin:0;color:inherit;}
+.cs-statement{font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:clamp(26px,2.9vw,36px);line-height:1.25;letter-spacing:-.015em;margin:0;color:inherit;}
+.cs-h{font-family:var(--serif);font-variation-settings:'opsz' 35,'wdth' 103,'wght' 300;font-size:clamp(34px,3.9vw,50px);line-height:1.25;letter-spacing:-.01em;margin:0;color:inherit;}
+.cs-hsub{font-family:var(--sans);font-weight:500;font-style:italic;font-size:16px;line-height:1.25;letter-spacing:.03em;margin:0;color:inherit;}
+.cs-body{font-family:var(--serif);font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:21px;line-height:1.3;letter-spacing:-.025em;margin:0;color:inherit;}
+.cs-body.cs-link{font-style:italic;font-variation-settings:'opsz' 12,'wdth' 100,'wght' 400;}
+
+/* intro (light): statement cols 1-8, meta cols 10-12 */
+.cs-intro{padding:100px 0;}
+.cs-intro-statement{grid-column:1 / 9;display:flex;flex-direction:column;gap:30px;}
+.cs-intro-meta{grid-column:10 / -1;display:flex;flex-direction:column;gap:42px;}
+.cs-meta-block{display:flex;flex-direction:column;gap:16px;}
+
+/* media sections: centered header + image grid */
+.cs-media{padding:72px 0;}
+.cs-head{grid-column:1 / -1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;margin-bottom:52px;}
+.cs-head .cs-hsub{max-width:60ch;}
+.cs-grid{grid-column:1 / -1;display:grid;gap:24px;}
+.cs-grid-2{grid-template-columns:repeat(2,1fr);}
+.cs-grid-3{grid-template-columns:repeat(3,1fr);}
+.cs-grid-feature{grid-template-columns:2fr 1fr;align-items:start;}
+.cs-col{display:grid;gap:24px;}
+.cs-img{background:rgba(84,94,61,.09);border:1px solid rgba(84,94,61,.22);border-radius:2px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:rgba(84,94,61,.5);font:600 11px/1 var(--sans);letter-spacing:.16em;}
+.cs-img.wide{aspect-ratio:16/10;}
+.cs-img.tall{aspect-ratio:3/4;}
+
+@media(max-width:860px){
+  .cs-intro-statement,.cs-intro-meta{grid-column:1 / -1;}
+  .cs-intro-meta{margin-top:40px;}
+  .cs-grid-2,.cs-grid-3{grid-template-columns:repeat(2,1fr);}
+  .cs-grid-feature{grid-template-columns:1fr;}
+}
+@media(max-width:520px){
+  .cs-grid-2,.cs-grid-3{grid-template-columns:1fr;}
+}
+
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important;}
   .reveal{opacity:1;transform:none;}
