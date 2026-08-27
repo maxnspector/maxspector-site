@@ -64,6 +64,15 @@ body{ font-optical-sizing:none; }
 /* Ex. A–D descriptions: Playfair LIGHT 300 / 16 / opsz10 wdth103 / lh1.3 / +0.16px */
 .t-body-sm{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 300;font-size:16px;line-height:1.3;letter-spacing:.01em;color:var(--paper);margin:0;}
 
+/* CAP-HEIGHT TRIM — Figma auto-layout measures gaps between cap-trimmed text
+   boxes (the file exports text-box-trim: trim-both / edge cap alphabetic). Match
+   it so a 16px gap renders as a true 16px instead of 16px + line-height leading.
+   Chrome 133+/Safari 18.2+; older browsers fall back to normal leading. */
+.t-display,.t-label,.t-sub,.t-body,.t-body-sm,.t-body-lg,.t-title,.hero-links,
+.cs-label,.cs-statement,.cs-h,.cs-hsub,.cs-body{
+  text-box-trim:trim-both;text-box-edge:cap alphabetic;
+}
+
 /* ============================================================ BASE */
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -131,7 +140,7 @@ section{padding:52px 0;}
 .slider-arrow:hover{color:var(--coral);}
 .slider-arrow.prev{left:-6px;}.slider-arrow.next{right:-6px;}
 .slider-arrow svg{width:28px;height:28px;}
-.slider-foot{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);align-items:start;margin-top:20px;}
+.slider-foot{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);align-items:start;margin-top:24px;}
 .dots{grid-column:1 / 5;display:flex;gap:9px;align-items:center;flex-wrap:wrap;padding-top:4px;}
 .dots button{width:24px;height:3px;border:0;background:var(--line);cursor:pointer;padding:0;transition:background .3s;}
 .dots button.active{background:var(--coral);}
@@ -145,16 +154,26 @@ section{padding:52px 0;}
 .cs-row::after{content:"";position:absolute;inset:0;background:var(--dark-hover);opacity:0;transition:opacity .35s var(--ease);pointer-events:none;z-index:0;}
 .cs-row:hover::after{opacity:.25;}
 .cs-row .wrap{position:relative;z-index:1;align-items:start;}
-.cs-eyebrow{grid-column:1 / -1;margin-bottom:16px;}
-.cs-hr{grid-column:1 / -1;margin-bottom:34px;}
-.cs-row-meta{grid-column:1 / 4;display:flex;flex-direction:column;gap:16px;}
+.cs-eyebrow{grid-column:1 / -1;margin-bottom:12px;}
+.cs-hr{grid-column:1 / -1;margin-bottom:13px;}
+.cs-row-meta{grid-column:1 / 4;display:flex;flex-direction:column;gap:13px;}
 .cs-row-desc{max-width:30ch;}
 /* 792x486 media area — flexible: swap the arr-* class, drop in 2/3/4 images */
 .cs-row-media{grid-column:5 / -1;aspect-ratio:792 / 486;display:grid;gap:24px;}
-.cs-row-media.arr-1L2R{grid-template-columns:486fr 282fr;}
 .cs-row-media.arr-2{grid-template-columns:1fr 1fr;}
-.cs-row-media.arr-3{grid-template-columns:repeat(3,minmax(0,1fr));}
 .cs-row-media.arr-4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;}
+/* Big + 2 stacked, unequal width (big is wider) — the Alex family. Markup: big first, then .m-col */
+.cs-row-media.arr-1L2R{grid-template-columns:486fr 282fr;}
+.cs-row-media.arr-1L2R .m-col{grid-template-rows:270fr 192fr;}
+/* Mirror: 2 stacked first, then big. */
+.cs-row-media.arr-1R2L{grid-template-columns:282fr 486fr;}
+.cs-row-media.arr-1R2L .m-col{grid-template-rows:192fr 270fr;}
+/* Big + 2 SQUARES stacked (right col narrowed to 231 so squares fit the 486 height) */
+.cs-row-media.arr-1L2R-sq{grid-template-columns:537fr 231fr;}
+.cs-row-media.arr-1R2L-sq{grid-template-columns:231fr 537fr;}
+/* Tall + 2 stacked, EQUAL width (50/50) — combines arr-1L2R and arr-2 */
+.cs-row-media.arr-tall-L{grid-template-columns:1fr 1fr;}
+.cs-row-media.arr-tall-R{grid-template-columns:1fr 1fr;}
 .cs-row-media .m-col{display:grid;grid-template-rows:1fr 1fr;gap:24px;min-height:0;}
 .m-img{position:relative;overflow:hidden;border-radius:2px;background:rgba(207,197,170,.08);border:1px solid rgba(207,197,170,.14);display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.4);font:600 11px/1 var(--sans);letter-spacing:.16em;min-height:0;}
 .m-img img{width:100%;height:100%;object-fit:cover;}
