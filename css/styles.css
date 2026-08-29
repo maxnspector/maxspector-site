@@ -68,7 +68,7 @@ body{ font-optical-sizing:none; }
    boxes (the file exports text-box-trim: trim-both / edge cap alphabetic). Match
    it so a 16px gap renders as a true 16px instead of 16px + line-height leading.
    Chrome 133+/Safari 18.2+; older browsers fall back to normal leading. */
-.t-display,.t-label,.t-sub,.t-body,.t-body-sm,.t-body-lg,.t-title,.hero-links,
+.t-label,.t-sub,.t-body,.t-body-sm,.t-body-lg,.t-title,
 .cs-label,.cs-statement,.cs-h,.cs-hsub,.cs-body{
   text-box-trim:trim-both;text-box-edge:cap alphabetic;
 }
@@ -120,7 +120,7 @@ section{padding:52px 0;}
 /* four Ex. columns = 2 grid-columns each */
 .hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;}
 .hero-grid .col{display:flex;flex-direction:column;gap:16px;}
-.hero-links{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 400;font-size:14px;letter-spacing:.143em;text-transform:uppercase;color:var(--coral);}
+.hero-links{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 400;font-size:14px;line-height:1.3;letter-spacing:.143em;text-transform:uppercase;color:var(--coral);}
 .hero-links .sep{color:var(--paper);}
 .hero-links a:hover{text-decoration:underline;}
 
