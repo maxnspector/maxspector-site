@@ -88,7 +88,7 @@ img{display:block;max-width:100%;}
   grid-template-columns:repeat(12,minmax(0,1fr));
   column-gap:var(--col-gap);
 }
-.rule{border:0;border-top:1px solid var(--line);margin:0;}
+.rule{border:0;border-top:1px solid var(--paper);margin:0;}
 section{padding:52px 0;}
 
 /* ============================================================ NAV (transparent, on-grid) */
@@ -125,8 +125,9 @@ section{padding:52px 0;}
 .hero-links a:hover{text-decoration:underline;}
 
 /* ============================================================ SECTION HEADER */
-.sec-head{grid-column:1 / -1;display:flex;align-items:center;gap:22px;margin:0 0 32px;}
-.sec-head .rule{flex:1;}
+.sec-head{grid-column:1 / -1;margin:0 0 32px;}
+.sec-head .t-label{display:block;}
+.sec-head .rule{margin-top:12px;}
 
 /* ============================================================ FEATURED SLIDER */
 .slides{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:2px;background:var(--bg-soft);}
