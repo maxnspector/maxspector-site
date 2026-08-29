@@ -42,8 +42,8 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div class="inner">
-      <p class="t-label eyebrow" data-parallax="0.08">Max Spector</p>
-      <h1 class="t-display" data-parallax="0.13">Intention with taste,<br>for the benefit of<br>people <span class="amp">&amp;</span> products.</h1>
+      <p class="t-label eyebrow">Max Spector</p>
+      <h1 class="t-display">Intention with taste,<br>for the benefit of<br>people <span class="amp">&amp;</span> products.</h1>
 
       <div class="hero-grid">
         <div class="col reveal"><p class="t-label k">Ex. A</p><h3 class="t-sub">Lead Designer</h3><p class="t-body-sm">Unlocking originality through curiosity, partnership, and play.</p></div>
@@ -60,7 +60,7 @@
 </section>
 
 <!-- FEATURED WORK -->
-<section id="featured">
+<section id="featured" data-rise>
   <div class="wrap">
     <div class="sec-head"><span class="t-label">Featured Work</span><hr class="rule"/></div>
     <div class="slider reveal" id="slider">
@@ -122,9 +122,10 @@ addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40);},{pa
 const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
 menuBtn.addEventListener('click',()=>{const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';}));
-const px=[...document.querySelectorAll('[data-parallax]')];let ticking=false;
-function parallax(){const y=scrollY;px.forEach(el=>{el.style.transform=`translateY(${y*parseFloat(el.dataset.parallax)}px)`;});ticking=false;}
-addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(parallax);ticking=true;}},{passive:true});
+const risers=[...document.querySelectorAll('[data-rise]')];let ticking=false;
+const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function rise(){const vh=innerHeight,start=vh,end=vh*0.5;risers.forEach(el=>{const t=el.getBoundingClientRect().top;let p=(t-end)/(start-end);p=Math.min(1,Math.max(0,p));el.style.transform=`translateY(${(p*80).toFixed(1)}px)`;});ticking=false;}
+if(risers.length&&!reduceMotion){addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(rise);ticking=true;}},{passive:true});addEventListener('resize',rise,{passive:true});rise();}
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const slides=[...document.querySelectorAll('#slides .slide')];const dotsWrap=document.getElementById('dots');let idx=0,timer;

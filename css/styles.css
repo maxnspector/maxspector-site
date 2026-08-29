@@ -117,10 +117,10 @@ section{padding:52px 0;}
 /* ============================================================ HERO
    Content on columns 5–12; 40px vertical rhythm (Figma). */
 .hero{padding:100px 0 40px;}
-#featured{padding-top:0;padding-bottom:56px;}
+#featured{padding-top:0;padding-bottom:56px;will-change:transform;}
 .hero .inner{grid-column:5 / -1;display:flex;flex-direction:column;gap:40px;}
 /* four Ex. columns = 2 grid-columns each */
-.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;}
+.hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;margin-top:40px;}
 .hero-grid .col{display:flex;flex-direction:column;gap:16px;}
 .hero-links{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 400;font-size:14px;line-height:1.3;letter-spacing:.143em;text-transform:uppercase;color:var(--coral);}
 .hero-links .sep{color:var(--paper);}
@@ -159,7 +159,7 @@ section{padding:52px 0;}
 .cs-row .wrap{position:relative;z-index:1;align-items:start;}
 .cs-eyebrow{grid-column:1 / -1;margin-bottom:12px;}
 .cs-hr{grid-column:1 / -1;margin-bottom:13px;}
-.cs-row-meta{grid-column:1 / 4;display:flex;flex-direction:column;gap:12px;}
+.cs-row-meta{grid-column:1 / 4;display:flex;flex-direction:column;gap:24px;}
 .cs-row-desc{max-width:30ch;}
 /* 792x486 media area — flexible: swap the arr-* class, drop in 2/3/4 images */
 .cs-row-media{grid-column:5 / -1;aspect-ratio:792 / 486;display:grid;gap:24px;}
