@@ -117,14 +117,17 @@
 </footer>
 
 <script>
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40);},{passive:true});
+const nav=document.getElementById('nav');let lastY=scrollY,navHidden=false;
+addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>40);
+  if(y>lastY&&y>140&&!navHidden){nav.classList.add('nav-hidden');navHidden=true;}
+  else if(y<lastY&&navHidden){nav.classList.remove('nav-hidden');navHidden=false;}
+  lastY=y;},{passive:true});
 const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
-menuBtn.addEventListener('click',()=>{const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
+menuBtn.addEventListener('click',()=>{nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';});
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';}));
 const risers=[...document.querySelectorAll('[data-rise]')];let ticking=false;
 const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
-function rise(){const vh=innerHeight,start=vh,end=vh*0.5;risers.forEach(el=>{const t=el.getBoundingClientRect().top;let p=(t-end)/(start-end);p=Math.min(1,Math.max(0,p));el.style.transform=`translateY(${(p*80).toFixed(1)}px)`;});ticking=false;}
+function rise(){const vh=innerHeight,start=vh,end=vh*0.4;risers.forEach(el=>{const t=el.getBoundingClientRect().top;let p=(t-end)/(start-end);p=Math.min(1,Math.max(0,p));el.style.transform=`translateY(${(p*100).toFixed(1)}px)`;});ticking=false;}
 if(risers.length&&!reduceMotion){addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(rise);ticking=true;}},{passive:true});addEventListener('resize',rise,{passive:true});rise();}
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
