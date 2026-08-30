@@ -122,7 +122,9 @@ section{padding:52px 0;}
 /* ============================================================ HERO
    Content on columns 5–12; 40px vertical rhythm (Figma). */
 .hero{padding:100px 0 40px;}
-#featured{padding-top:0;padding-bottom:56px;will-change:transform;}
+#featured{padding-top:0;padding-bottom:56px;}
+/* scroll-rise: any [data-rise] element enters low and settles. Amount px in the attr. */
+[data-rise]{will-change:transform;}
 .hero .inner{grid-column:5 / -1;display:flex;flex-direction:column;gap:40px;}
 /* four Ex. columns = 2 grid-columns each */
 .hero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap);row-gap:26px;margin-top:40px;}
@@ -184,7 +186,9 @@ section{padding:52px 0;}
 .cs-row-media.arr-tall-R{grid-template-columns:1fr 1fr;}
 .cs-row-media .m-col{display:grid;grid-template-rows:1fr 1fr;gap:24px;min-height:0;}
 .m-img{position:relative;overflow:hidden;border-radius:2px;background:rgba(207,197,170,.08);border:1px solid rgba(207,197,170,.14);display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.4);font:600 11px/1 var(--sans);letter-spacing:.16em;min-height:0;}
-.m-img img{width:100%;height:100%;object-fit:cover;}
+.m-img img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform .6s var(--ease);}
+/* row hover nudges the imagery up in scale, alongside the bg darkening */
+.cs-row:hover .m-img img{transform:scale(1.045);}
 
 /* reveal on scroll — motion removed per Max: content below the title is static
    (no fade-and-rise). Class kept so the JS hook stays harmless. */
@@ -194,6 +198,10 @@ section{padding:52px 0;}
 /* footer */
 .foot{grid-column:1 / -1;padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
 .foot a:hover{color:var(--coral);}
+/* one-shot rise on entry — used by the footer, which sits at the document end
+   and so has no scroll left to parallax against. */
+.rise-in{transform:translateY(40px);transition:transform .8s var(--ease);will-change:transform;}
+.rise-in.in{transform:none;}
 
 /* ============================================================ RESPONSIVE */
 @media(max-width:860px){
@@ -260,4 +268,5 @@ section{padding:52px 0;}
 @media(prefers-reduced-motion:reduce){
   *{transition:none!important;scroll-behavior:auto!important;}
   .reveal{opacity:1;transform:none;}
+  [data-rise],.rise-in{transform:none!important;}
 }
