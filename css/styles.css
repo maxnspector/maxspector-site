@@ -96,6 +96,8 @@ section{padding:52px 0;}
 .nav-inner{width:min(calc(100% - 2*var(--edge)), var(--content));margin-inline:auto;padding-top:100px;padding-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;transition:padding .4s var(--ease);}
 .nav.scrolled .nav-inner{padding-top:20px;padding-bottom:20px;}
 .nav.nav-hidden{transform:translateY(-100%);}
+/* case-study pages: nav pushes to the page edges + sits tighter to the top */
+.cs-page .nav-inner{width:auto;max-width:none;margin-inline:0;padding-left:var(--edge);padding-right:var(--edge);padding-top:40px;}
 .monogram{width:65px;height:65px;flex:none;}
 .menu-btn{appearance:none;background:none;border:0;cursor:pointer;width:15px;height:15px;position:relative;transition:transform .4s var(--ease);}
 .menu-btn::before{content:"";position:absolute;inset:-16px;}
@@ -103,6 +105,8 @@ section{padding:52px 0;}
 .menu-btn span:nth-child(1){width:15px;height:2px;transform:translate(-50%,-50%);}
 .menu-btn span:nth-child(2){width:2px;height:15px;transform:translate(-50%,-50%);}
 .menu-btn.open{transform:rotate(45deg);}
+.menu-btn:hover span:nth-child(1){transform:translate(-50%,-50%) scaleX(1.4);}
+.menu-btn:hover span:nth-child(2){transform:translate(-50%,-50%) scaleY(1.4);}
 
 .overlay{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:0 var(--edge);clip-path:circle(0% at calc(100% - 46px) 108px);transition:clip-path .6s var(--ease);pointer-events:none;}
 .overlay.open{clip-path:circle(150% at calc(100% - 46px) 108px);pointer-events:auto;}
