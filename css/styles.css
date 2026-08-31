@@ -255,6 +255,28 @@ section{padding:52px 0;}
 .cs-img.wide{aspect-ratio:16/10;}
 .cs-img.tall{aspect-ratio:3/4;}
 
+/* --- case-study images: real art in the .cs-img frames --- */
+.cs-img{overflow:hidden;}
+.cs-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.cs-img.has-img{background:none;border-color:rgba(84,94,61,.14);}
+.cs-img.contain img{object-fit:contain;}
+/* extra ratios beyond the base 1:1 / .wide 16:10 / .tall 3:4 */
+.cs-img.video{aspect-ratio:16/9;}
+.cs-img.pano{aspect-ratio:21/9;}
+.cs-img.ultra{aspect-ratio:3/1;}
+.cs-img.portrait{aspect-ratio:4/5;}
+.cs-grid-4{grid-template-columns:repeat(4,1fr);}
+/* a section can stack several grids; this spaces them */
+.cs-media .cs-grid + .cs-grid{margin-top:24px;}
+/* cover art */
+.cs-cover-media.has-img::after{content:none;}
+.cs-cover-media.has-img{background-size:cover;background-position:center;}
+/* pull-quote used as a section subhead */
+.cs-hsub cite{font-style:normal;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;display:block;margin-top:10px;opacity:.72;}
+@media(max-width:860px){ .cs-grid-4{grid-template-columns:repeat(2,1fr);} }
+@media(max-width:520px){ .cs-grid-4{grid-template-columns:repeat(2,1fr);} }
+
+
 @media(max-width:860px){
   .cs-intro-statement,.cs-intro-meta{grid-column:1 / -1;}
   .cs-intro-meta{margin-top:40px;}
