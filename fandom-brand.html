@@ -105,21 +105,25 @@
   </div>
 </section>
 
-<!-- 3. MOTION DESIGN -->
-<section class="cs-light cs-media">
+<!-- 3. MOTION DESIGN — dark chapter break -->
+<section class="cs-dark cs-media">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Motion Design</h2>
       <p class="cs-hsub">Expressing the brand attributes of passion, celebration, and wonder.</p>
     </div>
     <div class="cs-grid cs-grid-2 reveal">
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-hero.jpg" alt="Animated logo build — the flame mark assembling" loading="lazy"></div>
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-sizzle-300m.jpg" alt="Sizzle frame reading 300+ million" loading="lazy"></div>
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-anthem-poster.jpg" aria-label="Brand anthem film"><source src="/assets/fandom-brand/motion-anthem.mp4" type="video/mp4"></video></div>
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-sizzle-poster.jpg" aria-label="Kickoff sizzle reel"><source src="/assets/fandom-brand/motion-sizzle.mp4" type="video/mp4"></video></div>
     </div>
     <div class="cs-grid cs-grid-3 reveal">
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-titlecard-poster.jpg" aria-label="Animated title card"><source src="/assets/fandom-brand/motion-titlecard.mp4" type="video/mp4"></video></div>
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-endcard-poster.jpg" aria-label="Animated end card"><source src="/assets/fandom-brand/motion-endcard.mp4" type="video/mp4"></video></div>
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-lowerthird-poster.jpg" aria-label="Animated lower third"><source src="/assets/fandom-brand/motion-lowerthird.mp4" type="video/mp4"></video></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-hero.jpg" alt="Animated logo build — the flame mark assembling" loading="lazy"></div>
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-tagline-startrek.jpg" alt="Tagline animation frame — for the love of Star Trek" loading="lazy"></div>
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-title-card.jpg" alt="Title card — Fandom's top 100 superheroes" loading="lazy"></div>
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/motion-end-card.jpg" alt="End card with the flame-and-heart mark" loading="lazy"></div>
     </div>
     <div class="cs-grid reveal">
       <div class="cs-img has-img ultra"><img src="/assets/fandom-brand/motion-logo-grid.jpg" alt="Frames from the logo animation shown in sequence" loading="lazy"></div>
@@ -190,8 +194,8 @@
   </div>
 </section>
 
-<!-- 7. CUSTOM CONTENT -->
-<section class="cs-light cs-media">
+<!-- 7. CUSTOM CONTENT — dark chapter break -->
+<section class="cs-dark cs-media">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Custom Content</h2>
@@ -357,6 +361,20 @@ menuBtn.addEventListener('click',()=>{nav.classList.remove('nav-hidden');navHidd
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';}));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
+/* video: play only while on screen. Under prefers-reduced-motion nothing
+   autoplays — the poster stands in and the viewer gets controls instead. */
+const vids=[...document.querySelectorAll('.cs-img video')];
+if(vids.length){
+  if(reduceMotion){vids.forEach(v=>{v.controls=true;v.preload='metadata';});}
+  else{
+    const vio=new IntersectionObserver((es)=>{es.forEach(e=>{
+      const v=e.target;
+      if(e.isIntersecting){if(v.preload!=='auto'){v.preload='auto';}v.play().catch(()=>{});}
+      else{v.pause();}
+    });},{threshold:.25});
+    vids.forEach(v=>vio.observe(v));
+  }
+}
 </script>
 </body>
 </html>

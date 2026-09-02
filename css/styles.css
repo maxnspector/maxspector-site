@@ -27,6 +27,7 @@
   --paper:     #CFC5AA;   /* Spector 2026 Beige — main text */
   --paper-2:   #F7F7F1;   /* Spector 2026 Cream — light sections */
   --paper-dim: #8E8D73;   /* placeholder box only */
+  --paper-3:   #FFFFFF;   /* white — alternates with cream to separate sections */
   --coral:     #F37053;   /* Spector 2026 Coral */
   --line:      #434C36;   /* hairlines */
   --text-dark: #545E3D;   /* Spector 2026 Text — text on LIGHT sections */
@@ -219,6 +220,24 @@ section{padding:52px 0;}
    Light sections: cream bg #F7F7F1, dark-olive text #545E3D, coral links. ============================================================ */
 .cs-light{background:var(--paper-2);color:var(--text-dark);}
 .cs-light a{color:var(--coral);}
+/* ALTERNATING SECTION GROUNDS (Max 2026-08-30): cream / white, so long pages
+   read as distinct spaces. Counted by nth-of-type among <section> siblings so
+   the alternation SELF-CORRECTS when sections are added or trimmed.
+   Order on a case-study page: 1 = .cs-cover (not .cs-light), 2 = intro (even →
+   cream), 3 = first media section (odd → WHITE). That keeps the section
+   immediately after the intro from repeating cream, which would erase the
+   division between them. Keep .cs-cover and the intro first or this flips. */
+.cs-light:nth-of-type(odd){background:var(--paper-3);}
+.cs-light:nth-of-type(even){background:var(--paper-2);}
+/* DARK CHAPTER BREAK (Max 2026-08-30). Two sections drop to the homepage ground
+   so an 11-section page reads as three acts rather than one long scroll.
+   A .cs-dark section carries NO .cs-light class, so it sits out of the
+   alternation above — nth-of-type still counts it as a <section>, which is why
+   the light sections on either side stay correctly out of phase with each other. */
+.cs-dark{background:var(--bg);color:var(--paper);}
+.cs-dark a{color:var(--coral);}
+.cs-dark .cs-img{background:rgba(207,197,170,.08);border-color:rgba(207,197,170,.16);color:rgba(207,197,170,.45);}
+
 
 /* cover */
 .cs-cover{position:relative;height:100vh;height:100svh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
@@ -258,6 +277,10 @@ section{padding:52px 0;}
 /* --- case-study images: real art in the .cs-img frames --- */
 .cs-img{overflow:hidden;}
 .cs-img img{width:100%;height:100%;object-fit:cover;display:block;}
+/* video sits in the same frames as stills; muted+looping, played only while
+   on screen (see the page's IntersectionObserver). Poster prevents a black flash. */
+.cs-img video{width:100%;height:100%;object-fit:cover;display:block;background:#25341B;}
+@media(prefers-reduced-motion:reduce){ .cs-img video{ } }
 .cs-img.has-img{background:none;border-color:rgba(84,94,61,.14);}
 .cs-img.contain img{object-fit:contain;}
 /* extra ratios beyond the base 1:1 / .wide 16:10 / .tall 3:4 */
