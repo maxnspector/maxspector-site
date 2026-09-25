@@ -1,0 +1,26 @@
+title: Alex AI — Max Spector
+description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
+cover: cover.jpg
+intro:
+  eyebrow: Alex AI
+  statement: PLACEHOLDER — the opening statement for the Alex AI case study goes here. It should say what
+    Alex is, who it is for, and what changed because of the design work.
+  meta:
+  - label: Roles & Responsibilities
+    body: PLACEHOLDER — role, scope, and what you directed.
+  - label: Team
+    body: PLACEHOLDER — contributing designers and partners.
+  links_html: PLACEHOLDER — any links that belong here
+sections:
+- heading: How Alex works
+  subhead: "From an open role to a shortlist of qualified candidates — the whole sequence, start to finish."
+  blocks:
+  - layout: bleed
+    items:
+    - embed: hero-animation.html
+      poster: hero-animation-poster.jpg
+      alt: "Animated walkthrough of the Alex hiring sequence: initiate, screen, interview, validate, coordinate, hand off"
+      ratio: wide
+      w: 1440
+      h: 900
+      bg: '#EEF2E1'

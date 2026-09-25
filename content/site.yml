@@ -1,0 +1,17 @@
+nav:
+- label: Featured Work
+  href: /#featured
+- label: Alex AI
+  href: /case-study.html
+- label: The Fandom Brand
+  href: /fandom-brand.html
+- label: GameSpot
+  href: '#'
+- label: Fandom in the Real World
+  href: '#'
+- label: Client Brand Highlights
+  href: '#'
+- label: About
+  href: '#'
+footer_left: '&copy; Max Spector 2026'
+footer_right: <a href="mailto:max@maxspector.com">Email</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/maxspector/">LinkedIn</a>

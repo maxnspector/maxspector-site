@@ -278,27 +278,78 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-grid{grid-column:1 / -1;display:grid;gap:24px;}
 .cs-grid-2{grid-template-columns:repeat(2,1fr);}
 .cs-grid-3{grid-template-columns:repeat(3,1fr);}
-.cs-grid-feature{grid-template-columns:2fr 1fr;align-items:start;}
+.cs-grid-feature{align-items:start;}
 .cs-col{display:grid;gap:24px;}
 .cs-img{background:rgba(84,94,61,.09);border:1px solid rgba(84,94,61,.22);border-radius:2px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:rgba(84,94,61,.5);font:600 11px/1 var(--sans);letter-spacing:.16em;}
 .cs-img.wide{aspect-ratio:16/10;}
 .cs-img.tall{aspect-ratio:3/4;}
 
 /* --- case-study images: real art in the .cs-img frames --- */
-.cs-img{overflow:hidden;}
+.cs-img{overflow:hidden;position:relative;}
 .cs-img img{width:100%;height:100%;object-fit:cover;display:block;}
 /* video sits in the same frames as stills; muted+looping, played only while
    on screen (see the page's IntersectionObserver). Poster prevents a black flash. */
 .cs-img video{width:100%;height:100%;object-fit:cover;display:block;background:#25341B;}
+/* ===== EMBEDDED HTML ANIMATIONS =====
+   A self-contained animation is laid out at its AUTHORED size inside the frame
+   and then scaled to fit, so it shrinks proportionally like an image instead of
+   keeping its pixel sizes and shrinking into a corner. The page script sets the
+   transform; `src` is not set until the frame nears the viewport. */
+.cs-img iframe{position:absolute;top:0;left:0;border:0;display:block;transform-origin:0 0;}
+.cs-img .embed-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.cs-img.embed-live .embed-poster{opacity:0;transition:opacity .5s var(--ease);pointer-events:none;}
 @media(prefers-reduced-motion:reduce){ .cs-img video{ } }
 .cs-img.has-img{background:none;border-color:rgba(84,94,61,.14);}
+.cs-img.is-embed,.cs-img.has-img.is-embed{background:var(--embed-bg,transparent);}
 .cs-img.contain img{object-fit:contain;}
 /* extra ratios beyond the base 1:1 / .wide 16:10 / .tall 3:4 */
 .cs-img.video{aspect-ratio:16/9;}
+.cs-img.photo{aspect-ratio:3/2;}
 .cs-img.pano{aspect-ratio:21/9;}
 .cs-img.ultra{aspect-ratio:3/1;}
 .cs-img.portrait{aspect-ratio:4/5;}
 .cs-grid-4{grid-template-columns:repeat(4,1fr);}
+/* ============ EXTRA CASE-STUDY LAYOUTS (Max approved 2026-09-02) ============ */
+/* small grids for logo sets */
+.cs-grid-5{grid-template-columns:repeat(5,1fr);}
+.cs-grid-6{grid-template-columns:repeat(6,1fr);}
+
+/* FULL BLEED — breaks the 1200 column out to the viewport edges.
+   body already carries overflow-x:hidden, which absorbs the scrollbar width. */
+.cs-grid-bleed{grid-column:auto;width:100%;gap:0;}
+.cs-grid-bleed .cs-img{border-radius:0;border-left:0;border-right:0;}
+
+/* ===== COLUMN SPLITS — exact proportions from Max's Figma (2026-09-19) =====
+   The 1200 content column with a 24px gutter gives: 2-col 588 · 3-col 384 ·
+   asymmetric 690/486 · feature 792/384. Widths are `fr` so they scale; the
+   gutter stays a fixed 24px at every size. */
+.cs-grid-asym-left{grid-template-columns:690fr 486fr;}
+.cs-grid-asym-right{grid-template-columns:486fr 690fr;}
+.cs-grid-feature{grid-template-columns:792fr 384fr;}
+.cs-grid-feature-even{grid-template-columns:1fr 1fr;}
+
+/* A block with a `height:` set becomes aspect-locked: its rows divide that
+   height by proportion and the images fill their cells, so individual `ratio`
+   settings do not apply inside it. build.py writes the aspect-ratio and the
+   row proportions inline. */
+.cs-grid.is-locked{grid-template-rows:1fr;align-items:stretch;}   /* pin the single row to the locked
+       height, otherwise it sizes to content and the fr row splits inside each
+       column resolve against the wrong height */
+.cs-grid.is-locked > *{min-height:0;}
+.cs-grid.is-locked .cs-img{aspect-ratio:auto;min-height:0;}
+.cs-grid.is-locked .cs-col{min-height:0;}
+.cs-col{display:grid;gap:24px;min-height:0;}
+
+/* TEXT BESIDE IMAGE */
+.cs-grid-text-image,.cs-grid-image-text{grid-template-columns:1fr 1fr;align-items:center;}
+.cs-textblock{display:flex;flex-direction:column;gap:14px;}
+.cs-textblock p{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 300;font-size:19px;line-height:1.45;margin:0;max-width:46ch;}
+
+/* PULL-QUOTE, no image */
+.cs-grid-quote{grid-template-columns:1fr;justify-items:center;padding:8px 0 20px;}
+.cs-quote{max-width:26ch;text-align:center;font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:clamp(26px,3.2vw,40px);line-height:1.22;margin:0;}
+.cs-quote cite{display:block;margin-top:20px;font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.72;}
+
 /* a section can stack several grids; this spaces them */
 .cs-media .cs-grid + .cs-grid{margin-top:24px;}
 /* cover art */
@@ -311,6 +362,12 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 
 
 @media(max-width:860px){
+  .cs-grid-5,.cs-grid-6{grid-template-columns:repeat(3,1fr);}
+  .cs-grid-text-image,.cs-grid-image-text{grid-template-columns:1fr;}
+  .cs-grid-asym-left,.cs-grid-asym-right,.cs-grid-feature-even{grid-template-columns:1fr;}
+  .cs-grid.is-locked{aspect-ratio:auto!important;}
+  .cs-grid.is-locked .cs-img{aspect-ratio:16/10;}
+  .cs-grid.is-locked .cs-col{grid-template-rows:none!important;}
   .cs-intro-statement,.cs-intro-meta{grid-column:1 / -1;}
   .cs-intro-meta{margin-top:40px;}
   .cs-grid-2,.cs-grid-3{grid-template-columns:repeat(2,1fr);}
