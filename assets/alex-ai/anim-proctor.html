@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Proctor hero, desktop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  #hero { position: relative; width: 1120px; height: 504px; overflow: hidden;
+    font-family: "DM Sans", sans-serif; -webkit-font-smoothing: antialiased; }
+  #hero * { font-family: inherit; }
+</style>
+</head>
+<body>
+<div id="hero"></div>
+<script>
+(function () {
+  var C = { dark: "#082900", gray: "#6B7F66", n200: "#EEF0E6", n300: "#D7D9CF", sage: "#B7C7A7", coral: "#D07661" };
+  var ENVELOPE = "M80 339.3L87 336.231L94 334.057L101 332.01L108 330.092L115 328.302L122 326.639L129 324.849L136 323.314L143 321.779L150 320.245L157 318.71L164 317.303L171 316.024L178 314.746L185 313.595L192 312.444L199 311.293L206 310.397L213 309.502L220 308.607L227 307.84L234 307.2L241 306.561L248 306.049L255 305.665L262 305.41L269 305.154L276 305.026L283 304.898H290L297 305.026L304 305.282L311 305.538L318 305.921L325 306.433L332 306.944L339 307.584L346 308.351L353 309.118L360 309.886L367 310.909L374 311.804L381 312.955L388 313.978L395 315.129L402 316.408L409 317.559L416 318.838L423 320.117L430 321.524L437 322.803L444 324.081L451 325.36L458 326.639L465 327.918L472 329.069L479 330.22L486 331.243L493 332.138L500 333.034L507 333.929L514 334.568L521 335.336L528 335.975L535 336.614L542 337.126L549 337.765L556 338.405L563 338.916L570 339.684L577 340.323L584 341.09L591 341.858L598 342.625L605 343.392L612 344.16L619 344.799L626 345.567L633 346.078L640 346.59L647 347.101L654 347.357L661 347.613L668 347.741L675 347.869H682L689 347.741L696 347.485L703 347.229L710 346.973L717 346.462L724 346.078L731 345.439L738 344.799L745 344.032L752 343.137L759 342.241L766 341.218L773 340.195L780 339.044L787 337.893L794 336.614L801 335.336L808 334.057L815 332.65L822 331.243L829 329.836L836 328.43L843 327.023L850 325.616L857 324.209L864 322.93L871 321.524L878 320.245L885 318.966L892 317.687L899 316.536L906 315.385L913 314.362L920 313.339L927 312.316L934 311.42L941 310.525L948 309.758L955 309.118L962 308.479L969 307.967L976 307.584L983 307.2L990 306.817L997 306.689L1004 306.561H1011L1018 306.689L1025 306.817L1032 307.072L1039 307.328L1046 307.84L1053 308.351L1060 308.863L1067 309.63L1074 310.397L1081 311.165L1088 312.188L1095 313.211L1102 314.234L1109 315.385L1116 316.664L1123 317.943L1130 319.222L1137 320.756L1144 322.163L1151 323.698L1158 325.36L1165 327.023L1172 328.813L1179 330.732L1186 332.65L1193 334.952L1200 338.149V383.677L1193 386.874L1186 389.176L1179 391.095L1172 393.013L1165 394.803L1158 396.472L1151 397.981L1144 399.409L1137 400.688L1130 401.907L1123 403.026L1116 404.065L1109 405.065L1102 405.985L1095 406.845L1088 407.646L1081 408.408L1074 409.089L1067 409.71L1060 410.312L1053 410.834L1046 411.315L1039 411.716L1032 412.096L1025 412.396L1018 412.657L1011 412.837L1004 412.977L997 413.057H990L983 413.057L976 412.937L969 412.797L962 412.596L955 412.336L948 412.036L941 411.675L934 411.275L927 410.834L920 410.352L913 409.83L906 409.269L899 408.667L892 408.026L885 407.365L878 406.664L871 405.944L864 405.203L857 404.442L850 403.662L843 402.862L836 402.061L829 401.241L822 400.44L815 399.62L808 398.799L801 397.999L794 397.198L787 396.398L780 395.617L773 394.837L766 394.077L759 393.316L752 392.596L745 391.876L738 391.176L731 390.516L724 389.855L717 389.234L710 388.634L703 388.033L696 387.472L689 386.951L682 386.451L675 385.99L668 385.55L661 385.13L654 384.75L647 384.409L640 384.089L633 383.809L626 383.549L619 383.309L612 383.109L605 382.929L598 382.789L591 382.669L584 382.589L577 382.529L570 382.509L563 382.489L556 382.529L549 382.569L542 382.629L535 382.729L528 382.849L521 382.989L514 383.169L507 383.369L500 383.589L493 383.849L486 384.129L479 384.449L472 384.789L465 385.169L458 385.569L451 385.989L444 386.449L437 386.929L430 387.449L423 387.989L416 388.549L409 389.149L402 389.749L395 390.389L388 391.049L381 391.749L374 392.449L367 393.189L360 393.929L353 394.689L346 395.469L339 396.269L332 397.069L325 397.889L318 398.729L311 399.569L304 400.429L297 401.289L290 402.169L283 403.049L276 403.929L269 404.809L262 405.689L255 406.569L248 407.449L241 408.309L234 409.169L227 410.029L220 410.869L213 411.689L206 412.489L199 413.269L192 414.029L185 414.769L178 415.489L171 416.169L164 416.829L157 417.469L150 418.069L143 418.629L136 419.169L129 419.669L122 420.129L115 420.549L108 420.949L101 421.309L94 421.629L87 421.909L80 422.169Z";
+  var WAVE = "M80 352.6C155.5 352.6 157.5 369.6 228 369.6C298.5 369.6 296.1 266.1 307.5 266.1C320.4 266.1 320 423.9 453.5 423.9C516.5 423.9 517 414.2 542.5 414.2C568 414.2 568 423.9 620.5 423.9C711 423.9 701.5 280.9 716 280.9C728.6 280.9 720 388.8 835.5 388.8H859C963.5 388.8 956 274.8 967.5 274.8C979 274.8 967.5 378 1079 378C1145.5 378 1147 363.4 1200 363.4";
+  var ICONS = [["M190.936 193.385L175.844 193.373C175.041 193.373 174.39 194.024 174.39 194.827V205.006C174.39 205.809 175.041 206.46 175.844 206.46L190.936 206.472C191.739 206.472 192.39 205.821 192.39 205.018V194.839C192.39 194.036 191.739 193.385 190.936 193.385Z","M183.39 200.655C184.595 200.655 185.571 199.679 185.571 198.474C185.571 197.27 184.595 196.293 183.39 196.293C182.185 196.293 181.209 197.27 181.209 198.474C181.209 199.679 182.185 200.655 183.39 200.655Z","M179.334 206.472V204.85C179.334 204.42 179.505 204.007 179.809 203.703C180.113 203.398 180.526 203.228 180.956 203.228H185.823C186.254 203.228 186.666 203.398 186.97 203.703C187.275 204.007 187.446 204.42 187.446 204.85V206.472","M179.121 209.907L187.659 209.907","M183.436 209.907L183.436 207.222"],["M652.321 199.996V202.696","M655.921 196.396V206.296","M659.521 193.696V209.896","M663.121 198.196V204.496","M666.721 195.496V207.196","M670.321 199.996V202.696"],["M938.495 206.748C938.495 207.225 938.305 207.683 937.968 208.021C937.63 208.358 937.173 208.548 936.695 208.548H924.84C924.363 208.548 923.905 208.738 923.568 209.075L921.586 211.057C921.497 211.146 921.383 211.207 921.259 211.232C921.135 211.257 921.006 211.244 920.89 211.196C920.773 211.147 920.673 211.065 920.603 210.96C920.533 210.855 920.495 210.732 920.495 210.605V195.948C920.495 195.471 920.685 195.013 921.022 194.675C921.36 194.338 921.818 194.148 922.295 194.148H936.695C937.173 194.148 937.63 194.338 937.968 194.675C938.305 195.013 938.495 195.471 938.495 195.948V206.748Z","M924.995 201.348H933.995","M924.995 204.948H930.395","M924.995 197.748H932.195"]];
+  function seg(t, a, b) { return b <= a ? (t >= b ? 1 : 0) : Math.max(0, Math.min(1, (t - a) / (b - a))); }
+  function eo(x) { return 1 - Math.pow(1 - x, 3); }
+  function rise(t, a, px) { var p = eo(seg(t, a, a + 0.5)); return { o: p, y: ((1 - p) * (px === undefined ? 8 : px)).toFixed(2) }; }
+  var _env = null;
+  function envPts() {
+    if (_env) return _env;
+    var cmds = ENVELOPE.match(/[MLHVZ][^MLHVZ]*/gi), x = 0, y = 0, pts = [];
+    for (var i = 0; i < cmds.length; i++) {
+      var c = cmds[i], ty = c[0], n = c.slice(1).trim().split(/[\s,]+/).filter(Boolean).map(Number);
+      if (ty === "M" || ty === "L") { x = n[0]; y = n[1]; pts.push([x, y]); }
+      else if (ty === "H") { x = n[0]; pts.push([x, y]); }
+      else if (ty === "V") { y = n[0]; pts.push([x, y]); }
+    }
+    _env = pts; return pts;
+  }
+  var COLS = [
+    { line: 307.5, tx: 327.5, dx: 125.12, at: 1.65, icon: 0, label: "Video", l1: "Reading from off-", l2: "camera source" },
+    { line: 715, tx: 735, dx: 54.68, at: 3.33, icon: 1, label: "Audio", l1: "Additional", l2: "voice detected" },
+    { line: 966, tx: 986, dx: 37.51, at: 4.36, icon: 2, label: "Transcript", l1: "Possible assisted", l2: "response" }
+  ];
+  function view(t) {
+    var X0 = 80, W = 1120, AX = 452.826, T0 = 0.6, T1 = 5.2;
+    var F = Math.min(eo(seg(t, 0, 0.5)), 1 - seg(t, 9.8, 10.6));
+    var prog = seg(t, T0, T1);
+    var raw = Math.min(t, T1) * 1.6;
+    var pts = envPts(), wash = "";
+    for (var i = 0; i < pts.length; i++) {
+      var x = pts[i][0], y = pts[i][1], k = (x - X0) / W;
+      var dy = 4.5 * Math.sin(raw * 0.9 + k * 6.3) + 2.6 * Math.sin(raw * 0.55 - k * 10.1 + 1.2) + 1.4 * Math.sin(raw * 1.4 + k * 3.1 - 0.6);
+      wash += (i ? "L" : "M") + x.toFixed(2) + " " + (y + dy).toFixed(2);
+    }
+    var marks = "", texts = "";
+    for (var j = 0; j < COLS.length; j++) {
+      var c = COLS[j];
+      var up = eo(seg(t, c.at + 0.15, c.at + 0.6));
+      var dot = eo(seg(t, c.at, c.at + 0.25));
+      var st = rise(t, c.at + 0.45, 10);
+      var ic = "";
+      for (var q = 0; q < ICONS[c.icon].length; q++) {
+        ic += '<path d="' + ICONS[c.icon][q] + '" fill="none" stroke="' + C.gray + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>';
+      }
+      marks += '<g>'
+        + '<rect x="' + c.line + '" y="222.406" width="1" height="' + (230.42 * up).toFixed(2) + '" fill="' + C.sage + '" transform="translate(0,' + (230.42 * (1 - up)).toFixed(2) + ')"/>'
+        + '<circle cx="' + c.line + '" cy="453.166" r="' + (7 * dot).toFixed(2) + '" fill="' + C.coral + '"/>'
+        + '<text x="' + (c.line + 14) + '" y="445.166" fill="' + C.coral + '" opacity="' + dot.toFixed(3) + '" font-family="DM Sans" font-weight="700" font-size="11" letter-spacing="0.2">FLAG</text>'
+        + '<g opacity="' + st.o.toFixed(3) + '" transform="translate(' + c.dx + ',' + ((1 - st.o) * 6).toFixed(2) + ')">' + ic + '</g>'
+        + '</g>';
+      texts += '<div style="position:absolute;left:' + c.tx + 'px;top:191.29px;opacity:' + st.o.toFixed(3) + ';transform:translateY(' + st.y + 'px)">'
+        + '<div style="font-size:16px;line-height:21px;color:' + C.gray + ';white-space:nowrap">' + c.label + '</div>'
+        + '<div style="position:absolute;left:0;top:26.47px;width:240px;font-size:20px;line-height:24px;color:' + C.dark + '">'
+        + '<div>' + c.l1 + '</div><div>' + c.l2 + '</div></div></div>';
+    }
+    function stat(x, at, value, label, color) {
+      var s = rise(t, at, 8);
+      return '<div style="position:absolute;left:' + x + 'px;top:478.81px;opacity:' + s.o.toFixed(3) + ';transform:translateY(' + s.y + 'px)">'
+        + '<div style="font-size:56px;line-height:73.5px;color:' + color + ';white-space:nowrap">' + value + '</div>'
+        + '<div style="position:absolute;left:0;top:67.25px;font-size:16px;line-height:21px;color:' + C.gray + ';white-space:nowrap">' + label + '</div></div>';
+    }
+    return '<div style="position:absolute;left:-80px;top:-63.57px;width:1280px;height:662px;opacity:' + F.toFixed(3) + '">'
+      + '<div style="position:absolute;left:80px;top:63.57px;font-size:30px;line-height:39.375px;color:' + C.dark + ';white-space:nowrap">Cheat detection</div>'
+      + '<div style="position:absolute;left:80px;top:112.6px;display:flex;font-size:16px;line-height:21px;white-space:pre">'
+      + '<div style="font-weight:500;color:' + C.dark + '">Video interview</div>'
+      + '<div style="color:' + C.gray + '"> \u00b7 Staff Data Engineer \u00b7 18 min</div></div>'
+      + '<svg width="1280" height="662" aria-hidden="true" style="position:absolute;left:0;top:0">'
+      + '<defs><clipPath id="waveRead"><rect x="' + X0 + '" y="242" width="' + Math.max(0, prog * W).toFixed(2) + '" height="200"/></clipPath></defs>'
+      + '<rect x="' + X0 + '" y="140" width="' + W + '" height="1" fill="' + C.sage + '"/>'
+      + '<path d="' + wash + 'Z" fill="' + C.n200 + '"/>'
+      + '<line x1="' + X0 + '" y1="' + AX + '" x2="' + (X0 + W) + '" y2="' + AX + '" stroke="' + C.gray + '" stroke-width="1"/>'
+      + marks
+      + '<g clip-path="url(#waveRead)"><path d="' + WAVE + '" fill="none" stroke="' + C.dark + '" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>'
+      + '</svg>'
+      + texts
+      + '<div style="position:absolute;left:80px;top:425.16px;font-size:16px;line-height:21px;color:' + C.gray + '">0:00</div>'
+      + '<div style="position:absolute;left:1200px;top:425.16px;transform:translateX(-100%);font-size:16px;line-height:21px;color:' + C.gray + '">18:00</div>'
+      + stat(80, 5.6, "3", "Flags", C.dark)
+      + stat(200.3, 6.9, "Likely", "Cheating risk", C.coral)
+      + '</div>';
+  }
+  var host = document.getElementById("hero");
+  var reduced = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var P = 11, RESOLVED = 8, t0 = performance.now(), visible = true, last = 0;
+  if (reduced) { host.innerHTML = view(RESOLVED); }
+  else {
+    var held = 0;
+    if (typeof IntersectionObserver !== "undefined") {
+      new IntersectionObserver(function (es) {
+        for (var i = 0; i < es.length; i++) {
+          if (es[i].isIntersecting && !visible) t0 = performance.now() - held * 1000;
+          visible = es[i].isIntersecting;
+        }
+      }, { rootMargin: "120px" }).observe(host);
+    }
+    var tick = function (now) {
+      requestAnimationFrame(tick);
+      if (!visible || now - last < 32) return;
+      last = now;
+      held = ((now - t0) / 1000) % P;
+      host.innerHTML = view(held);
+    };
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>

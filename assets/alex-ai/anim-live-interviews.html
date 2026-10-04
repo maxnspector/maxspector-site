@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Alex — live interviews</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+  :root{--main-dark:#082900;--main-light:#EEF2E1;--action:#009B58;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;width:100%;background:var(--main-dark);overflow:hidden;}
+  body{font-family:'DM Sans',system-ui,sans-serif;color:var(--main-light);display:flex;flex-direction:column;}
+
+  /* live counter bar — spans the full width, flush to top + sides */
+  .meta{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:22px 30px;}
+  .counter{display:inline-flex;align-items:center;gap:13px;font-size:21px;font-weight:500;}
+  .counter .blink{width:11px;height:11px;border-radius:50%;background:var(--action);animation:b 1.4s infinite;}
+  .counter .num{font-weight:700;font-variant-numeric:tabular-nums;font-size:27px;}
+  @keyframes b{50%{opacity:.3}}
+  .ledge{font-size:17px;opacity:.6;font-weight:500;}
+
+  /* full-bleed: the four cards tile the rest of the viewport, flush to the sides + bottom */
+  .row{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100vw;}
+  .card{position:relative;border:1px solid var(--main-light);padding:30px 30px 36px;display:flex;flex-direction:column;gap:16px;overflow:hidden;transition:background .55s ease,color .55s ease,border-color .55s ease;}
+  .card.flash{background:var(--main-light);color:var(--main-dark);border-color:var(--main-light);}
+  .card.flash .ind,.card.flash .chan{color:var(--main-dark);}
+  .card .top{display:flex;flex-direction:column;gap:8px;}
+  .card .ind{font-size:14px;opacity:.6;font-weight:500;}
+  .card .role{font-weight:400;font-size:34px;line-height:38px;}
+  .card .chan{display:inline-flex;align-items:center;gap:7px;font-size:14px;opacity:.55;font-weight:500;margin-top:2px;}
+  .card .chan svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;}
+
+  .card .statusarea{margin-top:auto;padding-top:18px;min-height:60px;display:flex;align-items:center;}
+  .state{display:none;align-items:center;gap:8px;width:100%;}
+  .state.on{display:flex;animation:fade .4s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--action);flex:0 0 10px;box-shadow:0 0 0 0 rgba(0,155,88,.6);animation:pulse 1.4s ease-out infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,155,88,.5);}100%{box-shadow:0 0 0 9px rgba(0,155,88,0);}}
+  .state .lbl{font-size:16px;font-weight:500;}
+  .typing{display:inline-flex;gap:4px;margin-left:2px;}
+  .typing i{width:5px;height:5px;border-radius:50%;background:var(--main-light);opacity:.5;animation:td 1s infinite;}
+  .typing i:nth-child(2){animation-delay:.18s;}
+  .typing i:nth-child(3){animation-delay:.36s;}
+  @keyframes td{0%,60%,100%{opacity:.3;transform:translateY(0);}30%{opacity:1;transform:translateY(-3px);}}
+  .state.scored .check{width:19px;height:19px;flex:0 0 19px;color:var(--action);}
+  .state.scored .check svg{width:19px;height:19px;stroke:currentColor;stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .state.scored .sc{font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;}
+  .state.scored .stxt{font-size:15px;opacity:.7;font-weight:500;}
+  .state.scored .spill{margin-left:auto;font-size:13px;font-weight:600;border:1px solid var(--main-light);padding:5px 11px;white-space:nowrap;flex:0 0 auto;}
+</style></head>
+<body>
+  <div class="meta">
+    <div class="counter"><span class="blink"></span><span>Now interviewing</span><span class="num" id="counter">1,247</span></div>
+    <div class="ledge">Live updates</div>
+  </div>
+  <div class="row" id="row"></div>
+<script>
+  const roles = [
+    ['Registered Nurse','Healthcare','Video'],['CNC Operator','Manufacturing','Phone'],
+    ['Lab Technician','Research & Biotech','Video'],['Store Manager','Retail & Hospitality','Phone'],
+    ['Staff Accountant','Professional Services','Video'],['Pharmacy Tech','Healthcare','Phone'],
+    ['Welder','Manufacturing','Video'],['Research Associate','Research & Biotech','Phone'],
+    ['Front Desk Agent','Retail & Hospitality','SMS'],['Financial Analyst','Professional Services','Video'],
+    ['Nursing Assistant','Healthcare','Phone'],['Machinist','Manufacturing','Video'],
+    ['Server','Retail & Hospitality','WhatsApp'],['Consultant','Professional Services','Phone']
+  ];
+  const ICON = {
+    Video:'<svg viewBox="0 0 24 24"><path d="M15 10l4.5-2.5v9L15 14M3 6h12v12H3z"/></svg>',
+    Phone:'<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-3 2a13 13 0 006 6l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg>',
+    SMS:'<svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>',
+    WhatsApp:'<svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>'
+  };
+  const verdicts = ['Shortlisted','Advanced','Top match','Moving on'];
+  const row = document.getElementById('row');
+  let qi = 0;
+  function nextRole(){ const r = roles[qi % roles.length]; qi++; return r; }
+
+  function makeCard(){
+    const c = document.createElement('div');
+    c.className = 'card';
+    c.innerHTML = `
+      <div class="top">
+        <div class="ind"></div>
+        <div class="role"></div>
+        <div class="chan"></div>
+      </div>
+      <div class="statusarea">
+        <div class="state interviewing"><span class="dot"></span><span class="lbl">Interviewing</span><span class="typing"><i></i><i></i><i></i></span></div>
+        <div class="state scored"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span class="sc"></span><span class="stxt">/ 100</span><span class="spill"></span></div>
+      </div>`;
+    row.appendChild(c);
+    return c;
+  }
+
+  function loadCard(c, skipFlash){
+    const r = nextRole();
+    c.querySelector('.ind').textContent = r[1];
+    c.querySelector('.role').textContent = r[0];
+    c.querySelector('.chan').innerHTML = ICON[r[2]] + '<span>'+r[2]+' interview</span>';
+    c.querySelector('.interviewing').classList.add('on');
+    c.querySelector('.scored').classList.remove('on');
+    if(!skipFlash){ c.classList.add('flash'); setTimeout(()=>c.classList.remove('flash'), 750); }
+  }
+
+  function cycle(c, offset){
+    const interviewMs = 3200 + Math.random()*1800;
+    const scoredMs = 2600 + Math.random()*1200;
+    setTimeout(()=>{
+      c.querySelector('.sc').textContent = 88 + Math.floor(Math.random()*11);
+      c.querySelector('.spill').textContent = verdicts[Math.floor(Math.random()*verdicts.length)];
+      c.querySelector('.interviewing').classList.remove('on');
+      c.querySelector('.scored').classList.add('on');
+      setTimeout(()=>{ loadCard(c); cycle(c,0); }, scoredMs);
+    }, interviewMs + offset);
+  }
+
+  for(let i=0;i<4;i++){
+    const c = makeCard();
+    loadCard(c, true);     // first load: no flash, no splash
+    cycle(c, i*900);       // stagger so cards are out of phase
+  }
+
+  let n = 1247;
+  setInterval(()=>{ n += Math.floor(Math.random()*3)+1; document.getElementById('counter').textContent = n.toLocaleString(); }, 1600);
+</script>
+</body></html>
