@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Engage Instantly</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  :root {
+    --alex-main-dark:        #082900;
+    --alex-secondary-gray:   #6B7F66;
+    --alex-main-light:       #EEF2E1;
+    --alex-secondary-green:  #B2DE9A;
+    --alex-action-color:     #009B58;
+    --alex-secondary-sage:   #B7C7A7;
+    --alex-white:            #FFFFFF;
+    --alex-pastel-mint:      #D3E1C9;
+    --alex-pastel-tan:       #DFD7C0;
+    --alex-pastel-sage:      #B1C9B4;
+  }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--alex-pastel-mint);
+    overflow: hidden;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--alex-main-dark);
+  }
+  body { display: flex; align-items: center; justify-content: center; }
+  #stage { position: relative; width: 440px; height: 620px; transform-origin: center center; }
+
+  @keyframes pulseDotSolid { 0%,100% { transform: scale(1); } 50% { transform: scale(1.5); } }
+</style>
+
+<script src="/assets/vendor/react-18.3.1.js"></script>
+<script src="/assets/vendor/react-dom-18.3.1.js"></script>
+<style>
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-300.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-600.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-700.ttf') format('truetype');font-weight:700;font-display:swap}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script data-presets="env,react">
+const Playback = (() => {
+  const state = {
+    t: 0,
+    playing: true,
+    duration: 8
+  };
+  const listeners = new Set();
+  let lastTs = null,
+    started = false;
+  const notify = () => listeners.forEach(fn => fn(state));
+  const advance = dt => {
+    if (!state.playing) return;
+    state.t = (state.t + dt) % state.duration;
+    notify();
+  };
+  const start = () => {
+    if (started) return;
+    started = true;
+    const tick = ts => {
+      if (lastTs != null) advance((ts - lastTs) / 1000);
+      lastTs = ts;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    setInterval(() => {
+      if (document.hidden) advance(0.1);
+    }, 100);
+  };
+  return {
+    start,
+    subscribe(fn) {
+      listeners.add(fn);
+      return () => listeners.delete(fn);
+    },
+    getState: () => state
+  };
+})();
+Playback.start();
+function useLoop() {
+  const [t, setT] = React.useState(() => Playback.getState().t);
+  React.useEffect(() => Playback.subscribe(s => setT(s.t)), []);
+  return t;
+}
+function tween(t, a, b, ease = x => x) {
+  if (t <= a) return 0;
+  if (t >= b) return 1;
+  return ease((t - a) / (b - a));
+}
+const ease = {
+  linear: t => t,
+  outCubic: t => 1 - Math.pow(1 - t, 3),
+  inOutCubic: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+};
+const BGS = {
+  mint: 'var(--alex-pastel-mint)',
+  tan: 'var(--alex-pastel-tan)',
+  sage: 'var(--alex-pastel-sage)'
+};
+function CardFrame({
+  children,
+  bg = BGS.mint
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: bg,
+      overflow: 'hidden',
+      fontFamily: "'DM Sans', system-ui, sans-serif",
+      color: 'var(--alex-main-dark)'
+    }
+  }, children);
+}
+Object.assign(window, {
+  useLoop,
+  tween,
+  ease,
+  BGS,
+  CardFrame
+});
+</script>
+
+<script data-presets="env,react">
+function ChannelIconV3({
+  kind,
+  cx,
+  cy,
+  color = 'var(--alex-main-dark)'
+}) {
+  const sw = 1.7;
+  const s = 14;
+  switch (kind) {
+    case 'sms':
+      return /*#__PURE__*/React.createElement("g", {
+        transform: `translate(${cx - s}, ${cy - s}) scale(${28 / 22})`
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M3 5 Q3 3 5 3 L17 3 Q19 3 19 5 L19 13 Q19 15 17 15 L9 15 L5.5 18 L5.5 15 Q3 15 3 13 Z",
+        fill: "none",
+        stroke: color,
+        strokeWidth: sw,
+        strokeLinejoin: "round"
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "7.5",
+        cy: "9",
+        r: "1",
+        fill: color
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "11",
+        cy: "9",
+        r: "1",
+        fill: color
+      }), /*#__PURE__*/React.createElement("circle", {
+        cx: "14.5",
+        cy: "9",
+        r: "1",
+        fill: color
+      }));
+    case 'whatsapp':
+      return /*#__PURE__*/React.createElement("g", {
+        transform: `translate(${cx - s}, ${cy - s}) scale(${28 / 22})`
+      }, /*#__PURE__*/React.createElement("g", {
+        transform: `scale(${22 / 720})`
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M360,0C161.18,0,0,161.18,0,360c0,65.41,17.45,126.75,47.94,179.61L0,720l187.02-44.21c51.34,28.18,110.28,44.21,172.98,44.21,198.82,0,360-161.18,360-360S558.82,0,360,0ZM360,655.52c-60.17,0-116.13-17.98-162.82-48.87l-110.49,28.14,30.99-105.61c-33.53-47.93-53.2-106.26-53.2-169.19,0-163.21,132.31-295.52,295.52-295.52s295.52,132.31,295.52,295.52-132.31,295.52-295.52,295.52Z",
+        fill: color
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M444.35,407.52l87.1,41.06c4,1.88,6.56,5.94,6.2,10.34-.94,11.46-5.54,34.43-26.13,55.02-58.12,58.12-162.49-7.64-166.74-10.18-25.67-13.79-50.06-32.24-73.19-55.36-23.12-23.12-41.58-47.52-55.37-73.19-2.55-4.24-68.31-108.61-10.18-166.74,20.59-20.59,43.56-25.19,55.02-26.13,4.41-.36,8.46,2.2,10.34,6.2l41.07,87.1c1.94,4.12,1.09,9.02-2.13,12.24l-30.61,30.61c-6.62,6.62-8.56,16.93-4,25.11,11.17,20.03,26.19,39.32,43.59,57.07,17.75,17.4,37.04,32.43,57.07,43.59,8.18,4.56,18.48,2.62,25.11-4l30.61-30.61c3.22-3.22,8.12-4.08,12.24-2.13Z",
+        fill: color
+      })));
+    case 'phone':
+      return /*#__PURE__*/React.createElement("g", {
+        transform: `translate(${cx - 14}, ${cy - 14}) scale(${28 / 24})`
+      }, /*#__PURE__*/React.createElement("path", {
+        d: "M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z",
+        fill: color
+      }));
+    case 'email':
+      return /*#__PURE__*/React.createElement("g", {
+        transform: `translate(${cx - s}, ${cy - s}) scale(${28 / 22})`
+      }, /*#__PURE__*/React.createElement("rect", {
+        x: "2.5",
+        y: "5.5",
+        width: "17",
+        height: "12",
+        rx: "1.5",
+        fill: "none",
+        stroke: color,
+        strokeWidth: sw
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M2.5 6.5 L11 12 L19.5 6.5",
+        fill: "none",
+        stroke: color,
+        strokeWidth: sw,
+        strokeLinejoin: "round"
+      }));
+    case 'video':
+      return /*#__PURE__*/React.createElement("g", {
+        transform: `translate(${cx - s}, ${cy - s}) scale(${28 / 22})`
+      }, /*#__PURE__*/React.createElement("rect", {
+        x: "2.5",
+        y: "7",
+        width: "12",
+        height: "9",
+        rx: "1.5",
+        fill: "none",
+        stroke: color,
+        strokeWidth: sw
+      }), /*#__PURE__*/React.createElement("path", {
+        d: "M14.5 9.5 L19 7 L19 16 L14.5 13.5 Z",
+        fill: "none",
+        stroke: color,
+        strokeWidth: sw,
+        strokeLinejoin: "round"
+      }));
+    default:
+      return /*#__PURE__*/React.createElement("circle", {
+        cx: cx,
+        cy: cy,
+        r: "6",
+        fill: color
+      });
+  }
+}
+function V5_EngageInstantly() {
+  const t = useLoop();
+  const cx = 220,
+    cy = 288,
+    R = 159;
+  const NODE_R = 42,
+    HUB_R = 46;
+  const channels = [{
+    key: 'sms',
+    label: 'SMS'
+  }, {
+    key: 'whatsapp',
+    label: 'WhatsApp'
+  }, {
+    key: 'phone',
+    label: 'Phone'
+  }, {
+    key: 'email',
+    label: 'Email'
+  }, {
+    key: 'video',
+    label: 'Video'
+  }];
+  const PULSE_TRAVEL = 0.75,
+    NODE_GLOW = 0.5,
+    SPOKE_PERIOD = 2.4;
+  const phaseOrder = [0, 2, 4, 1, 3];
+  function spokeState(i) {
+    const offset = phaseOrder.indexOf(i) * (SPOKE_PERIOD / channels.length);
+    const localT = ((t - offset) % SPOKE_PERIOD + SPOKE_PERIOD) % SPOKE_PERIOD;
+    if (localT < PULSE_TRAVEL) {
+      return {
+        active: true,
+        travel: localT / PULSE_TRAVEL,
+        arrived: false,
+        lit: 0.7 + 0.3 * (localT / PULSE_TRAVEL)
+      };
+    }
+    const glowAge = localT - PULSE_TRAVEL;
+    if (glowAge < NODE_GLOW) {
+      const fade = 1 - glowAge / NODE_GLOW;
+      return {
+        active: true,
+        travel: 1,
+        arrived: true,
+        lit: fade
+      };
+    }
+    return {
+      active: false,
+      travel: 0,
+      arrived: false,
+      lit: 0
+    };
+  }
+  const tallies = [{
+    key: 'sms',
+    base: 1247,
+    rate: 28,
+    unit: 'texts sent'
+  }, {
+    key: 'whatsapp',
+    base: 892,
+    rate: 22,
+    unit: 'WhatsApp'
+  }, {
+    key: 'phone',
+    base: 96,
+    rate: 4,
+    unit: 'live calls'
+  }, {
+    key: 'email',
+    base: 2041,
+    rate: 36,
+    unit: 'emails sent'
+  }, {
+    key: 'video',
+    base: 63,
+    rate: 2,
+    unit: 'video'
+  }];
+  return /*#__PURE__*/React.createElement(CardFrame, {
+    bg: BGS.mint
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: 52,
+      padding: '0 24px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      borderBottom: '1px solid rgba(8,41,0,0.10)'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 15,
+      fontWeight: 500
+    }
+  }, "Outreach map"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 6,
+      fontSize: 12,
+      opacity: 0.7
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 8,
+      height: 8,
+      borderRadius: '50%',
+      background: 'var(--alex-action-color)',
+      animation: 'pulseDotSolid 1.4s ease-in-out infinite'
+    }
+  }), "Live")), /*#__PURE__*/React.createElement("svg", {
+    width: "440",
+    height: "620",
+    viewBox: "0 0 440 620",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      pointerEvents: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: cx,
+    cy: cy,
+    r: R,
+    fill: "none",
+    stroke: "var(--alex-main-dark)",
+    strokeWidth: "1",
+    strokeDasharray: "2 6",
+    opacity: "0.25"
+  }), channels.map((ch, i) => {
+    const a = i / channels.length * Math.PI * 2 - Math.PI / 2;
+    const x = cx + Math.cos(a) * R;
+    const y = cy + Math.sin(a) * R;
+    const st = spokeState(i);
+    if (!st.active) return null;
+    const px = cx + (x - cx) * st.travel;
+    const py = cy + (y - cy) * st.travel;
+    return /*#__PURE__*/React.createElement("g", {
+      key: `pulse-${i}`
+    }, /*#__PURE__*/React.createElement("line", {
+      x1: cx,
+      y1: cy,
+      x2: px,
+      y2: py,
+      stroke: "var(--alex-white)",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      opacity: st.lit
+    }), !st.arrived && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+      cx: px,
+      cy: py,
+      r: "7",
+      fill: "var(--alex-white)",
+      opacity: "0.35"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: px,
+      cy: py,
+      r: "3.5",
+      fill: "var(--alex-white)"
+    })));
+  }), channels.map((ch, i) => {
+    const a = i / channels.length * Math.PI * 2 - Math.PI / 2;
+    const x = cx + Math.cos(a) * R;
+    const y = cy + Math.sin(a) * R;
+    const st = spokeState(i);
+    const lit = st.lit;
+    const breathPhase = (t / 2.6 + i * 0.31) % 1;
+    const breath = Math.sin(breathPhase * Math.PI * 2);
+    const scale = 1 + breath * 0.04 + lit * 0.06;
+    const iconColor = lit > 0 ? `color-mix(in srgb, var(--alex-main-dark) ${Math.round((1 - lit) * 100)}%, var(--alex-action-color))` : 'var(--alex-main-dark)';
+    return /*#__PURE__*/React.createElement("g", {
+      key: i
+    }, !st.active && /*#__PURE__*/React.createElement("line", {
+      x1: cx,
+      y1: cy,
+      x2: x,
+      y2: y,
+      stroke: "var(--alex-main-dark)",
+      strokeWidth: "0.8",
+      opacity: "0.12"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: x,
+      cy: y,
+      r: NODE_R,
+      fill: "var(--alex-white)",
+      transform: `translate(${x} ${y}) scale(${scale}) translate(${-x} ${-y})`
+    }), /*#__PURE__*/React.createElement("g", {
+      transform: `translate(${x} ${y}) scale(${scale * 1.45}) translate(${-x} ${-y})`
+    }, /*#__PURE__*/React.createElement(ChannelIconV3, {
+      kind: ch.key,
+      cx: x,
+      cy: y,
+      color: iconColor
+    })), /*#__PURE__*/React.createElement("text", {
+      x: x,
+      y: y + NODE_R + 22,
+      textAnchor: "middle",
+      fill: "var(--alex-main-dark)",
+      fontSize: "11",
+      fontWeight: "600",
+      opacity: 0.6 + lit * 0.4
+    }, ch.label));
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: cx,
+    cy: cy,
+    r: HUB_R,
+    fill: "var(--alex-white)"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: cx,
+    y: cy + 6,
+    textAnchor: "middle",
+    fill: "var(--alex-main-dark)",
+    fontSize: "19",
+    fontWeight: "500"
+  }, "Alex")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 16,
+      right: 16,
+      bottom: 20,
+      display: 'flex',
+      gap: 6
+    }
+  }, tallies.map(row => {
+    const live = row.base + Math.floor(t / 8 * row.rate);
+    return /*#__PURE__*/React.createElement("div", {
+      key: row.key,
+      style: {
+        flex: 1,
+        minWidth: 0,
+        padding: '14px 8px 12px',
+        borderRadius: 12,
+        background: 'rgba(255,255,255,0.5)'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 20,
+        fontWeight: 400,
+        lineHeight: 1.05,
+        letterSpacing: '-0.02em',
+        fontVariantNumeric: 'tabular-nums'
+      }
+    }, live.toLocaleString()), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        fontWeight: 500,
+        opacity: 0.6,
+        marginTop: 6,
+        lineHeight: 1.15
+      }
+    }, row.unit));
+  })));
+}
+function App() {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "stage"
+  }, /*#__PURE__*/React.createElement(V5_EngageInstantly, null));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+function fit() {
+  const el = document.getElementById('stage');
+  if (!el) return;
+  const s = Math.min(window.innerWidth / 440, window.innerHeight / 620);
+  el.style.transform = `scale(${s})`;
+}
+window.addEventListener('resize', fit);
+const fitInterval = setInterval(() => {
+  if (document.getElementById('stage')) {
+    fit();
+    clearInterval(fitInterval);
+  }
+}, 50);
+</script>
+</body>
+</html>

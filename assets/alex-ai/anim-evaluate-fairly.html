@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Evaluate Fairly</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  :root {
+    --alex-main-dark:        #082900;
+    --alex-secondary-gray:   #6B7F66;
+    --alex-main-light:       #EEF2E1;
+    --alex-secondary-green:  #B2DE9A;
+    --alex-action-color:     #009B58;
+    --alex-secondary-sage:   #B7C7A7;
+    --alex-white:            #FFFFFF;
+    --alex-pastel-mint:      #D3E1C9;
+    --alex-pastel-tan:       #DFD7C0;
+    --alex-pastel-sage:      #B1C9B4;
+  }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--alex-pastel-sage);
+    overflow: hidden;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--alex-main-dark);
+  }
+  body { display: flex; align-items: center; justify-content: center; }
+  #stage { position: relative; width: 440px; height: 620px; transform-origin: center center; }
+
+  @keyframes caret { 0%,50%{opacity:1} 50.01%,100%{opacity:0} }
+</style>
+
+<script src="/assets/vendor/react-18.3.1.js"></script>
+<script src="/assets/vendor/react-dom-18.3.1.js"></script>
+<style>
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-300.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-600.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-700.ttf') format('truetype');font-weight:700;font-display:swap}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script data-presets="env,react">
+const Playback = (() => {
+  const state = {
+    t: 0,
+    playing: true,
+    duration: 8
+  };
+  const listeners = new Set();
+  let lastTs = null,
+    started = false;
+  const notify = () => listeners.forEach(fn => fn(state));
+  const advance = dt => {
+    if (!state.playing) return;
+    state.t = (state.t + dt) % state.duration;
+    notify();
+  };
+  const start = () => {
+    if (started) return;
+    started = true;
+    const tick = ts => {
+      if (lastTs != null) advance((ts - lastTs) / 1000);
+      lastTs = ts;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    setInterval(() => {
+      if (document.hidden) advance(0.1);
+    }, 100);
+  };
+  return {
+    start,
+    subscribe(fn) {
+      listeners.add(fn);
+      return () => listeners.delete(fn);
+    },
+    getState: () => state
+  };
+})();
+Playback.start();
+function useLoop() {
+  const [t, setT] = React.useState(() => Playback.getState().t);
+  React.useEffect(() => Playback.subscribe(s => setT(s.t)), []);
+  return t;
+}
+function tween(t, a, b, ease = x => x) {
+  if (t <= a) return 0;
+  if (t >= b) return 1;
+  return ease((t - a) / (b - a));
+}
+const ease = {
+  linear: t => t,
+  outCubic: t => 1 - Math.pow(1 - t, 3),
+  inOutCubic: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+};
+const BGS = {
+  mint: 'var(--alex-pastel-mint)',
+  tan: 'var(--alex-pastel-tan)',
+  sage: 'var(--alex-pastel-sage)'
+};
+function CardFrame({
+  children,
+  bg = BGS.sage
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: bg,
+      overflow: 'hidden',
+      fontFamily: "'DM Sans', system-ui, sans-serif",
+      color: 'var(--alex-main-dark)'
+    }
+  }, children);
+}
+function Tile({
+  children,
+  style
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: 'var(--alex-white)',
+      borderRadius: 16,
+      padding: 20,
+      ...style
+    }
+  }, children);
+}
+Object.assign(window, {
+  useLoop,
+  tween,
+  ease,
+  BGS,
+  CardFrame,
+  Tile
+});
+</script>
+
+<script data-presets="env,react">
+function RadarMini8V5({
+  cx,
+  cy,
+  r,
+  scores,
+  progress
+}) {
+  const n = 5;
+  const points = scores.map((s, i) => {
+    const a = i / n * Math.PI * 2 - Math.PI / 2;
+    const rr = r * s * progress;
+    return [cx + Math.cos(a) * rr, cy + Math.sin(a) * rr];
+  });
+  const outline = scores.map((_, i) => {
+    const a = i / n * Math.PI * 2 - Math.PI / 2;
+    return [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
+  });
+  const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0]},${p[1]}`).join(' ') + ' Z';
+  const outlineD = outline.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0]},${p[1]}`).join(' ') + ' Z';
+  return /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("path", {
+    d: outlineD,
+    fill: "none",
+    stroke: "var(--alex-secondary-gray)",
+    strokeWidth: "1"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: pathD,
+    fill: "var(--alex-pastel-sage)",
+    opacity: "0.95"
+  }));
+}
+function V5_EvaluateFairly() {
+  const t = useLoop();
+  const question = "Tell me about a time you handled a difficult customer.";
+  const qLen = question.length;
+  const qT = tween(t, 0.2, 1.6, ease.linear);
+  const qText = question.slice(0, Math.floor(qT * qLen));
+  const rubric = ['Comm', 'Spec', 'Outcome', 'Domain', 'Clarity'];
+  const cols = 4,
+    rows = 2;
+  const total = cols * rows;
+  const sweepT = tween(t, 1.9, 6.0, ease.linear);
+  const scoredCount = Math.floor(sweepT * total + 0.001);
+  const padX = 18;
+  const gridTop = 256;
+  const gridH = 264;
+  const gridW = 440 - padX * 2;
+  const cellW = gridW / cols;
+  const cellH = gridH / rows;
+  const cellScores = [[0.70, 0.62, 0.80, 0.55, 0.75], [0.85, 0.92, 0.72, 0.78, 0.85], [0.60, 0.70, 0.55, 0.78, 0.62], [0.78, 0.65, 0.82, 0.60, 0.72], [0.92, 0.78, 0.88, 0.72, 0.90], [0.65, 0.72, 0.60, 0.68, 0.70], [0.80, 0.85, 0.75, 0.80, 0.78], [0.55, 0.62, 0.68, 0.50, 0.65]];
+  return /*#__PURE__*/React.createElement(CardFrame, {
+    bg: BGS.sage
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: 52,
+      padding: '0 24px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      borderBottom: '1px solid rgba(8,41,0,0.10)'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 15,
+      fontWeight: 500
+    }
+  }, "Scoring \xB7 Question 2 of 5"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: 4
+    }
+  }, Array.from({
+    length: 5
+  }).map((_, i) => {
+    const done = i < 2;
+    return /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        width: done ? 26 : 16,
+        height: 5,
+        borderRadius: 3,
+        background: done ? 'var(--alex-action-color)' : 'rgba(8,41,0,0.18)'
+      }
+    });
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 20,
+      right: 20,
+      top: 72
+    }
+  }, /*#__PURE__*/React.createElement(Tile, {
+    style: {
+      padding: '18px 22px 20px',
+      fontSize: 24,
+      fontWeight: 400,
+      lineHeight: 1.26,
+      minHeight: 142,
+      boxSizing: 'border-box'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: 'var(--alex-secondary-gray)',
+      marginBottom: 8
+    }
+  }, "Asked to all 8 candidates"), qText, /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: qT > 0 && qT < 1 ? 'inline-block' : 'none',
+      width: 2,
+      height: '0.9em',
+      background: 'var(--alex-main-dark)',
+      marginLeft: 2,
+      verticalAlign: 'text-bottom',
+      animation: 'caret 800ms steps(2, start) infinite'
+    }
+  }))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 20,
+      right: 20,
+      top: 232,
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      opacity: 0.55
+    }
+  }, "Responses \xB7 8 candidates"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      opacity: 0.7,
+      fontVariantNumeric: 'tabular-nums',
+      fontWeight: 500
+    }
+  }, scoredCount, " / ", total, " scored")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 20,
+      right: 20,
+      bottom: 22,
+      display: 'flex',
+      alignItems: 'center',
+      gap: 6,
+      opacity: tween(t, 1.4, 1.9, ease.outCubic),
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      opacity: 0.55,
+      marginRight: 4
+    }
+  }, "Rubric"), rubric.map(r => /*#__PURE__*/React.createElement("div", {
+    key: r,
+    style: {
+      padding: '5px 10px',
+      borderRadius: 999,
+      background: 'var(--alex-main-dark)',
+      color: 'var(--alex-main-light)',
+      fontSize: 11,
+      fontWeight: 500
+    }
+  }, r))), /*#__PURE__*/React.createElement("svg", {
+    width: "440",
+    height: "620",
+    viewBox: "0 0 440 620",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      pointerEvents: 'none'
+    }
+  }, Array.from({
+    length: total
+  }).map((_, idx) => {
+    const r = Math.floor(idx / cols);
+    const c = idx % cols;
+    const cellCx = padX + c * cellW + cellW / 2;
+    const cellCy = gridTop + r * cellH + cellH / 2;
+    const cellStartAt = 1.9 + idx / total * 2.6;
+    const fillT = tween(t, cellStartAt, cellStartAt + 1.0, ease.outCubic);
+    const tileT = tween(t, cellStartAt - 0.15, cellStartAt + 0.3, ease.outCubic);
+    return /*#__PURE__*/React.createElement("g", {
+      key: idx
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: cellCx - cellW / 2 + 4,
+      y: cellCy - cellH / 2 + 4,
+      width: cellW - 8,
+      height: cellH - 8,
+      fill: "var(--alex-white)",
+      rx: "10",
+      opacity: 0.5 + 0.5 * tileT
+    }), fillT > 0 && /*#__PURE__*/React.createElement(RadarMini8V5, {
+      cx: cellCx,
+      cy: cellCy - 8,
+      r: Math.min(cellW, cellH) * 0.42,
+      scores: cellScores[idx],
+      progress: fillT
+    }), /*#__PURE__*/React.createElement("text", {
+      x: cellCx,
+      y: cellCy + cellH / 2 - 14,
+      textAnchor: "middle",
+      fill: "var(--alex-main-dark)",
+      fontSize: "10",
+      fontWeight: "600",
+      opacity: tileT > 0.5 ? 0.55 : 0.3,
+      style: {
+        filter: 'blur(1.2px)'
+      }
+    }, '•••'));
+  })));
+}
+function App() {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "stage"
+  }, /*#__PURE__*/React.createElement(V5_EvaluateFairly, null));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+function fit() {
+  const el = document.getElementById('stage');
+  if (!el) return;
+  const s = Math.min(window.innerWidth / 440, window.innerHeight / 620);
+  el.style.transform = `scale(${s})`;
+}
+window.addEventListener('resize', fit);
+const fitInterval = setInterval(() => {
+  if (document.getElementById('stage')) {
+    fit();
+    clearInterval(fitInterval);
+  }
+}, 50);
+</script>
+</body>
+</html>

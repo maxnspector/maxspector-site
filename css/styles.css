@@ -421,3 +421,6 @@ body.cs-page{background:var(--paper-3);}
 .cs-labels.tone-photo{color:rgba(238,242,225,.8);}
 @media(max-width:520px){ .cs-labels{font-size:10px;padding:12px;} }
 
+/* Content-file `aspect_phone:` — a different frame shape on phones (e.g. a tall
+   animation that sits letterboxed in a wide frame on desktop). */
+@media(max-width:520px){ .cs-img[style*="--aspect-phone"]{aspect-ratio:var(--aspect-phone)!important;} }

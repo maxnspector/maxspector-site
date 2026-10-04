@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Hire Faster</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  :root {
+    --alex-main-dark:        #082900;
+    --alex-secondary-gray:   #6B7F66;
+    --alex-main-light:       #EEF2E1;
+    --alex-secondary-green:  #B2DE9A;
+    --alex-action-color:     #009B58;
+    --alex-secondary-sage:   #B7C7A7;
+    --alex-white:            #FFFFFF;
+    --alex-pastel-mint:      #D3E1C9;
+    --alex-pastel-tan:       #DFD7C0;
+    --alex-pastel-sage:      #B1C9B4;
+  }
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: var(--alex-pastel-tan);
+    overflow: hidden;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--alex-main-dark);
+  }
+  body { display: flex; align-items: center; justify-content: center; }
+  #stage { position: relative; width: 440px; height: 620px; transform-origin: center center; }
+
+  @keyframes bigflip {
+    0%   { transform: translateY(8px); opacity: 0; }
+    60%  { transform: translateY(-2px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+</style>
+
+<script src="/assets/vendor/react-18.3.1.js"></script>
+<script src="/assets/vendor/react-dom-18.3.1.js"></script>
+<style>
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-300.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-600.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-700.ttf') format('truetype');font-weight:700;font-display:swap}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script data-presets="env,react">
+const Playback = (() => {
+  const state = {
+    t: 0,
+    playing: true,
+    duration: 5
+  };
+  const listeners = new Set();
+  let lastTs = null,
+    started = false;
+  const notify = () => listeners.forEach(fn => fn(state));
+  const advance = dt => {
+    if (!state.playing) return;
+    state.t = (state.t + dt) % state.duration;
+    notify();
+  };
+  const start = () => {
+    if (started) return;
+    started = true;
+    const tick = ts => {
+      if (lastTs != null) advance((ts - lastTs) / 1000);
+      lastTs = ts;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    setInterval(() => {
+      if (document.hidden) advance(0.1);
+    }, 100);
+  };
+  return {
+    start,
+    subscribe(fn) {
+      listeners.add(fn);
+      return () => listeners.delete(fn);
+    },
+    getState: () => state
+  };
+})();
+Playback.start();
+function useLoop() {
+  const [t, setT] = React.useState(() => Playback.getState().t);
+  React.useEffect(() => Playback.subscribe(s => setT(s.t)), []);
+  return t;
+}
+function tween(t, a, b, ease = x => x) {
+  if (t <= a) return 0;
+  if (t >= b) return 1;
+  return ease((t - a) / (b - a));
+}
+const ease = {
+  linear: t => t,
+  outCubic: t => 1 - Math.pow(1 - t, 3),
+  inOutCubic: t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
+};
+const BGS = {
+  mint: 'var(--alex-pastel-mint)',
+  tan: 'var(--alex-pastel-tan)',
+  sage: 'var(--alex-pastel-sage)'
+};
+function CardFrame({
+  children,
+  bg = BGS.tan
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      inset: 0,
+      background: bg,
+      overflow: 'hidden',
+      fontFamily: "'DM Sans', system-ui, sans-serif",
+      color: 'var(--alex-main-dark)'
+    }
+  }, children);
+}
+Object.assign(window, {
+  useLoop,
+  tween,
+  ease,
+  BGS,
+  CardFrame
+});
+</script>
+
+<script data-presets="env,react">
+function V6_HireFaster() {
+  const t = useLoop();
+  const statT = tween(t, 0.2, 3.0, ease.linear);
+  const milestones = ['14d', '9d', '36h', '12h', '6h'];
+  const mIdx = Math.min(milestones.length - 1, Math.floor(statT * milestones.length));
+  const cur = milestones[mIdx];
+  const sparkPoints = [[0, 14], [0.2, 13.2], [0.4, 10], [0.55, 6], [0.7, 3], [0.85, 1.2], [1.0, 0.5]];
+  const sparkW = 392,
+    sparkH = 156;
+  const sparkScreenPts = sparkPoints.map(p => [p[0] * sparkW, sparkH - p[1] / 14 * sparkH]);
+  const sparkPath = (() => {
+    const pts = sparkScreenPts;
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i];
+      const p1 = pts[i];
+      const p2 = pts[i + 1];
+      const p3 = pts[i + 2] || pts[i + 1];
+      const c1x = p1[0] + (p2[0] - p0[0]) / 6;
+      const c1y = p1[1] + (p2[1] - p0[1]) / 6;
+      const c2x = p2[0] - (p3[0] - p1[0]) / 6;
+      const c2y = p2[1] - (p3[1] - p1[1]) / 6;
+      d += ` C${c1x},${c1y} ${c2x},${c2y} ${p2[0]},${p2[1]}`;
+    }
+    return d;
+  })();
+  const segs = sparkPoints.length - 1;
+  const cont = Math.min(segs, Math.max(0, statT * segs));
+  const segIdx = Math.min(segs - 1, Math.floor(cont));
+  const segFrac = cont - segIdx;
+  const p0 = sparkPoints[segIdx];
+  const p1 = sparkPoints[segIdx + 1];
+  const dotPx = p0[0] + (p1[0] - p0[0]) * segFrac;
+  const dotPy = p0[1] + (p1[1] - p0[1]) * segFrac;
+  const dotX = dotPx * sparkW;
+  const dotY = sparkH - dotPy / 14 * sparkH;
+  const stages = [{
+    label: 'Applied',
+    time: '0:00'
+  }, {
+    label: 'Screened',
+    time: '0:12'
+  }, {
+    label: 'Booked',
+    time: '1:04'
+  }, {
+    label: 'Interviewed',
+    time: '6:00'
+  }];
+  const travelT = tween(t, 0.4, 4.0, ease.inOutCubic);
+  const travelStageF = travelT * (stages.length - 1);
+  const tlPadX = 82;
+  const tlW = 440 - tlPadX * 2;
+  const tlY = 520;
+  const stagePos = i => tlPadX + i / (stages.length - 1) * tlW;
+  const travelX = stagePos(0) + (stagePos(stages.length - 1) - stagePos(0)) * travelT;
+  return /*#__PURE__*/React.createElement(CardFrame, {
+    bg: BGS.tan
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: 52,
+      padding: '0 24px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      borderBottom: '1px solid rgba(8,41,0,0.10)'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 15,
+      fontWeight: 500
+    }
+  }, "Time to interview"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 8,
+      fontSize: 15,
+      opacity: 0.85,
+      fontWeight: 500,
+      fontVariantNumeric: 'tabular-nums'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      width: 9,
+      height: 9,
+      borderRadius: '50%',
+      background: 'var(--alex-action-color)',
+      display: 'inline-block',
+      flexShrink: 0
+    }
+  }), "Last 30 days")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 24,
+      right: 24,
+      top: 72
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 500,
+      opacity: 0.6,
+      marginBottom: 14
+    }
+  }, "Avg, apply to first interview"), /*#__PURE__*/React.createElement("div", {
+    key: cur,
+    style: {
+      fontSize: 96,
+      fontWeight: 300,
+      lineHeight: '96px',
+      letterSpacing: '-0.04em',
+      fontVariantNumeric: 'tabular-nums',
+      animation: 'bigflip 480ms ease-out'
+    }
+  }, cur)), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 24,
+      top: 226,
+      width: sparkW,
+      height: sparkH
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: sparkW,
+    height: sparkH + 28,
+    viewBox: `0 0 ${sparkW} ${sparkH + 28}`,
+    overflow: "visible",
+    style: {
+      overflow: 'visible'
+    }
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("clipPath", {
+    id: "sparkFillClip"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: `${sparkPath} L ${sparkW},${sparkH} L 0,${sparkH} Z`
+  }))), /*#__PURE__*/React.createElement("line", {
+    x1: "0",
+    y1: sparkH,
+    x2: sparkW,
+    y2: sparkH,
+    stroke: "rgba(8,41,0,0.15)",
+    strokeWidth: "1",
+    strokeDasharray: "2 3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: `${sparkPath} L ${sparkW},${sparkH} L 0,${sparkH} Z`,
+    fill: "var(--alex-white)"
+  }), /*#__PURE__*/React.createElement("g", {
+    clipPath: "url(#sparkFillClip)"
+  }, Array.from({
+    length: 5
+  }).map((_, i) => {
+    const x = (i + 1) / 6 * sparkW;
+    return /*#__PURE__*/React.createElement("line", {
+      key: i,
+      x1: x,
+      y1: "0",
+      x2: x,
+      y2: sparkH,
+      stroke: "rgba(8,41,0,0.10)",
+      strokeWidth: "1"
+    });
+  })), /*#__PURE__*/React.createElement("path", {
+    d: sparkPath,
+    fill: "none",
+    stroke: "var(--alex-main-dark)",
+    strokeWidth: "2.2",
+    strokeLinejoin: "round",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: dotX,
+    cy: dotY,
+    r: "5",
+    fill: "var(--alex-main-dark)"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: dotX,
+    cy: dotY,
+    r: "10",
+    fill: "none",
+    stroke: "var(--alex-main-dark)",
+    strokeWidth: "1",
+    opacity: "0.3"
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "0",
+    y: sparkH + 24,
+    fontSize: "17",
+    fontWeight: "500",
+    fill: "var(--alex-main-dark)",
+    opacity: "0.6"
+  }, "Industry"), /*#__PURE__*/React.createElement("text", {
+    x: sparkW,
+    y: sparkH + 24,
+    fontSize: "17",
+    fontWeight: "500",
+    textAnchor: "end",
+    fill: "var(--alex-main-dark)",
+    opacity: "0.6"
+  }, "Alex"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: 'absolute',
+      left: 24,
+      right: 24,
+      top: 436,
+      height: 148,
+      background: 'rgba(255,255,255,0.5)',
+      borderRadius: 16
+    }
+  }), /*#__PURE__*/React.createElement("svg", {
+    width: "440",
+    height: "620",
+    viewBox: "0 0 440 620",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      pointerEvents: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("g", {
+    opacity: "0.22"
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: stagePos(0),
+    y1: tlY,
+    x2: stagePos(stages.length - 1),
+    y2: tlY,
+    stroke: "var(--alex-main-dark)",
+    strokeWidth: "1.5"
+  }), stages.map((s, i) => {
+    const x = stagePos(i);
+    const reached = travelStageF >= i - 0.05;
+    if (reached) return null;
+    return /*#__PURE__*/React.createElement("circle", {
+      key: `u${i}`,
+      cx: x,
+      cy: tlY,
+      r: "6",
+      fill: "var(--alex-main-dark)"
+    });
+  })), /*#__PURE__*/React.createElement("line", {
+    x1: stagePos(0),
+    y1: tlY,
+    x2: travelX,
+    y2: tlY,
+    stroke: "var(--alex-main-dark)",
+    strokeWidth: "1.5"
+  }), stages.map((s, i) => {
+    const x = stagePos(i);
+    const reached = travelStageF >= i - 0.05;
+    if (!reached) return null;
+    return /*#__PURE__*/React.createElement("circle", {
+      key: `r${i}`,
+      cx: x,
+      cy: tlY,
+      r: "6",
+      fill: "var(--alex-main-dark)"
+    });
+  }), stages.map((s, i) => {
+    const x = stagePos(i);
+    const reached = travelStageF >= i - 0.05;
+    return /*#__PURE__*/React.createElement("g", {
+      key: i
+    }, /*#__PURE__*/React.createElement("text", {
+      x: x,
+      y: tlY - 28,
+      textAnchor: "middle",
+      fontSize: "15",
+      fontWeight: "500",
+      fill: "var(--alex-main-dark)",
+      opacity: reached ? 1 : 0.45
+    }, s.label), /*#__PURE__*/React.createElement("text", {
+      x: x,
+      y: tlY + 32,
+      textAnchor: "middle",
+      fontSize: "15",
+      fontWeight: "500",
+      fill: "var(--alex-main-dark)",
+      opacity: reached ? 0.7 : 0.4,
+      style: {
+        fontVariantNumeric: 'tabular-nums'
+      }
+    }, s.time));
+  })));
+}
+function App() {
+  return /*#__PURE__*/React.createElement("div", {
+    id: "stage"
+  }, /*#__PURE__*/React.createElement(V6_HireFaster, null));
+}
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
+function fit() {
+  const el = document.getElementById('stage');
+  if (!el) return;
+  const s = Math.min(window.innerWidth / 440, window.innerHeight / 620);
+  el.style.transform = `scale(${s})`;
+}
+window.addEventListener('resize', fit);
+const fitInterval = setInterval(() => {
+  if (document.getElementById('stage')) {
+    fit();
+    clearInterval(fitInterval);
+  }
+}, 50);
+</script>
+</body>
+</html>

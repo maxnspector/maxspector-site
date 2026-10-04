@@ -359,11 +359,16 @@ const embeds=[...document.querySelectorAll('.cs-img.is-embed')];
 if(embeds.length){
   const fit=el=>{
     const f=el.querySelector('iframe'); if(!f) return;
-    const r=el.getBoundingClientRect(); if(!r.width) return;
+    const r0=el.getBoundingClientRect(); if(!r0.width) return;
+    // data-pad: inset the animation inside its frame (fraction of frame width);
+    // the frame's own background shows around it.
+    const p=(+el.dataset.pad||0)*r0.width, r={width:r0.width-2*p,height:r0.height-2*p};
     const w=+el.dataset.w||1440, h=+el.dataset.h||900;
     const s=el.dataset.fit==='contain'?Math.min(r.width/w,r.height/h):Math.max(r.width/w,r.height/h);
     f.style.width=w+'px'; f.style.height=h+'px';
-    f.style.transform=`scale(${s}) translate(${(r.width/s-w)/2}px,${(r.height/s-h)/2}px)`;
+    f.style.transform=`scale(${s}) translate(${(r.width/s-w)/2+p/s}px,${(r.height/s-h)/2+p/s}px)`;
+    const po=el.querySelector('.embed-poster');
+    if(po&&p){const pw=w*s,ph=h*s;Object.assign(po.style,{inset:'auto',left:(r0.width-pw)/2+'px',top:(r0.height-ph)/2+'px',width:pw+'px',height:ph+'px'});}
   };
   embeds.forEach(fit);
   addEventListener('resize',()=>embeds.forEach(fit),{passive:true});

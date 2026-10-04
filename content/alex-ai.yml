@@ -1,6 +1,6 @@
 title: Alex AI — Max Spector
 description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
-cover: cover-keynote-6.jpg
+cover: cover-keynote-7.jpg
 frames: off
 nav: standalone
 intro:
@@ -13,10 +13,10 @@ intro:
   - label: Roles & Responsibilities
     body: "Brand identity, motion design, and collateral. Product design lead, design system in partnership
       with our founding engineers."
-  links_html: Learn more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
+  links_html: See more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
 lead:
   blocks:
-  - layout: full
+  - layout: bleed
     items:
     - embed: anim-end-to-end.html
       poster: anim-end-to-end-poster.jpg
@@ -37,14 +37,14 @@ sections:
     columns:
     - - img: identity-lockup-office.jpg
         alt: Alex lockup over a blurred office
-        labels: [Alex, Identity, Primary lockup, '01']
+        labels: [Identity, '', Primary lockup, '']
         tone: photo
     - - img: identity-mark-light.jpg
         alt: Alex mark, dark green on light
-        labels: [Alex, Identity, Mark — dark on light, '02']
+        labels: [Identity, '', Mark — dark on light, '']
       - img: identity-mark-dark.jpg
         alt: Alex mark, light on dark green
-        labels: [Alex, Identity, Mark — light on dark, '03']
+        labels: [Identity, '', Mark — light on dark, '']
         tone: dark
   - layout: grid-2
     gap: 0
@@ -57,9 +57,9 @@ sections:
       aspect: 1200/786
   - layout: full
     items:
-    - img: brand-plate-type-04.jpg
+    - img: brand-plate-type-v4.jpg
       alt: DM Sans type specimen in four weights on dark green
-      ratio: wide
+      aspect: 2400/1356
   - layout: grid-2
     items:
     - img: brand-art-a.jpg
@@ -82,16 +82,51 @@ sections:
       ratio: video
       w: 1440
       h: 810
-      bg: '#EEF0E6'
+      bg: '#F9FBF5'
+      fit: contain
+      pad: 0.07
     - embed: anim-identity.html
       poster: anim-identity-poster.jpg
       alt: Identity verification animation checking authenticity, selfie match and network integrity
       ratio: video
       w: 1300
       h: 680
-      bg: '#FFFFFF'
+      bg: '#F9FBF5'
       fit: contain
-  - layout: grid-2
+      pad: 0.07
+  - layout: grid-3
+    items:
+    - embed: anim-engage-instantly.html
+      poster: anim-engage-instantly-poster.jpg
+      alt: 'Engage instantly: Alex reaching candidates across SMS, WhatsApp, phone, email and video'
+      aspect: 440/620
+      w: 440
+      h: 620
+    - embed: anim-evaluate-fairly.html
+      poster: anim-evaluate-fairly-poster.jpg
+      alt: 'Evaluate fairly: every candidate asked the same question and scored on the same rubric'
+      aspect: 440/620
+      w: 440
+      h: 620
+    - embed: anim-hire-faster.html
+      poster: anim-hire-faster-poster.jpg
+      alt: 'Hire faster: time to interview drops from days to hours'
+      aspect: 440/620
+      w: 440
+      h: 620
+  - layout: full
+    items:
+    - embed: anim-candidate-blueprint.html
+      aspect_phone: 932/1462
+      poster: anim-candidate-blueprint-poster.jpg
+      alt: 'Candidate blueprint building up: resume screen, interview and verification'
+      aspect: 1200/750
+      w: 932
+      h: 1462
+      bg: '#082900'
+      fit: contain
+      pad: 0.04
+  - layout: full
     items:
     - embed: anim-proctor.html
       poster: anim-proctor-poster.jpg
@@ -101,16 +136,11 @@ sections:
       h: 504
       bg: '#FFFFFF'
       fit: contain
-    - video: anim-resume-screens
-      alt: Resume screening animation
-      ratio: video
-  - layout: grid-2
+      aspect: 1120/504
+  - layout: full
     items:
     - video: anim-coordinator
       alt: Interview coordination animation
-      ratio: video
-    - video: anim-fraud
-      alt: Fraud detection animation
       ratio: video
 - heading: Product Imagery
   subhead: "DRAFT — Photography paired with product moments."

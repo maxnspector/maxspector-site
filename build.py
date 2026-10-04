@@ -27,7 +27,11 @@ def media(it, slug):
         # A self-contained HTML animation. `w`/`h` are the size it was authored at;
         # the page script scales it to fit and only loads it near the viewport.
         w, h = it.get('w', 1440), it.get('h', 900)
-        style = f' style="--embed-bg:{it["bg"]}"' if it.get('bg') else ''
+        st = []
+        if it.get('bg'): st.append(f'--embed-bg:{it["bg"]}')
+        if it.get('aspect'): st.append(f'aspect-ratio:{it["aspect"]}')
+        if it.get('aspect_phone'): st.append(f'--aspect-phone:{it["aspect_phone"]}')
+        style = f' style="{";".join(st)}"' if st else ''
         poster = ''
         if it.get('poster'):
             poster = (f'<img class="embed-poster" src="{src(it["poster"])}" '
@@ -35,7 +39,8 @@ def media(it, slug):
         # `speed: 1.2` plays the animation faster (read by the shim inside the file).
         url = src(it['embed']) + (f'?speed={it["speed"]}' if it.get('speed') else '')
         attrs = (f'class="cs-img has-img is-embed{ratio}" data-embed="{url}" '
-                 f'data-w="{w}" data-h="{h}" data-fit="{it.get("fit", "cover")}"')
+                 f'data-w="{w}" data-h="{h}" data-fit="{it.get("fit", "cover")}"'
+                 + (f' data-pad="{it["pad"]}"' if it.get('pad') else ''))
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
     if it.get('video'):
