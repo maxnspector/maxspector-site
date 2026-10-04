@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>/* speed-shim: ?speed=N plays this file N times faster; inert without it */
+(function(){var s=parseFloat(new URLSearchParams(location.search).get('speed'));if(!(s>0)||s===1)return;
+var P=performance,pn=P.now.bind(P),p0=pn();P.now=function(){return p0+(pn()-p0)*s};
+var dn=Date.now,d0=dn();Date.now=function(){return d0+(dn()-d0)*s};
+var raf=window.requestAnimationFrame.bind(window);window.requestAnimationFrame=function(cb){return raf(function(t){cb(p0+(t-p0)*s)})};
+var st=window.setTimeout,si=window.setInterval;
+window.setTimeout=function(f,ms){var a=[].slice.call(arguments);a[1]=(+ms||0)/s;return st.apply(window,a)};
+window.setInterval=function(f,ms){var a=[].slice.call(arguments);a[1]=(+ms||0)/s;return si.apply(window,a)};
+function bump(){try{document.getAnimations().forEach(function(a){if(a.playbackRate!==s)a.playbackRate=s})}catch(e){}}
+['animationstart','transitionrun'].forEach(function(e){addEventListener(e,bump,true)});si(bump,200);})();
+</script>
   <meta charset="utf-8">
   <title>Alex — One agent. End to end hiring. (v8 · calendar redesign)</title>
   <style>

@@ -251,7 +251,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 
 /* cover */
 .cs-cover{position:relative;height:100vh;height:100svh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;}
-.cs-cover-media{position:absolute;inset:0;background:linear-gradient(160deg,#2c3d22,#18220f);transform:scale(1.3);will-change:transform;}
+.cs-cover-media{position:absolute;inset:0;background:linear-gradient(160deg,#2c3d22,#18220f);will-change:transform;}
 .cs-cover-media::after{content:"COVER IMAGE";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.35);font:600 12px/1 var(--sans);letter-spacing:.18em;}
 .cs-scroll{position:relative;z-index:2;margin-bottom:34px;color:var(--paper);display:flex;flex-direction:column;align-items:center;gap:6px;}
 .cs-scroll svg{width:36px;height:16px;animation:cs-bob 2s var(--ease) infinite;}
@@ -302,6 +302,9 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-img.has-img{background:none;border-color:rgba(84,94,61,.14);}
 .cs-img.is-embed,.cs-img.has-img.is-embed{background:var(--embed-bg,transparent);}
 .cs-img.contain img{object-fit:contain;}
+/* Page-level `frames: off` hides the hairline; `frame: true` keeps it on one piece. */
+.no-frames .cs-img.has-img{border-color:transparent;}
+.no-frames .cs-img.has-img.framed{border-color:rgba(84,94,61,.14);}
 /* extra ratios beyond the base 1:1 / .wide 16:10 / .tall 3:4 */
 .cs-img.video{aspect-ratio:16/9;}
 .cs-img.photo{aspect-ratio:3/2;}
@@ -381,4 +384,16 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
   *{transition:none!important;scroll-behavior:auto!important;}
   .reveal{opacity:1;transform:none;}
   [data-rise],.rise-in{transform:none!important;}
+}
+
+/* Content-file `cols:` — custom desktop column widths; phones keep the layout's own stacking. */
+@media(min-width:861px){ .cs-grid.has-cols{grid-template-columns:var(--cols);} }
+/* `class: trio` — lockup photo + the light and dark mark squares, butted together
+   (no gap between the two squares). Desktop: squares stacked beside the photo.
+   Phones/tablets: photo full width, squares side by side below, kept square. */
+.cs-grid.trio .cs-col:last-child{gap:0;}
+@media(max-width:860px){
+  .cs-grid.trio .cs-col:first-child .cs-img{aspect-ratio:1734/1200;}
+  .cs-grid.trio .cs-col:last-child{grid-template-columns:1fr 1fr;}
+  .cs-grid.trio .cs-col:last-child .cs-img{aspect-ratio:1;}
 }

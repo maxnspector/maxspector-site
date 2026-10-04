@@ -1,6 +1,8 @@
 title: Alex AI — Max Spector
 description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
-cover: cover-keynote.jpg
+cover: cover-keynote-6.jpg
+frames: off
+nav: standalone
 intro:
   eyebrow: Alex AI
   statement: "Alex is an AI recruiter that interviews every applicant, takes over the busywork, and creates
@@ -12,6 +14,18 @@ intro:
     body: "Brand identity, motion design, and collateral. Product design lead, design system in partnership
       with our founding engineers."
   links_html: Learn more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
+lead:
+  blocks:
+  - layout: full
+    items:
+    - embed: anim-end-to-end.html
+      poster: anim-end-to-end-poster.jpg
+      alt: "Animated walkthrough of the Alex hiring sequence: initiate, match, screen, interview, verify, schedule, hire"
+      ratio: wide
+      w: 1440
+      h: 900
+      bg: '#EEF2E1'
+      speed: 1.2
 sections:
 - heading: Brand Identity
   subhead: "DRAFT — The mark, the palette and the typeface."
@@ -21,74 +35,44 @@ sections:
     - img: brand-plate-logo.jpg
       alt: Alex primary lockup, dark green on light
       ratio: wide
+  - layout: feature
+    class: trio
+    cols: 874fr 302fr
+    height: 604
+    columns:
+    - - img: identity-lockup-office.jpg
+        alt: Alex lockup over a blurred office
+    - - img: identity-mark-light.jpg
+        alt: Alex mark, dark green on light
+      - img: identity-mark-dark.jpg
+        alt: Alex mark, light on dark green
   - layout: grid-2
+    gap: 0
     items:
-    - img: brand-plate-mark-dark.jpg
-      alt: Alex mark, light on dark green
-    - img: brand-plate-mark-light.jpg
-      alt: Alex mark, dark green on light
-  - layout: full
-    items:
-    - img: brand-plate-palette.jpg
-      alt: "Alex color palette: main dark, main light, secondary gray and sage, three pastel tertiaries, accent green and warning red"
-      ratio: wide
+    - img: palette-main.jpg
+      alt: "Alex main colors: main dark #082900 and main light #EEF2E1"
+      aspect: 1200/786
+    - img: palette-support.jpg
+      alt: "Alex supporting colors: secondary gray and sage, three pastels, accent green and warning red"
+      aspect: 1200/786
   - layout: full
     items:
     - img: brand-plate-type.jpg
       alt: DM Sans type specimen in four weights on dark green
       ratio: wide
-  - layout: grid-4
+  - layout: grid-2
     items:
     - img: brand-art-a.jpg
       alt: Logo construction drawing
     - img: brand-art-b.jpg
       alt: Brand art, applied repeated down the page to a single hired
     - img: brand-art-c.jpg
+      frame: true
       alt: Brand art, "interview everyone, hire the best one" set in oversized type
     - img: brand-art-e.jpg
       alt: Brand art, a painted circle around the Alex mark
-  - layout: asym-left
-    items:
-    - img: logo-office-lockup.jpg
-      alt: Alex lockup over a blurred office
-    - img: logo-office-mark.jpg
-      alt: Alex mark over a blurred office
-- heading: How Alex Works
-  subhead: "DRAFT — From an open role to a hire, start to finish."
-  blocks:
-  - layout: bleed
-    items:
-    - embed: anim-end-to-end.html
-      poster: anim-end-to-end-poster.jpg
-      alt: "Animated walkthrough of the Alex hiring sequence: initiate, match, screen, interview, verify, schedule, hire"
-      ratio: wide
-      w: 1440
-      h: 900
-      bg: '#EEF2E1'
-- heading: Product in Motion
-  subhead: "DRAFT — Animations built for the product site, one for each thing Alex does."
-  ground: dark
-  blocks:
-  - layout: full
-    items:
-    - embed: anim-hero-dark.html
-      poster: anim-hero-dark-poster.jpg
-      alt: Animated product hero stepping through match, screen, interview, verify, schedule and hire
-      ratio: wide
-      w: 1440
-      h: 900
-      bg: '#082900'
-  - layout: full
-    items:
-    - embed: anim-live-interviews.html
-      poster: anim-live-interviews-poster.jpg
-      alt: Live interviews counter with four role cards cycling through interviewing and scored states
-      ratio: wide
-      w: 1440
-      h: 900
-      bg: '#082900'
 - heading: Feature Animations
-  subhead: "DRAFT — Talent matching, interviews, verification and fraud detection."
+  subhead: DRAFT — Talent matching, interviews, verification and fraud detection.
   blocks:
   - layout: grid-2
     items:
@@ -99,15 +83,6 @@ sections:
       w: 1440
       h: 810
       bg: '#EEF0E6'
-    - embed: anim-ai-interviews.html
-      poster: anim-ai-interviews-poster.jpg
-      alt: AI interview transcript capturing signals as the candidate answers
-      ratio: video
-      w: 1440
-      h: 810
-      bg: '#EEF0E6'
-  - layout: grid-2
-    items:
     - embed: anim-identity.html
       poster: anim-identity-poster.jpg
       alt: Identity verification animation checking authenticity, selfie match and network integrity
@@ -116,6 +91,8 @@ sections:
       h: 680
       bg: '#FFFFFF'
       fit: contain
+  - layout: grid-2
+    items:
     - embed: anim-proctor.html
       poster: anim-proctor-poster.jpg
       alt: Cheat detection timeline flagging off-camera reading and a second voice
@@ -124,13 +101,8 @@ sections:
       h: 504
       bg: '#FFFFFF'
       fit: contain
-  - layout: grid-2
-    items:
     - video: anim-resume-screens
       alt: Resume screening animation
-      ratio: video
-    - video: anim-verify
-      alt: Verification animation
       ratio: video
   - layout: grid-2
     items:
@@ -140,15 +112,6 @@ sections:
     - video: anim-fraud
       alt: Fraud detection animation
       ratio: video
-  - layout: full
-    items:
-    - embed: anim-interview-everyone.html
-      poster: anim-interview-everyone-poster.jpg
-      alt: "Typographic animation: interview everyone, hire the best"
-      ratio: wide
-      w: 1440
-      h: 900
-      bg: '#EEF2E1'
 - heading: Product Imagery
   subhead: "DRAFT — Photography paired with product moments."
   blocks:
