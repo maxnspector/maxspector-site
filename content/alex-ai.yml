@@ -1,6 +1,7 @@
 title: Alex AI — Max Spector
 description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
 cover: cover-keynote-7.jpg
+cover_mobile: cover-keynote-7-mobile.jpg
 frames: off
 nav: standalone
 intro:
@@ -80,6 +81,7 @@ sections:
       alt: 'Social card: interview everyone, hire the best, over a recruiter at a laptop'
     - img: social-candidate.jpg
       alt: 'Social card: interview everyone, hire the best, over a candidate on the phone'
+    gap: 0
   - layout: grid-2
     items:
     - img: brand-art-a.jpg
@@ -124,7 +126,9 @@ sections:
       h: 504
       bg: '#FFFFFF'
       fit: contain
-      aspect: 1120/504
+      aspect: 1200/620
+      pad: 0.065
+      frame: true
   - layout: full
     items:
     - video: anim-coordinator
@@ -145,7 +149,8 @@ sections:
         fit: cover
         span: 519
         zoom: 0.88
-        cy: 0.43
+        cy: 0.4
+        frame: true
       - embed: anim-identity.html
         poster: anim-identity-poster.jpg
         alt: Identity verification animation checking authenticity, selfie match and network integrity
@@ -156,6 +161,9 @@ sections:
         fit: contain
         span: 555
         zoom: 0.88
+        cx: 0.43
+        cy: 0.432
+        frame: true
     - - embed: anim-candidate-blueprint.html
         aspect_phone: 932/1462
         poster: anim-candidate-blueprint-poster.jpg
@@ -165,6 +173,7 @@ sections:
         bg: '#082900'
         fit: contain
         pad: 0.04
+        zoom: 0.95
 - heading: Brand in the World
   subhead: Product photography, environments, and the materials sales puts in front of customers.
   blocks:
@@ -181,11 +190,6 @@ sections:
       ratio: tall
   - layout: full
     items:
-    - img: product-scheduling.jpg
-      alt: Candidate on a phone beside a stack of scheduled interview confirmations
-      ratio: wide
-  - layout: full
-    items:
     - img: signage-entry.jpg
       alt: Alex logo on a dark slatted wall in an office reception
       ratio: wide
@@ -198,3 +202,8 @@ sections:
         frame: true
         alt: Alex one-sheet, print edition
         ratio: portrait
+  - layout: full
+    items:
+    - img: product-scheduling.jpg
+      alt: Candidate on a phone beside a stack of scheduled interview confirmations
+      ratio: wide

@@ -85,7 +85,8 @@ if(embeds.length){
     const fy=el.dataset.y!==undefined?+el.dataset.y:.5;
     // data-cy: the animation's content centre (0-1 of its height) is placed at the frame's centre.
     const ty=el.dataset.cy!==undefined?(r.height/2)/s-(+el.dataset.cy)*h:(r.height/s-h)*fy;
-    f.style.transform=`scale(${s}) translate(${(r.width/s-w)/2+p/s}px,${ty+p/s}px)`;
+    const tx=el.dataset.cx!==undefined?(r.width/2)/s-(+el.dataset.cx)*w:(r.width/s-w)/2;
+    f.style.transform=`scale(${s}) translate(${tx+p/s}px,${ty+p/s}px)`;
     const po=el.querySelector('.embed-poster');
     if(po&&p){const pw=w*s,ph=h*s;Object.assign(po.style,{inset:'auto',left:(r0.width-pw)/2+'px',top:(r0.height-ph)/2+'px',width:pw+'px',height:ph+'px'});}
   };

@@ -43,7 +43,8 @@ def media(it, slug):
                  + (f' data-pad="{it["pad"]}"' if it.get('pad') else '')
                  + (f' data-y="{it["y"]}"' if 'y' in it else '')
                  + (f' data-zoom="{it["zoom"]}"' if it.get('zoom') else '')
-                 + (f' data-cy="{it["cy"]}"' if 'cy' in it else ''))
+                 + (f' data-cy="{it["cy"]}"' if 'cy' in it else '')
+                 + (f' data-cx="{it["cx"]}"' if 'cx' in it else ''))
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
     if it.get('video'):
@@ -201,6 +202,11 @@ def build(slug):
                      r'<span class="nav-logo">\1</span>', out, count=1, flags=re.S)
         out = re.sub(r'\s*<button class="menu-btn".*?</button>', '', out, count=1, flags=re.S)
         out = re.sub(r'<div class="overlay" id="overlay">.*?</div>\n', '', out, count=1, flags=re.S)
+    # `cover_mobile:` — a portrait cover for tall screens (phones, portrait tablets).
+    if page.get('cover_mobile'):
+        url = ASSETS.format(slug=art) + page['cover_mobile']
+        out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img'
+                          f'{{background-image:url(\'{url}\')!important}}}}</style>\n</head>', 1)
     dest = ROOT / f'{slug}.html'
     dest.write_text(out)
     n_img = out.count('<img src="/assets/'); n_vid = out.count('<video')
