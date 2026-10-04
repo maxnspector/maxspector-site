@@ -44,7 +44,13 @@ def media(it, slug):
                 f'poster="{src(v)}-poster.jpg" aria-label="{esc(it.get("alt",""))}">'
                 f'<source src="{src(v)}.mp4" type="video/mp4"></video></div>')
     ast = f' style="aspect-ratio:{it["aspect"]}"' if it.get('aspect') else ''
-    return (f'      <div class="cs-img has-img{ratio}"{ast}><img src="{src(it["img"])}" '
+    # `labels: [top-left, top-right, bottom-left, bottom-right]` puts the brand-plate
+    # corner labels over the art as live text; `tone:` light (default) | dark | photo.
+    lab = ''
+    if it.get('labels'):
+        spans = ''.join(f'<span>{esc(t)}</span>' for t in it['labels'])
+        lab = f'<div class="cs-labels tone-{it.get("tone", "light")}" aria-hidden="true">{spans}</div>'
+    return (f'      <div class="cs-img has-img{ratio}"{ast}>{lab}<img src="{src(it["img"])}" '
             f'alt="{esc(it.get("alt",""))}" loading="lazy"></div>')
 
 LAYOUT = {
@@ -172,8 +178,9 @@ def build(slug):
     out = (ROOT / 'templates' / 'case-study.html').read_text()
     for k, v in [('TITLE', page['title']), ('DESCRIPTION', page['description']),
                  ('COVER', ASSETS.format(slug=art) + page['cover']), ('NAV', nav),
-                 # `lead:` is one section placed straight under the cover, before the intro.
-                 ('INTRO', (section(page['lead'], art) + '\n\n' if page.get('lead') else '') + intro(page)),
+                 # The intro (description) always comes straight after the cover.
+                 # `lead:` is one headless section placed directly after the intro.
+                 ('INTRO', intro(page) + ('\n\n' + section(page['lead'], art) if page.get('lead') else '')),
                  ('SECTIONS', '\n\n'.join(section(s, art) for s in page['sections']))]:
         out = out.replace('{{%s}}' % k, v)
     # `frames: off` at the top of a content file drops the hairline round every piece.

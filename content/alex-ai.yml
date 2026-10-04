@@ -30,11 +30,6 @@ sections:
 - heading: Brand Identity
   subhead: "DRAFT — The mark, the palette and the typeface."
   blocks:
-  - layout: full
-    items:
-    - img: brand-plate-logo.jpg
-      alt: Alex primary lockup, dark green on light
-      ratio: wide
   - layout: feature
     class: trio
     cols: 874fr 302fr
@@ -42,10 +37,15 @@ sections:
     columns:
     - - img: identity-lockup-office.jpg
         alt: Alex lockup over a blurred office
+        labels: [Alex, Identity, Primary lockup, '01']
+        tone: photo
     - - img: identity-mark-light.jpg
         alt: Alex mark, dark green on light
+        labels: [Alex, Identity, Mark — dark on light, '02']
       - img: identity-mark-dark.jpg
         alt: Alex mark, light on dark green
+        labels: [Alex, Identity, Mark — light on dark, '03']
+        tone: dark
   - layout: grid-2
     gap: 0
     items:
@@ -57,7 +57,7 @@ sections:
       aspect: 1200/786
   - layout: full
     items:
-    - img: brand-plate-type.jpg
+    - img: brand-plate-type-04.jpg
       alt: DM Sans type specimen in four weights on dark green
       ratio: wide
   - layout: grid-2
@@ -156,5 +156,6 @@ sections:
         alt: Alex one-sheet, digital edition
         ratio: wide
     - - img: one-sheet-print.jpg
+        frame: true
         alt: Alex one-sheet, print edition
         ratio: portrait

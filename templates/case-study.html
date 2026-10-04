@@ -55,7 +55,7 @@ function onScroll(){const y=scrollY;
   if(y>lastY&&y>140&&!navHidden){nav.classList.add('nav-hidden');navHidden=true;}
   else if(y<lastY&&navHidden){nav.classList.remove('nav-hidden');navHidden=false;}
   lastY=y;
-  if(coverMedia&&!reduceMotion){coverMedia.style.transform=`translate3d(0,${(y*0.15).toFixed(1)}px,0)`;}
+  if(coverMedia&&!reduceMotion){coverMedia.style.transform=`translate3d(0,${(y/3).toFixed(1)}px,0)`;}
   ticking=false;}
 addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 onScroll();

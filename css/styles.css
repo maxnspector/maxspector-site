@@ -397,3 +397,27 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
   .cs-grid.trio .cs-col:last-child{grid-template-columns:1fr 1fr;}
   .cs-grid.trio .cs-col:last-child .cs-img{aspect-ratio:1;}
 }
+
+/* CASE-STUDY GROUND (Max 2026-10-04) — supersedes the cream/white alternation above.
+   Page, every light section and the footer sit on white; the intro (description,
+   always directly after the cover) alone stays cream. Dark chapter breaks unchanged. */
+body.cs-page{background:var(--paper-3);}
+.cs-page .cs-light{background:var(--paper-3);}
+.cs-page #intro{background:var(--paper-2);}
+.cs-page .foot{color:var(--text-dark);border-top-color:rgba(84,94,61,.22);}
+.cs-page .foot a{color:inherit;}
+.cs-page .foot a:hover{color:var(--coral);}
+
+/* BRAND-PLATE CORNER LABELS (Max 2026-10-04) — content-file `labels:` on an image.
+   DM Sans 400 like the type plate; 20px inset lines up with the palette labels below. */
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-400.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
+.cs-labels{position:absolute;inset:0;z-index:2;pointer-events:none;
+  display:grid;grid-template:auto 1fr auto / 1fr auto;padding:20px;
+  font:400 11px/1.2 'DM Sans',var(--sans);letter-spacing:0;text-transform:none;}
+.cs-labels span:nth-child(2),.cs-labels span:nth-child(4){justify-self:end;text-align:right;}
+.cs-labels span:nth-child(3),.cs-labels span:nth-child(4){grid-row:3;align-self:end;}
+.cs-labels.tone-light{color:#6B7F66;}
+.cs-labels.tone-dark{color:#B7C7A7;}
+.cs-labels.tone-photo{color:rgba(238,242,225,.8);}
+@media(max-width:520px){ .cs-labels{font-size:10px;padding:12px;} }
+
