@@ -3,7 +3,7 @@
    ============================================================ */
 @font-face {
   font-family: "Playfair";
-  src: url("/fonts/playfair.ttf") format("truetype");
+  src: url("/fonts/playfair.woff2") format("woff2");
   font-weight: 300 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -11,7 +11,7 @@
 }
 @font-face {
   font-family: "Playfair";
-  src: url("/fonts/playfair-italic.ttf") format("truetype");
+  src: url("/fonts/playfair-italic.woff2") format("woff2");
   font-weight: 300 900;
   font-stretch: 75% 125%;
   font-style: italic;
@@ -150,7 +150,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .sec-head .rule{margin-top:12px;}
 
 /* ============================================================ FEATURED SLIDER */
-.slides{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:2px;background:var(--bg-soft);}
+.slides{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--bg-soft);}
 .slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .7s var(--ease);display:flex;align-items:center;justify-content:center;}
 .slide.active{opacity:1;visibility:visible;}
 .slide a{display:block;width:100%;height:100%;}
@@ -196,7 +196,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-row-media.arr-tall-L{grid-template-columns:1fr 1fr;}
 .cs-row-media.arr-tall-R{grid-template-columns:1fr 1fr;}
 .cs-row-media .m-col{display:grid;grid-template-rows:1fr 1fr;gap:24px;min-height:0;}
-.m-img{position:relative;overflow:hidden;border-radius:2px;background:rgba(207,197,170,.08);border:1px solid rgba(207,197,170,.14);display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.4);font:600 11px/1 var(--sans);letter-spacing:.16em;min-height:0;}
+.m-img{position:relative;overflow:hidden;background:rgba(207,197,170,.08);border:1px solid rgba(207,197,170,.14);display:flex;align-items:center;justify-content:center;color:rgba(207,197,170,.4);font:600 11px/1 var(--sans);letter-spacing:.16em;min-height:0;}
 .m-img img{width:100%;height:100%;object-fit:cover;transform:scale(1);transition:transform .6s var(--ease);}
 /* row hover nudges the imagery up in scale, alongside the bg darkening */
 .cs-row:hover .m-img img{transform:scale(1.045);}
@@ -280,7 +280,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-grid-3{grid-template-columns:repeat(3,1fr);}
 .cs-grid-feature{align-items:start;}
 .cs-col{display:grid;gap:24px;}
-.cs-img{background:rgba(84,94,61,.09);border:1px solid rgba(84,94,61,.22);border-radius:2px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:rgba(84,94,61,.5);font:600 11px/1 var(--sans);letter-spacing:.16em;}
+.cs-img{background:rgba(84,94,61,.09);border:1px solid rgba(84,94,61,.22);aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:rgba(84,94,61,.5);font:600 11px/1 var(--sans);letter-spacing:.16em;}
 .cs-img.wide{aspect-ratio:16/10;}
 .cs-img.tall{aspect-ratio:3/4;}
 
@@ -426,3 +426,6 @@ body.cs-page{background:var(--paper-3);}
 /* Content-file `aspect_phone:` — a different frame shape on phones (e.g. a tall
    animation that sits letterboxed in a wide frame on desktop). */
 @media(max-width:860px){ .cs-img[style*="--aspect-phone"]{aspect-ratio:var(--aspect-phone)!important;} }
+
+/* Square corners on all case-study frames (Max 2026-10-04). */
+.cs-img,.cs-img img,.cs-img video,.cs-img iframe,.cs-img .embed-poster{border-radius:0!important;}

@@ -207,7 +207,8 @@ def build(slug):
         url = ASSETS.format(slug=art) + page['cover_mobile']
         out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img'
                           f'{{background-image:url(\'{url}\')!important}}}}</style>\n</head>', 1)
-    dest = ROOT / f'{slug}.html'
+    # `output:` names the published file (and so the URL) if it differs from the content file.
+    dest = ROOT / f"{page.get('output', slug)}.html"
     dest.write_text(out)
     n_img = out.count('<img src="/assets/'); n_vid = out.count('<video')
     print(f'built {dest.name}  —  {len(page["sections"])} sections, {n_img} images, {n_vid} videos')

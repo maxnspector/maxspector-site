@@ -1,5 +1,6 @@
 title: Alex AI — Max Spector
 description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
+output: alex
 cover: cover-keynote-7.jpg
 cover_mobile: cover-keynote-7-mobile.jpg
 frames: off
@@ -131,9 +132,14 @@ sections:
       frame: true
   - layout: full
     items:
-    - video: anim-coordinator
-      alt: Interview coordination animation
+    - embed: anim-workflow.html
+      poster: anim-workflow-poster.jpg
+      alt: 'Workflow animation: a hiring cadence of email, wait, SMS and booking that runs on its own'
       ratio: video
+      w: 1600
+      h: 900
+      bg: '#F5F7EF'
+      fit: contain
   - layout: feature
     class: stack3
     cols: 704fr 472fr
