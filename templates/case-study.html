@@ -80,7 +80,9 @@ if(embeds.length){
     const w=+el.dataset.w||1440, h=+el.dataset.h||900;
     const s=el.dataset.fit==='contain'?Math.min(r.width/w,r.height/h):Math.max(r.width/w,r.height/h);
     f.style.width=w+'px'; f.style.height=h+'px';
-    f.style.transform=`scale(${s}) translate(${(r.width/s-w)/2+p/s}px,${(r.height/s-h)/2+p/s}px)`;
+    // data-y: where a cover crop sits vertically (0 = keep top, .5 = centre, 1 = keep bottom).
+    const fy=el.dataset.y!==undefined?+el.dataset.y:.5;
+    f.style.transform=`scale(${s}) translate(${(r.width/s-w)/2+p/s}px,${(r.height/s-h)*fy+p/s}px)`;
     const po=el.querySelector('.embed-poster');
     if(po&&p){const pw=w*s,ph=h*s;Object.assign(po.style,{inset:'auto',left:(r0.width-pw)/2+'px',top:(r0.height-ph)/2+'px',width:pw+'px',height:ph+'px'});}
   };

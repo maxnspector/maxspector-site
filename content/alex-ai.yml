@@ -5,10 +5,7 @@ frames: off
 nav: standalone
 intro:
   eyebrow: Alex AI
-  statement: "Alex is an AI recruiter that interviews every applicant, takes over the busywork, and creates
-    space for hiring teams to build candidate relationships. I joined as founding designer and built the
-    brand and design systems: the mark, the type and color, the product components, imagery, and animation,
-    and everything sales and marketing puts in front of customers."
+  statement: "Alex is an AI recruiter that interviews every applicant, takes over the busywork, and creates space for hiring teams to build candidate relationships. I joined as founding designer and built the brand and design systems, styles, motion, and everything that goes in front of customers."
   meta:
   - label: Roles & Responsibilities
     body: "Brand identity, motion design, and collateral. Product design lead, design system in partnership
@@ -74,26 +71,6 @@ sections:
 - heading: Feature Animations
   subhead: DRAFT — Talent matching, interviews, verification and fraud detection.
   blocks:
-  - layout: grid-2
-    items:
-    - embed: anim-talent-match.html
-      poster: anim-talent-match-poster.jpg
-      alt: Talent match animation scoring past applicants from an ATS
-      ratio: video
-      w: 1440
-      h: 810
-      bg: '#F9FBF5'
-      fit: contain
-      pad: 0.07
-    - embed: anim-identity.html
-      poster: anim-identity-poster.jpg
-      alt: Identity verification animation checking authenticity, selfie match and network integrity
-      ratio: video
-      w: 1300
-      h: 680
-      bg: '#F9FBF5'
-      fit: contain
-      pad: 0.07
   - layout: grid-3
     items:
     - embed: anim-engage-instantly.html
@@ -116,18 +93,6 @@ sections:
       h: 620
   - layout: full
     items:
-    - embed: anim-candidate-blueprint.html
-      aspect_phone: 932/1462
-      poster: anim-candidate-blueprint-poster.jpg
-      alt: 'Candidate blueprint building up: resume screen, interview and verification'
-      aspect: 1200/750
-      w: 932
-      h: 1462
-      bg: '#082900'
-      fit: contain
-      pad: 0.04
-  - layout: full
-    items:
     - embed: anim-proctor.html
       poster: anim-proctor-poster.jpg
       alt: Cheat detection timeline flagging off-camera reading and a second voice
@@ -142,6 +107,39 @@ sections:
     - video: anim-coordinator
       alt: Interview coordination animation
       ratio: video
+  - layout: feature
+    class: stack3
+    cols: 704fr 472fr
+    height: 686
+    columns:
+    - - embed: anim-talent-match.html
+        poster: anim-talent-match-poster.jpg
+        alt: Talent match animation scoring past applicants from an ATS
+        ratio: video
+        w: 1440
+        h: 810
+        bg: '#F9FBF5'
+        fit: cover
+        span: 519
+        y: 0
+      - embed: anim-identity.html
+        poster: anim-identity-poster.jpg
+        alt: Identity verification animation checking authenticity, selfie match and network integrity
+        ratio: video
+        w: 1300
+        h: 680
+        bg: '#F9FBF5'
+        fit: contain
+        span: 555
+    - - embed: anim-candidate-blueprint.html
+        aspect_phone: 932/1462
+        poster: anim-candidate-blueprint-poster.jpg
+        alt: 'Candidate blueprint building up: resume screen, interview and verification'
+        w: 932
+        h: 1462
+        bg: '#082900'
+        fit: contain
+        pad: 0.04
 - heading: Product Imagery
   subhead: "DRAFT — Photography paired with product moments."
   blocks:

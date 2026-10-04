@@ -40,7 +40,8 @@ def media(it, slug):
         url = src(it['embed']) + (f'?speed={it["speed"]}' if it.get('speed') else '')
         attrs = (f'class="cs-img has-img is-embed{ratio}" data-embed="{url}" '
                  f'data-w="{w}" data-h="{h}" data-fit="{it.get("fit", "cover")}"'
-                 + (f' data-pad="{it["pad"]}"' if it.get('pad') else ''))
+                 + (f' data-pad="{it["pad"]}"' if it.get('pad') else '')
+                 + (f' data-y="{it["y"]}"' if 'y' in it else ''))
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
     if it.get('video'):
