@@ -13,7 +13,7 @@ intro:
   links_html: See more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
 lead:
   blocks:
-  - layout: bleed
+  - layout: full
     items:
     - embed: anim-end-to-end.html
       poster: anim-end-to-end-poster.jpg
@@ -25,7 +25,7 @@ lead:
       speed: 1.2
 sections:
 - heading: Brand Identity
-  subhead: "DRAFT — The mark, the palette and the typeface."
+  subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
   - layout: feature
     class: trio
@@ -34,29 +34,52 @@ sections:
     columns:
     - - img: identity-lockup-office.jpg
         alt: Alex lockup over a blurred office
-        labels: [Identity, '', Primary lockup, '']
+        labels:
+        - Identity
+        - ''
+        - Primary lockup
+        - ''
         tone: photo
     - - img: identity-mark-light.jpg
         alt: Alex mark, dark green on light
-        labels: [Identity, '', Mark — dark on light, '']
+        labels:
+        - Identity
+        - ''
+        - Mark — dark on light
+        - ''
       - img: identity-mark-dark.jpg
         alt: Alex mark, light on dark green
-        labels: [Identity, '', Mark — light on dark, '']
+        labels:
+        - Identity
+        - ''
+        - Mark — light on dark
+        - ''
         tone: dark
   - layout: grid-2
     gap: 0
     items:
     - img: palette-main.jpg
-      alt: "Alex main colors: main dark #082900 and main light #EEF2E1"
+      alt: 'Alex main colors: main dark #082900 and main light #EEF2E1'
       aspect: 1200/786
     - img: palette-support.jpg
-      alt: "Alex supporting colors: secondary gray and sage, three pastels, accent green and warning red"
+      alt: 'Alex supporting colors: secondary gray and sage, three pastels, accent green and warning red'
       aspect: 1200/786
   - layout: full
     items:
     - img: brand-plate-type-v4.jpg
       alt: DM Sans type specimen in four weights on dark green
       aspect: 2400/1356
+  - layout: full
+    items:
+    - img: billboard-subway.jpg
+      alt: Interview everyone, hire the best subway billboard
+      ratio: wide
+  - layout: grid-2
+    items:
+    - img: social-recruiter.jpg
+      alt: 'Social card: interview everyone, hire the best, over a recruiter at a laptop'
+    - img: social-candidate.jpg
+      alt: 'Social card: interview everyone, hire the best, over a candidate on the phone'
   - layout: grid-2
     items:
     - img: brand-art-a.jpg
@@ -69,7 +92,7 @@ sections:
     - img: brand-art-e.jpg
       alt: Brand art, a painted circle around the Alex mark
 - heading: Feature Animations
-  subhead: DRAFT — Talent matching, interviews, verification and fraud detection.
+  subhead: The key product concepts and value propositions, brought to life.
   blocks:
   - layout: grid-3
     items:
@@ -121,7 +144,8 @@ sections:
         bg: '#F9FBF5'
         fit: cover
         span: 519
-        y: 0
+        zoom: 0.88
+        cy: 0.43
       - embed: anim-identity.html
         poster: anim-identity-poster.jpg
         alt: Identity verification animation checking authenticity, selfie match and network integrity
@@ -131,6 +155,7 @@ sections:
         bg: '#F9FBF5'
         fit: contain
         span: 555
+        zoom: 0.88
     - - embed: anim-candidate-blueprint.html
         aspect_phone: 932/1462
         poster: anim-candidate-blueprint-poster.jpg
@@ -140,8 +165,8 @@ sections:
         bg: '#082900'
         fit: contain
         pad: 0.04
-- heading: Product Imagery
-  subhead: "DRAFT — Photography paired with product moments."
+- heading: Brand in the World
+  subhead: Product photography, environments, and the materials sales puts in front of customers.
   blocks:
   - layout: grid-3
     items:
@@ -159,20 +184,6 @@ sections:
     - img: product-scheduling.jpg
       alt: Candidate on a phone beside a stack of scheduled interview confirmations
       ratio: wide
-- heading: Brand in the World
-  subhead: "DRAFT — Out of home, events, environments and sales collateral."
-  blocks:
-  - layout: full
-    items:
-    - img: billboard-subway.jpg
-      alt: Interview everyone, hire the best subway billboard
-      ratio: wide
-  - layout: grid-2
-    items:
-    - img: social-recruiter.jpg
-      alt: "Social card: interview everyone, hire the best, over a recruiter at a laptop"
-    - img: social-candidate.jpg
-      alt: "Social card: interview everyone, hire the best, over a candidate on the phone"
   - layout: full
     items:
     - img: signage-entry.jpg

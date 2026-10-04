@@ -304,6 +304,8 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-img.contain img{object-fit:contain;}
 /* Page-level `frames: off` hides the hairline; `frame: true` keeps it on one piece. */
 .no-frames .cs-img.has-img{border-color:transparent;}
+/* No border at all when unframed: a transparent 1px border still leaves a gap the page shows through. */
+.no-frames .cs-img.has-img:not(.framed){border:0;}
 .no-frames .cs-img.has-img.framed{border-color:rgba(84,94,61,.14);}
 /* extra ratios beyond the base 1:1 / .wide 16:10 / .tall 3:4 */
 .cs-img.video{aspect-ratio:16/9;}
