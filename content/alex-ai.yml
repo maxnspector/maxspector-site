@@ -191,13 +191,8 @@ sections:
         pad: 0.04
         zoom: 0.95
 - heading: Brand in the World
-  subhead: Product photography, environments, and the materials sales puts in front of customers.
+  subhead: How Alex shows up for candidates and customers. Photography, office signage, and sales materials.
   blocks:
-  - layout: full
-    items:
-    - img: signage-entry.jpg
-      alt: Alex logo on a dark slatted wall in an office reception
-      ratio: wide
   - layout: grid-3
     items:
     - img: product-hire-faster.jpg
@@ -209,6 +204,11 @@ sections:
     - img: product-engage-instantly.jpg
       alt: Candidate on a train reading an Alex message
       ratio: tall
+  - layout: full
+    items:
+    - img: signage-entry.jpg
+      alt: Alex logo on a dark slatted wall in an office reception
+      ratio: wide
   - layout: full
     items:
     - img: sales-deck-overview.jpg
