@@ -119,6 +119,15 @@ sections:
       h: 620
   - layout: full
     items:
+    - embed: anim-verify-product.html
+      poster: verify-product-poster.jpg
+      alt: 'Verify: Alex breaks down a candidate''s fraud signals over video'
+      w: 1120
+      h: 747
+      aspect: 1120/747
+      fit: cover
+  - layout: full
+    items:
     - embed: anim-proctor.html
       poster: anim-proctor-poster.jpg
       alt: Cheat detection timeline flagging off-camera reading and a second voice

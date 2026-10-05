@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alex Verify product hero</title>
+<!--
+  Verify product hero for maxspector.com/alex.
+  Built from Max's alex.com Verify section (alex-homepage-section-animations-01/verify,
+  "GENERATED FILE" from homepage-sections-build/Verify-Section-Preview.html): same bubbles,
+  panel, beats, motion curve and loop logic, unchanged. What differs:
+    - Layout set to the four "Verify product hero" storyboards in Figma (1120 x 747):
+      his question at x172 (y332, rising to 238), Alex at x142 (329 -> 183),
+      panel 277 -> 163, risk read 461.
+    - Video: Product_video_verify_DT_01_opt.mp4 with the audio track removed, served locally.
+    - DM Sans served from the site instead of Google Fonts. Preview bench removed.
+-->
+<style>
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-600.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'DM Sans';src:url('/fonts/dmsans-700.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{
+    --col-left: 142px;      /* Alex and both panels */
+    --him-left: 172px;      /* he sits 30px right of her */
+    --col-w: 310px;
+    --m1-top: 238px;        /* his question, once it has risen */
+    --m2-top: 183px;        /* Alex's reply, once it has risen */
+    --panel-top: 163px;     /* the signals panel, once it has risen */
+    --risk-top: 461px;      /* the risk read */
+    --bubble-fill: rgba(112,62,18,.45);
+    --bubble-blur: 16px;
+    --panel-fill: rgba(255,255,255,.74);
+    --rule: #D7D9CF;
+    --ink: #082900;
+    --radius: 12px;
+    --pad-l: 24px;
+    --pad-r: 22px;
+    --slide: .8s;
+    --ease: cubic-bezier(.4,0,.1,1);
+    --xfade: .25s;
+  }
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;margin:0;padding:0;background:transparent}
+body{
+    font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:#112b29;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+.stage{position:relative; width:100%; height:100%; overflow:hidden; background:#e9e6e1}
+.stage video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity var(--xfade) linear}
+.stage video.on{opacity:1}
+.ui{position:absolute; inset:0; pointer-events:none; transition:opacity var(--xfade) linear}
+.ui.hushed{opacity:0}
+.el{
+    position:absolute; left:var(--col-left); width:var(--col-w);
+    border-radius:var(--radius);
+    opacity:0;
+    transition:
+      transform var(--slide) var(--ease),
+      opacity 300ms ease;
+  }
+.msg{
+    padding:24px var(--pad-r) 24px var(--pad-l);
+    background:var(--bubble-fill);
+    -webkit-backdrop-filter:blur(var(--bubble-blur));
+    backdrop-filter:blur(var(--bubble-blur));
+    color:#fff; font-size:16px; line-height:22px;
+  }
+.msg.labeled{
+    display:flex; flex-direction:column; align-items:flex-start; gap:12.75px;
+    padding:18px var(--pad-r) 24px var(--pad-l);
+  }
+.msg .sender{display:flex; align-items:center; gap:8px; height:18px;
+    font-size:14px; line-height:18px; font-weight:500; color:#fff}
+.msg .sender svg{display:block; width:18px; height:18px; flex:0 0 18px}
+.msg .body{margin:-5.35px 0 -5.65px}
+.msg .body b{font-weight:700}
+#msg1{left:var(--him-left); top:var(--m1-top)}
+#msg2{top:var(--m2-top)}
+#risk{top:var(--risk-top); padding-bottom:21px}
+#risk .stack{display:flex; flex-direction:column; align-items:flex-start; gap:24px; width:100%}
+.scale{position:relative; width:200px; height:20px}
+.scale .rail{position:absolute; left:0; top:7px; width:200px; height:1px; background:#fff}
+.scale .tick{position:absolute; top:0; width:1px; height:14px; background:#fff}
+.scale .lo, .scale .hi{position:absolute; top:5.59px; font-size:10px; line-height:22px;
+    font-weight:500; color:#fff}
+.scale .lo{left:7px}
+.scale .hi{right:7px}
+.scale .dot{position:absolute; left:0; top:3px; width:8px; height:8px; border-radius:50%;
+    background:var(--ink);
+    transform:translateX(0);
+    transition:transform var(--slide) var(--ease)}
+.panel{
+    display:flex; flex-direction:column; gap:18px;
+    padding:24px;
+    background:var(--panel-fill);
+    color:var(--ink);
+  }
+#panel{top:var(--panel-top)}
+.panel .divider{height:0; position:relative; flex:0 0 auto; width:262px}
+.panel .divider::after{content:''; position:absolute; left:0; right:0; top:-1px; height:1px;
+    background:var(--rule)}
+.sig{position:relative; flex:0 0 auto; width:100%; opacity:0;
+    transition:opacity 300ms ease, transform 300ms ease; transform:translateY(6px)}
+.sig.in{opacity:1; transform:translateY(0)}
+.sig .ic{position:absolute; left:0; transform:translateY(-50%)}
+.sig .ic svg{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%)}
+.sig .label{position:absolute; transform:translateY(-50%); font-size:16px; font-weight:600;
+    line-height:normal; white-space:nowrap}
+.sig .detail{position:absolute; transform:translateY(-50%); font-size:12px; font-weight:400;
+    line-height:normal; white-space:nowrap}
+.sig .mark{position:absolute; transform:translateY(-50%); width:18px; height:18px}
+.sig .mark svg{display:block; width:18px; height:18px}
+@media (prefers-reduced-motion: reduce) { :root { --slide: 0.001s !important; } }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <video id="v0" poster="/assets/alex-ai/verify-product-poster.jpg" muted playsinline preload="auto" src="/assets/alex-ai/verify-product.mp4"></video>
+  <video id="v1" muted playsinline preload="auto" src="/assets/alex-ai/verify-product.mp4"></video>
+  <div class="ui" id="ui"></div>
+</div>
+
+<script>
+(function(){
+  var ALEX_MARK =
+    '<svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<circle cx="9" cy="9" r="9" fill="#EEF2E1"/>' +
+    '<path d="M6.05476 8.67355C5.08596 8.67355 4.20732 9.23079 3.81006 10.0974L2.25 13.5H6.05476' +
+    'C7.41398 13.5 8.516 12.4195 8.516 11.0868C8.516 9.75408 7.41398 8.67355 6.05476 8.67355ZM11.2449 3.67386' +
+    'C10.8476 2.80723 9.969 2.25 8.9998 2.25C7.21434 2.25 6.02296 4.05587 6.7547 5.65259L9.69973 12.0761' +
+    'C10.097 12.9428 10.9756 13.5 11.9448 13.5H15.75L11.2449 3.67386Z" fill="#082900"/></svg>';
+
+  var S = 'stroke="#6B7F66" stroke-width="1.425" stroke-linecap="round" stroke-linejoin="round"';
+  var IC_MAIL = '<svg viewBox="0 0 16.7796 13.7085" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path d="M16.067 3.01566L9.16441 7.41238C8.93017 7.54843 8.66411 7.62009 8.39323 7.62009C8.12235 7.62009 7.85629 7.54843 7.62206 7.41238L0.71259 3.01566M2.24803 0.7125H14.5315C15.3795 0.7125 16.067 1.39994 16.067 2.24794V11.4606C16.067 12.3086 15.3795 12.996 14.5315 12.996H2.24803C1.40003 12.996 0.71259 12.3086 0.71259 11.4606V2.24794C0.71259 1.39994 1.40003 0.7125 2.24803 0.7125Z" ' + S + '/></svg>';
+  var IC_PHONE = '<svg viewBox="0 0 16.3143 16.3143" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path d="M9.52101 11.5579C9.67476 11.6285 9.84798 11.6446 10.0121 11.6036C10.1763 11.5626 10.3216 11.4669 10.424 11.3323L10.6883 10.9861C10.827 10.8012 11.0069 10.6511 11.2136 10.5477C11.4204 10.4444 11.6483 10.3905 11.8795 10.3905H14.1129C14.5078 10.3905 14.8865 10.5474 15.1657 10.8266C15.4449 11.1059 15.6018 11.4846 15.6018 11.8795V14.1129C15.6018 14.5078 15.4449 14.8865 15.1657 15.1657C14.8865 15.4449 14.5078 15.6018 14.1129 15.6018C10.5589 15.6018 7.15043 14.19 4.63738 11.6769C2.12432 9.16387 0.7125 5.75543 0.7125 2.20143C0.7125 1.80654 0.869369 1.42783 1.1486 1.1486C1.42783 0.869369 1.80654 0.7125 2.20143 0.7125H4.43483C4.82971 0.7125 5.20843 0.869369 5.48766 1.1486C5.76689 1.42783 5.92375 1.80654 5.92375 2.20143V4.43483C5.92375 4.66597 5.86994 4.89395 5.76656 5.10069C5.66319 5.30744 5.5131 5.48728 5.32818 5.62597L4.97977 5.88728C4.8431 5.99163 4.74677 6.14009 4.70714 6.30742C4.66752 6.47474 4.68704 6.65063 4.76239 6.8052C5.77984 8.87174 7.4532 10.543 9.52101 11.5579Z" ' + S + '/></svg>';
+  var IC_PIN = '<svg viewBox="0 0 15.6928 19.2595" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path d="M8.38234 18.368C10.041 16.9359 14.9803 12.2989 14.9803 7.84641C14.9803 5.95438 14.2287 4.13984 12.8908 2.80197C11.553 1.46411 9.73844 0.7125 7.84641 0.7125C5.95438 0.7125 4.13984 1.46411 2.80197 2.80197C1.46411 4.13984 0.7125 5.95438 0.7125 7.84641C0.7125 12.2989 5.65184 16.9359 7.31047 18.368C7.46499 18.4842 7.65308 18.547 7.84641 18.547C8.03973 18.547 8.22782 18.4842 8.38234 18.368Z" ' + S + '/>' +
+    '<path d="M7.84641 10.5216C9.32389 10.5216 10.5216 9.32389 10.5216 7.84641C10.5216 6.36893 9.32389 5.17119 7.84641 5.17119C6.36893 5.17119 5.17119 6.36893 5.17119 7.84641C5.17119 9.32389 6.36893 10.5216 7.84641 10.5216Z" ' + S + '/></svg>';
+  var IC_LI = '<svg viewBox="0 0 15.1145 14.2747" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<path d="M3.17198 1.58678C3.17177 2.00741 3.00447 2.41073 2.70689 2.70801C2.40931 3.00529 2.00583 3.17219 1.58519 3.17198C1.16456 3.17177 0.761246 3.00447 0.463964 2.70689C0.166683 2.40931 -0.000210117 2.00582 1.98535e-07 1.58519C0.000210514 1.16456 0.167507 0.761246 0.465086 0.463964C0.762665 0.166683 1.16615 -0.000210116 1.58678 1.98535e-07C2.00741 0.000210514 2.41073 0.167507 2.70801 0.465086C3.00529 0.762665 3.17219 1.16615 3.17198 1.58678ZM3.21956 4.3464H0.0475798V14.2747H3.21956V4.3464ZM8.23128 4.3464H5.07516V14.2747H8.19956V9.06471C8.19956 6.16236 11.9821 5.89274 11.9821 9.06471V14.2747H15.1145V7.98624C15.1145 3.09347 9.51593 3.27586 8.19956 5.67863L8.23128 4.3464Z" fill="#6B7F66"/></svg>';
+
+  var MK_OK = '<svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<circle cx="9" cy="9" r="9" fill="#009B58"/>' +
+    '<path d="M5.11204 8.62526L7.95398 11.4672L12.8885 6.53266" stroke="white" stroke-width="1.52984" stroke-linecap="round"/></svg>';
+  var MK_BAD = '<svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+    '<circle cx="9" cy="9" r="9" fill="#D07661"/>' +
+    '<path d="M5.851 5.851L12.149 12.149M12.149 5.851L5.851 12.149" stroke="white" stroke-width="1.53163" stroke-linecap="round"/></svg>';
+
+  var SIGNALS = [
+    { icon:IC_MAIL,  iw:15.354, ih:12.284, io:7.55, vw:16.7796, vh:13.7085,
+      label:'Email',    lx:29.86, lo:7.18,  detail:'In use since 2016 · Deliverable', dof:12.5,  mark:MK_OK,  mr:0.14, mo:7.5,  h:33 },
+    { icon:IC_PHONE, iw:14.889, ih:14.889, io:7.06, vw:16.3143, vh:16.3143,
+      label:'Phone',    lx:29.92, lo:6.78,  detail:'Mobile · US carrier',            dof:12.5,  mark:MK_OK,  mr:0.08, mo:7.5,  h:33 },
+    { icon:IC_PIN,   iw:14.268, ih:17.835, io:7.63, vw:15.6928, vh:19.2595,
+      label:'Location', lx:30,    lo:7.25,  detail:'Discrepancy · VPN/Proxy use',    dof:12.63, mark:MK_BAD, mr:0,    mo:7.63, h:33.25 },
+    { icon:IC_LI,    iw:15.114, ih:14.275, io:7.42, vw:15.1145, vh:14.2747,
+      label:'LinkedIn', lx:29.89, lo:7.05,  detail:'Joined 2018 · 548 connections',  dof:12.42, mark:MK_OK,  mr:0.11, mo:7.42, h:32.849 }
+  ];
+
+  // The Verify product hero's own beats, as approved for alex.com.
+  var BEATS = { b0:0.20, b1:2.20, b2:3.90, cascade:0.18, b3:8.35 };
+  var GAP   = 10;
+  var LONE  = 0.5;
+  var XFADE = 0.25;
+
+  // Distance each element sits below its resting spot before its own beat
+  // (read off the four product-hero storyboards).
+  var DROP = { m1:94, m2:146, panel:114 };
+  var DOT_X = 104;
+
+  var ui = document.getElementById('ui');
+  var vids = [document.getElementById('v0'), document.getElementById('v1')];
+  var active = 0, fading = false, lastT = 0;
+
+  function el(tag, cls, html){
+    var d = document.createElement(tag);
+    if (cls) d.className = cls;
+    if (html != null) d.innerHTML = html;
+    return d;
+  }
+
+  var msg1 = el('div','el msg');
+  msg1.id = 'msg1';
+  msg1.appendChild(el('div','body','I see there was a fraud note on this candidate. What was the issue?'));
+  ui.appendChild(msg1);
+
+  var msg2 = el('div','el msg labeled');
+  msg2.id = 'msg2';
+  msg2.appendChild(el('div','sender', ALEX_MARK + '<span>Alex</span>'));
+  msg2.appendChild(el('div','body','Here’s the breakdown:'));
+  ui.appendChild(msg2);
+
+  var panel = el('div','el panel');
+  panel.id = 'panel';
+  var sigRows = SIGNALS.map(function(s, i){
+    if (i) panel.appendChild(el('div','divider'));
+    var r = el('div','sig');
+    r.style.height = s.h + 'px';
+    var ic = el('span','ic', s.icon);
+    ic.style.cssText += 'width:' + s.iw + 'px;height:' + s.ih + 'px;top:calc(50% - ' + s.io + 'px)';
+    ic.querySelector('svg').style.cssText = 'width:' + s.vw + 'px;height:' + s.vh + 'px';
+    r.appendChild(ic);
+    var lb = el('span','label', s.label);
+    lb.style.cssText += 'left:' + s.lx + 'px;top:calc(50% - ' + s.lo + 'px)';
+    r.appendChild(lb);
+    var dt = el('span','detail', s.detail);
+    dt.style.cssText += 'left:' + s.lx + 'px;top:calc(50% + ' + s.dof + 'px)';
+    r.appendChild(dt);
+    var mk = el('span','mark', s.mark);
+    mk.style.cssText += 'right:' + s.mr + 'px;top:calc(50% - ' + s.mo + 'px)';
+    r.appendChild(mk);
+    panel.appendChild(r);
+    return r;
+  });
+  ui.appendChild(panel);
+
+  var risk = el('div','el msg labeled');
+  risk.id = 'risk';
+  risk.appendChild(el('div','sender', ALEX_MARK + '<span>Alex</span>'));
+  var stack = el('div','stack');
+  stack.appendChild(el('div','body','This is considered <b>moderate</b> risk.'));
+  var scale = el('div','scale',
+    '<span class="rail"></span>' +
+    '<span class="tick" style="left:0"></span>' +
+    '<span class="tick" style="left:100px"></span>' +
+    '<span class="tick" style="left:199px"></span>' +
+    '<span class="lo">Low</span><span class="hi">High</span>' +
+    '<span class="dot" id="riskdot"></span>');
+  stack.appendChild(scale);
+  risk.appendChild(stack);
+  ui.appendChild(risk);
+
+  var all = [msg1, msg2, panel, risk];
+
+  function ready(v){ return isFinite(v.duration) && v.duration > 1.5; }
+
+  function hide(n){
+    n.style.transition = 'none';
+    n.style.opacity = '0';
+    n.style.transform = 'translateY(120%)';
+    void n.offsetWidth;
+    n.style.transition = '';
+    n._in = false;
+  }
+
+  function resetDot(){
+    var d = document.getElementById('riskdot');
+    d.style.transition = 'none';
+    d.style.transform  = 'translateX(0)';
+    void d.offsetWidth;
+    d.style.transition = '';
+  }
+
+  function reset(){
+    all.forEach(hide);
+    sigRows.forEach(function(r){ r.classList.remove('in'); });
+    resetDot();
+  }
+
+  function place(n, y, entering){
+    if (!n._in){
+      n.style.transition = 'none';
+      n.style.transform = 'translateY(' + (y + entering) + 'px)';
+      n.style.opacity = '0';
+      void n.offsetWidth;
+      n.style.transition = '';
+      n._in = true;
+    }
+    n.style.transform = 'translateY(' + y + 'px)';
+    n.style.opacity = '1';
+  }
+
+  function drive(t){
+    var B = BEATS;
+
+    if (t >= B.b0 && t < B.b2){
+      place(msg1, t >= B.b1 ? 0 : DROP.m1, msg1.offsetHeight * LONE);
+    } else if (msg1._in && t >= B.b2){
+      msg1.style.transform = 'translateY(-' + DROP.m2 + 'px)';
+      msg1.style.opacity = '0';
+    } else if (t < B.b0 && msg1._in){
+      hide(msg1);
+    }
+
+    if (t >= B.b1 && t < B.b3){
+      place(msg2, t >= B.b2 ? 0 : DROP.m2, msg2.offsetHeight + GAP);
+    } else if (msg2._in && t >= B.b3){
+      msg2.style.transform = 'translateY(-' + DROP.panel + 'px)';
+      msg2.style.opacity = '0';
+    } else if (t < B.b1 && msg2._in){
+      hide(msg2);
+    }
+
+    if (t >= B.b2){
+      place(panel, t >= B.b3 ? 0 : DROP.panel, panel.offsetHeight + GAP);
+    } else if (panel._in){
+      hide(panel);
+    }
+    for (var i = 0; i < sigRows.length; i++){
+      sigRows[i].classList.toggle('in', t >= B.b2 + i * B.cascade);
+    }
+
+    if (t >= B.b3){
+      place(risk, 0, risk.offsetHeight + GAP);
+      document.getElementById('riskdot').style.transform = 'translateX(' + DOT_X + 'px)';
+    } else if (risk._in){
+      hide(risk);
+      resetDot();
+    }
+  }
+
+  function tick(){
+    var v = vids[active];
+    if (ready(v)){
+      var t = v.currentTime;
+      if (t < lastT - 0.15) reset();
+      lastT = t;
+      if (!fading && t >= v.duration - XFADE){
+        fading = true;
+        var other = vids[1 - active];
+        other.currentTime = 0;
+        other.pause();
+        other.classList.add('on');
+        v.classList.remove('on');
+        ui.classList.add('hushed');
+        setTimeout(function(){
+          v.pause();
+          active = 1 - active;
+          lastT = 0;
+          reset();
+          ui.style.transition = 'none';
+          ui.classList.remove('hushed');
+          void ui.offsetHeight;
+          ui.style.transition = '';
+          vids[active].play();
+          fading = false;
+        }, XFADE * 1000);
+      }
+      if (!fading) drive(t);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  vids[0].classList.add('on');
+  Promise.all(vids.map(function(v){
+    return new Promise(function(res){
+      if (ready(v)) return res();
+      v.addEventListener('loadedmetadata', res, { once:true });
+    });
+  })).then(function(){
+    return (document.fonts && document.fonts.ready) ? document.fonts.ready : null;
+  }).then(function(){
+    reset();
+    vids[0].play();
+    requestAnimationFrame(tick);
+  });
+})();
+</script>
+</body>
+</html>
