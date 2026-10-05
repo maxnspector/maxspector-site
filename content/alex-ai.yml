@@ -191,7 +191,7 @@ sections:
         pad: 0.04
         zoom: 0.95
 - heading: Brand in the World
-  subhead: How Alex shows up for candidates and customers. Photography, office signage, and sales materials.
+  subhead: How Alex shows up for candidates and customers. Photography, office signage, swag, and sales materials.
   blocks:
   - layout: grid-3
     items:
@@ -214,6 +214,11 @@ sections:
     - img: sales-deck-overview.jpg
       alt: Pages from the Alex sales deck laid out in a grid
       aspect: 2400/1560
+  - layout: full
+    items:
+    - img: swag-set.jpg
+      alt: Alex employee swag, a branded water bottle, a vibe hire cap, and pens on an embossed journal
+      aspect: 2400/991
   - layout: feature
     columns:
     - - img: one-sheet-digital.jpg
