@@ -149,6 +149,7 @@ sections:
       h: 900
       bg: '#F5F7EF'
       fit: contain
+      frame: true
   - layout: feature
     class: stack3
     cols: 704fr 472fr
@@ -192,6 +193,11 @@ sections:
 - heading: Brand in the World
   subhead: Product photography, environments, and the materials sales puts in front of customers.
   blocks:
+  - layout: full
+    items:
+    - img: signage-entry.jpg
+      alt: Alex logo on a dark slatted wall in an office reception
+      ratio: wide
   - layout: grid-3
     items:
     - img: product-hire-faster.jpg
@@ -205,9 +211,9 @@ sections:
       ratio: tall
   - layout: full
     items:
-    - img: signage-entry.jpg
-      alt: Alex logo on a dark slatted wall in an office reception
-      ratio: wide
+    - img: sales-deck-overview.jpg
+      alt: Pages from the Alex sales deck laid out in a grid
+      aspect: 2400/1560
   - layout: feature
     columns:
     - - img: one-sheet-digital.jpg
