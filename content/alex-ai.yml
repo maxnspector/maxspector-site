@@ -235,8 +235,11 @@ sections:
     - img: one-sheet-digital-2400.jpg
       alt: Alex one-sheet, digital edition
       aspect: 2400/1440
-  - layout: full
+  - layout: grid-2
     items:
     - img: coordinator-hero.jpg
       alt: Candidate smiling at her phone beside a stack of booked interview confirmations
-      aspect: 2240/1422
+      aspect: 1200/762
+    - img: verify-hero.jpg
+      alt: Candidate on her phone in an airport lounge beside a completed identity verification card
+      aspect: 1200/762
