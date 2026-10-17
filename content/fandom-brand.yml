@@ -33,152 +33,143 @@ css: |
   @media(max-width:520px){.cs-swatches .cs-labels{font-size:7px;padding:6px;letter-spacing:0}}
   .cs-html{container-type:inline-size;padding:7cqw;justify-content:space-between}
   .ty-label{font:400 max(10px,2.6cqw)/1.3 'Space Mono',monospace;display:flex;justify-content:space-between;gap:1em}
-  .ty-aa{font-size:46cqw;line-height:.9;letter-spacing:-.02em}
-  .ty-set{font-size:5.4cqw;line-height:1.35;overflow-wrap:anywhere}
-  .ty-rubik{font-family:'Rubik';font-weight:700}
-  .ty-rubik .ty-set{font-weight:400}
+  /* Type: one wide Rubik display, then the two secondary faces as short panels */
+  .ty-display{padding:4.5cqw}
+  .ty-display .ty-label{font-size:max(10px,1.1cqw)}
+  .ty-display .ty-main{display:flex;justify-content:space-between;align-items:flex-end;gap:4cqw}
+  .ty-display .ty-aa{font-family:'Rubik';font-weight:700;font-size:15.5cqw;line-height:.8;letter-spacing:-.02em;white-space:nowrap}
+  .ty-display .ty-weights{font-family:'Rubik';font-size:max(10px,1.45cqw);line-height:1.4;text-align:right;white-space:nowrap}
+  .ty-display .ty-set{font-family:'Rubik';font-weight:400;font-size:2.15cqw;line-height:1.3}
+  .ty-small{padding:5.5cqw}
+  .ty-small .ty-label{font-size:max(10px,2cqw)}
+  .ty-small .ty-aa{font-size:21cqw;line-height:.85;letter-spacing:-.01em;white-space:nowrap}
+  .ty-small .ty-set{font-size:3.3cqw;line-height:1.35;overflow-wrap:anywhere}
   .ty-grotesk{font-family:'Space Grotesk';font-weight:500}
   .ty-grotesk .ty-set{font-weight:400}
   .ty-mono{font-family:'Space Mono';font-weight:700}
-  .ty-mono .ty-aa{font-size:40cqw}
-  .ty-mono .ty-set{font-weight:400;font-size:4.6cqw}
+  .ty-mono .ty-aa{font-size:18cqw}
+  .ty-mono .ty-set{font-weight:400;font-size:2.9cqw}
+  /* Photo treatments: Max's original grid; the figures break out past the tiles */
+  .cs-img.pt{overflow:visible;padding:0;aspect-ratio:auto;background:none}
+  .cs-img.pt img{display:block;width:101.35%;max-width:none;height:auto;margin-left:-1.35%}
+  /* Sub-brand logos on white, each sized to the same visual area */
+  .cs-img.sb{padding:0;aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);background:none}
+  .sb-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+  .sb-cell img{height:auto;max-height:82%;object-fit:contain}
+  @media(max-width:520px){.cs-img.sb{grid-template-columns:repeat(2,1fr)}}
+  /* Phones: lockups keep a readable size, palette regroups, type stacks */
+  @media(max-width:860px){
+    .core-lockups .cs-img:first-child{--pad:9%!important}
+    .core-lockups .cs-img:last-child{--pad:12%!important}
+  }
+  @media(max-width:520px){
+    .core-palette .cs-swatches{grid-template-columns:repeat(12,1fr)!important;grid-template-rows:none!important;aspect-ratio:auto!important}
+    .core-palette .cs-swatch{grid-row:auto!important;grid-column:span 3;aspect-ratio:3/4}
+    .core-palette .cs-swatch:nth-child(-n+3){grid-column:span 4;aspect-ratio:1}
+    .ty-display{aspect-ratio:auto!important;gap:20px}
+    .ty-display .ty-label{font-size:10px}
+    .ty-display .ty-main{flex-direction:column;align-items:flex-start;gap:14px}
+    .ty-display .ty-aa{font-size:22cqw}
+    .ty-display .ty-weights{display:flex;flex-wrap:wrap;row-gap:2px;text-align:left;white-space:normal;font-size:12px}
+    .ty-display .ty-weights br{display:none}
+    .ty-display .ty-weights span{margin-right:.7em}
+    .ty-display .ty-set{font-size:3.6cqw}
+  }
   .gs-list{font-family:'Kanit'}
   .gs-list .ty-label{font-family:'JetBrains Mono';font-weight:700}
   .gs-list ul{list-style:none;margin:0;padding:0;font-weight:900;font-size:7.4cqw;line-height:1.08;text-transform:uppercase}
   .gs-list.is-not ul li{text-decoration:line-through;text-decoration-thickness:.09em;text-decoration-color:#FF2D17}
-
-lead:
-  ground: '#280033'
-  blocks:
-  - layout: full
-    items:
-    - video: motion-logo-reveal
-      alt: The Fandom logo animating in, flame mark cutting through the wordmark
-      ratio: video
 
 sections:
 - heading: Core Brand Elements
   subhead: Building blocks of the brand story. Logo, color, and typography.
   ground: white
   blocks:
+  - layout: full
+    items:
+    - video: motion-logo-reveal
+      alt: The Fandom logo animating in, flame mark cutting through the wordmark
+      ratio: video
+  - layout: asym-left
+    class: core-lockups
+    gap: 0
+    space: 96
+    items:
+    - img: logo-lockup-purple.svg
+      alt: Fandom primary lockup, purple wordmark with the flame mark, on cream
+      bg: '#F9EDD8'
+      pad: 15
+    - img: logo-stacked-b-cream.svg
+      alt: Fandom stacked lockup reversed in cream, on Fandom purple
+      bg: '#520044'
+      pad: 27
+  - layout: full
+    class: core-palette
+    space: 96
+    items:
+    - swatches:
+      - {name: Fandom Red, hex: '#FA005A', row: 1 / 3}
+      - {name: Fandom Yellow, hex: '#FFC500', row: 1 / 3}
+      - {name: Fandom Purple, hex: '#520044', row: 1 / 3}
+      - {name: Cream, hex: '#F9EDD8'}
+      - {name: Light Blue, hex: '#86D7DC'}
+      - {name: Cornflower, hex: '#6A68CE'}
+      - {name: Crimson, hex: '#9B004E'}
+      - {name: Dark Gray, hex: '#3A434B'}
+      - {name: Light Gray, hex: '#838D86'}
+      - {name: Purple Black, hex: '#280033'}
+      - {name: Brown, hex: '#C16900'}
+      cols: 2fr 2fr 2fr 1fr 1fr 1fr 1fr
+      rows: 1fr 1fr
+      alt: 'Fandom palette: lead colors red, yellow and purple, then eight secondaries'
+      aspect: 1200/440
+  - layout: full
+    space: 96
+    items:
+    - html: <div class="ty-label"><span>Rubik</span><span>Primary typeface · display and body</span></div><div class="ty-main"><div class="ty-aa">Aa Bb Cc</div><div class="ty-weights"><span style="font-weight:300">Light</span><br><span style="font-weight:400">Regular</span><br><span style="font-weight:500">Medium</span><br><span style="font-weight:600">SemiBold</span><br><span style="font-weight:700">Bold</span><br><span style="font-weight:800">ExtraBold</span><br><span style="font-weight:900">Black</span></div></div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&amp;*()</div>
+      html_class: ty-display
+      alt: Rubik, the primary typeface, in its seven weights
+      bg: '#FFC500'
+      ink: '#520044'
+      aspect: 1200/540
   - layout: grid-2
     gap: 0
     items:
-    - img: logo-lockup-purple.svg
-      alt: Fandom primary lockup, purple wordmark with the flame mark
-      ratio: wide
-      bg: '#F9EDD8'
-      pad: 16
-    - img: logo-lockup-cream.svg
-      alt: Fandom primary lockup reversed, cream wordmark on purple black
-      ratio: wide
-      bg: '#280033'
-      pad: 16
-  - layout: grid-3
-    gap: 0
-    items:
-    - img: logo-stacked-purple.svg
-      alt: Fandom stacked lockup on light blue
-      bg: '#86D7DC'
-      pad: 24
-    - img: logo-mark.svg
-      alt: The Fandom flame mark on purple
+    - html: <div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      html_class: ty-small ty-grotesk
+      alt: Space Grotesk, the headline typeface
       bg: '#520044'
-      pad: 26
-    - img: logo-stacked-b-cream.svg
-      alt: Fandom stacked lockup, alternate arrangement, on cornflower
-      bg: '#6A68CE'
-      pad: 22
-  - layout: full
-    items:
-    - swatches:
-      - {name: Fandom Red, hex: '#FA005A', column: span 4}
-      - {name: Fandom Yellow, hex: '#FFC500', column: span 4}
-      - {name: Fandom Purple, hex: '#520044', column: span 4}
-      - {name: Cream, hex: '#F9EDD8', column: span 3}
-      - {name: Light Blue, hex: '#86D7DC', column: span 3}
-      - {name: Cornflower, hex: '#6A68CE', column: span 3}
-      - {name: Crimson, hex: '#9B004E', column: span 3}
-      - {name: Dark Gray, hex: '#3A434B', column: span 3}
-      - {name: Light Gray, hex: '#838D86', column: span 3}
-      - {name: Purple Black, hex: '#280033', column: span 3}
-      - {name: Brown, hex: '#C16900', column: span 3}
-      cols: repeat(12,1fr)
-      rows: 2fr 1fr 1fr
-      alt: 'Fandom palette: lead colors red, yellow and purple, then eight secondaries'
-      aspect: 1200/640
-  - layout: grid-3
-    gap: 0
-    items:
-    - html: <div class="ty-label"><span>Rubik</span><span>Display & body</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
-      html_class: ty-rubik
-      alt: Rubik, the display and body typeface
-      bg: '#520044'
-      ink: '#F9EDD8'
-      ratio: tall
-    - html: <div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
-      html_class: ty-grotesk
-      alt: Space Grotesk typeface
-      bg: '#FFC500'
-      ink: '#520044'
-      ratio: tall
-    - html: <div class="ty-label"><span>Space Mono</span><span>Accents & data</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
-      html_class: ty-mono
+      ink: '#FFC500'
+      aspect: 600/360
+    - html: <div class="ty-label"><span>Space Mono</span><span>Accents and data</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      html_class: ty-small ty-mono
       alt: Space Mono, the accent and data typeface
-      bg: '#FA005A'
-      ink: '#F9EDD8'
-      ratio: tall
+      bg: '#F9EDD8'
+      ink: '#FA005A'
+      aspect: 600/360
 
 - heading: Visual Language
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
-  ground: '#F9EDD8'
+  ground: white
   blocks:
-  - layout: grid-4
-    gap: 0
-    items:
-    - img: cutout-black-widow.webp
-      alt: Black Widow in the Fandom duotone photo treatment
-      ratio: tall
-      bg: '#86D7DC'
-      pad: 8
-      align: bottom
-    - img: cutout-isabelle.webp
-      alt: Isabelle from Animal Crossing in the duotone treatment
-      ratio: tall
-      bg: '#520044'
-      pad: 10
-      align: bottom
-    - img: cutout-miles.webp
-      alt: Miles Morales mid-leap in the duotone treatment
-      ratio: tall
-      bg: '#FFC500'
-      pad: 6
-    - img: cutout-harry.webp
-      alt: Harry Potter in the duotone treatment
-      ratio: tall
-      bg: '#6A68CE'
-      pad: 10
-      align: bottom
   - layout: full
+    items:
+    - html: <img src="/assets/fandom-brand/vl-photo-treatments.jpg" alt="Black Widow, Isabelle, Miles Morales and Harry Potter in the Fandom duotone photo treatment, each on two brand colors" loading="lazy">
+      html_class: pt
+      alt: Fandom duotone photo treatments
+  - layout: full
+    space: 96
     items:
     - img: personas.jpg
       alt: The five Fandom personas, illustrated in the house style
       aspect: 1920/1265
-  - layout: grid-4
-    gap: 0
+  - layout: full
+    width: 792
+    space: 96
     items:
-    - {img: icon-mushroom.svg, alt: Mushroom icon, bg: '#86D7DC', pad: 20}
-    - {img: icon-lightsabers.svg, alt: Lightsabers icon, bg: '#280033', pad: 20}
-    - {img: icon-shield.svg, alt: Shield icon, bg: '#FA005A', pad: 20}
-    - {img: icon-delorean.svg, alt: Time-machine car icon, bg: '#6A68CE', pad: 20}
-    - {img: icon-rupee.svg, alt: Rupee icon, bg: '#86D7DC', pad: 20}
-    - {img: icon-snitch.svg, alt: Golden snitch icon, bg: '#280033', pad: 20}
-    - {img: icon-demogorgon.svg, alt: Demogorgon icon, bg: '#FA005A', pad: 20}
-    - {img: icon-tiara.svg, alt: Tiara icon, bg: '#6A68CE', pad: 20}
-    - {img: icon-pokeball.svg, alt: Pokeball icon, bg: '#86D7DC', pad: 20}
-    - {img: icon-d20.svg, alt: Twenty-sided die icon, bg: '#280033', pad: 20}
-    - {img: icon-portal.svg, alt: Portal gun icon, bg: '#FA005A', pad: 20}
-    - {img: icon-alien.svg, alt: Three-eyed alien icon, bg: '#6A68CE', pad: 20}
+    - img: vl-icons.jpg
+      alt: Fandom icon set in four brand-color columns
+      aspect: 1584/1234
 
 - heading: Motion Design
   subhead: Expressing the brand attributes of passion, celebration, and wonder.
@@ -205,33 +196,48 @@ sections:
 
 - heading: Social Content
   subhead: One system, many franchises. Data stories, character breakdowns, and explainers made for each fandom.
-  ground: '#86D7DC'
+  ground: '#280033'
   blocks:
-  - layout: grid-2
+  - layout: flush-pair
+    width: 792
     items:
     - {img: social-andor-empire.jpg, alt: "Andor social takeover: the Empire", ratio: portrait}
     - {img: social-andor-resistance.jpg, alt: "Andor social takeover: the Resistance", ratio: portrait}
   - layout: full
+    width: 792
+    space: 96
     items:
-    - {img: social-tomcruise.jpg, alt: Tom Cruise by the numbers, ratio: wide}
+    - {img: social-tomcruise.jpg, alt: Tom Cruise by the numbers, aspect: 2400/1500}
   - layout: grid-3
+    space: 96
     items:
     - {img: social-eddie.jpg, alt: Eddie Munson wiki data post, ratio: portrait}
     - {img: social-dumbledore.jpg, alt: Dumbledore facts post, ratio: portrait}
     - {img: social-johnwick-v2.jpg, alt: John Wick by the numbers, ratio: portrait}
-  - layout: grid-2
+  - layout: flush-pair
+    width: 792
+    space: 96
     items:
-    - {img: social-glass-onion-a.jpg, alt: Glass Onion data post, ratio: portrait}
-    - {img: social-glass-onion-b.jpg, alt: Glass Onion odds post, ratio: portrait}
-  - layout: full
+    - {img: social-glass-onion-a.jpg, alt: Glass Onion odds post, ratio: portrait}
+    - {img: social-glass-onion-b.jpg, alt: Glass Onion odds post, continued, ratio: portrait}
+  - layout: grid-4
+    gap: 0
+    space: 96
     items:
-    - {img: social-bond.jpg, alt: The Daniel Craig era of James Bond charted, ratio: video}
+    - {img: social-bond-s1.jpg, alt: "The Daniel Craig era of Bond, slide 1", ratio: portrait}
+    - {img: social-bond-s2.jpg, alt: "The Daniel Craig era of Bond, slide 2", ratio: portrait}
+    - {img: social-bond-s3.jpg, alt: "The Daniel Craig era of Bond, slide 3", ratio: portrait}
+    - {img: social-bond-s4.jpg, alt: "The Daniel Craig era of Bond, slide 4", ratio: portrait}
 
 - heading: Presentation Design
   subhead: The business of making people forget they’re viewing a slide deck.
-  ground: white
+  ground: '#6A68CE'
   blocks:
   - layout: full
+    items:
+    - {img: pres-template-collage.jpg, alt: Fandom presentation template system, title and section slides, aspect: 2400/1600}
+  - layout: full
+    space: 96
     items:
     - {img: pres-context-matters.jpg, alt: "Go-to-market deck: context matters", ratio: video}
   - layout: grid-2
@@ -247,15 +253,14 @@ sections:
   subhead: A diverse content brand that keeps games as its core while embracing other entertainment media.
   ground: '#00191D'
   blocks:
-  - layout: grid-2
-    gap: 0
+  - layout: full
     items:
-    - {img: gs-logo-darkblue.svg, alt: GameSpot primary logo in dark blue on yellow, ratio: wide, bg: '#FFC500', pad: 18}
-    - {img: gs-logo-yellow.svg, alt: GameSpot primary logo in yellow on blue, ratio: wide, bg: '#004158', pad: 18}
-    - {img: gs-mark-darkblue.svg, alt: GameSpot secondary mark, the circled G, ratio: wide, bg: '#F9EDD8', pad: 22}
-    - {img: gs-spot-on.webp, alt: Spot On sub-brand logo, ratio: wide, bg: '#FF2D17', pad: 14}
+    - video: gs-sizzle
+      alt: GameSpot brand sizzle, show packages and on-air graphics
+      ratio: video
   - layout: grid-2
     gap: 0
+    space: 96
     items:
     - html: <div class="ty-label"><span>GameSpot is…</span><span>01</span></div><ul><li>Informative</li><li>Accurate</li><li>Inclusive</li><li>Funny</li><li>Consistent</li><li>Passionate</li><li>Conversational</li><li>Respectful</li><li>Honest</li></ul>
       html_class: gs-list
@@ -281,56 +286,69 @@ sections:
       alt: 'GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream'
       aspect: 1200/360
   - layout: grid-3
+    space: 96
     items:
     - {img: gs-social-news.jpg, alt: "GameSpot news card: Blizzard's Overwatch team unionizes", ratio: portrait}
     - {img: gs-social-quote.jpg, alt: GameSpot quote card with Jeremy Renner, ratio: portrait}
     - {img: gs-social-news-2.jpg, alt: "GameSpot news card: Final Fantasy VII Remake trilogy coming to Switch 2", ratio: portrait}
-  - layout: grid-3
+  - layout: full
+    space: 96
     items:
-    - {img: gs-review-clair.jpg, alt: "GameSpot review card: Clair Obscur, 9 out of 10"}
-    - {img: gs-review-doom.jpg, alt: "GameSpot review card: Doom The Dark Ages, 8 out of 10"}
-    - {img: gs-review-savage.jpg, alt: "GameSpot review card: Revenge of the Savage Planet, 8 out of 10"}
+    - video: gs-review-anim
+      alt: GameSpot review score animation
+      ratio: video
+  - layout: full
+    width: 792
+    space: 96
+    items:
+    - {img: gs-homepage.jpg, alt: GameSpot homepage in the 2023 brand, aspect: 1584/1742}
 
-- heading: Show Formats & Sub-Brands
+- heading: Sub-Brands
+  id: show-formats-and-sub-brands
   subhead: A brand of brands has lots of… well, brands.
   ground: white
   blocks:
-  - layout: grid-3
+  - layout: full
     items:
-    - {img: show-fandom5.jpg, alt: Fandom 5 trivia show title card, ratio: wide}
-    - {img: show-irl.jpg, alt: Fandom IRL title card, ratio: wide}
-    - {img: show-playbreak.jpg, alt: Fandom PlayBreak title card, ratio: wide}
-  - layout: grid-4
-    gap: 0
-    items:
-    - {img: subbrand-fandom-20.svg, alt: Fandom 20 years of world building, bg: '#F9EDD8', pad: 14}
-    - {img: subbrand-fandom-fest.svg, alt: Fandom Fest, bg: '#280033', pad: 14}
-    - {img: subbrand-fandom-stars.svg, alt: Fandom Stars, bg: '#86D7DC', pad: 14}
-    - {img: subbrand-fandna.svg, alt: FanDNA, bg: '#F9EDD8', pad: 20}
-    - {img: subbrand-global-sales.svg, alt: Fandom Global Sales Meeting, bg: '#FFC500', pad: 14}
-    - {img: subbrand-aanhpi.svg, alt: AANHPI Month, bg: '#520044', pad: 12}
-    - {img: subbrand-french.svg, alt: Celebrating French Community, bg: '#280033', pad: 14}
-    - {img: subbrand-fest-2022.svg, alt: Fandom Fest 2022, bg: '#9B004E', pad: 14}
+    - html: '<div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 Years of World Building" style="width:87.8%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:59.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:35.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:78.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:71.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" style="width:70.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:60.5%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:68.1%" loading="lazy"></div>'
+      html_class: sb
+      alt: Fandom sub-brand logos
 
 - heading: Events
-  subhead: The brand in the room. Shown here, the Fandom party at San Diego Comic-Con 2023.
-  ground: '#280033'
+  subhead: Fandom has had a prominent presence in major entertainment and gaming events for over a decade.
+  ground: white
   blocks:
   - layout: full
     items:
-    - {img: events-key-art.jpg, alt: Fandom Party key art, presented by Paramount Plus, ratio: video}
-  - layout: bleed
+    - {img: ev-sdcc-hero.jpg, alt: Fandom Party at San Diego Comic-Con 2023 key art, presented by Paramount Plus, ratio: video}
+  - layout: grid-2
     items:
-    - {img: events-welcome-wall.jpg, alt: The welcome wall at the Fandom party, ratio: photo}
-  - layout: grid-3
+    - {img: ev-sdcc-wall.jpg, alt: The welcome wall design for the Fandom party}
+    - {img: ev-sdcc-04.jpg, alt: Guests at the Fandom party under the neon flame mark}
+  - layout: grid-2
     items:
-    - {img: events-lanyard.jpg, alt: A guest in costume holding up her Fandom party lanyard, ratio: tall}
-    - {img: events-passes.jpg, alt: Party passes fanned out on a table, ratio: tall}
-    - {img: events-guests.jpg, alt: Two guests on the stairs with their passes, ratio: tall}
-  - layout: flush-pair
-    items:
-    - {img: events-stairs.jpg, alt: Stairs painted with For the Love of Fans}
-    - {img: events-letters.jpg, alt: Giant For the Love of Fans letters on the terrace}
+    - {img: ev-sdcc-grid-b.jpg, alt: "Fan Central Arcade signage, pillows and party graphics"}
+    - {img: ev-sdcc-grid-a.jpg, alt: Stairs painted with For the Love of Fans}
   - layout: full
     items:
-    - {img: events-arcade.jpg, alt: The Fan Central Arcade neon sign, ratio: photo}
+    - {img: ev-sdcc-03.jpg, alt: A guest in costume holding up her 2023 party lanyard, aspect: 2117/1814}
+  - layout: grid-2
+    items:
+    - {img: ev-sdcc-05.jpg, alt: Giant For the Love of Fans letters on the terrace}
+    - {img: ev-sdcc-06.jpg, alt: A guest wearing a Fandom cap}
+  - layout: grid-2
+    items:
+    - {img: ev-sdcc-08.jpg, alt: Guests at the Fandom step-and-repeat, ratio: photo}
+    - {img: ev-sdcc-09.jpg, alt: Headline act on the rooftop stage, ratio: photo}
+  - layout: grid-2
+    space: 96
+    items:
+    - {img: ev-nycc-09.jpg, alt: Fandom Party New York 2024 key art}
+    - {img: ev-20-year.jpg, alt: Fandom 20 Years of World Building party graphics}
+  - layout: full
+    items:
+    - {img: ev-nycc-bg.jpg, alt: Fandom Party pattern, aspect: 1920/801}
+  - layout: grid-2
+    items:
+    - {img: ev-nycc-12.jpg, alt: Happy Birthday Fandom graphic, ratio: photo}
+    - {img: ev-nycc-13.jpg, alt: A guest at the Fandom party photo wall, ratio: photo}

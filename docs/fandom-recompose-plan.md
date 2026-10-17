@@ -14,10 +14,10 @@ Build rule: rebuild brand elements live (SVG logos, real type, HTML swatches) in
 
 1. **Lead animation** — the Fandom logo animation starts the work, right after the written intro. Size open (column width or smaller).
 2. **Core Brand Elements** — keep, rebuild from source: lockup, mark, wordmark (SVG), type specimens as live Rubik / Space Mono / Space Grotesk, palette as live swatches.
-3. **Duotone character grid** — keep some. Group with photo treatments, iconography and illustration styles (one section or several: open). Rebuild with transparent cutouts on live colour panels.
+3. **Duotone character grid** — keep some. Group with photo treatments, iconography and illustration styles (one section or several: open). Rebuild with transparent cutouts on live color panels.
 4. **Collage illustrations** (RuPaul/Pikachu, Isabelle diagonal, etc.) — on the fence; at most one or two.
 5. **Persona illustration** — keep as is, one image, column or full width (open).
-6. **Icons + badges** — split them. Icons keep (live colour columns, possibly full width). The three We Build / Bring / Serve badges on the fence; separate files either way.
+6. **Icons + badges** — split them. Icons keep (live color columns, possibly full width). The three We Build / Bring / Serve badges on the fence; separate files either way.
 7. **Motion Design** — keep "For the Love of Fans" and the mark animation. Logo-reveal stills (wordmark + four Loki frames) on the fence. Drop the three small ones (Top 100 title, lower third, mark on purple). Persona network video: keep part of it, edit by timestamps (Claude can cut and join; Max reviews). Add "By the Numbers" (from the old Fandom Family Brands page).
 8. **Social Content** — keep, trimmed. Cut the Wolverine / Horizon / Daredevil row. Keep the John Wick, Knives Out, February Series trio and the Bond panel.
 9. **Presentation Design** — keep and grow; bring in pieces from the old standalone presentation page (All Hands 2025, 2024 Look Ahead, Reach Fans, How Should We Work Together 2025, Context Matters). Slides as individual images, full-width singles mixed with pairs.
@@ -40,7 +40,7 @@ Build rule: rebuild brand elements live (SVG logos, real type, HTML swatches) in
 - GameSpot: guide material only, or also the website review layout, the four social cards and the "Spot On" sub-brand?
 - Campaign logos: join "Show Formats & Sub-Brands" as one brand-of-brands section, or stand alone?
 - Events: SDCC as hero with a framing subhead, or add one or two pieces from NYCC / Pyrkon?
-- Section grounds for every section (white, cream, or a Fandom palette colour).
+- Section grounds for every section (white, cream, or a Fandom palette color).
 
 ## Decisions (2026-10-17, second session)
 
@@ -62,7 +62,7 @@ Size rule: full-width pieces about 2900px wide, column-width about 2400px. Every
 
 **In hand**
 - Fandom logo SVGs (lockup, stacked, logotype, mark) and `BytheNumbers_0314_Intro.mp4` — added by Max.
-- Fonts: Rubik, Space Mono, Space Grotesk + OFL licence (`01-core/fonts`).
+- Fonts: Rubik, Space Mono, Space Grotesk + OFL license (`01-core/fonts`).
 - Palette: `01-core/fandom-palette.md` (3 lead + 8 secondary, from guidelines pp. 21–22). Lead: Red #FA005A, Yellow #FFC500, Purple #520044.
 - 2022 brand guidelines PDF (`01-core`).
 - Cutouts: Black Widow (996px), Isabelle (592px), Harry (521px, too small).
@@ -70,7 +70,7 @@ Size rule: full-width pieces about 2900px wide, column-width about 2400px. Every
 - Five persona characters full size + icons; three values badges (1000×1439).
 - Social: Glass Onion 1A/1B, February Series, Bond S1–S4.
 - Slides rendered at 2880 from the GP decks: Reach Fans, How Should We Work Together 2025.
-- GameSpot: 8 logo SVGs, brand guide PDF, colours PDF.
+- GameSpot: 8 logo SVGs, brand guide PDF, colors PDF.
 - AANHPI lockup SVG.
 - 10 SDCC 2023 party photos including the welcome wall.
 
@@ -85,9 +85,22 @@ Size rule: full-width pieces about 2900px wide, column-width about 2400px. Every
 
 ## Build v2 (2026-10-17, second session)
 
-Built from the decisions above. `content/fandom-brand.yml` rewritten (old long version kept at `docs/fandom-brand-v1-backup.yml`). Sections: lead logo reveal (video) · Core Brand Elements (SVG lockups on colour panels, live palette, live type panels in Rubik / Space Grotesk / Space Mono) · Visual Language (duotone cutouts on colour panels, personas at column width, 12 icons in four colour columns) · Motion Design (For the Love of Fans, persona network 0:00-0:19.6, mark pattern, By the Numbers; all silent) · Social Content (Andor pair, Tom Cruise, Eddie/Dumbledore/John Wick, Glass Onion pair, Bond) · Presentation Design (Context Matters, All Hands pair, Reach Fans + Work Together) · GameSpot (logos, Spot On, is / is-not lists set live in Kanit + JetBrains Mono, palette, 3 news/quote cards, 3 review cards) · Show Formats & Sub-Brands (3 title cards, 8 SVG logos on panels) · Events (SDCC 2023: key art, welcome wall full bleed, 3 portraits, stairs + letters, arcade neon).
-build.py additions: `bg:` / `pad:` / `align: bottom` on images (colour panels), `html:` items with `html_class:` / `ink:` (live type), page-level `css:`. Fonts self-hosted in `assets/fandom-brand/fonts` (woff2, subset).
+Built from the decisions above. `content/fandom-brand.yml` rewritten (old long version kept at `docs/fandom-brand-v1-backup.yml`). Sections: lead logo reveal (video) · Core Brand Elements (SVG lockups on color panels, live palette, live type panels in Rubik / Space Grotesk / Space Mono) · Visual Language (duotone cutouts on color panels, personas at column width, 12 icons in four color columns) · Motion Design (For the Love of Fans, persona network 0:00-0:19.6, mark pattern, By the Numbers; all silent) · Social Content (Andor pair, Tom Cruise, Eddie/Dumbledore/John Wick, Glass Onion pair, Bond) · Presentation Design (Context Matters, All Hands pair, Reach Fans + Work Together) · GameSpot (logos, Spot On, is / is-not lists set live in Kanit + JetBrains Mono, palette, 3 news/quote cards, 3 review cards) · Show Formats & Sub-Brands (3 title cards, 8 SVG logos on panels) · Events (SDCC 2023: key art, welcome wall full bleed, 3 portraits, stairs + letters, arcade neon).
+build.py additions: `bg:` / `pad:` / `align: bottom` on images (color panels), `html:` items with `html_class:` / `ink:` (live type), page-level `css:`. Fonts self-hosted in `assets/fandom-brand/fonts` (woff2, subset).
 Grounds (proposed, for Max to review): lead #280033, Core white, Visual #F9EDD8, Motion #520044, Social #86D7DC, Presentation white, GameSpot #00191D, Brands white, Events #280033.
 Verified by render at 1440 and 390: 65 images all load, 0px horizontal overflow, all brand fonts load. Videos not playback-tested (container Chromium has no H.264); all five decode with ffmpeg.
 Draft copy for Max: Visual Language subhead, Social subhead, Events heading + subhead; Core subhead trimmed; Show Formats subhead cut to its first sentence. Eyebrow changed to "Fandom".
 Open: collage illustration pick (none placed); dropped from the old page: anthem film, State of Fandom, Co-Branded, Custom Content, Office, Platform (campaign pieces belong to the new Campaigns collection).
+
+## Build v3 (2026-10-17, third session — Max's review of v2)
+
+Max's feedback on v2: art sat on colors Claude picked instead of the old site's; cutouts were dropped in uncropped and unscaled; icon spacing broken; social mashed together; the presentation template collage was dropped without asking; GameSpot led with logos (the logo was never redesigned — "a fresh coat of paint"); show-format title cards were never asked for; sub-brand panel colors arbitrary; French badge SVG had live text (fixed file from Max); events picks poor. Standing rules from this round: keep art on the background it had on the old site; American spelling only.
+Rebuilt from the old site (maxspector.com/project/fandom-brand and /project/events) and Max's original files in Linked Art:
+- Core: logo reveal video first (on white, dark lead section removed) · primary lockup on cream at size + stacked reversed lockup smaller on purple (asym) · palette as one composed block (3 primaries tall, 8 secondaries 4x2) · Rubik as one wide display panel on yellow, Space Grotesk (purple) and Space Mono (cream) as short panels below.
+- Visual Language on white: Max's original photo-treatment grid (Photo_treatments_01.png, figures breaking out) · personas · original icon columns (Icons_group_04a.png) at 792 wide.
+- Social on purple black (old ground): Andor and Glass Onion as flush pairs at 792, Tom Cruise at 792, Eddie / Dumbledore / John Wick trio, Bond as its four carousel slides flush; 96px between groups.
+- Presentation on cornflower (old ground) with the template collage restored first.
+- GameSpot: sizzle video first, is / is-not, palette (kept), news / quote / news cards, review animation, homepage at 792. Logos and Spot On removed.
+- Sub-Brands (title cards removed): eight logos on white, sized to equal visual area; French badge replaced with Max's fixed file. Section id kept as show-formats-and-sub-brands.
+- Events on white: old SDCC sequence + the new Events folder (NYCC 2024 / 20-year group after a gap). Not used: SDCC_01/02 (near-duplicate lanyards), SDCC_07 (repeats 03).
+build.py: blocks take `width:` (centered, narrower) and `space:` (gap above). British spellings fixed repo-wide.

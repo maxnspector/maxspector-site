@@ -48,7 +48,7 @@ def media(it, slug):
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
     if it.get('swatches'):
-        # Colour palette drawn as live HTML (Max 2026-10-16), so the names and hex
+        # Color palette drawn as live HTML (Max 2026-10-16), so the names and hex
         # values use the same corner-label type, size and 20px inset as the brand
         # plates. `cols` / `rows` are CSS grid tracks; each swatch takes
         # name, hex, optional col/row ("1 / 3"), and kind: tile (hex bottom-left,
@@ -82,7 +82,7 @@ def media(it, slug):
         hc = (' ' + it['html_class']) if it.get('html_class') else ''
         return (f'      <div class="cs-img has-img cs-html{hc}{ratio}" style="{st}" role="img" '
                 f'aria-label="{esc(it.get("alt", ""))}">{it["html"]}</div>')
-    # `bg:` paints a colour panel behind the art (logos, cutouts, icons); `pad:` insets
+    # `bg:` paints a color panel behind the art (logos, cutouts, icons); `pad:` insets
     # the art inside it (percent of the frame) and switches it to fit-not-crop.
     # `align: bottom` sits a cutout on the panel's bottom edge.
     sty = []
@@ -154,6 +154,12 @@ def block(b, slug):
             style = (style + ';' if style else '') + f'--cols:{b["cols"]}'
         if 'gap' in b:
             style = (style + ';' if style else '') + f'gap:{b["gap"]}px'
+        # `width: 792` narrows one block and centers it in the column (Max 2026-10-17:
+        # loud pieces sit smaller, with air round them). `space: 96` sets the gap above it.
+        if b.get('width'):
+            style = (style + ';' if style else '') + f'width:100%;max-width:{b["width"]}px;justify-self:center'
+        if 'space' in b:
+            style = (style + ';' if style else '') + (f'margin-top:clamp({min(b["space"], 40)}px,{b["space"] / 14.4:.2f}vw,{b["space"]}px)')
         c = f'{cls}{extra_cls} reveal'
         st = f' style="{style}"' if style else ''
         return f'    <div class="{c}"{st}>\n{inner}\n    </div>'
@@ -196,7 +202,7 @@ def block(b, slug):
 #   white | cream | dark | any hex such as "#1B2A3A"
 # Leave it out and the section keeps alternating cream/white down the page.
 # The alternation is worked out here rather than in CSS, so a section that
-# names its own colour simply sits out and the rest stay in step.
+# names its own color simply sits out and the rest stay in step.
 # _alt['n'] counts only the auto sections: the intro is 0 (cream), so the
 # first auto media section is 1 (white) and the division after the intro holds.
 _alt = {'n': 0, 'mode': 'white', 'unnamed': 0}

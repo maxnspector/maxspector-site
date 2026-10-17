@@ -197,9 +197,9 @@ if(embeds.length){
     // data-zoom shrinks (<1) or enlarges the fitted animation.
     const s=(el.dataset.fit==='contain'?Math.min(r.width/w,r.height/h):Math.max(r.width/w,r.height/h))*(+el.dataset.zoom||1);
     f.style.width=w+'px'; f.style.height=h+'px';
-    // data-y: where a cover crop sits vertically (0 = keep top, .5 = centre, 1 = keep bottom).
+    // data-y: where a cover crop sits vertically (0 = keep top, .5 = center, 1 = keep bottom).
     const fy=el.dataset.y!==undefined?+el.dataset.y:.5;
-    // data-cy: the animation's content centre (0-1 of its height) is placed at the frame's centre.
+    // data-cy: the animation's content center (0-1 of its height) is placed at the frame's center.
     const ty=el.dataset.cy!==undefined?(r.height/2)/s-(+el.dataset.cy)*h:(r.height/s-h)*fy;
     const tx=el.dataset.cx!==undefined?(r.width/2)/s-(+el.dataset.cx)*w:(r.width/s-w)/2;
     f.style.transform=`scale(${s}) translate(${tx+p/s}px,${ty+p/s}px)`;

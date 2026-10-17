@@ -7,6 +7,16 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 (evening) — Fandom page rebuilt web-first
+
+All twelve recompose questions settled with Max, the asset folder checked, then the page rebuilt from a new `content/fandom-brand.yml` (old long version kept in `docs/fandom-brand-v1-backup.yml`). Nine parts: logo reveal lead, Core Brand Elements, Visual Language, Motion Design, Social Content, Presentation Design, GameSpot, Show Formats & Sub-Brands, Events (SDCC 2023). 65 images, 5 silent videos.
+
+Brand elements are live, not saved-out plates: SVG logos on color panels, the palette as HTML tiles, type panels set in Rubik / Space Grotesk / Space Mono, and the GameSpot is / is-not lists in Kanit + JetBrains Mono. Fonts are subset woff2 in `assets/fandom-brand/fonts`. `build.py` gained `bg` / `pad` / `align` on images, `html` items (`html_class`, `ink`) and a page-level `css` block; documented in `content/README.md`.
+
+Verified at 1440 and 390: every image loads, no sideways scroll, all brand fonts load. Video playback not tested (test browser lacks H.264); all clips decode in ffmpeg. Not pushed. Details and the review list are in the "Build v2" section of `docs/fandom-recompose-plan.md`.
+
+---
+
 ## 2026-10-17 (later) — Fandom page recompose: walkthrough done, assets gathering
 
 Max walked through the live Fandom pages section by section to recompose the case study in a contemporary, web-first way (reference: kylebmacy.com/Addison-AI). Every keep/cut call, the open questions and the asset status are in `docs/fandom-recompose-plan.md`. Headlines: Core Platform and Office Branding cut; GameSpot, campaign logos, By the Numbers and the SDCC party (broadened to events) come in; brand elements get rebuilt live from SVGs, real fonts and HTML swatches.
@@ -151,7 +161,7 @@ render-checked, none committed yet.
 
 **Feature Animations.** The Verify product hero is in at full column width,
 between the trio and cheat detection: `anim-verify-product.html` plus
-`verify-product.mp4` (Max's newer optimised cut, audio track stripped, 1.9 MB).
+`verify-product.mp4` (Max's newer optimized cut, audio track stripped, 1.9 MB).
 The chat overlay is adapted from Max's alex.com homepage Verify module and
 laid out to the four "Verify product hero" storyboards. All four stages were
 checked in sequence using a temporary WebM copy, because the test browser can't
@@ -192,28 +202,28 @@ at 1440 or 390; on a phone the two squares stack rather than squeezing.
 
 **Backgrounds are now named per section.** `ground:` on a section takes
 `white`, `cream`, `dark`, or any hex such as `"#1B2A3A"`. Type on a custom
-colour is set light or dark automatically by measuring the colour's
+color is set light or dark automatically by measuring the color's
 brightness. The hex must be quoted or YAML reads the `#` as a comment.
 
 **The convention, from Max.** On the existing maxspector.com every section of
 a case study has a different background, and that carries over: three
-categories — white, brand cream, or a colour matching the case study. The
+categories — white, brand cream, or a color matching the case study. The
 intro under the cover is always cream. The page itself is white, and each
 section paints over it. A section with no `ground:` falls back to white, but
 that is a fallback, not a choice — on a finished page every section names one.
 The build now prints how many are still falling back.
 
 **A stale assumption, corrected.** Claude asked Max to choose a default while
-describing the cream/white alternation as current behaviour. It wasn't: on
+describing the cream/white alternation as current behavior. It wasn't: on
 10-04 a CSS rule had been added forcing every light section white, with the
 intro pinned to cream. The question was built on a picture twelve days out of
 date. That 10-04 decision has been kept, but it is now decided in `build.py`
 and written onto each section rather than forced in CSS — so a named ground
 is never overridden. `grounds: alternate` at the top of a content file brings
-the alternation back for that page; the layout catalogue is set that way.
+the alternation back for that page; the layout catalog is set that way.
 
 **Still to assign:** Fandom Brand has 9 of 11 sections with no ground, Alex
-has 4 of 5. Those need Max's colour choices before either page follows the
+has 4 of 5. Those need Max's color choices before either page follows the
 convention.
 
 **Housekeeping:** a stale `.git/HEAD.lock` blocked a commit again. Claude
@@ -238,7 +248,7 @@ still starts with "DRAFT —".
 
 **Brand plates.** Five new plates: the primary lockup, the mark light-on-dark
 and dark-on-light, the palette, and a DM Sans specimen. They're built from the
-production SVGs in Core Assets and the nine palette colours read exactly from
+production SVGs in Core Assets and the nine palette colors read exactly from
 Figma: #082900, #EEF2E1, #6B7F66, #B7C7A7, #D3E1C9, #DFD7C0, #BAD1C0, #009B58
 and #C92626. The neutral 50–950 scale was not read, so it isn't on the page.
 DM Sans was pulled out of the fonts embedded in the hero animation file.
@@ -254,7 +264,7 @@ MP4s avoids the unpkg dependency the HTML versions of those pieces have.
 Assets, Brand Visual Style, Portfolio Files). Five exist only in Figma, and
 Max exported those himself: the scheduling phone shot, the two square social
 cards, and the two blurred-office logo frames. Claude resizes and compresses
-everything on its end, so Max doesn't need to optimise exports first.
+everything on its end, so Max doesn't need to optimize exports first.
 
 **Figma limit.** Max's Starter plan caps Figma MCP calls, and the cap was hit
 mid-session. Prefer library sources over Figma pulls. (Max upgraded his plan
@@ -291,7 +301,7 @@ straight from the Finder, no server needed.
 
 **The dependency split.** 22 are completely self-contained and can go into a
 page today. 16 pull a script from unpkg.com, and the work network blocks that
-host, so those render as a flat background colour and nothing else — the grey
+host, so those render as a flat background color and nothing else — the gray
 panels on the sheets. They are not broken; they just cannot draw without the
 library. Before any of them can ship, that library has to be baked into the
 file. The affected pieces are the four Accelerate Hiring ones (Engage
@@ -363,11 +373,11 @@ something playing behind the title.
 **Two bugs found and fixed while verifying.** Image frames were missing
 `position: relative`, so anything layered inside one was anchored to the page
 instead of the frame. And a later background rule was overriding the
-animation's own ground colour. Both were pre-existing; neither had shown up
+animation's own ground color. Both were pre-existing; neither had shown up
 until an embed exercised them.
 
 **Also.** A file name starting with `/` is now taken as a literal path, so one
-page can borrow art from another page's folder. The layout catalogue gained an
+page can borrow art from another page's folder. The layout catalog gained an
 animation example, and the content README documents the new fields.
 
 Verified at 1440 and 390: no horizontal overflow, no console errors, the
@@ -381,18 +391,18 @@ suppresses it entirely.
 **Built**
 
 - Content-first build system — YAML content files compile to static HTML
-- The Fandom Brand case study — 11 sections, 81 images, 5 videos, built
-  deliberately long so it can be cut down
+- Fandom case study — rebuilt web-first 2026-10-17: 9 parts, 65 images,
+  5 videos, live brand elements (not yet reviewed or pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
-- Layout catalogue — every arrangement on one page for reference, including
-  the six flush layouts and a custom-colour section
-- Section grounds named per section: white, cream, brand dark, or any colour
+- Layout catalog — every arrangement on one page for reference, including
+  the six flush layouts and a custom-color section
+- Section grounds named per section: white, cream, brand dark, or any color
 - Scroll motion, hover, and the coral dropdown nav
 
 **Next session starts here**
 
-1. **Fandom recompose.** Open `docs/fandom-recompose-plan.md`. Check what Max has added to the Case Study Files / Fandom folder, flag anything too small, then walk him through the open questions before building.
+1. **Fandom review.** The page was rebuilt 2026-10-17 evening (see "Build v2" in `docs/fandom-recompose-plan.md`). Max pushes, reviews on staging, and gives feedback: section grounds, draft subheads, collage pick, anthem film.
 2. **Alex AI:** homepage description still a DRAFT placeholder (Max's copy); section grounds for Alex's 4 sections; clear the "DRAFT —" subheads.
 3. **Collections:** name and build Client Brands and Campaigns; fill the slideshow with real slides linked to sections.
 4. **Push** the uncommitted homepage, menu, slideshow and build.py changes when ready (staging is noindex, safe to push).

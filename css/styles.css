@@ -171,7 +171,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 /* Case-study ROW — full-bleed, clickable, #0D110A hover overlay */
 .cs-row{display:block;position:relative;padding:44px 0;color:inherit;}
 /* hover overlay sits BEHIND the row content (z-index 0) so it darkens only the
-   background field — title, description and real images stay at full colour */
+   background field — title, description and real images stay at full color */
 .cs-row::after{content:"";position:absolute;inset:0;background:var(--dark-hover);opacity:0;transition:opacity .35s var(--ease);pointer-events:none;z-index:0;}
 .cs-row:hover::after{opacity:.25;}
 .cs-row .wrap{position:relative;z-index:1;align-items:start;}
@@ -239,7 +239,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-light.is-white{background:var(--paper-3);}
 .cs-light.is-cream{background:var(--paper-2);}
 
-/* CUSTOM GROUND — `ground: "#1B2A3A"` on a section. The colour arrives as an
+/* CUSTOM GROUND — `ground: "#1B2A3A"` on a section. The color arrives as an
    inline --ground; build.py measures its brightness and marks the section
    is-on-dark or is-on-light so the type stays readable either way. */
 .cs-custom{background:var(--ground);}
@@ -464,7 +464,7 @@ body.cs-page{background:var(--paper-3);}
 .cs-swatches .cs-swatch{position:relative;min-width:0;min-height:0;}
 .cs-swatches .cs-labels{color:inherit;}
 
-/* COLOUR PANELS (Max 2026-10-17) — content-file `bg:` + `pad:` on an image.
+/* COLOR PANELS (Max 2026-10-17) — content-file `bg:` + `pad:` on an image.
    The art fits inside the panel instead of cropping, inset by --pad. */
 .cs-img.contain img{padding:var(--pad,0%);box-sizing:border-box;}
 .cs-img.align-bottom img{object-position:50% 100%;padding-bottom:0;}

@@ -92,7 +92,7 @@ A **section** is one titled chunk of the page. Each section holds one or more
 | `feature-even` | like `feature`, but equal columns                 |
 | `text-image` | words on the left, image on the right               |
 | `image-text` | the same, reversed                                  |
-| `quote`      | a centred pull-quote, no image                      |
+| `quote`      | a centered pull-quote, no image                      |
 | `flush-pair` | two squares that touch, no gap between them         |
 | `flush-wide-pair` | a 16:9 band, then two squares beneath it       |
 | `flush-pair-wide` | two squares, then the band beneath them        |
@@ -168,6 +168,18 @@ of the screen instead of sitting inside the column — `flush-pair-bleed`,
 `ratio` is ignored inside these; the shapes are part of the arrangement. On a
 phone the two squares stack rather than squeezing side by side.
 
+### Narrower blocks and extra space
+
+Two settings work on any block:
+
+    - layout: flush-pair
+      width: 792        # the block sits narrower, centered in the column
+      space: 96         # the gap above this block, in pixels (smaller on phones)
+
+`width:` is for loud pieces that shouldn't run the full 1200. 792 matches the
+homepage's 8-column media width. `space:` puts air between groups; leave it out
+and blocks sit 24px apart.
+
 ---
 
 **The three word-based layouts** take `text:` instead of, or as well as,
@@ -240,7 +252,7 @@ of `img:`:
 | `embed`   | the HTML file in the assets folder                                |
 | `poster`  | a still shown until the animation has loaded (optional, advised)  |
 | `w` / `h` | the size the animation was designed at — 1440 x 900 unless told   |
-| `bg`      | the animation's own background colour, so the frame matches it    |
+| `bg`      | the animation's own background color, so the frame matches it    |
 | `fit`     | `cover` fills the frame and crops; `contain` fits it all in       |
 
 The animation only loads once you scroll near it, so it costs nothing until
@@ -259,7 +271,7 @@ images and video too.
 maxspector.com and it carries over: on a case study, no two sections in a row
 share a ground. The page itself is white, and each section paints over it.
 
-There are three to choose from — white, brand cream, or a colour of your own
+There are three to choose from — white, brand cream, or a color of your own
 that suits the case study. The intro, directly under the cover, is always
 cream.
 
@@ -273,12 +285,12 @@ To set one yourself, add `ground:` to the section:
       ground: dark            # the brand dark — a chapter break
 
     - heading: Trademarks & Monograms
-      ground: "#1B2A3A"       # any colour, to match the case study
+      ground: "#1B2A3A"       # any color, to match the case study
 
-Type on a named colour is set light or dark automatically, whichever reads
-better against it, so a deep colour and a pale one both work.
+Type on a named color is set light or dark automatically, whichever reads
+better against it, so a deep color and a pale one both work.
 
-Quote the hex. `#1B2A3A` without quotes is read as a comment and the colour
+Quote the hex. `#1B2A3A` without quotes is read as a comment and the color
 is lost.
 
 A section with no `ground:` falls back to white. That is a fallback, not a
@@ -286,7 +298,7 @@ choice — on a finished case study every section should name one.
 
 If you ever want a page to flip cream / white / cream by itself instead, put
 `grounds: alternate` on its own line at the top of the content file. The
-layout catalogue is set that way.
+layout catalog is set that way.
 
 **Watch out for colons in your writing.** If a line of text contains a colon
 followed by a space, wrap that whole line in "double quotes" — otherwise the
@@ -306,3 +318,22 @@ If a section might get renamed, pin its address so the link keeps working:
 ```
 
 Each build checks every slideshow link and lists any that go nowhere.
+
+## Color panels and live type (added 2026-10-17)
+
+**A logo or cutout on a colored panel.** Add `bg:` (the panel color) and
+`pad:` (how far the art sits in from the edge, as a percent). The art then
+fits inside the panel instead of being cropped. `align: bottom` sits a cutout
+on the panel's bottom edge.
+
+    - img: logo-mark.svg
+      bg: '#520044'
+      pad: 26
+
+**Live type instead of a picture of type.** Use `html:` with a little markup,
+plus `html_class:` to pick a style and `ink:` for the text color. The styles
+live in the page's `css:` block at the top of the content file (the Fandom page
+uses this for its type panels and the GameSpot word lists).
+
+**Page-only styles.** `css:` at the top of a content file adds styles to that
+page alone, such as its brand fonts.

@@ -24,15 +24,48 @@
 @media(max-width:520px){.cs-swatches .cs-labels{font-size:7px;padding:6px;letter-spacing:0}}
 .cs-html{container-type:inline-size;padding:7cqw;justify-content:space-between}
 .ty-label{font:400 max(10px,2.6cqw)/1.3 'Space Mono',monospace;display:flex;justify-content:space-between;gap:1em}
-.ty-aa{font-size:46cqw;line-height:.9;letter-spacing:-.02em}
-.ty-set{font-size:5.4cqw;line-height:1.35;overflow-wrap:anywhere}
-.ty-rubik{font-family:'Rubik';font-weight:700}
-.ty-rubik .ty-set{font-weight:400}
+/* Type: one wide Rubik display, then the two secondary faces as short panels */
+.ty-display{padding:4.5cqw}
+.ty-display .ty-label{font-size:max(10px,1.1cqw)}
+.ty-display .ty-main{display:flex;justify-content:space-between;align-items:flex-end;gap:4cqw}
+.ty-display .ty-aa{font-family:'Rubik';font-weight:700;font-size:15.5cqw;line-height:.8;letter-spacing:-.02em;white-space:nowrap}
+.ty-display .ty-weights{font-family:'Rubik';font-size:max(10px,1.45cqw);line-height:1.4;text-align:right;white-space:nowrap}
+.ty-display .ty-set{font-family:'Rubik';font-weight:400;font-size:2.15cqw;line-height:1.3}
+.ty-small{padding:5.5cqw}
+.ty-small .ty-label{font-size:max(10px,2cqw)}
+.ty-small .ty-aa{font-size:21cqw;line-height:.85;letter-spacing:-.01em;white-space:nowrap}
+.ty-small .ty-set{font-size:3.3cqw;line-height:1.35;overflow-wrap:anywhere}
 .ty-grotesk{font-family:'Space Grotesk';font-weight:500}
 .ty-grotesk .ty-set{font-weight:400}
 .ty-mono{font-family:'Space Mono';font-weight:700}
-.ty-mono .ty-aa{font-size:40cqw}
-.ty-mono .ty-set{font-weight:400;font-size:4.6cqw}
+.ty-mono .ty-aa{font-size:18cqw}
+.ty-mono .ty-set{font-weight:400;font-size:2.9cqw}
+/* Photo treatments: Max's original grid; the figures break out past the tiles */
+.cs-img.pt{overflow:visible;padding:0;aspect-ratio:auto;background:none}
+.cs-img.pt img{display:block;width:101.35%;max-width:none;height:auto;margin-left:-1.35%}
+/* Sub-brand logos on white, each sized to the same visual area */
+.cs-img.sb{padding:0;aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);background:none}
+.sb-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.sb-cell img{height:auto;max-height:82%;object-fit:contain}
+@media(max-width:520px){.cs-img.sb{grid-template-columns:repeat(2,1fr)}}
+/* Phones: lockups keep a readable size, palette regroups, type stacks */
+@media(max-width:860px){
+  .core-lockups .cs-img:first-child{--pad:9%!important}
+  .core-lockups .cs-img:last-child{--pad:12%!important}
+}
+@media(max-width:520px){
+  .core-palette .cs-swatches{grid-template-columns:repeat(12,1fr)!important;grid-template-rows:none!important;aspect-ratio:auto!important}
+  .core-palette .cs-swatch{grid-row:auto!important;grid-column:span 3;aspect-ratio:3/4}
+  .core-palette .cs-swatch:nth-child(-n+3){grid-column:span 4;aspect-ratio:1}
+  .ty-display{aspect-ratio:auto!important;gap:20px}
+  .ty-display .ty-label{font-size:10px}
+  .ty-display .ty-main{flex-direction:column;align-items:flex-start;gap:14px}
+  .ty-display .ty-aa{font-size:22cqw}
+  .ty-display .ty-weights{display:flex;flex-wrap:wrap;row-gap:2px;text-align:left;white-space:normal;font-size:12px}
+  .ty-display .ty-weights br{display:none}
+  .ty-display .ty-weights span{margin-right:.7em}
+  .ty-display .ty-set{font-size:3.6cqw}
+}
 .gs-list{font-family:'Kanit'}
 .gs-list .ty-label{font-family:'JetBrains Mono';font-weight:700}
 .gs-list ul{list-style:none;margin:0;padding:0;font-weight:900;font-size:7.4cqw;line-height:1.08;text-transform:uppercase}
@@ -90,68 +123,46 @@
   </div>
 </section>
 
-<section class="cs-custom is-on-dark cs-media" style="--ground:#280033">
-  <div class="wrap">
-    <div class="cs-grid reveal">
-      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-logo-reveal-poster.jpg" aria-label="The Fandom logo animating in, flame mark cutting through the wordmark"><source src="/assets/fandom-brand/motion-logo-reveal.mp4" type="video/mp4"></video></div>
-    </div>
-  </div>
-</section>
-
 <section class="cs-light is-white cs-media" id="core-brand-elements">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Core Brand Elements</h2>
       <p class="cs-hsub">Building blocks of the brand story. Logo, color, and typography.</p>
     </div>
-    <div class="cs-grid cs-grid-2 reveal" style="gap:0px">
-      <div class="cs-img has-img wide contain" style="background:#F9EDD8;--pad:16%"><img src="/assets/fandom-brand/logo-lockup-purple.svg" alt="Fandom primary lockup, purple wordmark with the flame mark" loading="lazy"></div>
-      <div class="cs-img has-img wide contain" style="background:#280033;--pad:16%"><img src="/assets/fandom-brand/logo-lockup-cream.svg" alt="Fandom primary lockup reversed, cream wordmark on purple black" loading="lazy"></div>
-    </div>
-    <div class="cs-grid cs-grid-3 reveal" style="gap:0px">
-      <div class="cs-img has-img contain" style="background:#86D7DC;--pad:24%"><img src="/assets/fandom-brand/logo-stacked-purple.svg" alt="Fandom stacked lockup on light blue" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#520044;--pad:26%"><img src="/assets/fandom-brand/logo-mark.svg" alt="The Fandom flame mark on purple" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#6A68CE;--pad:22%"><img src="/assets/fandom-brand/logo-stacked-b-cream.svg" alt="Fandom stacked lockup, alternate arrangement, on cornflower" loading="lazy"></div>
-    </div>
     <div class="cs-grid reveal">
-      <div class="cs-img has-img cs-swatches" style="grid-template-columns:repeat(12,1fr);grid-template-rows:2fr 1fr 1fr;aspect-ratio:1200/640;" role="img" aria-label="Fandom palette: lead colors red, yellow and purple, then eight secondaries"><div class="cs-swatch" style="background:#FA005A;color:rgba(238,242,225,.85);grid-column:span 4;"><div class="cs-labels"><span>Fandom Red</span><span></span><span>#FA005A</span></div></div><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);grid-column:span 4;"><div class="cs-labels"><span>Fandom Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#520044;color:rgba(238,242,225,.85);grid-column:span 4;"><div class="cs-labels"><span>Fandom Purple</span><span></span><span>#520044</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);grid-column:span 3;"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div><div class="cs-swatch" style="background:#86D7DC;color:rgba(8,41,0,.72);grid-column:span 3;"><div class="cs-labels"><span>Light Blue</span><span></span><span>#86D7DC</span></div></div><div class="cs-swatch" style="background:#6A68CE;color:rgba(238,242,225,.85);grid-column:span 3;"><div class="cs-labels"><span>Cornflower</span><span></span><span>#6A68CE</span></div></div><div class="cs-swatch" style="background:#9B004E;color:rgba(238,242,225,.85);grid-column:span 3;"><div class="cs-labels"><span>Crimson</span><span></span><span>#9B004E</span></div></div><div class="cs-swatch" style="background:#3A434B;color:rgba(238,242,225,.85);grid-column:span 3;"><div class="cs-labels"><span>Dark Gray</span><span></span><span>#3A434B</span></div></div><div class="cs-swatch" style="background:#838D86;color:rgba(8,41,0,.72);grid-column:span 3;"><div class="cs-labels"><span>Light Gray</span><span></span><span>#838D86</span></div></div><div class="cs-swatch" style="background:#280033;color:rgba(238,242,225,.85);grid-column:span 3;"><div class="cs-labels"><span>Purple Black</span><span></span><span>#280033</span></div></div><div class="cs-swatch" style="background:#C16900;color:rgba(238,242,225,.85);grid-column:span 3;"><div class="cs-labels"><span>Brown</span><span></span><span>#C16900</span></div></div></div>
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-logo-reveal-poster.jpg" aria-label="The Fandom logo animating in, flame mark cutting through the wordmark"><source src="/assets/fandom-brand/motion-logo-reveal.mp4" type="video/mp4"></video></div>
     </div>
-    <div class="cs-grid cs-grid-3 reveal" style="gap:0px">
-      <div class="cs-img has-img cs-html ty-rubik tall" style="background:#520044;color:#F9EDD8;" role="img" aria-label="Rubik, the display and body typeface"><div class="ty-label"><span>Rubik</span><span>Display & body</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div></div>
-      <div class="cs-img has-img cs-html ty-grotesk tall" style="background:#FFC500;color:#520044;" role="img" aria-label="Space Grotesk typeface"><div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div></div>
-      <div class="cs-img has-img cs-html ty-mono tall" style="background:#FA005A;color:#F9EDD8;" role="img" aria-label="Space Mono, the accent and data typeface"><div class="ty-label"><span>Space Mono</span><span>Accents & data</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div></div>
+    <div class="cs-grid cs-grid-asym-left is-locked core-lockups reveal" style="aspect-ratio:1200/510;gap:0px;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img contain" style="background:#F9EDD8;--pad:15%"><img src="/assets/fandom-brand/logo-lockup-purple.svg" alt="Fandom primary lockup, purple wordmark with the flame mark, on cream" loading="lazy"></div>
+      <div class="cs-img has-img contain" style="background:#520044;--pad:27%"><img src="/assets/fandom-brand/logo-stacked-b-cream.svg" alt="Fandom stacked lockup reversed in cream, on Fandom purple" loading="lazy"></div>
+    </div>
+    <div class="cs-grid core-palette reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img cs-swatches" style="grid-template-columns:2fr 2fr 2fr 1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;aspect-ratio:1200/440;" role="img" aria-label="Fandom palette: lead colors red, yellow and purple, then eight secondaries"><div class="cs-swatch" style="background:#FA005A;color:rgba(238,242,225,.85);grid-row:1 / 3;"><div class="cs-labels"><span>Fandom Red</span><span></span><span>#FA005A</span></div></div><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);grid-row:1 / 3;"><div class="cs-labels"><span>Fandom Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#520044;color:rgba(238,242,225,.85);grid-row:1 / 3;"><div class="cs-labels"><span>Fandom Purple</span><span></span><span>#520044</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div><div class="cs-swatch" style="background:#86D7DC;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Light Blue</span><span></span><span>#86D7DC</span></div></div><div class="cs-swatch" style="background:#6A68CE;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Cornflower</span><span></span><span>#6A68CE</span></div></div><div class="cs-swatch" style="background:#9B004E;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Crimson</span><span></span><span>#9B004E</span></div></div><div class="cs-swatch" style="background:#3A434B;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Dark Gray</span><span></span><span>#3A434B</span></div></div><div class="cs-swatch" style="background:#838D86;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Light Gray</span><span></span><span>#838D86</span></div></div><div class="cs-swatch" style="background:#280033;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Purple Black</span><span></span><span>#280033</span></div></div><div class="cs-swatch" style="background:#C16900;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Brown</span><span></span><span>#C16900</span></div></div></div>
+    </div>
+    <div class="cs-grid reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img cs-html ty-display" style="background:#FFC500;color:#520044;aspect-ratio:1200/540;" role="img" aria-label="Rubik, the primary typeface, in its seven weights"><div class="ty-label"><span>Rubik</span><span>Primary typeface · display and body</span></div><div class="ty-main"><div class="ty-aa">Aa Bb Cc</div><div class="ty-weights"><span style="font-weight:300">Light</span><br><span style="font-weight:400">Regular</span><br><span style="font-weight:500">Medium</span><br><span style="font-weight:600">SemiBold</span><br><span style="font-weight:700">Bold</span><br><span style="font-weight:800">ExtraBold</span><br><span style="font-weight:900">Black</span></div></div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&amp;*()</div></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal" style="gap:0px">
+      <div class="cs-img has-img cs-html ty-small ty-grotesk" style="background:#520044;color:#FFC500;aspect-ratio:600/360;" role="img" aria-label="Space Grotesk, the headline typeface"><div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div></div>
+      <div class="cs-img has-img cs-html ty-small ty-mono" style="background:#F9EDD8;color:#FA005A;aspect-ratio:600/360;" role="img" aria-label="Space Mono, the accent and data typeface"><div class="ty-label"><span>Space Mono</span><span>Accents and data</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div></div>
     </div>
   </div>
 </section>
 
-<section class="cs-custom is-on-light cs-media" id="visual-language" style="--ground:#F9EDD8">
+<section class="cs-light is-white cs-media" id="visual-language">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Visual Language</h2>
       <p class="cs-hsub">Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.</p>
     </div>
-    <div class="cs-grid cs-grid-4 reveal" style="gap:0px">
-      <div class="cs-img has-img tall contain align-bottom" style="background:#86D7DC;--pad:8%"><img src="/assets/fandom-brand/cutout-black-widow.webp" alt="Black Widow in the Fandom duotone photo treatment" loading="lazy"></div>
-      <div class="cs-img has-img tall contain align-bottom" style="background:#520044;--pad:10%"><img src="/assets/fandom-brand/cutout-isabelle.webp" alt="Isabelle from Animal Crossing in the duotone treatment" loading="lazy"></div>
-      <div class="cs-img has-img tall contain" style="background:#FFC500;--pad:6%"><img src="/assets/fandom-brand/cutout-miles.webp" alt="Miles Morales mid-leap in the duotone treatment" loading="lazy"></div>
-      <div class="cs-img has-img tall contain align-bottom" style="background:#6A68CE;--pad:10%"><img src="/assets/fandom-brand/cutout-harry.webp" alt="Harry Potter in the duotone treatment" loading="lazy"></div>
-    </div>
     <div class="cs-grid reveal">
+      <div class="cs-img has-img cs-html pt" style="" role="img" aria-label="Fandom duotone photo treatments"><img src="/assets/fandom-brand/vl-photo-treatments.jpg" alt="Black Widow, Isabelle, Miles Morales and Harry Potter in the Fandom duotone photo treatment, each on two brand colors" loading="lazy"></div>
+    </div>
+    <div class="cs-grid reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img" style="aspect-ratio:1920/1265"><img src="/assets/fandom-brand/personas.jpg" alt="The five Fandom personas, illustrated in the house style" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-4 reveal" style="gap:0px">
-      <div class="cs-img has-img contain" style="background:#86D7DC;--pad:20%"><img src="/assets/fandom-brand/icon-mushroom.svg" alt="Mushroom icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#280033;--pad:20%"><img src="/assets/fandom-brand/icon-lightsabers.svg" alt="Lightsabers icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#FA005A;--pad:20%"><img src="/assets/fandom-brand/icon-shield.svg" alt="Shield icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#6A68CE;--pad:20%"><img src="/assets/fandom-brand/icon-delorean.svg" alt="Time-machine car icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#86D7DC;--pad:20%"><img src="/assets/fandom-brand/icon-rupee.svg" alt="Rupee icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#280033;--pad:20%"><img src="/assets/fandom-brand/icon-snitch.svg" alt="Golden snitch icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#FA005A;--pad:20%"><img src="/assets/fandom-brand/icon-demogorgon.svg" alt="Demogorgon icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#6A68CE;--pad:20%"><img src="/assets/fandom-brand/icon-tiara.svg" alt="Tiara icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#86D7DC;--pad:20%"><img src="/assets/fandom-brand/icon-pokeball.svg" alt="Pokeball icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#280033;--pad:20%"><img src="/assets/fandom-brand/icon-d20.svg" alt="Twenty-sided die icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#FA005A;--pad:20%"><img src="/assets/fandom-brand/icon-portal.svg" alt="Portal gun icon" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#6A68CE;--pad:20%"><img src="/assets/fandom-brand/icon-alien.svg" alt="Three-eyed alien icon" loading="lazy"></div>
+    <div class="cs-grid reveal" style="width:100%;max-width:792px;justify-self:center;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img" style="aspect-ratio:1584/1234"><img src="/assets/fandom-brand/vl-icons.jpg" alt="Fandom icon set in four brand-color columns" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -175,41 +186,47 @@
   </div>
 </section>
 
-<section class="cs-custom is-on-light cs-media" id="social-content" style="--ground:#86D7DC">
+<section class="cs-custom is-on-dark cs-media" id="social-content" style="--ground:#280033">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Social Content</h2>
       <p class="cs-hsub">One system, many franchises. Data stories, character breakdowns, and explainers made for each fandom.</p>
     </div>
-    <div class="cs-grid cs-grid-2 reveal">
+    <div class="cs-grid cs-flush cs-flush-pair reveal" style="width:100%;max-width:792px;justify-self:center">
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-andor-empire.jpg" alt="Andor social takeover: the Empire" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-andor-resistance.jpg" alt="Andor social takeover: the Resistance" loading="lazy"></div>
     </div>
-    <div class="cs-grid reveal">
-      <div class="cs-img has-img wide"><img src="/assets/fandom-brand/social-tomcruise.jpg" alt="Tom Cruise by the numbers" loading="lazy"></div>
+    <div class="cs-grid reveal" style="width:100%;max-width:792px;justify-self:center;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img" style="aspect-ratio:2400/1500"><img src="/assets/fandom-brand/social-tomcruise.jpg" alt="Tom Cruise by the numbers" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-3 reveal">
+    <div class="cs-grid cs-grid-3 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-eddie.jpg" alt="Eddie Munson wiki data post" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-dumbledore.jpg" alt="Dumbledore facts post" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-johnwick-v2.jpg" alt="John Wick by the numbers" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-2 reveal">
-      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-glass-onion-a.jpg" alt="Glass Onion data post" loading="lazy"></div>
+    <div class="cs-grid cs-flush cs-flush-pair reveal" style="width:100%;max-width:792px;justify-self:center;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-glass-onion-a.jpg" alt="Glass Onion odds post" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-glass-onion-b.jpg" alt="Glass Onion odds post" loading="lazy"></div>
     </div>
-    <div class="cs-grid reveal">
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/social-bond.jpg" alt="The Daniel Craig era of James Bond charted" loading="lazy"></div>
+    <div class="cs-grid cs-grid-4 reveal" style="gap:0px;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-bond-s1.jpg" alt="The Daniel Craig era of Bond, slide 1" loading="lazy"></div>
+      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-bond-s2.jpg" alt="The Daniel Craig era of Bond, slide 2" loading="lazy"></div>
+      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-bond-s3.jpg" alt="The Daniel Craig era of Bond, slide 3" loading="lazy"></div>
+      <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/social-bond-s4.jpg" alt="The Daniel Craig era of Bond, slide 4" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="cs-light is-white cs-media" id="presentation-design">
+<section class="cs-custom is-on-dark cs-media" id="presentation-design" style="--ground:#6A68CE">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Presentation Design</h2>
       <p class="cs-hsub">The business of making people forget they’re viewing a slide deck.</p>
     </div>
     <div class="cs-grid reveal">
+      <div class="cs-img has-img" style="aspect-ratio:2400/1600"><img src="/assets/fandom-brand/pres-template-collage.jpg" alt="Fandom presentation template system" loading="lazy"></div>
+    </div>
+    <div class="cs-grid reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-context-matters.jpg" alt="Go-to-market deck: context matters" loading="lazy"></div>
     </div>
     <div class="cs-grid cs-grid-2 reveal">
@@ -229,28 +246,26 @@
       <h2 class="cs-h">GameSpot</h2>
       <p class="cs-hsub">A diverse content brand that keeps games as its core while embracing other entertainment media.</p>
     </div>
-    <div class="cs-grid cs-grid-2 reveal" style="gap:0px">
-      <div class="cs-img has-img wide contain" style="background:#FFC500;--pad:18%"><img src="/assets/fandom-brand/gs-logo-darkblue.svg" alt="GameSpot primary logo in dark blue on yellow" loading="lazy"></div>
-      <div class="cs-img has-img wide contain" style="background:#004158;--pad:18%"><img src="/assets/fandom-brand/gs-logo-yellow.svg" alt="GameSpot primary logo in yellow on blue" loading="lazy"></div>
-      <div class="cs-img has-img wide contain" style="background:#F9EDD8;--pad:22%"><img src="/assets/fandom-brand/gs-mark-darkblue.svg" alt="GameSpot secondary mark" loading="lazy"></div>
-      <div class="cs-img has-img wide contain" style="background:#FF2D17;--pad:14%"><img src="/assets/fandom-brand/gs-spot-on.webp" alt="Spot On sub-brand logo" loading="lazy"></div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/gs-sizzle-poster.jpg" aria-label="GameSpot brand sizzle, show packages and on-air graphics"><source src="/assets/fandom-brand/gs-sizzle.mp4" type="video/mp4"></video></div>
     </div>
-    <div class="cs-grid cs-grid-2 reveal" style="gap:0px">
+    <div class="cs-grid cs-grid-2 reveal" style="gap:0px;margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img cs-html gs-list" style="background:#FFC500;color:#00191D;" role="img" aria-label="GameSpot is informative, accurate, inclusive, funny, consistent, passionate, conversational, respectful, honest"><div class="ty-label"><span>GameSpot is…</span><span>01</span></div><ul><li>Informative</li><li>Accurate</li><li>Inclusive</li><li>Funny</li><li>Consistent</li><li>Passionate</li><li>Conversational</li><li>Respectful</li><li>Honest</li></ul></div>
       <div class="cs-img has-img cs-html gs-list is-not" style="background:#F9EDD8;color:#00191D;" role="img" aria-label="GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"><div class="ty-label"><span>GameSpot is not…</span><span>02</span></div><ul><li>Snarky</li><li>Jaded</li><li>Self-indulgent</li><li>Industry-centric</li><li>Exclusionary</li><li>Gossipy</li></ul></div>
     </div>
     <div class="cs-grid gs-palette reveal">
       <div class="cs-img has-img cs-swatches" style="grid-template-columns:2fr repeat(5,1fr);grid-template-rows:1fr;aspect-ratio:1200/360;" role="img" aria-label="GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream"><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>GameSpot Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#FF2D17;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Red Orange</span><span></span><span>#FF2D17</span></div></div><div class="cs-swatch" style="background:#C200BB;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Fuchsia</span><span></span><span>#C200BB</span></div></div><div class="cs-swatch" style="background:#004158;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Blue</span><span></span><span>#004158</span></div></div><div class="cs-swatch" style="background:#00191D;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Dark Blue</span><span></span><span>#00191D</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div></div>
     </div>
-    <div class="cs-grid cs-grid-3 reveal">
+    <div class="cs-grid cs-grid-3 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/gs-social-news.jpg" alt="GameSpot news card: Blizzard's Overwatch team unionizes" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/gs-social-quote.jpg" alt="GameSpot quote card with Jeremy Renner" loading="lazy"></div>
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/gs-social-news-2.jpg" alt="GameSpot news card: Final Fantasy VII Remake trilogy coming to Switch 2" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-3 reveal">
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/gs-review-clair.jpg" alt="GameSpot review card: Clair Obscur, 9 out of 10" loading="lazy"></div>
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/gs-review-doom.jpg" alt="GameSpot review card: Doom The Dark Ages, 8 out of 10" loading="lazy"></div>
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/gs-review-savage.jpg" alt="GameSpot review card: Revenge of the Savage Planet, 8 out of 10" loading="lazy"></div>
+    <div class="cs-grid reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/gs-review-anim-poster.jpg" aria-label="GameSpot review score animation"><source src="/assets/fandom-brand/gs-review-anim.mp4" type="video/mp4"></video></div>
+    </div>
+    <div class="cs-grid reveal" style="width:100%;max-width:792px;justify-self:center;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img" style="aspect-ratio:1584/1742"><img src="/assets/fandom-brand/gs-homepage.jpg" alt="GameSpot homepage in the 2023 brand" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -258,52 +273,53 @@
 <section class="cs-light is-white cs-media" id="show-formats-and-sub-brands">
   <div class="wrap">
     <div class="cs-head reveal">
-      <h2 class="cs-h">Show Formats &amp; Sub-Brands</h2>
+      <h2 class="cs-h">Sub-Brands</h2>
       <p class="cs-hsub">A brand of brands has lots of… well, brands.</p>
     </div>
-    <div class="cs-grid cs-grid-3 reveal">
-      <div class="cs-img has-img wide"><img src="/assets/fandom-brand/show-fandom5.jpg" alt="Fandom 5 trivia show title card" loading="lazy"></div>
-      <div class="cs-img has-img wide"><img src="/assets/fandom-brand/show-irl.jpg" alt="Fandom IRL title card" loading="lazy"></div>
-      <div class="cs-img has-img wide"><img src="/assets/fandom-brand/show-playbreak.jpg" alt="Fandom PlayBreak title card" loading="lazy"></div>
-    </div>
-    <div class="cs-grid cs-grid-4 reveal" style="gap:0px">
-      <div class="cs-img has-img contain" style="background:#F9EDD8;--pad:14%"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 years of world building" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#280033;--pad:14%"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#86D7DC;--pad:14%"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#F9EDD8;--pad:20%"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#FFC500;--pad:14%"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#520044;--pad:12%"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#280033;--pad:14%"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" loading="lazy"></div>
-      <div class="cs-img has-img contain" style="background:#9B004E;--pad:14%"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" loading="lazy"></div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img cs-html sb" style="" role="img" aria-label="Fandom sub-brand logos"><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 Years of World Building" style="width:87.8%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:59.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:35.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:78.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:71.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" style="width:70.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:60.5%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:68.1%" loading="lazy"></div></div>
     </div>
   </div>
 </section>
 
-<section class="cs-custom is-on-dark cs-media" id="events" style="--ground:#280033">
+<section class="cs-light is-white cs-media" id="events">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Events</h2>
-      <p class="cs-hsub">The brand in the room. Shown here, the Fandom party at San Diego Comic-Con 2023.</p>
+      <p class="cs-hsub">Fandom has had a prominent presence in major entertainment and gaming events for over a decade.</p>
     </div>
     <div class="cs-grid reveal">
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/events-key-art.jpg" alt="Fandom Party key art" loading="lazy"></div>
+      <div class="cs-img has-img video"><img src="/assets/fandom-brand/ev-sdcc-hero.jpg" alt="Fandom Party at San Diego Comic-Con 2023 key art" loading="lazy"></div>
     </div>
-  </div>
-    <div class="cs-grid cs-grid-bleed reveal">
-      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/events-welcome-wall.jpg" alt="The welcome wall at the Fandom party" loading="lazy"></div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-wall.jpg" alt="The welcome wall design for the Fandom party" loading="lazy"></div>
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-04.jpg" alt="Guests at the Fandom party under the neon flame mark" loading="lazy"></div>
     </div>
-  <div class="wrap">
-    <div class="cs-grid cs-grid-3 reveal">
-      <div class="cs-img has-img tall"><img src="/assets/fandom-brand/events-lanyard.jpg" alt="A guest in costume holding up her Fandom party lanyard" loading="lazy"></div>
-      <div class="cs-img has-img tall"><img src="/assets/fandom-brand/events-passes.jpg" alt="Party passes fanned out on a table" loading="lazy"></div>
-      <div class="cs-img has-img tall"><img src="/assets/fandom-brand/events-guests.jpg" alt="Two guests on the stairs with their passes" loading="lazy"></div>
-    </div>
-    <div class="cs-grid cs-flush cs-flush-pair reveal">
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/events-stairs.jpg" alt="Stairs painted with For the Love of Fans" loading="lazy"></div>
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/events-letters.jpg" alt="Giant For the Love of Fans letters on the terrace" loading="lazy"></div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-grid-b.jpg" alt="Fan Central Arcade signage, pillows and party graphics" loading="lazy"></div>
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-grid-a.jpg" alt="Stairs painted with For the Love of Fans" loading="lazy"></div>
     </div>
     <div class="cs-grid reveal">
-      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/events-arcade.jpg" alt="The Fan Central Arcade neon sign" loading="lazy"></div>
+      <div class="cs-img has-img" style="aspect-ratio:2117/1814"><img src="/assets/fandom-brand/ev-sdcc-03.jpg" alt="A guest in costume holding up her 2023 party lanyard" loading="lazy"></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-05.jpg" alt="Giant For the Love of Fans letters on the terrace" loading="lazy"></div>
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-06.jpg" alt="A guest wearing a Fandom cap" loading="lazy"></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-sdcc-08.jpg" alt="Guests at the Fandom step-and-repeat" loading="lazy"></div>
+      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-sdcc-09.jpg" alt="Headline act on the rooftop stage" loading="lazy"></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-nycc-09.jpg" alt="Fandom Party New York 2024 key art" loading="lazy"></div>
+      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-20-year.jpg" alt="Fandom 20 Years of World Building party graphics" loading="lazy"></div>
+    </div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img" style="aspect-ratio:1920/801"><img src="/assets/fandom-brand/ev-nycc-bg.jpg" alt="Fandom Party pattern" loading="lazy"></div>
+    </div>
+    <div class="cs-grid cs-grid-2 reveal">
+      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-nycc-12.jpg" alt="Happy Birthday Fandom graphic" loading="lazy"></div>
+      <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-nycc-13.jpg" alt="A guest at the Fandom party photo wall" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -349,9 +365,9 @@ if(embeds.length){
     // data-zoom shrinks (<1) or enlarges the fitted animation.
     const s=(el.dataset.fit==='contain'?Math.min(r.width/w,r.height/h):Math.max(r.width/w,r.height/h))*(+el.dataset.zoom||1);
     f.style.width=w+'px'; f.style.height=h+'px';
-    // data-y: where a cover crop sits vertically (0 = keep top, .5 = centre, 1 = keep bottom).
+    // data-y: where a cover crop sits vertically (0 = keep top, .5 = center, 1 = keep bottom).
     const fy=el.dataset.y!==undefined?+el.dataset.y:.5;
-    // data-cy: the animation's content centre (0-1 of its height) is placed at the frame's centre.
+    // data-cy: the animation's content center (0-1 of its height) is placed at the frame's center.
     const ty=el.dataset.cy!==undefined?(r.height/2)/s-(+el.dataset.cy)*h:(r.height/s-h)*fy;
     const tx=el.dataset.cx!==undefined?(r.width/2)/s-(+el.dataset.cx)*w:(r.width/s-w)/2;
     f.style.transform=`scale(${s}) translate(${tx+p/s}px,${ty+p/s}px)`;
