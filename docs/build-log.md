@@ -7,6 +7,17 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 (later) — Coordinator and Verify heroes replaced
+
+Max's narrower `Coordinator - hero_02.png` and `Verify - hero_02.png`
+(1888×1422) replace the pair at the bottom of Brand in the World. Saved over
+`coordinator-hero.jpg` / `verify-hero.jpg` at 1200×904, JPG q84 (~135 KB each).
+The pair's `aspect:` changed from 1200/762 to 1888/1422 so nothing crops.
+Measured: 588×443 per image at 1440 (was 588×373), 350×264 at 390, no
+horizontal overflow. Not pushed yet.
+
+---
+
 ## 2026-10-17 — Alex page: new hero animation, new art, Verify overlays
 
 All rebuilt and render-checked at 1440 and 390 (no overflow, no errors).
