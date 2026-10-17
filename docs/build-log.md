@@ -7,6 +7,24 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 (later) — Case Studies and Collections
+
+Max decided the four destinations split in two: **Case Studies** (Alex AI,
+Fandom: a deep dive into one company) and **Collections** (client brands,
+campaigns: separate projects shown together). The homepage row label carries
+the split.
+
+Homepage (`index.html`, still hand-built): Alex row now links to `/alex.html`
+(was the blank template) and its leftover Fandom description is replaced with
+a DRAFT placeholder; the Fandom row is retitled "Fandom" and links to
+`/fandom-brand.html`. Two new rows labelled "Collection": Client Brands
+(big image right) and Campaigns (big image left), with placeholder titles,
+DRAFT descriptions and empty image boxes. Checked at 1440 and 390: all four
+rows the same height on desktop, no overflow, no script errors. Not pushed;
+Max will go live once all four pages are ready.
+
+---
+
 ## 2026-10-17 (later) — Coordinator and Verify heroes replaced
 
 Max's narrower `Coordinator - hero_02.png` and `Verify - hero_02.png`

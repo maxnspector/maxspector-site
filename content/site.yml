@@ -1,15 +1,13 @@
 nav:
 - label: Featured Work
-  href: /#featured
+  href: '/#featured'
 - label: Alex AI
-  href: /case-study.html
-- label: The Fandom Brand
-  href: /fandom-brand.html
-- label: GameSpot
+  href: '/alex.html'
+- label: Fandom
+  href: '/fandom-brand.html'
+- label: Client Brands
   href: '#'
-- label: Fandom in the Real World
-  href: '#'
-- label: Client Brand Highlights
+- label: Campaigns
   href: '#'
 - label: About
   href: '#'
