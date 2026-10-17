@@ -59,7 +59,7 @@ image fails to load. Worth writing properly — it's also read by search engines
 
     sections:
       - heading: Motion Design            # the big serif headline
-        subhead: Expressing the brand…    # the small italic line under it
+        subhead: Expressing the brand…    # the small line under it
         ground: dark                      # optional — see "Two rules" below
         blocks:
           - layout: grid-2

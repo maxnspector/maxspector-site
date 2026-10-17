@@ -7,6 +7,31 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-16 (later) — Site structure: four case studies
+
+Max revised the August 30 plan. The site now has four case studies:
+
+1. **Alex AI** — leads.
+2. **Fandom** — renamed from "Fandom Brand". Absorbs the events work (SDCC,
+   NYCC, Pyrkon, the anniversary, Community Connect) and GameSpot, each as
+   its own clearly labelled section. Fandom now occupies one page, not
+   three. GameSpot needs to be easy to find because Max's resume features it.
+3. **Client brands** — name still open ("Brand work" was floated). GameSpot
+   stays out of it: it was in-house Fandom work, not a client.
+4. **New campaign case study** — one-off campaigns that each got their own
+   visual world. Starting set: State of Fandom and Harry Potter (moved off the
+   Fandom page), Kayu and Beth Sholom (lifted from the client gallery tail).
+   Max is hunting for more Kayu and Beth Sholom material and other candidates.
+   The title should say what the page proves, not just "Campaigns".
+
+Still to settle: which client projects get their own pages, and the trim on
+the Fandom page now that it gains events and GameSpot.
+
+Also today: section subheads (`.cs-hsub`) are no longer italic and dropped
+from 16px to 14px, site-wide.
+
+---
+
 ## 2026-10-16 (later) — Alex palette: warning red removed
 
 Max compared three layouts without warning red and chose B. The supporting
