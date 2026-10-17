@@ -230,17 +230,13 @@ sections:
     - img: swag-set.jpg
       alt: Alex employee swag, a branded water bottle, a vibe hire cap, and pens on an embossed journal
       aspect: 2400/991
-  - layout: feature
-    columns:
-    - - img: one-sheet-digital.jpg
-        alt: Alex one-sheet, digital edition
-        ratio: wide
-    - - img: one-sheet-print.jpg
-        frame: true
-        alt: Alex one-sheet, print edition
-        ratio: portrait
   - layout: full
     items:
-    - img: product-scheduling.jpg
-      alt: Candidate on a phone beside a stack of scheduled interview confirmations
-      ratio: wide
+    - img: one-sheet-digital-2400.jpg
+      alt: Alex one-sheet, digital edition
+      aspect: 2400/1440
+  - layout: full
+    items:
+    - img: coordinator-hero.jpg
+      alt: Candidate smiling at her phone beside a stack of booked interview confirmations
+      aspect: 2240/1422
