@@ -7,6 +7,40 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 — Alex page: new hero animation, new art, Verify overlays
+
+All rebuilt and render-checked at 1440 and 390 (no overflow, no errors).
+Everything except the new lead animation went live in Max's "10-17 V1/V2"
+pushes. The animation swap is the only change still to push.
+
+**Lead animation replaced.** The embed at the top is now Max's "Alex Hero
+Animation _desktop embed_11" (platform hero v3: It used to take weeks →
+Initiate → Screen → Interview → … → Coordinate), saved as
+`anim-hero-v11.html` with the speed shim added so `speed: 1.2` still works.
+Fully self-contained (no outside requests). New poster
+`anim-hero-v11-poster.jpg` is the opening frame. The old
+`anim-end-to-end.html` stays in assets, unused.
+
+**Brand in the World, bottom of page.**
+- Print one-sheet removed; the digital one-sheet now fills the column at its
+  own 5:3 proportions, from Max's new 2700px export (`one-sheet-digital-2400.jpg`).
+- Last image is now a side-by-side pair (`grid-2`): `coordinator-hero.jpg` and
+  `verify-hero.jpg`, each 1200px wide, 588×373 on the page. From Max's PNGs in
+  Dropbox `Max Spector Website 2026 / Case Study Files / Alex AI`.
+- Unused now: `product-scheduling.jpg`, `one-sheet-digital.jpg`,
+  `one-sheet-print.jpg`. Clear out in the compression pass.
+
+**Verify overlay alternates in Figma.** Two redesigns of the Verify hero's
+UI card sit on the "All files" page of the Alex portfolio-artwork file
+(x 2395, y 4070): Alt A glass card, Alt B dark compact. Max's final
+Verify hero (dark green card) is what went on the page.
+
+**AVIF.** Supported by every current browser; ship with a `<picture>` JPEG
+fallback. Plan stands: Max exports full-quality PNG/JPEG, Claude right-sizes
+and converts once a page's layout is final.
+
+---
+
 ## 2026-10-16 (later) — Site structure: four case studies
 
 Max revised the August 30 plan. The site now has four case studies:
@@ -291,6 +325,7 @@ suppresses it entirely.
 
 **Next session starts here**
 
+0. **Push** the new lead animation if not done yet (GitHub Desktop → Commit → Push).
 1. **Assign a ground to every section** on Fandom Brand (9 of 11 unset) and
    Alex (4 of 5). Needs Max's colour choices. Run `python3 build.py` and the
    count of unset sections prints under each page.

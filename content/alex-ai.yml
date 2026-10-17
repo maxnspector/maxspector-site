@@ -17,8 +17,8 @@ lead:
   blocks:
   - layout: full
     items:
-    - embed: anim-end-to-end.html
-      poster: anim-end-to-end-poster.jpg
+    - embed: anim-hero-v11.html
+      poster: anim-hero-v11-poster.jpg
       alt: "Animated walkthrough of the Alex hiring sequence: initiate, match, screen, interview, verify, schedule, hire"
       ratio: wide
       w: 1440
