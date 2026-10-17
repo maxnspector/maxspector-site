@@ -93,6 +93,9 @@ A **section** is one titled chunk of the page. Each section holds one or more
 | `text-image` | words on the left, image on the right               |
 | `image-text` | the same, reversed                                  |
 | `quote`      | a centred pull-quote, no image                      |
+| `flush-pair` | two squares that touch, no gap between them         |
+| `flush-wide-pair` | a 16:9 band, then two squares beneath it       |
+| `flush-pair-wide` | two squares, then the band beneath them        |
 
 Most layouts just take a list of `items:`. Three need something different.
 
@@ -135,6 +138,37 @@ file and it will match:
 
 Leave `span:` out and the images divide the height evenly. Leave `height:` out
 and the block behaves normally, with each image keeping its own `ratio`.
+
+### Layouts with no gap between the pieces
+
+Three arrangements let the artwork touch. They come from your Figma file and
+hold those proportions exactly.
+
+    - layout: flush-pair          # two squares, side by side, touching
+      items:
+        - img: left.jpg
+        - img: right.jpg
+
+    - layout: flush-wide-pair     # a 16:9 band, then two squares under it
+      items:
+        - img: band.jpg
+        - img: left.jpg
+        - img: right.jpg
+
+    - layout: flush-pair-wide     # the same three, band at the bottom
+      items:
+        - img: left.jpg
+        - img: right.jpg
+        - img: band.jpg
+
+Add `-bleed` to any of those three and the whole arrangement runs to the edges
+of the screen instead of sitting inside the column — `flush-pair-bleed`,
+`flush-wide-pair-bleed`, `flush-pair-wide-bleed`.
+
+`ratio` is ignored inside these; the shapes are part of the arrangement. On a
+phone the two squares stack rather than squeezing side by side.
+
+---
 
 **The three word-based layouts** take `text:` instead of, or as well as,
 images:
@@ -221,9 +255,29 @@ images and video too.
 
 ## Two rules worth knowing
 
-**Backgrounds alternate on their own.** Light sections run cream, white, cream,
-white down the page, and `ground: dark` marks a chapter break. The alternation
-counts from the top, so leave the cover and the intro where they are.
+**Backgrounds alternate on their own — until you say otherwise.** Leave a
+section alone and it keeps flipping white, cream, white down the page, so a
+long page reads as distinct spaces.
+
+To set one yourself, add `ground:` to the section:
+
+    - heading: Motion Design
+      ground: white           # or: cream
+      blocks: ...
+
+    - heading: Custom Content
+      ground: dark            # the brand dark — a chapter break
+
+    - heading: Trademarks & Monograms
+      ground: "#1B2A3A"       # any colour, to match the case study
+
+A section that names its colour steps out of the alternation, and the ones
+around it stay in step — so you can drop a custom colour anywhere without the
+rest of the page shifting. Type on a named colour is set light or dark
+automatically, whichever reads better against it.
+
+Quote the hex. `#1B2A3A` without quotes is read as a comment and the colour
+is lost.
 
 **Watch out for colons in your writing.** If a line of text contains a colon
 followed by a space, wrap that whole line in "double quotes" — otherwise the

@@ -230,15 +230,24 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
    Light sections: cream bg #F7F7F1, dark-olive text #545E3D, coral links. ============================================================ */
 .cs-light{background:var(--paper-2);color:var(--text-dark);}
 .cs-light a{color:var(--coral);}
-/* ALTERNATING SECTION GROUNDS (Max 2026-08-30): cream / white, so long pages
-   read as distinct spaces. Counted by nth-of-type among <section> siblings so
-   the alternation SELF-CORRECTS when sections are added or trimmed.
-   Order on a case-study page: 1 = .cs-cover (not .cs-light), 2 = intro (even →
-   cream), 3 = first media section (odd → WHITE). That keeps the section
-   immediately after the intro from repeating cream, which would erase the
-   division between them. Keep .cs-cover and the intro first or this flips. */
-.cs-light:nth-of-type(odd){background:var(--paper-3);}
-.cs-light:nth-of-type(even){background:var(--paper-2);}
+/* SECTION GROUNDS (Max 2026-10-16, replacing the nth-of-type alternation).
+   Every section names its own ground in the HTML, worked out by build.py:
+   a section with no `ground:` keeps alternating white / cream down the page,
+   and one that names white, cream, dark or a hex sits out of that count.
+   Order on a case-study page: cover (dark), intro (cream), then the first
+   auto section lands on WHITE, so the division after the intro always holds. */
+.cs-light.is-white{background:var(--paper-3);}
+.cs-light.is-cream{background:var(--paper-2);}
+
+/* CUSTOM GROUND — `ground: "#1B2A3A"` on a section. The colour arrives as an
+   inline --ground; build.py measures its brightness and marks the section
+   is-on-dark or is-on-light so the type stays readable either way. */
+.cs-custom{background:var(--ground);}
+.cs-custom.is-on-light{color:var(--text-dark);}
+.cs-custom.is-on-dark{color:var(--paper-2);}
+.cs-custom a{color:var(--coral);}
+.cs-custom.is-on-light .cs-img{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.12);color:rgba(0,0,0,.4);}
+.cs-custom.is-on-dark  .cs-img{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.45);}
 /* DARK CHAPTER BREAK (Max 2026-08-30). Two sections drop to the homepage ground
    so an 11-section page reads as three acts rather than one long scroll.
    A .cs-dark section carries NO .cs-light class, so it sits out of the
@@ -333,6 +342,24 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .cs-grid-feature{grid-template-columns:792fr 384fr;}
 .cs-grid-feature-even{grid-template-columns:1fr 1fr;}
 
+/* FLUSH FAMILY (Max 2026-10-16, Figma node 62:9) — pieces touch, no gutter.
+   Content width 1200: pair = 600+600; stack = 1200x675 (16:9) plus a 600+600
+   row. Full bleed 1440: pair = 720+720; stack = 1440x810 plus 720+720.
+   Both fall out of the same two-column grid, so the numbers are automatic. */
+.cs-flush{gap:0;}
+.cs-flush .cs-img{border:0;border-radius:0;}
+.cs-flush-pair{grid-template-columns:1fr 1fr;}
+.cs-flush-stack{grid-template-columns:1fr 1fr;}
+.cs-flush-stack.is-wide-first > :first-child{grid-column:1 / -1;aspect-ratio:16/9;}
+.cs-flush-stack.is-wide-last  > :last-child {grid-column:1 / -1;aspect-ratio:16/9;}
+/* On a phone the two squares stack, so the wide piece keeps its shape and the
+   squares keep theirs rather than being squeezed into a two-up strip. */
+@media(max-width:700px){
+  .cs-flush-pair,.cs-flush-stack{grid-template-columns:1fr;}
+  .cs-flush-stack.is-wide-first > :first-child,
+  .cs-flush-stack.is-wide-last  > :last-child{grid-column:1 / -1;}
+}
+
 /* A block with a `height:` set becomes aspect-locked: its rows divide that
    height by proportion and the images fill their cells, so individual `ratio`
    settings do not apply inside it. build.py writes the aspect-ratio and the
@@ -400,12 +427,13 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
   .cs-grid.trio .cs-col:last-child .cs-img{aspect-ratio:1;}
 }
 
-/* CASE-STUDY GROUND (Max 2026-10-04) — supersedes the cream/white alternation above.
-   Page, every light section and the footer sit on white; the intro (description,
-   always directly after the cover) alone stays cream. Dark chapter breaks unchanged. */
+/* CASE-STUDY GROUND (Max 2026-10-04, reworked 2026-10-16).
+   The 10-04 decision stands — a case-study page sits on white, with the intro
+   alone in cream — but it is now decided in build.py and written onto each
+   section as is-white / is-cream, rather than forced here. That way a section
+   naming its own `ground:` is not overridden, and `grounds: alternate` at the
+   top of a content file brings the cream/white alternation back for that page. */
 body.cs-page{background:var(--paper-3);}
-.cs-page .cs-light{background:var(--paper-3);}
-.cs-page #intro{background:var(--paper-2);}
 .cs-page .foot{color:var(--text-dark);border-top-color:rgba(84,94,61,.22);}
 .cs-page .foot a{color:inherit;}
 .cs-page .foot a:hover{color:var(--coral);}
@@ -429,3 +457,9 @@ body.cs-page{background:var(--paper-3);}
 
 /* Square corners on all case-study frames (Max 2026-10-04). */
 .cs-img,.cs-img img,.cs-img video,.cs-img iframe,.cs-img .embed-poster{border-radius:0!important;}
+
+/* PALETTE AS HTML (Max 2026-10-16) — content-file `swatches:` item. Each swatch
+   reuses .cs-labels, so names/hex match the brand-plate corner labels exactly. */
+.cs-swatches{display:grid;align-items:stretch;justify-content:stretch;}
+.cs-swatches .cs-swatch{position:relative;min-width:0;min-height:0;}
+.cs-swatches .cs-labels{color:inherit;}

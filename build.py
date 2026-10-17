@@ -47,6 +47,27 @@ def media(it, slug):
                  + (f' data-cx="{it["cx"]}"' if 'cx' in it else ''))
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
+    if it.get('swatches'):
+        # Colour palette drawn as live HTML (Max 2026-10-16), so the names and hex
+        # values use the same corner-label type, size and 20px inset as the brand
+        # plates. `cols` / `rows` are CSS grid tracks; each swatch takes
+        # name, hex, optional col/row ("1 / 3"), and kind: tile (hex bottom-left,
+        # the default) or strip (hex top-right).
+        cells = []
+        for c in it['swatches']:
+            hx = c['hex']
+            ink = 'rgba(238,242,225,.85)' if _luma(hx) < 0.5 else 'rgba(8,41,0,.72)'
+            pos = ''.join(f'grid-{k}:{c[k]};' for k in ('column', 'row') if c.get(k))
+            spans = ([c['name'], hx.upper()] if c.get('kind') == 'strip'
+                     else [c['name'], '', hx.upper()])
+            lab = ''.join(f'<span>{esc(t)}</span>' for t in spans)
+            cells.append(f'<div class="cs-swatch" style="background:{hx};color:{ink};{pos}">'
+                         f'<div class="cs-labels">{lab}</div></div>')
+        st = (f'grid-template-columns:{it.get("cols", "1fr")};'
+              f'grid-template-rows:{it.get("rows", "1fr")};'
+              + (f'aspect-ratio:{it["aspect"]};' if it.get('aspect') else ''))
+        return (f'      <div class="cs-img has-img cs-swatches{ratio}" style="{st}" role="img" '
+                f'aria-label="{esc(it.get("alt", ""))}">{"".join(cells)}</div>')
     if it.get('video'):
         v = it['video']
         return (f'      <div class="cs-img has-img{ratio}"><video muted loop playsinline preload="none" '
@@ -77,7 +98,19 @@ LAYOUT = {
     'text-image': 'cs-grid cs-grid-text-image',        # text then image
     'image-text': 'cs-grid cs-grid-image-text',        # image then text
     'quote':      'cs-grid cs-grid-quote',             # pull-quote, no image
+
+    # FLUSH FAMILY (Max 2026-10-16, Figma node 62:9). No gutter between the
+    # pieces — they touch. Each comes in a content-width and a full-bleed form.
+    'flush-pair':            'cs-grid cs-flush cs-flush-pair',
+    'flush-pair-bleed':      'cs-grid cs-flush cs-flush-pair cs-grid-bleed',
+    'flush-wide-pair':       'cs-grid cs-flush cs-flush-stack is-wide-first',
+    'flush-wide-pair-bleed': 'cs-grid cs-flush cs-flush-stack is-wide-first cs-grid-bleed',
+    'flush-pair-wide':       'cs-grid cs-flush cs-flush-stack is-wide-last',
+    'flush-pair-wide-bleed': 'cs-grid cs-flush cs-flush-stack is-wide-last cs-grid-bleed',
 }
+
+# Layouts that must be emitted OUTSIDE the .wrap so they run edge to edge.
+BLEED = {'bleed', 'flush-pair-bleed', 'flush-wide-pair-bleed', 'flush-pair-wide-bleed'}
 
 def textblock(b):
     paras = b['text'] if isinstance(b.get('text'), list) else [b.get('text', '')]
@@ -140,8 +173,45 @@ def block(b, slug):
     return wrap('\n'.join(media(i, slug) for i in b['items']))
 
 
+# SECTION GROUNDS (Max 2026-10-16). `ground:` on a section takes
+#   white | cream | dark | any hex such as "#1B2A3A"
+# Leave it out and the section keeps alternating cream/white down the page.
+# The alternation is worked out here rather than in CSS, so a section that
+# names its own colour simply sits out and the rest stay in step.
+# _alt['n'] counts only the auto sections: the intro is 0 (cream), so the
+# first auto media section is 1 (white) and the division after the intro holds.
+_alt = {'n': 0, 'mode': 'white'}
+
+def _luma(hexcolor):
+    """Rough perceived brightness, 0 (black) to 1 (white)."""
+    h = hexcolor.lstrip('#')
+    if len(h) == 3:
+        h = ''.join(c * 2 for c in h)
+    r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def ground_of(s):
+    """-> (class string, inline style string) for one section."""
+    g = s.get('ground')
+    if g == 'dark':
+        return 'cs-dark', ''
+    if g in ('white', 'cream'):
+        return f'cs-light is-{g}', ''
+    if isinstance(g, str) and g.startswith('#'):
+        tone = 'is-on-dark' if _luma(g) < 0.5 else 'is-on-light'
+        return f'cs-custom {tone}', f' style="--ground:{g}"'
+    _alt['n'] += 1
+    # Default (Max 2026-10-04): every unnamed section sits on white, with the
+    # intro alone in cream. `grounds: alternate` at the top of a content file
+    # restores the cream/white alternation for that page instead.
+    if _alt['mode'] == 'alternate':
+        return 'cs-light is-' + ('white' if _alt['n'] % 2 else 'cream'), ''
+    return 'cs-light is-white', ''
+
+
 def section(s, slug):
-    ground = 'cs-dark' if s.get('ground') == 'dark' else 'cs-light'
+    ground, gstyle = ground_of(s)
     sub = esc(s['subhead']) if s.get('subhead') else ''
     if s.get('cite'):
         sub += f'<cite>{esc(s["cite"])}</cite>'
@@ -153,7 +223,7 @@ def section(s, slug):
     # with no 100vw maths that a scrollbar can push past the viewport.
     parts, buf = [], ([head] if head else [])
     for b in s['blocks']:
-        if b['layout'] == 'bleed':
+        if b['layout'] in BLEED:
             if buf:
                 parts.append('  <div class="wrap">\n' + '\n'.join(buf) + '\n  </div>')
                 buf = []
@@ -162,7 +232,8 @@ def section(s, slug):
             buf.append(block(b, slug))
     if buf:
         parts.append('  <div class="wrap">\n' + '\n'.join(buf) + '\n  </div>')
-    return f'<section class="{ground} cs-media">\n' + '\n'.join(parts) + '\n</section>' 
+    return (f'<section class="{ground} cs-media"{gstyle}>\n'
+            + '\n'.join(parts) + '\n</section>')
 
 def intro(p):
     i = p['intro']
@@ -171,7 +242,7 @@ def intro(p):
         f'        <p class="cs-label">{esc(m["label"])}</p>\n'
         f'        <p class="cs-body">{esc(m["body"])}</p>\n'
         f'      </div>' for m in i['meta'])
-    return ('<!-- INTRO -->\n<section class="cs-light" id="intro">\n  <div class="wrap cs-intro">\n'
+    return ('<!-- INTRO -->\n<section class="cs-light is-cream" id="intro">\n  <div class="wrap cs-intro">\n'
             '    <div class="cs-intro-statement reveal">\n'
             f'      <p class="cs-label">{esc(i["eyebrow"])}</p>\n'
             f'      <h1 class="cs-statement">{esc(i["statement"])}</h1>\n'
@@ -180,7 +251,9 @@ def intro(p):
             '    </div>\n  </div>\n</section>')
 
 def build(slug):
+    _alt['n'] = 0          # each page starts its own alternation
     page = yaml.safe_load((ROOT / 'content' / f'{slug}.yml').read_text())
+    _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
     site = yaml.safe_load((ROOT / 'content' / 'site.yml').read_text())
     nav = '\n'.join(f'    <a href="{n["href"]}">{n["label"]}</a>' for n in site['nav'])
