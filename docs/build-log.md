@@ -1,0 +1,247 @@
+# maxspector.com rebuild — build log
+
+A running record of the new hand-coded site. Newest entries at the top.
+
+This file also lives in the repo at `docs/build-log.md`. Edit it there and
+re-upload, rather than retyping it.
+
+---
+
+## 2026-10-16 — Flush layouts, and a background for every section
+
+**Six new arrangements**, from Figma node 62:9. The pieces touch — no gutter
+between them. Each comes at content width and full bleed:
+
+| layout | content width (1200) | full bleed (1440) |
+|---|---|---|
+| `flush-pair` | 600 + 600 | 720 + 720 |
+| `flush-wide-pair` | 1200×675, then 600 + 600 | 1440×810, then 720 + 720 |
+| `flush-pair-wide` | 600 + 600, then 1200×675 | 720 + 720, then 1440×810 |
+
+Add `-bleed` for the edge-to-edge version. Every number was measured against
+the rendered page and matches the Figma file exactly. No horizontal overflow
+at 1440 or 390; on a phone the two squares stack rather than squeezing.
+
+**Backgrounds are now named per section.** `ground:` on a section takes
+`white`, `cream`, `dark`, or any hex such as `"#1B2A3A"`. Type on a custom
+colour is set light or dark automatically by measuring the colour's
+brightness. The hex must be quoted or YAML reads the `#` as a comment.
+
+**The convention, from Max.** On the existing maxspector.com every section of
+a case study has a different background, and that carries over: three
+categories — white, brand cream, or a colour matching the case study. The
+intro under the cover is always cream. The page itself is white, and each
+section paints over it. A section with no `ground:` falls back to white, but
+that is a fallback, not a choice — on a finished page every section names one.
+The build now prints how many are still falling back.
+
+**A stale assumption, corrected.** Claude asked Max to choose a default while
+describing the cream/white alternation as current behaviour. It wasn't: on
+10-04 a CSS rule had been added forcing every light section white, with the
+intro pinned to cream. The question was built on a picture twelve days out of
+date. That 10-04 decision has been kept, but it is now decided in `build.py`
+and written onto each section rather than forced in CSS — so a named ground
+is never overridden. `grounds: alternate` at the top of a content file brings
+the alternation back for that page; the layout catalogue is set that way.
+
+**Still to assign:** Fandom Brand has 9 of 11 sections with no ground, Alex
+has 4 of 5. Those need Max's colour choices before either page follows the
+convention.
+
+**Housekeeping:** a stale `.git/HEAD.lock` blocked a commit again. Claude
+can't delete inside the repo, so it was renamed to
+`.git/stale-head-lock-20261016` — safe for Max to delete.
+
+---
+
+## 2026-10-04 — Alex AI page, V1 for a job application
+
+Max needed his recent Alex work in front of a hiring manager today, so the
+Alex AI case study got a fast V1 built on the existing page. It's generated
+from `content/alex-ai.yml`, and Max pushed it live the same day.
+
+**What's on it.** The keynote stage mock is the cover; Max chose to keep the
+full-bleed zoom so it matches the Fandom page. The intro copy is Max's own:
+the statement, Roles & Responsibilities, and "Learn more at alex.com". There
+were no other contributors, so the Team block was dropped. There are six
+sections: Brand Identity, How Alex Works, Product in Motion (dark), Feature
+Animations, Product Imagery, and Brand in the World. Each section subhead
+still starts with "DRAFT —".
+
+**Brand plates.** Five new plates: the primary lockup, the mark light-on-dark
+and dark-on-light, the palette, and a DM Sans specimen. They're built from the
+production SVGs in Core Assets and the nine palette colours read exactly from
+Figma: #082900, #EEF2E1, #6B7F66, #B7C7A7, #D3E1C9, #DFD7C0, #BAD1C0, #009B58
+and #C92626. The neutral 50–950 scale was not read, so it isn't on the page.
+DM Sans was pulled out of the fonts embedded in the hero animation file.
+
+**Animations.** Eight live HTML embeds: end-to-end hiring sequence, dark
+product hero, live interviews, talent match, AI interviews, identity
+verification, cheat detection, and interview everyone. Four MP4s were encoded
+from the 4K exports: resume screens, verify, coordinator and fraud. Using the
+MP4s avoids the unpkg dependency the HTML versions of those pieces have.
+
+**Where the art came from.** Most pieces came from the Alex AI library at
+`Dropbox/Spector Documents/Design archive/Alex AI` (Videos & Animations, Core
+Assets, Brand Visual Style, Portfolio Files). Five exist only in Figma, and
+Max exported those himself: the scheduling phone shot, the two square social
+cards, and the two blurred-office logo frames. Claude resizes and compresses
+everything on its end, so Max doesn't need to optimise exports first.
+
+**Figma limit.** Max's Starter plan caps Figma MCP calls, and the cap was hit
+mid-session. Prefer library sources over Figma pulls. (Max upgraded his plan
+later the same day, so the cap no longer applies.)
+
+**Commit blocked.** GitHub Desktop refused to commit because of two empty,
+stale git lock files (`.git/index.lock` and `.git/HEAD.lock`) left over from
+September 25. Deleting them cleared it.
+
+**Verified** at 1440 and 390: no horizontal overflow, no broken images, no
+console errors, all 8 embeds load. The MP4s can't be checked in the headless
+browser (it has no H.264 decoder). They were encoded with the recipe the
+Fandom page already uses.
+
+---
+
+## 2026-09-26 — Contact sheets for the animation library
+
+Dropbox had more files than the first pass saw — 49 HTML animations in the
+Alex AI folder, 39 of them distinct once identical copies are collapsed. Ten
+had not finished syncing when I first looked: Proctor hero (desktop and
+mobile), identity verification (desktop and mobile), Verify_animation_dt_03,
+Resume Screens v3 and the M3 fit-bar version, Talent Match mobile, and the two
+Alex AI Interviews files.
+
+Every one of the 39 was run in a browser and photographed at 1.5, 7 and 15
+seconds. Seven contact sheets, saved to **Alex AI / animation-contact-sheets**.
+
+**A live gallery too.** `animation-gallery.html` sits in the Alex AI folder and
+runs all 39 for real, in a labeled grid, loading each as you scroll to it. It
+is built by `build-animation-gallery.py` beside it — re-run that any time
+files are added and the gallery rebuilds itself. Verified it works opened
+straight from the Finder, no server needed.
+
+**The dependency split.** 22 are completely self-contained and can go into a
+page today. 16 pull a script from unpkg.com, and the work network blocks that
+host, so those render as a flat background colour and nothing else — the grey
+panels on the sheets. They are not broken; they just cannot draw without the
+library. Before any of them can ship, that library has to be baked into the
+file. The affected pieces are the four Accelerate Hiring ones (Engage
+Instantly, Evaluate Fairly, Hire Faster in two versions), Resume Screens v2
+and v3, Alex Workflows desktop, Verify_animation_dt_03, and both Alex AI
+Interviews files.
+
+**Two notes for picking.** `Alex Hero Animation _standalone_4.html` shows its
+own playback controls along the bottom — fine on its own, wrong inside a page.
+And `Agentic-Recruiting-Platform-Dark-V2.html` is not an animation at all; it
+is the whole platform web page, and it reaches out to alex.com for assets.
+
+---
+
+## 2026-09-26 — The animation library
+
+**What's already on the Mac.** 36 HTML animations in the Alex AI folder. 20 of
+them are completely self-contained — no external files of any kind — which is
+exactly what the `embed:` type wants. Those can go straight into pages. Seven
+smaller ones pull a script from unpkg.com and fonts from Google, so they'd
+need that inlined before they could be counted on.
+
+Roughly what's there: several versions of the platform hero, Talent Match,
+End to End Hiring, Interview Everyone, Candidate Blueprint, the Signal Cascade
+fraud pieces, Alex Workflows, and the four "Accelerate Hiring" pieces
+(Engage Instantly, Hire Faster, Evaluate Fairly). Most exist in two or three
+versions, so each needs a look before picking one — the same trap as the
+GameSpot folder.
+
+**Pulling one down from Netlify.** Max's machine can't reach netlify.app — the
+work network blocks it — so curl and wget are out from there. Claude's own
+browser can reach it and read the actual source file, which is what matters:
+a deployed page saved from the rendered screen is a snapshot that won't
+animate again.
+
+Saved this way, byte-for-byte: `alex-live-interviews.html` (7 KB) from
+alex-built-for-industries.netlify.app, now in Alex AI / Videos & Animations.
+A dark piece — four role cards cycling through interviewing and scored states
+over a live counter, looping forever with no controls. It runs on the Alex
+brand dark (#082900), so it would sit naturally as one of the dark chapter
+breaks.
+
+Its only outside dependency is DM Sans from Google Fonts.
+
+**The rule of thumb.** Small self-contained pages pull down cleanly through
+the browser. Anything large or built as a bundle should come from the original
+export instead — the deployed build is the wrong thing to copy.
+
+---
+
+## 2026-09-25 — Live HTML animations
+
+Animations exported as single HTML files now run directly on the page. No
+video file, no quality loss, and roughly a twentieth of the weight — the Alex
+hero animation is 1.5 MB as HTML against 29 MB as a .mov.
+
+**How it works.** A new `embed:` field sits alongside `img:` and `video:` in a
+content file, so an animation drops into any layout the template already
+knows. The animation is authored at a fixed size (1440 × 900 for this one) and
+the page scales it to whatever frame it is placed in. It loads only when you
+scroll near it, and a still image stands in until it is ready. With reduced
+motion turned on it never loads at all — the still is all you get.
+
+**Where it went.** The Alex hiring sequence runs as a full-bleed section on
+the Alex AI page rather than as the page hero. It is a 36-second, six-step
+narrative with its own controls, so it needs to be a thing you arrive at, not
+something playing behind the title.
+
+**Two bugs found and fixed while verifying.** Image frames were missing
+`position: relative`, so anything layered inside one was anchored to the page
+instead of the frame. And a later background rule was overriding the
+animation's own ground colour. Both were pre-existing; neither had shown up
+until an embed exercised them.
+
+**Also.** A file name starting with `/` is now taken as a literal path, so one
+page can borrow art from another page's folder. The layout catalogue gained an
+animation example, and the content README documents the new fields.
+
+Verified at 1440 and 390: no horizontal overflow, no console errors, the
+animation renders and plays, the still fades out on load, and reduced motion
+suppresses it entirely.
+
+---
+
+## Where things stand
+
+**Built**
+
+- Content-first build system — YAML content files compile to static HTML
+- The Fandom Brand case study — 11 sections, 81 images, 5 videos, built
+  deliberately long so it can be cut down
+- Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
+  animations, 4 videos, product and campaign art
+- Layout catalogue — every arrangement on one page for reference, including
+  the six flush layouts and a custom-colour section
+- Section grounds named per section: white, cream, brand dark, or any colour
+- Scroll motion, hover, and the coral dropdown nav
+
+**Next session starts here**
+
+1. **Assign a ground to every section** on Fandom Brand (9 of 11 unset) and
+   Alex (4 of 5). Needs Max's colour choices. Run `python3 build.py` and the
+   count of unset sections prints under each page.
+2. **Alex AI:** Max's edits, then clear the "DRAFT —" subheads.
+3. **Trim the Fandom page.** Likeliest cuts: Presentation Design (13 images),
+   Co-Branded (9), Office Branding (11). Re-check the dark sections after.
+
+**Further out**
+
+- Compress images once the design is locked. Right-sizing alone takes the
+  Fandom page from 16.3 MB to 10.4 MB; AVIF on top takes it to 4.1 MB. 65 of
+  85 images are oversized by more than a quarter even at 2× retina. Open
+  question: replace the JPEGs in place, or write to a separate folder for
+  comparison first.
+- Bake the unpkg library into the 16 animations that need it.
+- GameSpot case study — unblocked now that the brand guide has turned up.
+- Sync the nav on the homepage and the old template to the shared one.
+- Convert the homepage to the content system.
+- Build the CMS, once a second case study has proven the content model.
+- Staggered/offset pairs — the one layout from the original wish-list still
+  unbuilt.
