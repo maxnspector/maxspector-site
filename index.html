@@ -27,7 +27,6 @@
 <!-- OVERLAY MENU -->
 <div class="overlay" id="overlay">
   <nav>
-    <a href="#featured">Featured Work</a>
     <a href="/alex.html">Alex AI</a>
     <a href="/fandom-brand.html">Fandom</a>
     <a href="#">Client Brands</a>
@@ -63,16 +62,18 @@
     <div class="sec-head"><span class="t-label">Featured Work</span><hr class="rule"/></div>
     <div class="slider reveal" id="slider">
       <div class="slides" id="slides">
-        <div class="slide active"><span class="slide-ph">Work example — 16:9</span></div>
-        <div class="slide"><span class="slide-ph">Work example — 16:9</span></div>
-        <div class="slide"><span class="slide-ph">Work example — 16:9</span></div>
+        <!-- SLIDES: each links to a page or a section, e.g. href="/fandom-brand.html#office-branding".
+             data-caption is the line under the slideshow while that slide shows. -->
+        <a class="slide active" href="#" data-caption="DRAFT — Project name, from the Client Brands collection"><span class="slide-ph">Work example — 16:9</span></a>
+        <a class="slide" href="#" data-caption="DRAFT — Project name, from the Campaigns collection"><span class="slide-ph">Work example — 16:9</span></a>
+        <a class="slide" href="#" data-caption="DRAFT — Project name, from the Fandom case study"><span class="slide-ph">Work example — 16:9</span></a>
       </div>
       <button class="slider-arrow prev" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
       <button class="slider-arrow next" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
     <div class="slider-foot reveal">
       <div class="dots" id="dots"></div>
-      <p class="t-body-lg slider-caption">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
+      <p class="t-body-lg slider-caption" id="slideCaption" aria-live="polite"></p>
     </div>
   </div>
 </section>
@@ -164,10 +165,20 @@ document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
 const slides=[...document.querySelectorAll('#slides .slide')];const dotsWrap=document.getElementById('dots');let idx=0,timer;
 slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Go to slide '+(i+1));b.addEventListener('click',()=>{go(i);reset();});dotsWrap.appendChild(b);});
 const dots=[...dotsWrap.children];
-function go(i){slides[idx].classList.remove('active');dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');dots[idx].classList.add('active');}
-function reset(){clearInterval(timer);timer=setInterval(()=>go(idx+1),6500);}
-document.getElementById('next').addEventListener('click',()=>{go(idx+1);reset();});
-document.getElementById('prev').addEventListener('click',()=>{go(idx-1);reset();});
+const caption=document.getElementById('slideCaption'),slider=document.getElementById('slider');
+function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';}
+// Autoplay pauses while the pointer or keyboard focus is on the slideshow,
+// and stops for good once someone uses the arrows or dots.
+let stopped=false,paused=false;
+function reset(){clearInterval(timer);if(!stopped&&!paused&&!reduceMotion)timer=setInterval(()=>go(idx+1),6500);}
+function stop(){stopped=true;clearInterval(timer);}
+slider.addEventListener('mouseenter',()=>{paused=true;reset();});
+slider.addEventListener('mouseleave',()=>{paused=false;reset();});
+slider.addEventListener('focusin',()=>{paused=true;reset();});
+slider.addEventListener('focusout',()=>{paused=false;reset();});
+dots.forEach(d=>d.addEventListener('click',stop));
+document.getElementById('next').addEventListener('click',()=>{go(idx+1);stop();});
+document.getElementById('prev').addEventListener('click',()=>{go(idx-1);stop();});
 go(0);reset();
 </script>
 </body>

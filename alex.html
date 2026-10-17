@@ -56,7 +56,7 @@
   </div>
 </section>
 
-<section class="cs-light is-white cs-media">
+<section class="cs-light is-white cs-media" id="brand-identity">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Brand Identity</h2>
@@ -94,7 +94,7 @@
   </div>
 </section>
 
-<section class="cs-light is-white cs-media">
+<section class="cs-light is-white cs-media" id="feature-animations">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Feature Animations</h2>
@@ -126,7 +126,7 @@
   </div>
 </section>
 
-<section class="cs-light is-white cs-media">
+<section class="cs-light is-white cs-media" id="brand-in-the-world">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Brand in the World</h2>
@@ -230,6 +230,10 @@ if(vids.length){
     vids.forEach(v=>vio.observe(v));
   }
 }
+// Arriving from a homepage slide link (/page.html#section): media above the
+// section can still be settling when the browser first jumps, so land again
+// once everything has loaded.
+addEventListener('load',()=>{const t=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(t)t.scrollIntoView();});
 </script>
 </body>
 </html>

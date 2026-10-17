@@ -1,0 +1,382 @@
+title: The Fandom Brand — Max Spector
+description: Building and running the Fandom brand — identity, motion, social, partnerships, platform
+  and place.
+cover: cover.jpg
+intro:
+  eyebrow: The Fandom Brand
+  statement: Produced end to end by my team at Fandom, the company’s brand identity targets the consumer
+    audience with the fun, excitement, and boundless joy that come with a love of imagined worlds. To
+    the business audience it tells the story of Fandom’s massive, global reach, its platform, and a diverse
+    user base.
+  meta:
+  - label: Roles & Responsibilities
+    body: Art direction, leadership, and design. Directed scope, strategy, process, timelines, and talent.
+  - label: Contributing Designers
+    body: Dylan Abuel, Nick Tam, Kevin Orzel, Winh Do, Risha Egart, Dermot Jiang, Colleen Starr, Eric
+      Neff
+  links_html: View the <a href="#">online brand assets</a> or download the full <a href="#">brand guide</a>
+sections:
+- heading: Core Brand Elements
+  subhead: Building blocks of the brand story. Logo, color, typography, illustration, iconography.
+  blocks:
+  - layout: grid-2
+    items:
+    - img: core-logo.jpg
+      alt: Fandom logo system — wordmark with the flame-and-heart mark, in three colorways
+      ratio: ultra
+    - img: core-type-palette.jpg
+      alt: Typography and palette shown together
+      ratio: ultra
+  - layout: grid-3
+    items:
+    - img: core-lockups.jpg
+      alt: Logo lockups on red, yellow and purple
+      ratio: wide
+    - img: core-type-yellow.jpg
+      alt: Brand typeface specimen set in purple on yellow
+      ratio: wide
+    - img: core-palette.jpg
+      alt: Brand color palette with hex, RGB, CMYK and Pantone values
+      ratio: wide
+- heading: Illustration & Iconography
+  subhead: A house style broad enough to hold every fandom, and specific enough that it always looks like
+    us.
+  blocks:
+  - layout: feature
+    columns:
+    - - img: illo-comic-characters.jpg
+        alt: Illustrated fans rendered in the Fandom house style
+        ratio: wide
+      - img: illo-character-collage.jpg
+        alt: Character collage combining duotone photography and brand shapes
+        ratio: wide
+    - - img: illo-values.jpg
+        alt: Company values expressed as icon cards — we build experiences, we bring joy, we serve a global
+          community
+        ratio: tall
+  - layout: grid-2
+    items:
+    - img: illo-icons.jpg
+      alt: Icon set drawn from games, comics and film
+      ratio: wide
+    - img: illo-photo-treatments.jpg
+      alt: Photo treatment system applied to characters and talent
+      ratio: wide
+- heading: Motion Design
+  subhead: Expressing the brand attributes of passion, celebration, and wonder.
+  ground: dark
+  blocks:
+  - layout: grid-2
+    items:
+    - video: motion-anthem
+      alt: Brand anthem film
+      ratio: video
+    - video: motion-sizzle
+      alt: Kickoff sizzle reel
+      ratio: video
+  - layout: grid-3
+    items:
+    - video: motion-titlecard
+      alt: Animated title card
+      ratio: video
+    - video: motion-endcard
+      alt: Animated end card
+      ratio: video
+    - video: motion-lowerthird
+      alt: Animated lower third
+      ratio: video
+  - layout: grid-2
+    items:
+    - img: motion-hero.jpg
+      alt: Animated logo build — the flame mark assembling
+      ratio: video
+    - img: motion-tagline-startrek.jpg
+      alt: Tagline animation frame — for the love of Star Trek
+      ratio: video
+  - layout: full
+    items:
+    - img: motion-logo-grid.jpg
+      alt: Frames from the logo animation shown in sequence
+      ratio: ultra
+- heading: The Core Platform
+  subhead: Homepage and navigation for the world’s largest fan community — where the brand meets the people
+    who use it.
+  blocks:
+  - layout: full
+    items:
+    - img: platform-homepage.jpg
+      alt: Fandom homepage and mobile navigation
+      ratio: wide
+- heading: Social Content
+  subhead: One system, many voices — news, quotes, data and fan art, all recognisably Fandom. Custom,
+    sponsored, and templated.
+  blocks:
+  - layout: grid-4
+    items:
+    - img: social-johnwick.jpg
+      alt: By the Numbers post breaking down John Wick
+      ratio: portrait
+    - img: social-glass-onion.jpg
+      alt: Data-focused post — Glass Onion oddsmaker
+      ratio: portrait
+    - img: social-quote-wolverine.jpg
+      alt: Quote template post about Wolverine's costume
+      ratio: portrait
+    - img: social-daredevil.jpg
+      alt: Fan engagement art — Daredevil
+      ratio: portrait
+    - img: social-news-horizon.jpg
+      alt: News template post — Horizon Zero Dawn series
+      ratio: portrait
+    - img: social-andor.jpg
+      alt: Character breakdown post — Andor
+      ratio: portrait
+    - img: social-salaries.jpg
+      alt: Data post — biggest movie star salaries
+      ratio: portrait
+    - img: social-release-calendar.jpg
+      alt: Monthly series release calendar post
+      ratio: portrait
+  - layout: full
+    items:
+    - img: social-bond-wide.jpg
+      alt: Wide infographic charting the James Bond era
+      ratio: video
+- heading: Co-Branded Partnerships
+  subhead: The Fandom brand sharing space — and even brand voice — with partners and sponsors.
+  blocks:
+  - layout: grid-3
+    items:
+    - img: cobrand-xfinity-logo.jpg
+      alt: Fandom x Xfinity 10G Gaming Lounge lockup
+    - img: cobrand-xfinity-broadcast.jpg
+      alt: Broadcast frames from the Gaming Lounge series
+    - img: cobrand-instagram-biggame.jpg
+      alt: Instagram co-branded activation — The Big Game
+  - layout: grid-2
+    items:
+    - img: cobrand-xfinity-lounge.jpg
+      alt: The Gaming Lounge built as a physical space
+      ratio: wide
+    - img: cobrand-xfinity-athletes.jpg
+      alt: Athletes on the Gaming Lounge set
+      ratio: wide
+  - layout: grid-2
+    items:
+    - img: cobrand-xfinity-helmet.jpg
+      alt: Co-branded helmet detail
+      ratio: wide
+    - img: cobrand-instagram-presents.jpg
+      alt: Instagram presents — title treatment over film
+      ratio: wide
+  - layout: grid-2
+    items:
+    - img: cobrand-fanta-title.jpg
+      alt: Fanta Fright Factor title treatment
+      ratio: video
+    - img: cobrand-fanta-social.jpg
+      alt: Fanta Fright Factor social rollout
+      ratio: video
+- heading: Custom Content
+  subhead: 'An inclusive brand with a clear point of view: fun, friendly, and wicked smart.'
+  ground: dark
+  blocks:
+  - layout: grid-3
+    items:
+    - img: content-hp-hufflepuff.jpg
+      alt: Wizarding World timeline — Hufflepuff and Newt Scamander
+    - img: content-hp-imperius.jpg
+      alt: Imperius Curse explainer illustration
+    - img: content-hp-dumbledore.jpg
+      alt: Dumbledore family tree
+  - layout: grid-2
+    items:
+    - img: content-skywalker-balance.jpg
+      alt: Star Wars explainer — balance
+    - img: content-skywalker-lastjedi.jpg
+      alt: Star Wars explainer — The Last Jedi
+  - layout: grid-2
+    items:
+    - img: content-hp-full.jpg
+      alt: Full-page Fantastic Beasts feature layout
+      ratio: wide
+    - img: content-nintendo-switch.jpg
+      alt: The definitive Nintendo Switch launch guide
+      ratio: wide
+  - layout: full
+    items:
+    - img: content-tomcruise.jpg
+      alt: Tom Cruise by the numbers — long-form infographic
+      ratio: wide
+- heading: The State of Fandom
+  subhead: Strategic insights brought to life — an annual research report, and the live-streamed event
+    built around it.
+  blocks:
+  - layout: grid-2
+    items:
+    - img: sof-cover.jpg
+      alt: State of Fandom report cover and key spreads
+      ratio: wide
+    - img: sof-inside-fandom.jpg
+      alt: Inside Fandom event identity and slides
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: sof-trends.jpg
+      alt: Four major trends spread
+      ratio: wide
+    - img: sof-74.jpg
+      alt: Data spread — 74% of fans spent more time with entertainment
+      ratio: wide
+    - img: sof-nostalgia.jpg
+      alt: Nostalgia findings spread
+      ratio: wide
+  - layout: grid-2
+    items:
+    - img: sof-detail-66.jpg
+      alt: Detail — 66% of fans turned back the clock
+      ratio: portrait
+    - img: sof-detail-74.jpg
+      alt: Detail — the 74% statistic as a standalone card
+      ratio: portrait
+- heading: Presentation Design
+  subhead: The business of making people forget they’re viewing a slide deck.
+  blocks:
+  - layout: grid-2
+    items:
+    - img: pres-fandna-a.jpg
+      alt: FanDNA product story — opening slides
+      ratio: wide
+    - img: pres-fandna-b.jpg
+      alt: FanDNA product story — data slides
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: pres-allhands-2025.jpg
+      alt: All-hands kickoff title slide, 2025
+      ratio: video
+    - img: pres-allhands-content.jpg
+      alt: Content vision title slide
+      ratio: video
+    - img: pres-allhands-product.jpg
+      alt: Product vision title slide
+      ratio: video
+  - layout: grid-2
+    items:
+    - img: pres-templates.jpg
+      alt: Company-wide slide template system
+      ratio: wide
+    - img: pres-ff-title.jpg
+      alt: The Franchise Factor — title slide
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: pres-ff-metric.jpg
+      alt: Franchise Factor — the metric explained
+      ratio: wide
+    - img: pres-ff-chart.jpg
+      alt: Franchise Factor — audience segmentation chart
+      ratio: wide
+    - img: pres-gp-answers.jpg
+      alt: Go-to-market deck — Fandom has their answers
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: pres-gp-markets.jpg
+      alt: Go-to-market deck — reach fans in every market
+      ratio: wide
+    - img: pres-gp-reach.jpg
+      alt: Go-to-market deck — reach your fans
+      ratio: wide
+    - img: pres-gp-context.jpg
+      alt: Go-to-market deck — context matters
+      ratio: wide
+- heading: Show Formats & Sub-Brands
+  subhead: A brand of brands has lots of… well, brands. Each format gets a voice of its own, and still
+    belongs to the family.
+  blocks:
+  - layout: grid-3
+    items:
+    - img: show-fandom5.jpg
+      alt: Fandom 5 trivia show title card
+      ratio: wide
+    - img: show-irl.jpg
+      alt: Fandom IRL title card
+      ratio: wide
+    - img: show-playbreak.jpg
+      alt: Fandom PlayBreak title card, presented by Coca-Cola
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: show-powerlevels.jpg
+      alt: Power Levels logo
+      ratio: wide
+    - img: show-rememberplaying.jpg
+      alt: Remember Playing logo
+      ratio: wide
+    - img: show-watchthisnow.jpg
+      alt: Watch This Now logo
+      ratio: wide
+  - layout: grid-3
+    items:
+    - img: show-didyouknow.jpg
+      alt: Did You Know? logo
+    - img: show-fandomstars.jpg
+      alt: Fandom Stars logo
+    - img: show-bythenumbers.jpg
+      alt: By the Numbers logo
+  - layout: full
+    items:
+    - img: show-subbrand-logos.jpg
+      alt: Sub-brand and initiative logos — Fandom Stars, Black History Month, FanDNA, Fandom Fest, AANHPI
+        Month, Global Sales, Celebrating French Community
+      ratio: wide
+- heading: Office Branding
+  subhead: “This work is an investment in company culture.”
+  cite: Fandom’s Chief Revenue Officer
+  blocks:
+  - layout: grid-2
+    items:
+    - img: office-la-reception.jpg
+      alt: Los Angeles reception wall — illustrated fandom tiles
+      ratio: wide
+    - img: office-sf-heart.jpg
+      alt: San Francisco welcome mural
+      ratio: wide
+  - layout: full
+    items:
+    - img: office-reception-heart.jpg
+      alt: Reception wall and city mural shown together
+      ratio: ultra
+  - layout: grid-2
+    items:
+    - img: office-poznan-lounge.jpg
+      alt: Poznań office lounge
+      ratio: wide
+    - img: office-poznan-wall-of-fandom.jpg
+      alt: Wall of Fandom display case in Poznań
+      ratio: tall
+  - layout: full
+    items:
+    - img: office-poznan-wall.jpg
+      alt: Poznań office — full wall view
+      ratio: ultra
+  - layout: grid-3
+    items:
+    - img: office-illo-ramen.jpg
+      alt: Office illustration — ramen
+      ratio: tall
+    - img: office-illo-trek.jpg
+      alt: Office illustration — starship
+      ratio: tall
+    - img: office-illo-city.jpg
+      alt: Office illustration — neon city
+      ratio: tall
+  - layout: grid-2
+    items:
+    - img: office-illo-bar.jpg
+      alt: Office illustration — bar interior
+      ratio: wide
+    - img: office-illo-falcon.jpg
+      alt: Office illustration — freighter interior
+      ratio: wide

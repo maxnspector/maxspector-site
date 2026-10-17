@@ -7,6 +7,44 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 (later) — Fandom page recompose: walkthrough done, assets gathering
+
+Max walked through the live Fandom pages section by section to recompose the case study in a contemporary, web-first way (reference: kylebmacy.com/Addison-AI). Every keep/cut call, the open questions and the asset status are in `docs/fandom-recompose-plan.md`. Headlines: Core Platform and Office Branding cut; GameSpot, campaign logos, By the Numbers and the SDCC party (broadened to events) come in; brand elements get rebuilt live from SVGs, real fonts and HTML swatches.
+
+Assets are collecting in Dropbox `Max Spector Website 2026 / Case Study Files / Fandom`. Claude pulled 50 files from the design archive into `_from-design-archive/` and downloaded the brand fonts (Rubik, Space Mono, Space Grotesk). Online-only Dropbox files can't be copied from Claude's side.
+
+Also today: homepage rows relabelled **Case Study** (Alex, Fandom) and **Collection** (Client Brands, Campaigns placeholders); menus trimmed to Alex AI, Fandom, Client Brands, Campaigns, About; slideshow slides are now links with per-slide captions and smarter autoplay; every headed section gets a link address; Alex Coordinator/Verify heroes replaced (pushed as 10-17 V4).
+
+---
+
+## 2026-10-17 (later) — Slideshow links into pages and sections
+
+Featured Work removed from both menus (Max: it is a homepage area, not a
+destination). Menus now: Alex AI, Fandom, Client Brands, Campaigns, About.
+
+The Featured Work slideshow exists to show work you wouldn't otherwise see from
+the homepage, especially from the two collections, so each slide now links out
+to a page or straight to a section of it.
+
+- **Section addresses.** `build.py` gives every headed section an id from its
+  heading (`#office-branding`, `#brand-in-the-world`). `id:` on a section pins
+  it. Documented in `content/README.md`.
+- **Link check.** Every build now checks each slide link in `index.html` and
+  lists any that point at a missing page or section.
+- **Landing.** Case-study pages re-jump to the section once everything has
+  loaded, so media settling above can't push the target off. Measured: section
+  top lands at 0, heading 72px down, nav tucked away, at 1440 and 390.
+- **Slides are links** (`<a class="slide" href=… data-caption=…>`). The caption
+  under the slideshow now changes per slide and ends with an arrow.
+- **Autoplay** pauses while the pointer or keyboard focus is on the slideshow,
+  stops for good once the arrows or dots are used, and is off for visitors with
+  reduced motion turned on.
+
+Three placeholder slides with DRAFT captions, linking nowhere yet. Needs from
+Max: which images go in the slideshow and which project each belongs to.
+
+---
+
 ## 2026-10-17 (later) — Case Studies and Collections
 
 Max decided the four destinations split in two: **Case Studies** (Alex AI,
@@ -354,13 +392,10 @@ suppresses it entirely.
 
 **Next session starts here**
 
-0. **Push** the new lead animation if not done yet (GitHub Desktop → Commit → Push).
-1. **Assign a ground to every section** on Fandom Brand (9 of 11 unset) and
-   Alex (4 of 5). Needs Max's colour choices. Run `python3 build.py` and the
-   count of unset sections prints under each page.
-2. **Alex AI:** Max's edits, then clear the "DRAFT —" subheads.
-3. **Trim the Fandom page.** Likeliest cuts: Presentation Design (13 images),
-   Co-Branded (9), Office Branding (11). Re-check the dark sections after.
+1. **Fandom recompose.** Open `docs/fandom-recompose-plan.md`. Check what Max has added to the Case Study Files / Fandom folder, flag anything too small, then walk him through the open questions before building.
+2. **Alex AI:** homepage description still a DRAFT placeholder (Max's copy); section grounds for Alex's 4 sections; clear the "DRAFT —" subheads.
+3. **Collections:** name and build Client Brands and Campaigns; fill the slideshow with real slides linked to sections.
+4. **Push** the uncommitted homepage, menu, slideshow and build.py changes when ready (staging is noindex, safe to push).
 
 **Further out**
 

@@ -1,9 +1,11 @@
-title: The Fandom Brand — Max Spector
-description: Building and running the Fandom brand — identity, motion, social, partnerships, platform
-  and place.
+# FANDOM — recomposed web-first 2026-10-17 (plan: docs/fandom-recompose-plan.md).
+# The first long version is kept in docs/fandom-brand-v1-backup.yml.
+title: Fandom — Max Spector
+description: "Building and running the Fandom brand: identity, motion, social, presentations, GameSpot and events."
 cover: cover.jpg
+frames: off
 intro:
-  eyebrow: The Fandom Brand
+  eyebrow: Fandom
   statement: Produced end to end by my team at Fandom, the company’s brand identity targets the consumer
     audience with the fun, excitement, and boundless joy that come with a love of imagined worlds. To
     the business audience it tells the story of Fandom’s massive, global reach, its platform, and a diverse
@@ -15,368 +17,320 @@ intro:
     body: Dylan Abuel, Nick Tam, Kevin Orzel, Winh Do, Risha Egart, Dermot Jiang, Colleen Starr, Eric
       Neff
   links_html: View the <a href="#">online brand assets</a> or download the full <a href="#">brand guide</a>
+
+# Brand type and panel styles for this page only. Fonts live in assets/fandom-brand/fonts.
+css: |
+  @font-face{font-family:'Rubik';src:url('/assets/fandom-brand/fonts/rubik.woff2') format('woff2');font-weight:300 900;font-display:swap}
+  @font-face{font-family:'Space Grotesk';src:url('/assets/fandom-brand/fonts/spacegrotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
+  @font-face{font-family:'Space Mono';src:url('/assets/fandom-brand/fonts/spacemono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Space Mono';src:url('/assets/fandom-brand/fonts/spacemono-700.woff2') format('woff2');font-weight:700;font-display:swap}
+  @font-face{font-family:'Kanit';src:url('/assets/fandom-brand/fonts/kanit-400.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'Kanit';src:url('/assets/fandom-brand/fonts/kanit-700.woff2') format('woff2');font-weight:700;font-display:swap}
+  @font-face{font-family:'Kanit';src:url('/assets/fandom-brand/fonts/kanit-900.woff2') format('woff2');font-weight:900;font-display:swap}
+  @font-face{font-family:'JetBrains Mono';src:url('/assets/fandom-brand/fonts/jetbrainsmono.woff2') format('woff2');font-weight:100 800;font-display:swap}
+  .cs-swatches .cs-labels{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.02em}
+  .gs-palette .cs-swatches .cs-labels{font-family:'JetBrains Mono',monospace}
+  @media(max-width:520px){.cs-swatches .cs-labels{font-size:7px;padding:6px;letter-spacing:0}}
+  .cs-html{container-type:inline-size;padding:7cqw;justify-content:space-between}
+  .ty-label{font:400 max(10px,2.6cqw)/1.3 'Space Mono',monospace;display:flex;justify-content:space-between;gap:1em}
+  .ty-aa{font-size:46cqw;line-height:.9;letter-spacing:-.02em}
+  .ty-set{font-size:5.4cqw;line-height:1.35;overflow-wrap:anywhere}
+  .ty-rubik{font-family:'Rubik';font-weight:700}
+  .ty-rubik .ty-set{font-weight:400}
+  .ty-grotesk{font-family:'Space Grotesk';font-weight:500}
+  .ty-grotesk .ty-set{font-weight:400}
+  .ty-mono{font-family:'Space Mono';font-weight:700}
+  .ty-mono .ty-aa{font-size:40cqw}
+  .ty-mono .ty-set{font-weight:400;font-size:4.6cqw}
+  .gs-list{font-family:'Kanit'}
+  .gs-list .ty-label{font-family:'JetBrains Mono';font-weight:700}
+  .gs-list ul{list-style:none;margin:0;padding:0;font-weight:900;font-size:7.4cqw;line-height:1.08;text-transform:uppercase}
+  .gs-list.is-not ul li{text-decoration:line-through;text-decoration-thickness:.09em;text-decoration-color:#FF2D17}
+
+lead:
+  ground: '#280033'
+  blocks:
+  - layout: full
+    items:
+    - video: motion-logo-reveal
+      alt: The Fandom logo animating in, flame mark cutting through the wordmark
+      ratio: video
+
 sections:
 - heading: Core Brand Elements
-  subhead: Building blocks of the brand story. Logo, color, typography, illustration, iconography.
+  subhead: Building blocks of the brand story. Logo, color, and typography.
+  ground: white
   blocks:
   - layout: grid-2
+    gap: 0
     items:
-    - img: core-logo.jpg
-      alt: Fandom logo system — wordmark with the flame-and-heart mark, in three colorways
-      ratio: ultra
-    - img: core-type-palette.jpg
-      alt: Typography and palette shown together
-      ratio: ultra
+    - img: logo-lockup-purple.svg
+      alt: Fandom primary lockup, purple wordmark with the flame mark
+      ratio: wide
+      bg: '#F9EDD8'
+      pad: 16
+    - img: logo-lockup-cream.svg
+      alt: Fandom primary lockup reversed, cream wordmark on purple black
+      ratio: wide
+      bg: '#280033'
+      pad: 16
   - layout: grid-3
+    gap: 0
     items:
-    - img: core-lockups.jpg
-      alt: Logo lockups on red, yellow and purple
-      ratio: wide
-    - img: core-type-yellow.jpg
-      alt: Brand typeface specimen set in purple on yellow
-      ratio: wide
-    - img: core-palette.jpg
-      alt: Brand color palette with hex, RGB, CMYK and Pantone values
-      ratio: wide
-- heading: Illustration & Iconography
-  subhead: A house style broad enough to hold every fandom, and specific enough that it always looks like
-    us.
-  blocks:
-  - layout: feature
-    columns:
-    - - img: illo-comic-characters.jpg
-        alt: Illustrated fans rendered in the Fandom house style
-        ratio: wide
-      - img: illo-character-collage.jpg
-        alt: Character collage combining duotone photography and brand shapes
-        ratio: wide
-    - - img: illo-values.jpg
-        alt: Company values expressed as icon cards — we build experiences, we bring joy, we serve a global
-          community
-        ratio: tall
-  - layout: grid-2
-    items:
-    - img: illo-icons.jpg
-      alt: Icon set drawn from games, comics and film
-      ratio: wide
-    - img: illo-photo-treatments.jpg
-      alt: Photo treatment system applied to characters and talent
-      ratio: wide
-- heading: Motion Design
-  subhead: Expressing the brand attributes of passion, celebration, and wonder.
-  ground: dark
-  blocks:
-  - layout: grid-2
-    items:
-    - video: motion-anthem
-      alt: Brand anthem film
-      ratio: video
-    - video: motion-sizzle
-      alt: Kickoff sizzle reel
-      ratio: video
-  - layout: grid-3
-    items:
-    - video: motion-titlecard
-      alt: Animated title card
-      ratio: video
-    - video: motion-endcard
-      alt: Animated end card
-      ratio: video
-    - video: motion-lowerthird
-      alt: Animated lower third
-      ratio: video
-  - layout: grid-2
-    items:
-    - img: motion-hero.jpg
-      alt: Animated logo build — the flame mark assembling
-      ratio: video
-    - img: motion-tagline-startrek.jpg
-      alt: Tagline animation frame — for the love of Star Trek
-      ratio: video
+    - img: logo-stacked-purple.svg
+      alt: Fandom stacked lockup on light blue
+      bg: '#86D7DC'
+      pad: 24
+    - img: logo-mark.svg
+      alt: The Fandom flame mark on purple
+      bg: '#520044'
+      pad: 26
+    - img: logo-stacked-b-cream.svg
+      alt: Fandom stacked lockup, alternate arrangement, on cornflower
+      bg: '#6A68CE'
+      pad: 22
   - layout: full
     items:
-    - img: motion-logo-grid.jpg
-      alt: Frames from the logo animation shown in sequence
-      ratio: ultra
-- heading: The Core Platform
-  subhead: Homepage and navigation for the world’s largest fan community — where the brand meets the people
-    who use it.
-  blocks:
-  - layout: full
+    - swatches:
+      - {name: Fandom Red, hex: '#FA005A', column: span 4}
+      - {name: Fandom Yellow, hex: '#FFC500', column: span 4}
+      - {name: Fandom Purple, hex: '#520044', column: span 4}
+      - {name: Cream, hex: '#F9EDD8', column: span 3}
+      - {name: Light Blue, hex: '#86D7DC', column: span 3}
+      - {name: Cornflower, hex: '#6A68CE', column: span 3}
+      - {name: Crimson, hex: '#9B004E', column: span 3}
+      - {name: Dark Gray, hex: '#3A434B', column: span 3}
+      - {name: Light Gray, hex: '#838D86', column: span 3}
+      - {name: Purple Black, hex: '#280033', column: span 3}
+      - {name: Brown, hex: '#C16900', column: span 3}
+      cols: repeat(12,1fr)
+      rows: 2fr 1fr 1fr
+      alt: 'Fandom palette: lead colors red, yellow and purple, then eight secondaries'
+      aspect: 1200/640
+  - layout: grid-3
+    gap: 0
     items:
-    - img: platform-homepage.jpg
-      alt: Fandom homepage and mobile navigation
-      ratio: wide
-- heading: Social Content
-  subhead: One system, many voices — news, quotes, data and fan art, all recognisably Fandom. Custom,
-    sponsored, and templated.
+    - html: <div class="ty-label"><span>Rubik</span><span>Display & body</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      html_class: ty-rubik
+      alt: Rubik, the display and body typeface
+      bg: '#520044'
+      ink: '#F9EDD8'
+      ratio: tall
+    - html: <div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      html_class: ty-grotesk
+      alt: Space Grotesk typeface
+      bg: '#FFC500'
+      ink: '#520044'
+      ratio: tall
+    - html: <div class="ty-label"><span>Space Mono</span><span>Accents & data</span></div><div class="ty-aa">Aa</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+      html_class: ty-mono
+      alt: Space Mono, the accent and data typeface
+      bg: '#FA005A'
+      ink: '#F9EDD8'
+      ratio: tall
+
+- heading: Visual Language
+  subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
+  ground: '#F9EDD8'
   blocks:
   - layout: grid-4
+    gap: 0
     items:
-    - img: social-johnwick.jpg
-      alt: By the Numbers post breaking down John Wick
-      ratio: portrait
-    - img: social-glass-onion.jpg
-      alt: Data-focused post — Glass Onion oddsmaker
-      ratio: portrait
-    - img: social-quote-wolverine.jpg
-      alt: Quote template post about Wolverine's costume
-      ratio: portrait
-    - img: social-daredevil.jpg
-      alt: Fan engagement art — Daredevil
-      ratio: portrait
-    - img: social-news-horizon.jpg
-      alt: News template post — Horizon Zero Dawn series
-      ratio: portrait
-    - img: social-andor.jpg
-      alt: Character breakdown post — Andor
-      ratio: portrait
-    - img: social-salaries.jpg
-      alt: Data post — biggest movie star salaries
-      ratio: portrait
-    - img: social-release-calendar.jpg
-      alt: Monthly series release calendar post
-      ratio: portrait
+    - img: cutout-black-widow.webp
+      alt: Black Widow in the Fandom duotone photo treatment
+      ratio: tall
+      bg: '#86D7DC'
+      pad: 8
+      align: bottom
+    - img: cutout-isabelle.webp
+      alt: Isabelle from Animal Crossing in the duotone treatment
+      ratio: tall
+      bg: '#520044'
+      pad: 10
+      align: bottom
+    - img: cutout-miles.webp
+      alt: Miles Morales mid-leap in the duotone treatment
+      ratio: tall
+      bg: '#FFC500'
+      pad: 6
+    - img: cutout-harry.webp
+      alt: Harry Potter in the duotone treatment
+      ratio: tall
+      bg: '#6A68CE'
+      pad: 10
+      align: bottom
   - layout: full
     items:
-    - img: social-bond-wide.jpg
-      alt: Wide infographic charting the James Bond era
-      ratio: video
-- heading: Co-Branded Partnerships
-  subhead: The Fandom brand sharing space — and even brand voice — with partners and sponsors.
+    - img: personas.jpg
+      alt: The five Fandom personas, illustrated in the house style
+      aspect: 1920/1265
+  - layout: grid-4
+    gap: 0
+    items:
+    - {img: icon-mushroom.svg, alt: Mushroom icon, bg: '#86D7DC', pad: 20}
+    - {img: icon-lightsabers.svg, alt: Lightsabers icon, bg: '#280033', pad: 20}
+    - {img: icon-shield.svg, alt: Shield icon, bg: '#FA005A', pad: 20}
+    - {img: icon-delorean.svg, alt: Time-machine car icon, bg: '#6A68CE', pad: 20}
+    - {img: icon-rupee.svg, alt: Rupee icon, bg: '#86D7DC', pad: 20}
+    - {img: icon-snitch.svg, alt: Golden snitch icon, bg: '#280033', pad: 20}
+    - {img: icon-demogorgon.svg, alt: Demogorgon icon, bg: '#FA005A', pad: 20}
+    - {img: icon-tiara.svg, alt: Tiara icon, bg: '#6A68CE', pad: 20}
+    - {img: icon-pokeball.svg, alt: Pokeball icon, bg: '#86D7DC', pad: 20}
+    - {img: icon-d20.svg, alt: Twenty-sided die icon, bg: '#280033', pad: 20}
+    - {img: icon-portal.svg, alt: Portal gun icon, bg: '#FA005A', pad: 20}
+    - {img: icon-alien.svg, alt: Three-eyed alien icon, bg: '#6A68CE', pad: 20}
+
+- heading: Motion Design
+  subhead: Expressing the brand attributes of passion, celebration, and wonder.
+  ground: '#520044'
   blocks:
-  - layout: grid-3
-    items:
-    - img: cobrand-xfinity-logo.jpg
-      alt: Fandom x Xfinity 10G Gaming Lounge lockup
-    - img: cobrand-xfinity-broadcast.jpg
-      alt: Broadcast frames from the Gaming Lounge series
-    - img: cobrand-instagram-biggame.jpg
-      alt: Instagram co-branded activation — The Big Game
-  - layout: grid-2
-    items:
-    - img: cobrand-xfinity-lounge.jpg
-      alt: The Gaming Lounge built as a physical space
-      ratio: wide
-    - img: cobrand-xfinity-athletes.jpg
-      alt: Athletes on the Gaming Lounge set
-      ratio: wide
-  - layout: grid-2
-    items:
-    - img: cobrand-xfinity-helmet.jpg
-      alt: Co-branded helmet detail
-      ratio: wide
-    - img: cobrand-instagram-presents.jpg
-      alt: Instagram presents — title treatment over film
-      ratio: wide
-  - layout: grid-2
-    items:
-    - img: cobrand-fanta-title.jpg
-      alt: Fanta Fright Factor title treatment
-      ratio: video
-    - img: cobrand-fanta-social.jpg
-      alt: Fanta Fright Factor social rollout
-      ratio: video
-- heading: Custom Content
-  subhead: 'An inclusive brand with a clear point of view: fun, friendly, and wicked smart.'
-  ground: dark
-  blocks:
-  - layout: grid-3
-    items:
-    - img: content-hp-hufflepuff.jpg
-      alt: Wizarding World timeline — Hufflepuff and Newt Scamander
-    - img: content-hp-imperius.jpg
-      alt: Imperius Curse explainer illustration
-    - img: content-hp-dumbledore.jpg
-      alt: Dumbledore family tree
-  - layout: grid-2
-    items:
-    - img: content-skywalker-balance.jpg
-      alt: Star Wars explainer — balance
-    - img: content-skywalker-lastjedi.jpg
-      alt: Star Wars explainer — The Last Jedi
-  - layout: grid-2
-    items:
-    - img: content-hp-full.jpg
-      alt: Full-page Fantastic Beasts feature layout
-      ratio: wide
-    - img: content-nintendo-switch.jpg
-      alt: The definitive Nintendo Switch launch guide
-      ratio: wide
   - layout: full
     items:
-    - img: content-tomcruise.jpg
-      alt: Tom Cruise by the numbers — long-form infographic
-      ratio: wide
-- heading: The State of Fandom
-  subhead: Strategic insights brought to life — an annual research report, and the live-streamed event
-    built around it.
+    - video: motion-love-of-fans
+      alt: For the love of fans, the brand tagline animated
+      ratio: video
+  - layout: full
+    items:
+    - video: motion-persona-network
+      alt: The Fandom personas connecting into a network
+      ratio: video
+  - layout: grid-2
+    items:
+    - video: motion-mark-pattern
+      alt: The flame mark repeated as a moving pattern
+      ratio: video
+    - video: motion-by-the-numbers
+      alt: By the Numbers show open
+      ratio: video
+
+- heading: Social Content
+  subhead: One system, many franchises. Data stories, character breakdowns, and explainers made for each fandom.
+  ground: '#86D7DC'
   blocks:
   - layout: grid-2
     items:
-    - img: sof-cover.jpg
-      alt: State of Fandom report cover and key spreads
-      ratio: wide
-    - img: sof-inside-fandom.jpg
-      alt: Inside Fandom event identity and slides
-      ratio: wide
+    - {img: social-andor-empire.jpg, alt: "Andor social takeover: the Empire", ratio: portrait}
+    - {img: social-andor-resistance.jpg, alt: "Andor social takeover: the Resistance", ratio: portrait}
+  - layout: full
+    items:
+    - {img: social-tomcruise.jpg, alt: Tom Cruise by the numbers, ratio: wide}
   - layout: grid-3
     items:
-    - img: sof-trends.jpg
-      alt: Four major trends spread
-      ratio: wide
-    - img: sof-74.jpg
-      alt: Data spread — 74% of fans spent more time with entertainment
-      ratio: wide
-    - img: sof-nostalgia.jpg
-      alt: Nostalgia findings spread
-      ratio: wide
+    - {img: social-eddie.jpg, alt: Eddie Munson wiki data post, ratio: portrait}
+    - {img: social-dumbledore.jpg, alt: Dumbledore facts post, ratio: portrait}
+    - {img: social-johnwick-v2.jpg, alt: John Wick by the numbers, ratio: portrait}
   - layout: grid-2
     items:
-    - img: sof-detail-66.jpg
-      alt: Detail — 66% of fans turned back the clock
-      ratio: portrait
-    - img: sof-detail-74.jpg
-      alt: Detail — the 74% statistic as a standalone card
-      ratio: portrait
+    - {img: social-glass-onion-a.jpg, alt: Glass Onion data post, ratio: portrait}
+    - {img: social-glass-onion-b.jpg, alt: Glass Onion odds post, ratio: portrait}
+  - layout: full
+    items:
+    - {img: social-bond.jpg, alt: The Daniel Craig era of James Bond charted, ratio: video}
+
 - heading: Presentation Design
   subhead: The business of making people forget they’re viewing a slide deck.
+  ground: white
+  blocks:
+  - layout: full
+    items:
+    - {img: pres-context-matters.jpg, alt: "Go-to-market deck: context matters", ratio: video}
+  - layout: grid-2
+    items:
+    - {img: pres-allhands-2024.jpg, alt: 2024 all-hands look-ahead title slide, ratio: video}
+    - {img: pres-allhands-2025-v2.jpg, alt: 2025 all-hands kickoff title slide, ratio: video}
+  - layout: grid-2
+    items:
+    - {img: pres-reach-fans.jpg, alt: "Go-to-market deck: reach fans in every market", ratio: video}
+    - {img: pres-work-together.jpg, alt: "Partner deck: how should we work together in 2025", ratio: video}
+
+- heading: GameSpot
+  subhead: A diverse content brand that keeps games as its core while embracing other entertainment media.
+  ground: '#00191D'
   blocks:
   - layout: grid-2
+    gap: 0
     items:
-    - img: pres-fandna-a.jpg
-      alt: FanDNA product story — opening slides
-      ratio: wide
-    - img: pres-fandna-b.jpg
-      alt: FanDNA product story — data slides
-      ratio: wide
-  - layout: grid-3
-    items:
-    - img: pres-allhands-2025.jpg
-      alt: All-hands kickoff title slide, 2025
-      ratio: video
-    - img: pres-allhands-content.jpg
-      alt: Content vision title slide
-      ratio: video
-    - img: pres-allhands-product.jpg
-      alt: Product vision title slide
-      ratio: video
+    - {img: gs-logo-darkblue.svg, alt: GameSpot primary logo in dark blue on yellow, ratio: wide, bg: '#FFC500', pad: 18}
+    - {img: gs-logo-yellow.svg, alt: GameSpot primary logo in yellow on blue, ratio: wide, bg: '#004158', pad: 18}
+    - {img: gs-mark-darkblue.svg, alt: GameSpot secondary mark, the circled G, ratio: wide, bg: '#F9EDD8', pad: 22}
+    - {img: gs-spot-on.webp, alt: Spot On sub-brand logo, ratio: wide, bg: '#FF2D17', pad: 14}
   - layout: grid-2
+    gap: 0
     items:
-    - img: pres-templates.jpg
-      alt: Company-wide slide template system
-      ratio: wide
-    - img: pres-ff-title.jpg
-      alt: The Franchise Factor — title slide
-      ratio: wide
+    - html: <div class="ty-label"><span>GameSpot is…</span><span>01</span></div><ul><li>Informative</li><li>Accurate</li><li>Inclusive</li><li>Funny</li><li>Consistent</li><li>Passionate</li><li>Conversational</li><li>Respectful</li><li>Honest</li></ul>
+      html_class: gs-list
+      alt: "GameSpot is informative, accurate, inclusive, funny, consistent, passionate, conversational, respectful, honest"
+      bg: '#FFC500'
+      ink: '#00191D'
+    - html: <div class="ty-label"><span>GameSpot is not…</span><span>02</span></div><ul><li>Snarky</li><li>Jaded</li><li>Self-indulgent</li><li>Industry-centric</li><li>Exclusionary</li><li>Gossipy</li></ul>
+      html_class: gs-list is-not
+      alt: "GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"
+      bg: '#F9EDD8'
+      ink: '#00191D'
+  - layout: full
+    class: gs-palette
+    items:
+    - swatches:
+      - {name: GameSpot Yellow, hex: '#FFC500'}
+      - {name: Red Orange, hex: '#FF2D17'}
+      - {name: Fuchsia, hex: '#C200BB'}
+      - {name: Blue, hex: '#004158'}
+      - {name: Dark Blue, hex: '#00191D'}
+      - {name: Cream, hex: '#F9EDD8'}
+      cols: 2fr repeat(5,1fr)
+      alt: 'GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream'
+      aspect: 1200/360
   - layout: grid-3
     items:
-    - img: pres-ff-metric.jpg
-      alt: Franchise Factor — the metric explained
-      ratio: wide
-    - img: pres-ff-chart.jpg
-      alt: Franchise Factor — audience segmentation chart
-      ratio: wide
-    - img: pres-gp-answers.jpg
-      alt: Go-to-market deck — Fandom has their answers
-      ratio: wide
+    - {img: gs-social-news.jpg, alt: "GameSpot news card: Blizzard's Overwatch team unionizes", ratio: portrait}
+    - {img: gs-social-quote.jpg, alt: GameSpot quote card with Jeremy Renner, ratio: portrait}
+    - {img: gs-social-news-2.jpg, alt: "GameSpot news card: Final Fantasy VII Remake trilogy coming to Switch 2", ratio: portrait}
   - layout: grid-3
     items:
-    - img: pres-gp-markets.jpg
-      alt: Go-to-market deck — reach fans in every market
-      ratio: wide
-    - img: pres-gp-reach.jpg
-      alt: Go-to-market deck — reach your fans
-      ratio: wide
-    - img: pres-gp-context.jpg
-      alt: Go-to-market deck — context matters
-      ratio: wide
+    - {img: gs-review-clair.jpg, alt: "GameSpot review card: Clair Obscur, 9 out of 10"}
+    - {img: gs-review-doom.jpg, alt: "GameSpot review card: Doom The Dark Ages, 8 out of 10"}
+    - {img: gs-review-savage.jpg, alt: "GameSpot review card: Revenge of the Savage Planet, 8 out of 10"}
+
 - heading: Show Formats & Sub-Brands
-  subhead: A brand of brands has lots of… well, brands. Each format gets a voice of its own, and still
-    belongs to the family.
+  subhead: A brand of brands has lots of… well, brands.
+  ground: white
   blocks:
   - layout: grid-3
     items:
-    - img: show-fandom5.jpg
-      alt: Fandom 5 trivia show title card
-      ratio: wide
-    - img: show-irl.jpg
-      alt: Fandom IRL title card
-      ratio: wide
-    - img: show-playbreak.jpg
-      alt: Fandom PlayBreak title card, presented by Coca-Cola
-      ratio: wide
-  - layout: grid-3
+    - {img: show-fandom5.jpg, alt: Fandom 5 trivia show title card, ratio: wide}
+    - {img: show-irl.jpg, alt: Fandom IRL title card, ratio: wide}
+    - {img: show-playbreak.jpg, alt: Fandom PlayBreak title card, ratio: wide}
+  - layout: grid-4
+    gap: 0
     items:
-    - img: show-powerlevels.jpg
-      alt: Power Levels logo
-      ratio: wide
-    - img: show-rememberplaying.jpg
-      alt: Remember Playing logo
-      ratio: wide
-    - img: show-watchthisnow.jpg
-      alt: Watch This Now logo
-      ratio: wide
-  - layout: grid-3
-    items:
-    - img: show-didyouknow.jpg
-      alt: Did You Know? logo
-    - img: show-fandomstars.jpg
-      alt: Fandom Stars logo
-    - img: show-bythenumbers.jpg
-      alt: By the Numbers logo
-  - layout: full
-    items:
-    - img: show-subbrand-logos.jpg
-      alt: Sub-brand and initiative logos — Fandom Stars, Black History Month, FanDNA, Fandom Fest, AANHPI
-        Month, Global Sales, Celebrating French Community
-      ratio: wide
-- heading: Office Branding
-  subhead: “This work is an investment in company culture.”
-  cite: Fandom’s Chief Revenue Officer
+    - {img: subbrand-fandom-20.svg, alt: Fandom 20 years of world building, bg: '#F9EDD8', pad: 14}
+    - {img: subbrand-fandom-fest.svg, alt: Fandom Fest, bg: '#280033', pad: 14}
+    - {img: subbrand-fandom-stars.svg, alt: Fandom Stars, bg: '#86D7DC', pad: 14}
+    - {img: subbrand-fandna.svg, alt: FanDNA, bg: '#F9EDD8', pad: 20}
+    - {img: subbrand-global-sales.svg, alt: Fandom Global Sales Meeting, bg: '#FFC500', pad: 14}
+    - {img: subbrand-aanhpi.svg, alt: AANHPI Month, bg: '#520044', pad: 12}
+    - {img: subbrand-french.svg, alt: Celebrating French Community, bg: '#280033', pad: 14}
+    - {img: subbrand-fest-2022.svg, alt: Fandom Fest 2022, bg: '#9B004E', pad: 14}
+
+- heading: Events
+  subhead: The brand in the room. Shown here, the Fandom party at San Diego Comic-Con 2023.
+  ground: '#280033'
   blocks:
-  - layout: grid-2
-    items:
-    - img: office-la-reception.jpg
-      alt: Los Angeles reception wall — illustrated fandom tiles
-      ratio: wide
-    - img: office-sf-heart.jpg
-      alt: San Francisco welcome mural
-      ratio: wide
   - layout: full
     items:
-    - img: office-reception-heart.jpg
-      alt: Reception wall and city mural shown together
-      ratio: ultra
-  - layout: grid-2
+    - {img: events-key-art.jpg, alt: Fandom Party key art, presented by Paramount Plus, ratio: video}
+  - layout: bleed
     items:
-    - img: office-poznan-lounge.jpg
-      alt: Poznań office lounge
-      ratio: wide
-    - img: office-poznan-wall-of-fandom.jpg
-      alt: Wall of Fandom display case in Poznań
-      ratio: tall
-  - layout: full
-    items:
-    - img: office-poznan-wall.jpg
-      alt: Poznań office — full wall view
-      ratio: ultra
+    - {img: events-welcome-wall.jpg, alt: The welcome wall at the Fandom party, ratio: photo}
   - layout: grid-3
     items:
-    - img: office-illo-ramen.jpg
-      alt: Office illustration — ramen
-      ratio: tall
-    - img: office-illo-trek.jpg
-      alt: Office illustration — starship
-      ratio: tall
-    - img: office-illo-city.jpg
-      alt: Office illustration — neon city
-      ratio: tall
-  - layout: grid-2
+    - {img: events-lanyard.jpg, alt: A guest in costume holding up her Fandom party lanyard, ratio: tall}
+    - {img: events-passes.jpg, alt: Party passes fanned out on a table, ratio: tall}
+    - {img: events-guests.jpg, alt: Two guests on the stairs with their passes, ratio: tall}
+  - layout: flush-pair
     items:
-    - img: office-illo-bar.jpg
-      alt: Office illustration — bar interior
-      ratio: wide
-    - img: office-illo-falcon.jpg
-      alt: Office illustration — freighter interior
-      ratio: wide
+    - {img: events-stairs.jpg, alt: Stairs painted with For the Love of Fans}
+    - {img: events-letters.jpg, alt: Giant For the Love of Fans letters on the terrace}
+  - layout: full
+    items:
+    - {img: events-arcade.jpg, alt: The Fan Central Arcade neon sign, ratio: photo}

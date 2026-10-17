@@ -114,6 +114,10 @@ if(vids.length){
     vids.forEach(v=>vio.observe(v));
   }
 }
+// Arriving from a homepage slide link (/page.html#section): media above the
+// section can still be settling when the browser first jumps, so land again
+// once everything has loaded.
+addEventListener('load',()=>{const t=location.hash&&document.getElementById(decodeURIComponent(location.hash.slice(1)));if(t)t.scrollIntoView();});
 </script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 Nothing else changes: the output is plain static HTML, so GitHub Pages keeps
 serving it with no build step of its own. Requires only PyYAML.
 """
-import sys, yaml, pathlib
+import sys, yaml, pathlib, re
 
 ROOT = pathlib.Path(__file__).parent
 ASSETS = '/assets/{slug}/'
@@ -73,7 +73,26 @@ def media(it, slug):
         return (f'      <div class="cs-img has-img{ratio}"><video muted loop playsinline preload="none" '
                 f'poster="{src(v)}-poster.jpg" aria-label="{esc(it.get("alt",""))}">'
                 f'<source src="{src(v)}.mp4" type="video/mp4"></video></div>')
-    ast = f' style="aspect-ratio:{it["aspect"]}"' if it.get('aspect') else ''
+    if it.get('html'):
+        # Live HTML inside the frame (Max 2026-10-17): type specimens, word lists —
+        # brand elements rebuilt as real type instead of saved-out plates. Styled by
+        # the page's `css:`; `bg:` paints the panel, `aspect:` sets the shape.
+        st = ''.join(f'{k}:{v};' for k, v in (('background', it.get('bg')), ('color', it.get('ink')),
+                                               ('aspect-ratio', it.get('aspect'))) if v)
+        hc = (' ' + it['html_class']) if it.get('html_class') else ''
+        return (f'      <div class="cs-img has-img cs-html{hc}{ratio}" style="{st}" role="img" '
+                f'aria-label="{esc(it.get("alt", ""))}">{it["html"]}</div>')
+    # `bg:` paints a colour panel behind the art (logos, cutouts, icons); `pad:` insets
+    # the art inside it (percent of the frame) and switches it to fit-not-crop.
+    # `align: bottom` sits a cutout on the panel's bottom edge.
+    sty = []
+    if it.get('aspect'): sty.append(f'aspect-ratio:{it["aspect"]}')
+    if it.get('bg'): sty.append(f'background:{it["bg"]}')
+    if 'pad' in it:
+        ratio += ' contain'
+        sty.append(f'--pad:{it["pad"]}%')
+    if it.get('align') == 'bottom': ratio += ' align-bottom'
+    ast = f' style="{";".join(sty)}"' if sty else ''
     # `labels: [top-left, top-right, bottom-left, bottom-right]` puts the brand-plate
     # corner labels over the art as live text; `tone:` light (default) | dark | photo.
     lab = ''
@@ -211,8 +230,28 @@ def ground_of(s):
     return 'cs-light is-white', ''
 
 
+# SECTION LINK ADDRESSES (Max 2026-10-17). Every headed section gets an id
+# made from its heading ("Brand in the World" -> #brand-in-the-world) so the
+# homepage slideshow can link straight to it. Set `id:` on a section to pin
+# the address, so renaming the heading doesn't break a link.
+_ids = set()
+
+def section_id(s):
+    sid = s.get('id') or (re.sub(r'[^a-z0-9]+', '-', s['heading'].lower().replace('&', 'and')).strip('-')
+                          if s.get('heading') else None)
+    if not sid:
+        return None
+    base, n = sid, 2
+    while sid in _ids:
+        sid, n = f'{base}-{n}', n + 1
+    _ids.add(sid)
+    return sid
+
+
 def section(s, slug):
     ground, gstyle = ground_of(s)
+    sid = section_id(s)
+    idattr = f' id="{sid}"' if sid else ''
     sub = esc(s['subhead']) if s.get('subhead') else ''
     if s.get('cite'):
         sub += f'<cite>{esc(s["cite"])}</cite>'
@@ -233,7 +272,7 @@ def section(s, slug):
             buf.append(block(b, slug))
     if buf:
         parts.append('  <div class="wrap">\n' + '\n'.join(buf) + '\n  </div>')
-    return (f'<section class="{ground} cs-media"{gstyle}>\n'
+    return (f'<section class="{ground} cs-media"{idattr}{gstyle}>\n'
             + '\n'.join(parts) + '\n</section>')
 
 def intro(p):
@@ -254,6 +293,7 @@ def intro(p):
 def build(slug):
     _alt['n'] = 0          # each page starts its own alternation
     _alt['unnamed'] = 0
+    _ids.clear()
     page = yaml.safe_load((ROOT / 'content' / f'{slug}.yml').read_text())
     _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
@@ -282,6 +322,9 @@ def build(slug):
         url = ASSETS.format(slug=art) + page['cover_mobile']
         out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img'
                           f'{{background-image:url(\'{url}\')!important}}}}</style>\n</head>', 1)
+    # `css:` — extra styles for this page only (its brand fonts, panel type).
+    if page.get('css'):
+        out = out.replace('</head>', f'<style>\n{page["css"]}\n</style>\n</head>', 1)
     # `output:` names the published file (and so the URL) if it differs from the content file.
     dest = ROOT / f"{page.get('output', slug)}.html"
     dest.write_text(out)
@@ -292,6 +335,29 @@ def build(slug):
     if _alt['mode'] != 'alternate' and _alt['unnamed']:
         print(f"         {_alt['unnamed']} section(s) with no ground: — falling back to white")
 
+def check_home_links():
+    """The homepage is hand-built. Check every slideshow link that points into
+    a case-study page (/page.html or /page.html#section) actually lands."""
+    home = (ROOT / 'index.html').read_text()
+    bad = []
+    for href in re.findall(r'<a class="slide[^"]*" href="([^"]+)"', home):
+        if href == '#' or not href.startswith('/'):
+            continue
+        page, _, anchor = href.lstrip('/').partition('#')
+        f = ROOT / page
+        if not f.exists():
+            bad.append(f'{href}  (no page {page})')
+        elif anchor and f'id="{anchor}"' not in f.read_text():
+            bad.append(f'{href}  (no section #{anchor} on {page})')
+    if bad:
+        print('  !! slideshow links that go nowhere:')
+        for b in bad:
+            print('     ' + b)
+    else:
+        print('slideshow links: all land')
+
+
 if __name__ == '__main__':
     for slug in (sys.argv[1:] or ['fandom-brand']):
         build(slug)
+    check_home_links()

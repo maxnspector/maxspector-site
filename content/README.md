@@ -291,3 +291,18 @@ layout catalogue is set that way.
 **Watch out for colons in your writing.** If a line of text contains a colon
 followed by a space, wrap that whole line in "double quotes" — otherwise the
 build stops with an error. Everything else can be typed plainly.
+
+## Linking to a section (homepage slideshow)
+
+Every section with a heading gets its own address, made from the heading:
+"Office Branding" becomes `/fandom-brand.html#office-branding`, and "&" becomes
+"and". A homepage slide can link straight there.
+
+If a section might get renamed, pin its address so the link keeps working:
+
+```yaml
+- heading: Office Branding
+  id: office-branding
+```
+
+Each build checks every slideshow link and lists any that go nowhere.

@@ -1,6 +1,4 @@
 nav:
-- label: Featured Work
-  href: '/#featured'
 - label: Alex AI
   href: '/alex.html'
 - label: Fandom
