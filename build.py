@@ -180,7 +180,7 @@ def block(b, slug):
 # names its own colour simply sits out and the rest stay in step.
 # _alt['n'] counts only the auto sections: the intro is 0 (cream), so the
 # first auto media section is 1 (white) and the division after the intro holds.
-_alt = {'n': 0, 'mode': 'white'}
+_alt = {'n': 0, 'mode': 'white', 'unnamed': 0}
 
 def _luma(hexcolor):
     """Rough perceived brightness, 0 (black) to 1 (white)."""
@@ -201,6 +201,7 @@ def ground_of(s):
     if isinstance(g, str) and g.startswith('#'):
         tone = 'is-on-dark' if _luma(g) < 0.5 else 'is-on-light'
         return f'cs-custom {tone}', f' style="--ground:{g}"'
+    _alt['unnamed'] += 1
     _alt['n'] += 1
     # Default (Max 2026-10-04): every unnamed section sits on white, with the
     # intro alone in cream. `grounds: alternate` at the top of a content file
@@ -252,6 +253,7 @@ def intro(p):
 
 def build(slug):
     _alt['n'] = 0          # each page starts its own alternation
+    _alt['unnamed'] = 0
     page = yaml.safe_load((ROOT / 'content' / f'{slug}.yml').read_text())
     _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
@@ -285,6 +287,10 @@ def build(slug):
     dest.write_text(out)
     n_img = out.count('<img src="/assets/'); n_vid = out.count('<video')
     print(f'built {dest.name}  —  {len(page["sections"])} sections, {n_img} images, {n_vid} videos')
+    # Every section on a finished case study should name its own `ground:`
+    # (Max 2026-10-16). This just says how many are still falling back.
+    if _alt['mode'] != 'alternate' and _alt['unnamed']:
+        print(f"         {_alt['unnamed']} section(s) with no ground: — falling back to white")
 
 if __name__ == '__main__':
     for slug in (sys.argv[1:] or ['fandom-brand']):

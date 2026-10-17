@@ -255,9 +255,13 @@ images and video too.
 
 ## Two rules worth knowing
 
-**Backgrounds alternate on their own — until you say otherwise.** Leave a
-section alone and it keeps flipping white, cream, white down the page, so a
-long page reads as distinct spaces.
+**Give every section its own background.** That is the convention from the old
+maxspector.com and it carries over: on a case study, no two sections in a row
+share a ground. The page itself is white, and each section paints over it.
+
+There are three to choose from — white, brand cream, or a colour of your own
+that suits the case study. The intro, directly under the cover, is always
+cream.
 
 To set one yourself, add `ground:` to the section:
 
@@ -271,13 +275,18 @@ To set one yourself, add `ground:` to the section:
     - heading: Trademarks & Monograms
       ground: "#1B2A3A"       # any colour, to match the case study
 
-A section that names its colour steps out of the alternation, and the ones
-around it stay in step — so you can drop a custom colour anywhere without the
-rest of the page shifting. Type on a named colour is set light or dark
-automatically, whichever reads better against it.
+Type on a named colour is set light or dark automatically, whichever reads
+better against it, so a deep colour and a pale one both work.
 
 Quote the hex. `#1B2A3A` without quotes is read as a comment and the colour
 is lost.
+
+A section with no `ground:` falls back to white. That is a fallback, not a
+choice — on a finished case study every section should name one.
+
+If you ever want a page to flip cream / white / cream by itself instead, put
+`grounds: alternate` on its own line at the top of the content file. The
+layout catalogue is set that way.
 
 **Watch out for colons in your writing.** If a line of text contains a colon
 followed by a space, wrap that whole line in "double quotes" — otherwise the
