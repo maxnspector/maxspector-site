@@ -7,6 +7,48 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-16 (later) — Alex palette: warning red removed
+
+Max compared three layouts without warning red and chose B. The supporting
+block is now three tiles across the top (Secondary gray, Secondary sage,
+Accent green) over three full-width pastel strips (mint, tan, sage). Grid is
+`cols: 1fr 1fr 1fr`, `rows: 47fr 17.67fr 17.67fr 17.67fr`, same 1200/786
+frame. Checked at 1440 and 390: no overflow, every label fits, and the halves
+still stack on a phone. Not committed yet.
+
+---
+
+## 2026-10-16 — Alex page: Verify animation, swag, palette in HTML
+
+Edits to `content/alex-ai.yml` (page published at `/alex`), all rebuilt and
+render-checked, none committed yet.
+
+**Feature Animations.** The Verify product hero is in at full column width,
+between the trio and cheat detection: `anim-verify-product.html` plus
+`verify-product.mp4` (Max's newer optimised cut, audio track stripped, 1.9 MB).
+The chat overlay is adapted from Max's alex.com homepage Verify module and
+laid out to the four "Verify product hero" storyboards. All four stages were
+checked in sequence using a temporary WebM copy, because the test browser can't
+decode H.264. The workflow (cadences) animation now has the hairline frame.
+
+**Brand in the World.** Subhead is now "How Alex shows up for candidates and
+customers. Photography, office signage, swag, and sales materials." Order: the
+three product photos, the lobby, the sales deck grid (`sales-deck-overview.jpg`,
+from Sales - Presentations), the swag set (`swag-set.jpg`, from Swag), the
+one-sheets, then scheduling.
+
+**Palette is live HTML now.** The two palette images are replaced by a new
+`swatches:` item type in `build.py`. Each swatch reuses the `.cs-labels`
+corner-label type, so names and hex values match the identity plates exactly
+(11px at a 20px inset; 10px at 12px on phones). Text goes light or dark by the
+swatch's brightness. The two halves still stack on a phone. The old
+`palette-main.jpg` / `palette-support.jpg` remain in assets, unused.
+
+**Next session starts with:** a couple of palette options where warning red
+goes away.
+
+---
+
 ## 2026-10-16 — Flush layouts, and a background for every section
 
 **Six new arrangements**, from Figma node 62:9. The pieces touch — no gutter

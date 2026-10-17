@@ -69,14 +69,13 @@ sections:
     - swatches:
       - {name: Secondary gray, hex: '#6B7F66'}
       - {name: Secondary sage, hex: '#B7C7A7'}
-      - {name: Pastel mint, hex: '#D3E1C9', kind: strip, column: 1 / 3}
-      - {name: Pastel tan, hex: '#DFD7C0', kind: strip, column: 1 / 3}
-      - {name: Pastel sage, hex: '#BAD1C0', kind: strip, column: 1 / 3}
-      - {name: Accent green, hex: '#009B58', kind: strip}
-      - {name: Warning red, hex: '#C92626', kind: strip}
-      cols: 1fr 1fr
-      rows: 47fr 13.25fr 13.25fr 13.25fr 13.25fr
-      alt: 'Alex supporting colors: secondary gray and sage, three pastels, accent green and warning red'
+      - {name: Accent green, hex: '#009B58'}
+      - {name: Pastel mint, hex: '#D3E1C9', kind: strip, column: 1 / 4}
+      - {name: Pastel tan, hex: '#DFD7C0', kind: strip, column: 1 / 4}
+      - {name: Pastel sage, hex: '#BAD1C0', kind: strip, column: 1 / 4}
+      cols: 1fr 1fr 1fr
+      rows: 47fr 17.67fr 17.67fr 17.67fr
+      alt: 'Alex supporting colors: secondary gray, secondary sage and accent green, then three pastels'
       aspect: 1200/786
   - layout: full
     items:
