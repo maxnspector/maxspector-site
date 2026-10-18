@@ -157,22 +157,19 @@ sections:
   blocks:
   - layout: full
     items:
-    - html: <img src="/assets/fandom-brand/vl-photo-treatments.jpg" alt="Black Widow, Isabelle, Miles Morales and Harry Potter in the Fandom duotone photo treatment, each on two brand colors" loading="lazy">
-      html_class: pt
-      alt: Fandom duotone photo treatments
-  - layout: full
-    space: 96
-    items:
     - img: personas.jpg
       alt: The five Fandom personas, illustrated in the house style
       aspect: 1920/1265
-  - layout: full
-    width: 792
+  # Built in Figma (82:16878 + 82:13986), exported 2x. Two adjacent blocks; stack on phones.
+  - layout: flush-pair
     space: 96
     items:
-    - img: vl-icons.jpg
-      alt: Fandom icon set in four brand-color columns
-      aspect: 1584/1234
+    - img: vl-chars-pair.jpg
+      alt: Miles Morales, Black Widow, Harry Potter and Isabelle in the Fandom duotone photo treatment, on brand-color panels
+      aspect: 600/640
+    - img: vl-icons-pair.jpg
+      alt: Sixteen Fandom icons in four brand-color columns
+      aspect: 600/640
 
 - heading: Motion Design
   subhead: Expressing the brand attributes of passion, celebration, and wonder.
@@ -201,36 +198,24 @@ sections:
   subhead: One system, many franchises. Data stories, character breakdowns, and explainers made for each fandom.
   ground: '#280033'
   blocks:
-  - layout: flush-pair
-    width: 792
-    items:
-    - {img: social-andor-empire.jpg, alt: "Andor social takeover: the Empire", ratio: portrait}
-    - {img: social-andor-resistance.jpg, alt: "Andor social takeover: the Resistance", ratio: portrait}
-  - layout: full
-    width: 792
-    space: 96
-    items:
-    - {img: social-tomcruise.jpg, alt: Tom Cruise by the numbers, aspect: 2400/1500}
-  - layout: grid-3
-    space: 96
-    items:
-    - {img: social-eddie.jpg, alt: Eddie Munson wiki data post, ratio: portrait}
-    - {img: social-dumbledore.jpg, alt: Dumbledore facts post, ratio: portrait}
-    - {img: social-johnwick-v2.jpg, alt: John Wick by the numbers, ratio: portrait}
-  - layout: flush-pair
-    width: 792
-    space: 96
-    items:
-    - {img: social-glass-onion-a.jpg, alt: Glass Onion odds post, ratio: portrait}
-    - {img: social-glass-onion-b.jpg, alt: Glass Onion odds post, continued, ratio: portrait}
-  - layout: grid-4
+  # Layout from Figma 82:27077, exported 2x. Rows of adjacent blocks, 48px apart; blocks stack on phones.
+  - layout: grid-2
+    cols: 640fr 560fr
     gap: 0
-    space: 96
     items:
-    - {img: social-bond-s1.jpg, alt: "The Daniel Craig era of Bond, slide 1", ratio: portrait}
-    - {img: social-bond-s2.jpg, alt: "The Daniel Craig era of Bond, slide 2", ratio: portrait}
-    - {img: social-bond-s3.jpg, alt: "The Daniel Craig era of Bond, slide 3", ratio: portrait}
-    - {img: social-bond-s4.jpg, alt: "The Daniel Craig era of Bond, slide 4", ratio: portrait}
+    - {img: social-jw-panel.jpg, alt: "John Wick by the numbers, on a periwinkle panel", aspect: 640/700}
+    - {img: social-knives-out.jpg, alt: "Oddsmaker determines the Knives Out 2 killer", aspect: 560/700}
+  - layout: full
+    space: 48
+    items:
+    - {img: social-bond.jpg, alt: "The Daniel Craig era of Bond, carousel shown as one strip", aspect: 1200/675}
+  - layout: grid-2
+    cols: 472fr 728fr
+    gap: 0
+    space: 48
+    items:
+    - {img: social-andor.jpg, alt: "Andor social takeover: the Resistance", aspect: 472/590}
+    - {img: social-stories-panel.jpg, alt: "Instagram stories: Sonic's top speed and Guess the Higher Metascore", aspect: 728/590}
 
 - heading: Presentation Design
   subhead: The business of making people forget they’re viewing a slide deck.
