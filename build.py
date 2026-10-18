@@ -58,8 +58,9 @@ def media(it, slug):
             hx = c['hex']
             ink = 'rgba(238,242,225,.85)' if _luma(hx) < 0.5 else 'rgba(8,41,0,.72)'
             pos = ''.join(f'grid-{k}:{c[k]};' for k in ('column', 'row') if c.get(k))
-            spans = ([c['name'], hx.upper()] if c.get('kind') == 'strip'
-                     else [c['name'], '', hx.upper()])
+            nm = '' if c.get('hide_name') else c['name']   # hide_name: hex only
+            spans = ([nm, hx.upper()] if c.get('kind') == 'strip'
+                     else [nm, '', hx.upper()])
             lab = ''.join(f'<span>{esc(t)}</span>' for t in spans)
             cells.append(f'<div class="cs-swatch" style="background:{hx};color:{ink};{pos}">'
                          f'<div class="cs-labels">{lab}</div></div>')

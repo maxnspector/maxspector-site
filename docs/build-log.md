@@ -7,6 +7,16 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-17 (late evening) — Fandom Build v3, from Max's review
+
+Max reviewed Build v2 and the core problems were process, not taste: art was put on colors Claude picked instead of the ones it had on the old site, cutouts went in uncropped and unscaled, the presentation template collage was dropped and show title cards were added without asking, and the checks only proved images loaded. Two standing rules came out of it: art keeps the background it had on the old site, and American spelling everywhere.
+
+Build v3 was made from the old maxspector.com Fandom and Events pages and Max's original files in Linked Art. Core Brand Elements now opens with the logo reveal on white, then the primary lockup large on cream beside a smaller stacked lockup on purple, a single composed palette block, and one wide Rubik panel over two short ones. Visual Language is on white and uses Max's original duotone grid and icon columns. Social is on purple black with the carousel sets edge to edge and air between groups. Presentation is on cornflower with the template collage back. GameSpot leads with the sizzle and the brand system, no logos. Sub-Brands only, on white, sized to equal visual weight, with Max's fixed French badge. Events uses the old SDCC sequence plus the new Events folder.
+
+`build.py` blocks take `width:` and `space:` (in `content/README.md`). British spellings fixed across the repo. Checked at 1440 and 390: 50 images load, no sideways scroll, every section looked at as a layout. New GameSpot videos not playback-tested. Not pushed. Eight open questions at the end of `docs/fandom-recompose-plan.md`.
+
+---
+
 ## 2026-10-17 (evening) — Fandom page rebuilt web-first
 
 All twelve recompose questions settled with Max, the asset folder checked, then the page rebuilt from a new `content/fandom-brand.yml` (old long version kept in `docs/fandom-brand-v1-backup.yml`). Nine parts: logo reveal lead, Core Brand Elements, Visual Language, Motion Design, Social Content, Presentation Design, GameSpot, Show Formats & Sub-Brands, Events (SDCC 2023). 65 images, 5 silent videos.
@@ -391,8 +401,8 @@ suppresses it entirely.
 **Built**
 
 - Content-first build system — YAML content files compile to static HTML
-- Fandom case study — rebuilt web-first 2026-10-17: 9 parts, 65 images,
-  5 videos, live brand elements (not yet reviewed or pushed)
+- Fandom case study — Build v3 2026-10-17 late evening from Max's review:
+  8 sections, 50 images, 7 videos (not yet pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
 - Layout catalog — every arrangement on one page for reference, including
@@ -402,7 +412,7 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Fandom review.** The page was rebuilt 2026-10-17 evening (see "Build v2" in `docs/fandom-recompose-plan.md`). Max pushes, reviews on staging, and gives feedback: section grounds, draft subheads, collage pick, anthem film.
+1. **Fandom review, round 2.** Build v3 (see the end of `docs/fandom-recompose-plan.md`). Max pushes, reviews on staging, and answers the eight open questions.
 2. **Alex AI:** homepage description still a DRAFT placeholder (Max's copy); section grounds for Alex's 4 sections; clear the "DRAFT —" subheads.
 3. **Collections:** name and build Client Brands and Campaigns; fill the slideshow with real slides linked to sections.
 4. **Push** the uncommitted homepage, menu, slideshow and build.py changes when ready (staging is noindex, safe to push).

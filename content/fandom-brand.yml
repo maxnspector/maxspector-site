@@ -66,6 +66,7 @@ css: |
     .core-palette .cs-swatches{grid-template-columns:repeat(12,1fr)!important;grid-template-rows:none!important;aspect-ratio:auto!important}
     .core-palette .cs-swatch{grid-row:auto!important;grid-column:span 3;aspect-ratio:3/4}
     .core-palette .cs-swatch:nth-child(-n+3){grid-column:span 4;aspect-ratio:1}
+    .core-palette .cs-swatch:nth-child(n+8){aspect-ratio:1}
     .ty-display{aspect-ratio:auto!important;gap:20px}
     .ty-display .ty-label{font-size:10px}
     .ty-display .ty-main{flex-direction:column;align-items:flex-start;gap:14px}
@@ -94,6 +95,7 @@ sections:
     class: core-lockups
     gap: 0
     space: 96
+    cols: 3fr 2fr   # cream panel = width of the three primaries below
     items:
     - img: logo-lockup-purple.svg
       alt: Fandom primary lockup, purple wordmark with the flame mark, on cream
@@ -105,23 +107,23 @@ sections:
       pad: 27
   - layout: full
     class: core-palette
-    space: 96
+    space: 0   # butts against the lockups above
     items:
     - swatches:
       - {name: Fandom Red, hex: '#FA005A', row: 1 / 3}
       - {name: Fandom Yellow, hex: '#FFC500', row: 1 / 3}
       - {name: Fandom Purple, hex: '#520044', row: 1 / 3}
-      - {name: Cream, hex: '#F9EDD8'}
-      - {name: Light Blue, hex: '#86D7DC'}
-      - {name: Cornflower, hex: '#6A68CE'}
-      - {name: Crimson, hex: '#9B004E'}
-      - {name: Dark Gray, hex: '#3A434B'}
-      - {name: Light Gray, hex: '#838D86'}
-      - {name: Purple Black, hex: '#280033'}
-      - {name: Brown, hex: '#C16900'}
+      - {name: Cream, hex: '#F9EDD8', hide_name: true}
+      - {name: Light Blue, hex: '#86D7DC', hide_name: true}
+      - {name: Cornflower, hex: '#6A68CE', hide_name: true}
+      - {name: Crimson, hex: '#9B004E', hide_name: true}
+      - {name: Dark Gray, hex: '#3A434B', hide_name: true}
+      - {name: Light Gray, hex: '#838D86', hide_name: true}
+      - {name: Purple Black, hex: '#280033', hide_name: true}
+      - {name: Brown, hex: '#C16900', hide_name: true}
       cols: 2fr 2fr 2fr 1fr 1fr 1fr 1fr
-      rows: 1fr 1fr
-      alt: 'Fandom palette: lead colors red, yellow and purple, then eight secondaries'
+      rows: 3fr 2fr   # secondaries (top) taller than tertiaries (bottom)
+      alt: 'Fandom palette: primaries red, yellow and purple, then four secondaries over four tertiaries'
       aspect: 1200/440
   - layout: full
     space: 96
@@ -129,17 +131,18 @@ sections:
     - html: <div class="ty-label"><span>Rubik</span><span>Primary typeface · display and body</span></div><div class="ty-main"><div class="ty-aa">Aa Bb Cc</div><div class="ty-weights"><span style="font-weight:300">Light</span><br><span style="font-weight:400">Regular</span><br><span style="font-weight:500">Medium</span><br><span style="font-weight:600">SemiBold</span><br><span style="font-weight:700">Bold</span><br><span style="font-weight:800">ExtraBold</span><br><span style="font-weight:900">Black</span></div></div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&amp;*()</div>
       html_class: ty-display
       alt: Rubik, the primary typeface, in its seven weights
-      bg: '#FFC500'
-      ink: '#520044'
+      bg: '#520044'
+      ink: '#FFC500'
       aspect: 1200/540
   - layout: grid-2
     gap: 0
+    space: 0   # butts against the Rubik panel above
     items:
     - html: <div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
       html_class: ty-small ty-grotesk
       alt: Space Grotesk, the headline typeface
-      bg: '#520044'
-      ink: '#FFC500'
+      bg: '#FFC500'
+      ink: '#520044'
       aspect: 600/360
     - html: <div class="ty-label"><span>Space Mono</span><span>Accents and data</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
       html_class: ty-small ty-mono
@@ -148,7 +151,7 @@ sections:
       ink: '#FA005A'
       aspect: 600/360
 
-- heading: Visual Language
+- heading: Styles and Image Treatments
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
   ground: white
   blocks:
