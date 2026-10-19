@@ -6,7 +6,7 @@ nav:
 - label: Client Brands
   href: '#'
 - label: Campaigns
-  href: '#'
+  href: '/campaigns.html'
 - label: About
   href: '#'
 footer_left: '&copy; Max Spector 2026'

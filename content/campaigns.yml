@@ -1,0 +1,115 @@
+# CAMPAIGNS — a Collection (separate projects shown together), built 2026-10-19.
+# Source art: Dropbox Case Study Files/Campaigns. Grounds follow the old maxspector.com
+# (Beth Sholom + Kayu on cream; each Fandom campaign on its own color).
+title: Campaigns — Max Spector
+description: "Campaigns with their own visual worlds: Congregation Beth Sholom, Fandom's State of Fandom report, Kayu, and Fandom franchise features."
+cover: cover.jpg
+cover_mobile: cover-mobile.jpg
+cover_mobile_fit: contain   # show the whole phone cover; its type runs nearly edge to edge
+cover_mobile_bg: '#23CCD1'
+frames: off
+intro:
+  eyebrow: Campaigns
+  statement: "DRAFT — Campaigns that each needed a world of their own: a capital campaign for a 100-year-old congregation, an annual research report on how fans behave, a launch for a handmade accessories brand, and editorial features built around the biggest releases in entertainment."
+  meta:
+  - label: Roles & Responsibilities
+    body: "DRAFT — Art direction and design: campaign concept, identity, print, digital, and environmental."
+  - label: Clients
+    body: Congregation Beth Sholom, Fandom, Kayu
+
+sections:
+- heading: Congregation Beth Sholom
+  subhead: "DRAFT — Unite + Ignite, a capital campaign told across a printed brochure and the synagogue's own courtyard."
+  ground: cream
+  blocks:
+  - layout: full
+    items:
+    - {img: bs-courtyard-window.jpg, alt: "UNITY, Light: campaign graphics on the glass of the Beth Sholom courtyard", aspect: 1500/1000}
+  - layout: full
+    space: 96
+    items:
+    - {img: bs-spread-unity.jpg, alt: "Brochure spread: Let us merge our lights in unity", aspect: 3/2}
+  - layout: grid-2
+    space: 96
+    items:
+    - {img: bs-cover.jpg, alt: "Unite + Ignite brochure cover", aspect: 3/4}
+    - {img: bs-history.jpg, alt: "Brochure page: History is made up of moments", aspect: 3/4}
+  - layout: full
+    space: 96
+    items:
+    - {img: bs-spread-future.jpg, alt: "Brochure spread: A bright and secure future, with the campaign's four pillars", aspect: 3/2}
+  - layout: grid-2
+    space: 96
+    items:
+    - {img: bs-unite-ignite.jpg, alt: "Brochure page: Unite + Ignite", aspect: 3/4}
+    - {img: bs-good-deed.jpg, alt: "Brochure back pocket: A good deed", aspect: 3/4}
+  - layout: full
+    space: 96
+    items:
+    - {img: bs-spread-families.jpg, alt: "Brochure spreads profiling congregation families", aspect: 3/2}
+
+- heading: State of Fandom
+  subhead: "DRAFT — Fandom's annual research report on the fan mindset, designed for the keynote stage, the sales deck, and social."
+  ground: '#294148'
+  blocks:
+  - layout: full
+    items:
+    - {img: sof-collage.jpg, alt: "State of Fandom report: cover and key slides", aspect: 2400/1610}
+  - layout: full
+    space: 96
+    items:
+    - {img: sof-74.jpg, alt: "Slide: 74% of fans spent more time with entertainment", aspect: 16/9}
+  - layout: full
+    items:
+    - {img: sof-trends.jpg, alt: "Slides: four major trends and What's next?", aspect: 16/9}
+  - layout: flush-pair
+    space: 96
+    items:
+    - {img: sof-detail-66.jpg, alt: "Social card: 66% of fans turned back the clock", aspect: 1200/1331}
+    - {img: sof-detail-74.jpg, alt: "Social card: 74% of fans spent more time with entertainment", aspect: 1200/1331}
+
+- heading: Kayu
+  subhead: "DRAFT — A brand world for handmade bags from Southeast Asia: postcards, catalog, and packaging."
+  ground: cream
+  blocks:
+  - layout: grid-2
+    items:
+    - {img: kayu-card-1.jpg, alt: Kayu postcard, aspect: 1200/804}
+    - {img: kayu-card-2.jpg, alt: Kayu postcard, aspect: 1200/804}
+  - layout: grid-2
+    items:
+    - {img: kayu-card-3.jpg, alt: Kayu postcard, aspect: 1200/804}
+    - {img: kayu-card-4.jpg, alt: Kayu postcard, aspect: 1200/804}
+  - layout: grid-2
+    space: 96
+    items:
+    - {img: kayu-catalog-resort.jpg, alt: "Kayu Resort catalog cover", aspect: 4/5}
+    - {img: kayu-catalog-kapaa.jpg, alt: "Catalog page: the Kapaa clutch", aspect: 4/5}
+  - layout: grid-2
+    items:
+    - {img: kayu-catalog-weaving.jpg, alt: "Catalog page: weaving strands of tradition", aspect: 4/5}
+    - {img: kayu-catalog-teal.jpg, alt: "Catalog page: sustainable materials", aspect: 4/5}
+
+- heading: Franchise Features
+  subhead: "DRAFT — Editorial campaigns for the biggest releases in entertainment, each with a look borrowed from its world."
+  id: franchise-features
+  ground: '#151516'
+  blocks:
+  - layout: full
+    items:
+    - {img: tp-switch.jpg, alt: "The definitive Nintendo Switch launch guide", aspect: 3/2}
+  - layout: flush-pair
+    space: 96
+    items:
+    - {img: tp-skywalker-balance.jpg, alt: "Skywalker feature illustration: Luke finding balance", aspect: 1/1, bg: '#C3E9E9', pad: 8}
+    - {img: tp-skywalker-page.jpg, alt: "How Luke Skywalker became the last Jedi: feature page", aspect: 1/1, bg: '#C3E9E9', pad: 8}
+  - layout: full
+    space: 96
+    items:
+    - {img: tp-hp-page.jpg, alt: "Fantastic Beasts feature page", aspect: 16/9}
+  - layout: grid-3
+    gap: 0
+    items:
+    - {img: tp-hp-hufflepuff.jpg, alt: "Hufflepuff timeline card", aspect: 1/1, bg: '#282821', pad: 8}
+    - {img: tp-hp-imperius.jpg, alt: "Imperius Curse explainer card", aspect: 1/1, bg: '#282821', pad: 8}
+    - {img: tp-hp-dumbledore.jpg, alt: "Dumbledore family tree card", aspect: 1/1, bg: '#282821', pad: 8}

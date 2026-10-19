@@ -294,7 +294,7 @@ def intro(p):
             f'      <p class="cs-label">{esc(i["eyebrow"])}</p>\n'
             f'      <h1 class="cs-statement">{esc(i["statement"])}</h1>\n'
             '    </div>\n    <div class="cs-intro-meta reveal">\n'
-            f'{meta}\n      <p class="cs-body cs-link">{i["links_html"]}</p>\n'
+            f'{meta}\n' + (f'      <p class="cs-body cs-link">{i["links_html"]}</p>\n' if i.get('links_html') else '') +
             '    </div>\n  </div>\n</section>')
 
 def build(slug):
@@ -327,8 +327,12 @@ def build(slug):
     # `cover_mobile:` — a portrait cover for tall screens (phones, portrait tablets).
     if page.get('cover_mobile'):
         url = ASSETS.format(slug=art) + page['cover_mobile']
+        # `cover_mobile_fit: contain` shows the whole portrait art (no side crop) on
+        # `cover_mobile_bg:`, which should match the art's own flat background.
+        fit = (f';background-size:contain!important;background-repeat:no-repeat!important;background-position:center!important;background-color:{page.get("cover_mobile_bg", "transparent")}'
+               if page.get('cover_mobile_fit') == 'contain' else '')
         out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img'
-                          f'{{background-image:url(\'{url}\')!important}}}}</style>\n</head>', 1)
+                          f'{{background-image:url(\'{url}\')!important{fit}}}}}</style>\n</head>', 1)
     # `css:` — extra styles for this page only (its brand fonts, panel type).
     if page.get('css'):
         out = out.replace('</head>', f'<style>\n{page["css"]}\n</style>\n</head>', 1)
