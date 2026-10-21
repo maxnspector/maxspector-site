@@ -81,6 +81,8 @@
 .gs-voice .not li span{background:#00191D;color:#FF2D17}
 /* Phones: palette full width, then the voice panel as one piece, both lists side by side, scaled like an image */
 @media(max-width:860px){.gs-palette>.cs-img{grid-column:1 / -1}.gs-palette .cs-swatches{aspect-ratio:3/2!important}}
+/* Presentation slides: same corner radius as the slides in the template collage (22px at 2400 = 11px at full column) */
+.cs-img.has-img:has(img[src*="/pres-allhands"],img[src*="/pres-reach-fans"],img[src*="/pres-work-together"],img[src*="/pres-context-matters"]){border-radius:min(11px,.92vw)!important}
 /* GameSpot homepage mock: 1px white keyline */
 .cs-img.has-img:has(img[src$="gs-homepage.jpg"]){border:1px solid #FFFFFF!important;box-sizing:border-box}
 /* GameSpot core UI: a product-style component sheet beside the homepage */
@@ -324,7 +326,7 @@
     <div class="cs-grid reveal">
       <div class="cs-img has-img" style="aspect-ratio:2400/1600"><img src="/assets/fandom-brand/pres-template-collage-v2.jpg" alt="Fandom presentation template system" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-2 reveal">
+    <div class="cs-grid cs-grid-2 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-allhands-2024.jpg" alt="2024 all-hands look-ahead title slide" loading="lazy"></div>
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-allhands-2025-v2.jpg" alt="2025 all-hands kickoff title slide" loading="lazy"></div>
     </div>
