@@ -68,7 +68,7 @@
   .ty-display .ty-set{font-size:3.6cqw}
 }
 /* GameSpot is / is not: the brand guide's own treatment. Kanit Black heads, JetBrains Mono on highlight bars */
-.cs-html.gs-list{padding:10cqw 9cqw;justify-content:flex-start}
+.cs-html.gs-list{padding:10% 9%;justify-content:flex-start;letter-spacing:normal}
 .gs-list h3{margin:0 0 6cqw;font:900 7.6cqw/1 'Kanit';color:#00191D}
 .gs-list.is-not h3{color:#FF2D17}
 .gs-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.5cqw;font:700 4.5cqw/1 'JetBrains Mono'}
@@ -77,36 +77,64 @@
 .gs-list li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
 .gs-list.is-not li::before{content:'\2260'}
 .gs-list.is-not li span{background:#00191D;color:#FF2D17}
-/* GameSpot core UI: a small kit built from the guide, set beside the homepage */
-.cs-html.gs-ui{padding:10.5cqw 6cqw 6cqw;justify-content:flex-start;position:relative;font-family:'Kanit'}
-.gs-ui .stp{position:absolute;left:0;right:0;top:0;height:5cqw;display:grid;grid-template-rows:repeat(5,1fr)}
-.gs-ui .stp i:nth-child(1){background:#FF2D17}.gs-ui .stp i:nth-child(2){background:#C200BB}.gs-ui .stp i:nth-child(3){background:#00191D}.gs-ui .stp i:nth-child(4){background:#004158}.gs-ui .stp i:nth-child(5){background:#FFC500}
-.gs-ui .lbl{font:700 1.9cqw/1 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;border-bottom:.25cqw solid #00191D;padding-bottom:1.2cqw;margin:0 0 2.4cqw}
-.gs-ui .blk{margin-bottom:3.8cqw}.gs-ui .blk:last-child{margin-bottom:0}
-.gs-ui .sw{display:grid;grid-template-columns:2fr repeat(5,1fr);height:6.5cqw}
-.gs-ui .sw span{font:500 1.55cqw/1 'JetBrains Mono';padding:1.3cqw;display:flex;align-items:flex-end}
-.gs-ui .ty{display:grid;grid-template-columns:1fr auto;align-items:baseline;row-gap:1.5cqw;column-gap:3cqw}
-.gs-ui .ty small{font:500 1.55cqw/1 'JetBrains Mono';opacity:.6;text-align:right;white-space:nowrap}
-.gs-ui .t1{font-weight:900;font-size:6.6cqw;line-height:.9;text-transform:uppercase}
-.gs-ui .t3{font-weight:700;font-size:2.9cqw;line-height:1.1}
-.gs-ui .t4{font-weight:400;font-size:2.2cqw;line-height:1.35}
-.gs-ui .t5{font:700 2cqw/1 'JetBrains Mono';color:#C200BB;letter-spacing:.04em}
-.gs-ui .row{display:flex;flex-wrap:wrap;gap:2cqw;align-items:center}
-.gs-ui .row+.row{margin-top:2.2cqw}
-.gs-ui .btn{font:900 2.3cqw/1 'Kanit';text-transform:uppercase;padding:1.7cqw 3cqw;letter-spacing:.02em}
-.gs-ui .b1{background:#FFC500}.gs-ui .b2{background:#00191D;color:#FFC500}.gs-ui .b3{box-shadow:inset 0 0 0 .35cqw #00191D}
-.gs-ui .ic{width:5.4cqw;height:5.4cqw;display:grid;place-items:center;background:#00191D;color:#F9EDD8;font-size:2.4cqw}
-.gs-ui .ic.r{border-radius:50%;font-size:1.9cqw}
-.gs-ui .tag{font:900 1.9cqw/1 'Kanit';text-transform:uppercase;padding:.5cqw .9cqw}
-.gs-ui .sec{font:900 3.4cqw/1 'Kanit';text-transform:uppercase;background:#FFC500;padding:1cqw 1.8cqw}
-.gs-ui .tabs{display:flex;border-top:.25cqw solid;border-bottom:.25cqw solid;font:900 2.6cqw/1 'Kanit';text-transform:uppercase;margin-top:2.4cqw}
-.gs-ui .tabs span{padding:1.6cqw 2.2cqw 1.4cqw}.gs-ui .tabs span:first-child{padding-left:0}.gs-ui .tabs .on{background:#FFC500;padding-left:2.2cqw}
-.gs-ui .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqw}
-.gs-ui .card{border-top:.8cqw solid #FF2D17}
-.gs-ui .card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-.gs-ui .card h4{margin:1.3cqw 0 0;font:700 2cqw/1.15 'Kanit'}
-.gs-ui .card.dk{background:#00191D;color:#F9EDD8}
-.gs-ui .card.dk h4{padding:0 1.4cqw 1.6cqw}
+/* GameSpot core UI: a product-style component sheet beside the homepage */
+.cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#EFEDE8!important;color:#1E1E1E!important}
+.gs-ui *{box-sizing:border-box}
+.gs-ui>*+*{margin-top:4.6cqw}
+.gs-ui>.hd+*{margin-top:5.6cqw}
+.gs-ui .hd{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:2cqw;border-bottom:1px solid #D6D2C8}
+.gs-ui .hd b{font:700 2.6cqw/1 'Kanit';color:#00191D}
+.gs-ui .mono,.gs-ui .hd span{font:500 1.45cqw/1.2 'JetBrains Mono';color:#7A766D}
+.gs-ui .two{display:grid;grid-template-columns:1fr 1fr;gap:3.2cqw}
+.gs-ui .set{position:relative;border:1px dashed #9747FF;border-radius:.6cqw;padding:2.6cqw 2.2cqw 2.2cqw;background:#fff}
+.gs-ui .set>.nm{position:absolute;left:0;top:-2.6cqw;font:600 1.45cqw/1 'JetBrains Mono';color:#9747FF;white-space:nowrap}
+.gs-ui .set>.nm::before{content:'\25C7  '}
+.gs-ui .tok{display:grid;grid-template-columns:3cqw 1fr auto;align-items:center;column-gap:1.4cqw;row-gap:.9cqw}
+.gs-ui .tok i{width:3cqw;height:3cqw;border-radius:.5cqw;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.gs-ui .tok span{font:500 1.4cqw/1 'JetBrains Mono';color:#1E1E1E}
+.gs-ui .tok em{font:400 1.3cqw/1 'JetBrains Mono';color:#9A958B;font-style:normal}
+.gs-ui .ts{display:grid;grid-template-columns:1fr auto;align-items:baseline;row-gap:1.5cqw;column-gap:1.5cqw;color:#00191D}
+.gs-ui .ts em{font:400 1.3cqw/1 'JetBrains Mono';color:#9A958B;font-style:normal;text-align:right;white-space:nowrap}
+.gs-ui .d1{font:900 3.6cqw/1 'Kanit';text-transform:uppercase}
+.gs-ui .d2{font:700 2.4cqw/1.1 'Kanit'}
+.gs-ui .d3{font:400 1.9cqw/1.3 'Kanit'}
+.gs-ui .d4{font:700 1.5cqw/1 'JetBrains Mono';color:#C200BB}
+.gs-ui .bt{display:grid;grid-template-columns:auto repeat(4,1fr);align-items:center;justify-items:start;column-gap:2cqw;row-gap:1.6cqw}
+.gs-ui .bt .mono{font-size:1.3cqw}
+.gs-ui .b{font:900 1.8cqw/1 'Kanit';text-transform:uppercase;padding:1.3cqw 2.2cqw;color:#00191D;white-space:nowrap}
+.gs-ui .p{background:#FFC500}.gs-ui .p.h{background:#F0B400}.gs-ui .p.a{background:#D9A300;box-shadow:inset 0 .4cqw 0 rgba(0,0,0,.15)}
+.gs-ui .s{background:#00191D;color:#FFC500}.gs-ui .s.h{background:#004158}.gs-ui .s.a{background:#000}
+.gs-ui .gh{box-shadow:inset 0 0 0 .3cqw #00191D}.gs-ui .gh.h{background:rgba(0,25,29,.07)}.gs-ui .gh.a{background:#00191D;color:#F9EDD8}
+.gs-ui .x{opacity:.32}
+.gs-ui .stack{display:flex;flex-direction:column;gap:1.6cqw}
+.gs-ui .in{display:flex;align-items:center;gap:1.2cqw;height:4.6cqw;padding:0 1.6cqw;background:#F9EDD8;font:400 1.8cqw/1 'Kanit';color:#8C877C;box-shadow:inset 0 0 0 1px #CFC6B5}
+.gs-ui .in.f{box-shadow:inset 0 0 0 .35cqw #FFC500;color:#00191D;background:#fff}
+.gs-ui .in.f::after{content:'';width:.2cqw;height:2.4cqw;background:#00191D;margin-left:-.8cqw}
+.gs-ui .in svg{width:1.9cqw;height:1.9cqw;flex:none}
+.gs-ui .tabs{display:flex;border-bottom:.25cqw solid #00191D;font:900 1.9cqw/1 'Kanit';text-transform:uppercase;color:#00191D}
+.gs-ui .tabs span{padding:1.3cqw 1.6cqw 1.1cqw}.gs-ui .tabs span:first-child{padding-left:0}.gs-ui .tabs .on{background:#FFC500;padding-left:1.6cqw}
+.gs-ui .tags{display:flex;gap:1cqw}
+.gs-ui .tag{font:900 1.5cqw/1 'Kanit';text-transform:uppercase;padding:.45cqw .8cqw;color:#00191D}
+.gs-ui .li{position:relative;display:grid;grid-template-columns:1fr 11cqw;column-gap:2cqw;background:#F9EDD8;padding:2cqw;color:#00191D}
+.gs-ui .li h5{margin:.9cqw 0 .9cqw;font:700 1.85cqw/1.15 'Kanit'}
+.gs-ui .li img{width:11cqw!important;height:auto!important;aspect-ratio:16/9;object-fit:cover;display:block}
+.gs-ui .rl{position:absolute;font:600 1.2cqw/1 'JetBrains Mono';color:#F2357E;display:flex;align-items:center;justify-content:center}
+.gs-ui .rl.t{left:2cqw;top:0;height:2cqw;width:.1cqw;border-left:1px solid #F2357E}
+.gs-ui .rl.t b{position:absolute;left:.6cqw;font-weight:600}
+.gs-ui .rl.l{top:50%;left:0;width:2cqw;border-top:1px solid #F2357E}
+.gs-ui .rl.l b{position:absolute;top:.5cqw;font-weight:600}
+.gs-ui .rl.m{top:50%;right:11cqw;width:2cqw;margin-right:2cqw;border-top:1px solid #F2357E}
+.gs-ui .rl.m b{position:absolute;top:.5cqw;font-weight:600}
+
+.gs-ui .vc{position:relative;background:#F9EDD8;color:#00191D}
+.gs-ui .vc .im{position:relative;border-top:.8cqw solid #FF2D17}
+.gs-ui .vc .im img{width:100%!important;height:auto!important;aspect-ratio:12/5;object-fit:cover;display:block}
+.gs-ui .vc .pl{position:absolute;left:1.2cqw;top:1.2cqw;width:3.6cqw;height:3.6cqw;border-radius:50%;background:#00191D;color:#F9EDD8;display:grid;place-items:center;font-size:1.3cqw}
+.gs-ui .vc .bd{padding:1.8cqw}
+.gs-ui .vc h5{margin:1cqw 0 1cqw;font:700 1.9cqw/1.15 'Kanit'}
+.gs-ui .rl.v{position:absolute;border-left:1px solid #F2357E;width:0}
+.gs-ui .rl.v b{position:absolute;left:.5cqw;font:600 1.2cqw/1 'JetBrains Mono'}
+.gs-ui .rl.h{position:absolute;bottom:calc(100% - 100%);top:auto}
 
 </style>
 </head>
@@ -273,8 +301,8 @@
       <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/gs-sizzle-poster.jpg" aria-label="GameSpot brand sizzle, show packages and on-air graphics"><source src="/assets/fandom-brand/gs-sizzle.mp4" type="video/mp4"></video></div>
     </div>
     <div class="cs-grid cs-grid-2 reveal" style="gap:0px;margin-top:clamp(40px,6.67vw,96px)">
-      <div class="cs-img has-img cs-html gs-list" style="background:#FFFFFF;color:#00191D;aspect-ratio:4/5;" role="img" aria-label="GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful, honest"><h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul></div>
-      <div class="cs-img has-img cs-html gs-list is-not" style="background:#FFFFFF;color:#00191D;aspect-ratio:4/5;" role="img" aria-label="GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"><h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul></div>
+      <div class="cs-img has-img cs-html gs-list" style="background:#FFFFFF;color:#00191D;" role="img" aria-label="GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful, honest"><h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul></div>
+      <div class="cs-img has-img cs-html gs-list is-not" style="background:#FFFFFF;color:#00191D;" role="img" aria-label="GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"><h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul></div>
     </div>
     <div class="cs-grid gs-palette reveal">
       <div class="cs-img has-img cs-swatches" style="grid-template-columns:2fr repeat(5,1fr);grid-template-rows:1fr;aspect-ratio:1200/360;" role="img" aria-label="GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream"><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>GameSpot Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#FF2D17;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Red Orange</span><span></span><span>#FF2D17</span></div></div><div class="cs-swatch" style="background:#C200BB;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Fuchsia</span><span></span><span>#C200BB</span></div></div><div class="cs-swatch" style="background:#004158;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Blue</span><span></span><span>#004158</span></div></div><div class="cs-swatch" style="background:#00191D;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Dark Blue</span><span></span><span>#00191D</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div></div>
@@ -289,7 +317,7 @@
     </div>
     <div class="cs-grid cs-grid-2 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img" style="aspect-ratio:1584/1742"><img src="/assets/fandom-brand/gs-homepage.jpg" alt="GameSpot homepage in the 2023 brand" loading="lazy"></div>
-      <div class="cs-img has-img cs-html gs-ui" style="background:#F9EDD8;color:#00191D;aspect-ratio:1584/1742;" role="img" aria-label="GameSpot core UI: color, type, buttons, tags, tabs and cards"><div class="stp"><i></i><i></i><i></i><i></i><i></i></div><div class="blk"><div class="lbl"><span>Color</span><span>01</span></div><div class="sw"><span style="background:#FFC500">Yellow</span><span style="background:#FF2D17">Red Orange</span><span style="background:#C200BB;color:#F9EDD8">Fuchsia</span><span style="background:#004158;color:#F9EDD8">Blue</span><span style="background:#00191D;color:#F9EDD8">Dark Blue</span><span style="background:#F9EDD8;box-shadow:inset 0 0 0 .25cqw #00191D">Cream</span></div></div><div class="blk"><div class="lbl"><span>Type</span><span>02</span></div><div class="ty"><div class="t1">Game on</div><small>Kanit Black</small><div class="t3">Everything to know about the trailer</div><small>Kanit Bold</small><div class="t4">Guides, walkthroughs, explainers and reviews.</div><small>Kanit Regular</small><div class="t5">// NEWS &nbsp;VIA: GAMESPOT</div><small>JetBrains Mono</small></div></div><div class="blk"><div class="lbl"><span>Controls</span><span>03</span></div><div class="row"><span class="btn b1">Read review</span><span class="btn b2">Watch now</span><span class="btn b3">See all</span><span class="ic">&#8249;</span><span class="ic">&#8250;</span><span class="ic r">&#9654;</span></div><div class="row"><span class="sec">Game deals</span><span class="tag" style="background:#C200BB">Article</span><span class="tag" style="background:#FF2D17">Review</span><span class="tag" style="background:#004158;color:#F9EDD8">Video</span></div><div class="tabs"><span>Popular</span><span>Recent</span><span class="on">Updated</span></div></div><div class="blk"><div class="lbl"><span>Cards</span><span>04</span></div><div class="cards"><div class="card"><img src="/assets/fandom-brand/gs-ui-thumb-c.jpg" alt="" loading="lazy"><h4>Everything to know about the new Jedi cameo</h4></div><div class="card"><img src="/assets/fandom-brand/gs-ui-thumb-a.jpg" alt="" loading="lazy"><h4>Power Rangers trailer is full of morphenomenal magic</h4></div><div class="card dk"><img src="/assets/fandom-brand/gs-ui-thumb-b.jpg" alt="" loading="lazy"><h4>Burning Shores DLC preorders are live</h4></div></div></div></div>
+      <div class="cs-img has-img cs-html gs-ui" style="background:#EFEDE8;color:#00191D;aspect-ratio:1584/1742;" role="img" aria-label="GameSpot UI components: color tokens, type scale, button states, search, tabs, tags and an article card"><div class="hd"><b>GameSpot UI</b><span>Components · v2.3</span></div><div class="two"><div class="set"><span class="nm">Color tokens</span><div class="tok"><i style="background:#FFC500"></i><span>brand.primary</span><em>#FFC500</em><i style="background:#FF2D17"></i><span>signal.alert</span><em>#FF2D17</em><i style="background:#C200BB"></i><span>tag.article</span><em>#C200BB</em><i style="background:#004158"></i><span>accent.blue</span><em>#004158</em><i style="background:#00191D"></i><span>surface.inverse</span><em>#00191D</em><i style="background:#F9EDD8"></i><span>surface.base</span><em>#F9EDD8</em></div></div><div class="set"><span class="nm">Type scale</span><div class="ts"><div class="d1">Game deals</div><em>display / 32</em><div class="d2">Top upcoming games</div><em>heading / 20</em><div class="d3">Guides, walkthroughs and reviews.</div><em>body / 16</em><div class="d4">// NEWS · 32 MINS AGO</div><em>meta / 12</em></div></div></div><div class="set"><span class="nm">Button</span><div class="bt"><span></span><span class="mono">Default</span><span class="mono">Hover</span><span class="mono">Pressed</span><span class="mono">Disabled</span><span class="mono">Primary</span><span class="b p ">Read review</span><span class="b p h">Read review</span><span class="b p a">Read review</span><span class="b p x">Read review</span><span class="mono">Secondary</span><span class="b s ">Read review</span><span class="b s h">Read review</span><span class="b s a">Read review</span><span class="b s x">Read review</span><span class="mono">Ghost</span><span class="b gh ">Read review</span><span class="b gh h">Read review</span><span class="b gh a">Read review</span><span class="b gh x">Read review</span></div></div><div class="two"><div class="set"><span class="nm">Search · Tabs · Tag</span><div class="stack"><div class="in"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Search GameSpot</div><div class="in f"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Zelda</div><div class="tabs"><span>Popular</span><span>Recent</span><span class="on">Updated</span></div><div class="tags"><span class="tag" style="background:#C200BB">Article</span><span class="tag" style="background:#FF2D17">Review</span><span class="tag" style="background:#004158;color:#F9EDD8">Video</span><span class="tag" style="background:#FFC500">Deal</span></div></div></div><div class="set"><span class="nm">Card / list item</span><div class="vc"><div class="im"><img src="/assets/fandom-brand/gs-ui-thumb-a.jpg" alt=""><span class="pl">&#9654;</span></div><div class="bd"><span class="tag" style="background:#C200BB">Article</span><h5>Power Rangers trailer is full of morphenomenal magic</h5><div class="mono">32 mins ago · 14 comments</div></div></div></div></div>
     </div>
   </div>
 </section>
