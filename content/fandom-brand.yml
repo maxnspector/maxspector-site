@@ -76,16 +76,21 @@ css: |
     .ty-display .ty-weights span{margin-right:.7em}
     .ty-display .ty-set{font-size:3.6cqw}
   }
-  /* GameSpot is / is not: the brand guide's own treatment. Kanit Black heads, JetBrains Mono on highlight bars */
-  .cs-html.gs-list{padding:10% 9%;justify-content:flex-start;letter-spacing:normal}
-  .gs-list h3{margin:0 0 6cqw;font:900 7.6cqw/1 'Kanit';color:#00191D}
-  .gs-list.is-not h3{color:#FF2D17}
-  .gs-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.5cqw;font:700 4.5cqw/1 'JetBrains Mono'}
-  .gs-list li{display:flex;align-items:center}
-  .gs-list li::before{content:'+';color:#FF2D17;width:1.15em;flex:none}
-  .gs-list li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
-  .gs-list.is-not li::before{content:'\2260'}
-  .gs-list.is-not li span{background:#00191D;color:#FF2D17}
+  /* GameSpot is / is not: the guide's own treatment, set on cream beside the palette so the
+     Cream swatch runs straight into it. Kanit Black heads, JetBrains Mono on highlight bars. */
+  .cs-html.gs-voice{padding:8.9% 3% 6% 5%;justify-content:flex-start;letter-spacing:normal}
+  .gs-voice .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:4cqw}
+  .gs-voice h3{margin:0 0 4.4cqw;font:900 4.45cqw/1 'Kanit';color:#00191D;white-space:nowrap}
+  .gs-voice .not h3{color:#FF2D17}
+  .gs-voice ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.05cqw;font:700 2.93cqw/1 'JetBrains Mono'}
+  .gs-voice li{display:flex;align-items:center}
+  .gs-voice li::before{content:'+';color:#FF2D17;width:.95em;flex:none}
+  .gs-voice li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
+  .gs-voice .not li::before{content:'\2260'}
+  .gs-voice .not li span{background:#00191D;color:#FF2D17}
+  @container (max-width:480px){.gs-voice .cols{grid-template-columns:1fr;row-gap:12cqw}.gs-voice h3{font-size:9cqw}.gs-voice ul{font-size:6.2cqw;gap:2.2cqw}}
+  /* Phones: palette full width, the voice panel below it at its natural height */
+  @media(max-width:860px){.gs-palette>.cs-img{grid-column:1 / -1}.gs-palette .cs-swatches{aspect-ratio:3/2!important}.gs-palette .cs-html.gs-voice{aspect-ratio:auto!important;padding:10% 8%}}
   /* GameSpot core UI: a product-style component sheet beside the homepage */
   .cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#EFEDE8!important;color:#1E1E1E!important}
   .gs-ui *{box-sizing:border-box}
@@ -308,21 +313,10 @@ sections:
       alt: GameSpot brand sizzle, show packages and on-air graphics
       ratio: video
   - layout: grid-2
+    class: gs-palette
+    cols: 1045fr 955fr
     gap: 0
     space: 96
-    items:
-    - html: '<h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul>'
-      html_class: gs-list
-      alt: "GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful, honest"
-      bg: '#FFFFFF'
-      ink: '#00191D'
-    - html: '<h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul>'
-      html_class: gs-list is-not
-      alt: "GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"
-      bg: '#FFFFFF'
-      ink: '#00191D'
-  - layout: full
-    class: gs-palette
     items:
     - swatches:
       - {name: GameSpot Yellow, hex: '#FFC500'}
@@ -333,7 +327,13 @@ sections:
       - {name: Cream, hex: '#F9EDD8'}
       cols: 2fr repeat(5,1fr)
       alt: 'GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream'
-      aspect: 1200/360
+      aspect: 1045/763
+    - html: '<div class="cols"><div><h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul></div><div class="not"><h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul></div></div>'
+      html_class: gs-voice
+      alt: "GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful and honest. GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy."
+      bg: '#F9EDD8'
+      ink: '#00191D'
+      aspect: 955/763
   - layout: grid-3
     space: 96
     items:

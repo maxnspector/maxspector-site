@@ -67,16 +67,21 @@
   .ty-display .ty-weights span{margin-right:.7em}
   .ty-display .ty-set{font-size:3.6cqw}
 }
-/* GameSpot is / is not: the brand guide's own treatment. Kanit Black heads, JetBrains Mono on highlight bars */
-.cs-html.gs-list{padding:10% 9%;justify-content:flex-start;letter-spacing:normal}
-.gs-list h3{margin:0 0 6cqw;font:900 7.6cqw/1 'Kanit';color:#00191D}
-.gs-list.is-not h3{color:#FF2D17}
-.gs-list ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.5cqw;font:700 4.5cqw/1 'JetBrains Mono'}
-.gs-list li{display:flex;align-items:center}
-.gs-list li::before{content:'+';color:#FF2D17;width:1.15em;flex:none}
-.gs-list li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
-.gs-list.is-not li::before{content:'\2260'}
-.gs-list.is-not li span{background:#00191D;color:#FF2D17}
+/* GameSpot is / is not: the guide's own treatment, set on cream beside the palette so the
+   Cream swatch runs straight into it. Kanit Black heads, JetBrains Mono on highlight bars. */
+.cs-html.gs-voice{padding:8.9% 3% 6% 5%;justify-content:flex-start;letter-spacing:normal}
+.gs-voice .cols{display:grid;grid-template-columns:1fr 1fr;column-gap:4cqw}
+.gs-voice h3{margin:0 0 4.4cqw;font:900 4.45cqw/1 'Kanit';color:#00191D;white-space:nowrap}
+.gs-voice .not h3{color:#FF2D17}
+.gs-voice ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1.05cqw;font:700 2.93cqw/1 'JetBrains Mono'}
+.gs-voice li{display:flex;align-items:center}
+.gs-voice li::before{content:'+';color:#FF2D17;width:.95em;flex:none}
+.gs-voice li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
+.gs-voice .not li::before{content:'\2260'}
+.gs-voice .not li span{background:#00191D;color:#FF2D17}
+@container (max-width:480px){.gs-voice .cols{grid-template-columns:1fr;row-gap:12cqw}.gs-voice h3{font-size:9cqw}.gs-voice ul{font-size:6.2cqw;gap:2.2cqw}}
+/* Phones: palette full width, the voice panel below it at its natural height */
+@media(max-width:860px){.gs-palette>.cs-img{grid-column:1 / -1}.gs-palette .cs-swatches{aspect-ratio:3/2!important}.gs-palette .cs-html.gs-voice{aspect-ratio:auto!important;padding:10% 8%}}
 /* GameSpot core UI: a product-style component sheet beside the homepage */
 .cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#EFEDE8!important;color:#1E1E1E!important}
 .gs-ui *{box-sizing:border-box}
@@ -300,12 +305,9 @@
     <div class="cs-grid reveal">
       <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/gs-sizzle-poster.jpg" aria-label="GameSpot brand sizzle, show packages and on-air graphics"><source src="/assets/fandom-brand/gs-sizzle.mp4" type="video/mp4"></video></div>
     </div>
-    <div class="cs-grid cs-grid-2 reveal" style="gap:0px;margin-top:clamp(40px,6.67vw,96px)">
-      <div class="cs-img has-img cs-html gs-list" style="background:#FFFFFF;color:#00191D;" role="img" aria-label="GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful, honest"><h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul></div>
-      <div class="cs-img has-img cs-html gs-list is-not" style="background:#FFFFFF;color:#00191D;" role="img" aria-label="GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy"><h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul></div>
-    </div>
-    <div class="cs-grid gs-palette reveal">
-      <div class="cs-img has-img cs-swatches" style="grid-template-columns:2fr repeat(5,1fr);grid-template-rows:1fr;aspect-ratio:1200/360;" role="img" aria-label="GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream"><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>GameSpot Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#FF2D17;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Red Orange</span><span></span><span>#FF2D17</span></div></div><div class="cs-swatch" style="background:#C200BB;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Fuchsia</span><span></span><span>#C200BB</span></div></div><div class="cs-swatch" style="background:#004158;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Blue</span><span></span><span>#004158</span></div></div><div class="cs-swatch" style="background:#00191D;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Dark Blue</span><span></span><span>#00191D</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div></div>
+    <div class="cs-grid cs-grid-2 gs-palette has-cols reveal" style="--cols:1045fr 955fr;gap:0px;margin-top:clamp(40px,6.67vw,96px)">
+      <div class="cs-img has-img cs-swatches" style="grid-template-columns:2fr repeat(5,1fr);grid-template-rows:1fr;aspect-ratio:1045/763;" role="img" aria-label="GameSpot palette: yellow, red orange, fuchsia, blue, dark blue and cream"><div class="cs-swatch" style="background:#FFC500;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>GameSpot Yellow</span><span></span><span>#FFC500</span></div></div><div class="cs-swatch" style="background:#FF2D17;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Red Orange</span><span></span><span>#FF2D17</span></div></div><div class="cs-swatch" style="background:#C200BB;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Fuchsia</span><span></span><span>#C200BB</span></div></div><div class="cs-swatch" style="background:#004158;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Blue</span><span></span><span>#004158</span></div></div><div class="cs-swatch" style="background:#00191D;color:rgba(238,242,225,.85);"><div class="cs-labels"><span>Dark Blue</span><span></span><span>#00191D</span></div></div><div class="cs-swatch" style="background:#F9EDD8;color:rgba(8,41,0,.72);"><div class="cs-labels"><span>Cream</span><span></span><span>#F9EDD8</span></div></div></div>
+      <div class="cs-img has-img cs-html gs-voice" style="background:#F9EDD8;color:#00191D;aspect-ratio:955/763;" role="img" aria-label="GameSpot is informative, accurate, inclusive, funny/entertaining, consistent, passionate, conversational, respectful and honest. GameSpot is not snarky, jaded, self-indulgent, industry-centric, exclusionary or gossipy."><div class="cols"><div><h3>GameSpot is…</h3><ul><li><span>Informative</span></li><li><span>Accurate</span></li><li><span>Inclusive</span></li><li><span>Funny/Entertaining</span></li><li><span>Consistent</span></li><li><span>Passionate</span></li><li><span>Conversational</span></li><li><span>Respectful</span></li><li><span>Honest</span></li></ul></div><div class="not"><h3>GameSpot is not…</h3><ul><li><span>Snarky</span></li><li><span>Jaded</span></li><li><span>Self-Indulgent</span></li><li><span>Industry-Centric</span></li><li><span>Exclusionary</span></li><li><span>Gossipy</span></li></ul></div></div></div>
     </div>
     <div class="cs-grid cs-grid-3 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img portrait"><img src="/assets/fandom-brand/gs-social-news.jpg" alt="GameSpot news card: Blizzard's Overwatch team unionizes" loading="lazy"></div>
