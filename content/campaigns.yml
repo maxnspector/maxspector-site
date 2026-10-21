@@ -24,25 +24,27 @@ sections:
   blocks:
   - layout: full
     items:
-    - {img: bs-courtyard-window.jpg, alt: "UNITY, Light: campaign graphics on the glass of the Beth Sholom courtyard", aspect: 1500/1000}
+    - {img: bs-courtyard.jpg, alt: "UNITY, Light: campaign graphics on the glass doors of the Beth Sholom courtyard", aspect: 2400/1094}
   - layout: full
     space: 96
     items:
     - {img: bs-spread-unity.jpg, alt: "Brochure spread: Let us merge our lights in unity", aspect: 3/2}
   - layout: grid-2
+    class: keep-row   # stays two-up on phones
     space: 96
     items:
     - {img: bs-cover.jpg, alt: "Unite + Ignite brochure cover", aspect: 3/4}
-    - {img: bs-history.jpg, alt: "Brochure page: History is made up of moments", aspect: 3/4}
+    - {img: bs-back-cover.jpg, alt: "Brochure back cover: 107 years and counting", aspect: 3/4}
+  - layout: grid-2
+    class: keep-row   # stays two-up on phones
+    space: 96
+    items:
+    - {img: bs-moments-left.jpg, alt: "Brochure page: History is made up of moments", aspect: 3/4}
+    - {img: bs-moments-right.jpg, alt: "Brochure page: And moment to moment, for the 107 years", aspect: 3/4}
   - layout: full
     space: 96
     items:
     - {img: bs-spread-future.jpg, alt: "Brochure spread: A bright and secure future, with the campaign's four pillars", aspect: 3/2}
-  - layout: grid-2
-    space: 96
-    items:
-    - {img: bs-unite-ignite.jpg, alt: "Brochure page: Unite + Ignite", aspect: 3/4}
-    - {img: bs-good-deed.jpg, alt: "Brochure back pocket: A good deed", aspect: 3/4}
   - layout: full
     space: 96
     items:

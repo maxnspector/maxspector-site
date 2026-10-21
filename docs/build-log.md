@@ -7,6 +7,23 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-20 — Fandom: social update, GameSpot rework, Presentation edits
+
+**Social Content.** Re-exported from Max's revised Figma frame (82:27077): new John Wick panel colors, Knives Out as a framed card on gold, and the bottom row now one gradient panel holding Andor, Sonic and Metascore (`social-stories-trio.jpg`, 1200×620). Bond unchanged. Measured against Figma: 640/560×700, 1200×675, 1200×620.
+
+**GameSpot.**
+- Palette + voice lists are one butted row: palette 742 wide, a cream "GameSpot is… / is not…" panel 458 wide, both 458 tall. The lists follow the brand guide's own design (Kanit Black heads, JetBrains Mono on yellow / dark highlight bars, red + and ≠). On phones the palette goes full width and the voice panel stays one piece, both lists side by side, scaled like an image.
+- New product-style UI panel beside the homepage mock (`grid-2`, both 1584/1742): color tokens, type scale, button states, inputs/navigation, article card, on brand cream with dashed-purple component frames. Card thumbnails are crops from the homepage screenshot (`gs-ui-thumb-a/b/c.jpg`), a little soft. Homepage mock has a 1px white keyline.
+- Gotcha: `cqw` used on the container element itself (padding, gap) resolves against the viewport, not the panel. Use % padding on `.cs-html`, cqw only on children. Also `.cs-img` inherits letter-spacing .16em and forces `img{height:100%}` and `border-radius:0!important`; override in the page CSS.
+
+**Order and spacing.** Sub-Brands moved up to sit after Social. Removed the extra 96px above the NYCC pair in Events.
+
+**Presentation Design.** Ground is Fandom Dark Gray #3A434B (Max's call). New template collage from Dropbox Case Study Files/Fandom/Presentation Design/Presentation_design_03a.png, transparent background filled with #3A434B (`pres-template-collage-v2.jpg`). Context Matters moved to the bottom. 96px space after the collage. The five slides below get rounded corners to match the collage slides (22px at 2400 = 11px at full width, `min(11px,.92vw)`).
+
+All checked at 1440 and 390 (sizes measured, no sideways scroll). Max pushed through 10-20 v6.
+
+---
+
 ## 2026-10-18 — Fandom polish, Figma rebuilds, Campaigns page
 
 **Fandom.** Palette tiles show hex only, secondaries taller than tertiaries (rows 3fr/2fr). Rubik panel is now purple with yellow type, Space Grotesk yellow with purple; the panels and the palette butt together. Logo row is 3fr/2fr so the cream lockup panel lines up with the three primaries (measured 120–840 both). "Visual Language" renamed "Styles and Image Treatments". Motion Design on brand cream.
@@ -425,11 +442,12 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Campaigns review.** Max checks the page on staging; supply intro and subhead copy, a title for the fourth section ("Franchise Features" is a placeholder), and images for the homepage Campaigns row. Decide Beth Sholom cream vs white.
-2. **Mockups.** Pick the first real-world mockups (State of Fandom keynote auditorium, Beth Sholom brochure, Kayu postcards/hangtag/catalog, franchise pages on devices); Max supplies base photos; Claude composites the real art in.
-3. **Client Brands collection.** Name it and build it.
-4. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, the slideshow link to #office-branding.
-5. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
+1. **Continue Fandom edits with Max** (he is walking the page section by section; GameSpot and Presentation Design were the last ones touched). Open questions still on GameSpot: whether the homepage mock + UI panel want a different template than `grid-2`, and a sharper card thumbnail.
+2. **Campaigns review.** Copy, a title for the fourth section ("Franchise Features" placeholder), homepage Campaigns row images, Beth Sholom cream vs white.
+3. **Mockups.** First real-world mockups; Max supplies base photos.
+4. **Client Brands collection.** Name it and build it.
+5. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
+6. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
 
 **Further out**
 
