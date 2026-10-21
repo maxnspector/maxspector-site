@@ -79,11 +79,12 @@
 .gs-voice li span{background:#FFC500;color:#00191D;padding:.42em .12em .38em}
 .gs-voice .not li::before{content:'\2260'}
 .gs-voice .not li span{background:#00191D;color:#FF2D17}
-@container (max-width:480px){.gs-voice .cols{grid-template-columns:1fr;row-gap:12cqw}.gs-voice h3{font-size:9cqw}.gs-voice ul{font-size:6.2cqw;gap:2.2cqw}}
-/* Phones: palette full width, the voice panel below it at its natural height */
-@media(max-width:860px){.gs-palette>.cs-img{grid-column:1 / -1}.gs-palette .cs-swatches{aspect-ratio:3/2!important}.gs-palette .cs-html.gs-voice{aspect-ratio:auto!important;padding:10% 8%}}
+/* Phones: palette full width, then the voice panel as one piece, both lists side by side, scaled like an image */
+@media(max-width:860px){.gs-palette>.cs-img{grid-column:1 / -1}.gs-palette .cs-swatches{aspect-ratio:3/2!important}}
+/* GameSpot homepage mock: 1px brand Blue keyline */
+.cs-img.has-img:has(img[src$="gs-homepage.jpg"]){border:1px solid #004158!important;box-sizing:border-box}
 /* GameSpot core UI: a product-style component sheet beside the homepage */
-.cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#EFEDE8!important;color:#1E1E1E!important}
+.cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#F9EDD8!important;color:#1E1E1E!important}
 .gs-ui *{box-sizing:border-box}
 .gs-ui>*+*{margin-top:4.6cqw}
 .gs-ui>.hd+*{margin-top:5.6cqw}
@@ -130,16 +131,45 @@
 .gs-ui .rl.l b{position:absolute;top:.5cqw;font-weight:600}
 .gs-ui .rl.m{top:50%;right:11cqw;width:2cqw;margin-right:2cqw;border-top:1px solid #F2357E}
 .gs-ui .rl.m b{position:absolute;top:.5cqw;font-weight:600}
-
 .gs-ui .vc{position:relative;background:#F9EDD8;color:#00191D}
 .gs-ui .vc .im{position:relative;border-top:.8cqw solid #FF2D17}
-.gs-ui .vc .im img{width:100%!important;height:auto!important;aspect-ratio:12/5;object-fit:cover;display:block}
+.gs-ui .vc .im img{width:100%!important;height:auto!important;aspect-ratio:3/1;object-fit:cover;display:block}
 .gs-ui .vc .pl{position:absolute;left:1.2cqw;top:1.2cqw;width:3.6cqw;height:3.6cqw;border-radius:50%;background:#00191D;color:#F9EDD8;display:grid;place-items:center;font-size:1.3cqw}
 .gs-ui .vc .bd{padding:1.8cqw}
 .gs-ui .vc h5{margin:1cqw 0 1cqw;font:700 1.9cqw/1.15 'Kanit'}
 .gs-ui .rl.v{position:absolute;border-left:1px solid #F2357E;width:0}
 .gs-ui .rl.v b{position:absolute;left:.5cqw;font:600 1.2cqw/1 'JetBrains Mono'}
 .gs-ui .rl.h{position:absolute;bottom:calc(100% - 100%);top:auto}
+.gs-ui .ts2{display:grid;grid-template-columns:auto 1fr;column-gap:2cqw;align-items:center;color:#00191D}
+.gs-ui .ts2>*{padding:.6cqw 0;border-top:1px solid #ECE8DF;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:clip}
+.gs-ui .ts2>*:nth-child(-n+2){border-top:0;padding-top:0}
+.gs-ui .ts2 .k{font:500 1.3cqw/1.25 'JetBrains Mono';color:#9A958B;display:flex;flex-direction:column}
+.gs-ui .ts2 .k b{font-weight:500;color:#1E1E1E}
+.gs-ui .ts2 .d1{font:900 3cqw/1 'Kanit';text-transform:uppercase}
+.gs-ui .ts2 .d2{font:700 2.3cqw/1.1 'Kanit'}
+.gs-ui .ts2 .d2b{font:700 2.05cqw/1.1 'Kanit'}
+.gs-ui .ts2 .d3{font:400 1.8cqw/1.3 'Kanit'}
+.gs-ui .ts2 .d5{font:900 1.65cqw/1 'Kanit';text-transform:uppercase}
+.gs-ui .ts2 .d4{font:700 1.45cqw/1 'JetBrains Mono';color:#C200BB}
+.gs-ui .ctl{display:grid;grid-template-columns:auto 1fr;column-gap:2cqw;row-gap:1.2cqw;align-items:center}
+.gs-ui .ctl .k{font:500 1.3cqw/1 'JetBrains Mono';color:#7A766D}
+.gs-ui .ctl .in{height:4.4cqw;font-size:1.7cqw}
+.gs-ui .ctl .tabs{font-size:1.75cqw}
+.gs-ui .ctl .tabs span{padding:1.1cqw 1.3cqw .9cqw}
+.gs-ui .icons{display:flex;gap:1cqw;align-items:center}
+.gs-ui .ib{width:4cqw;height:4cqw;display:grid;place-items:center;background:#00191D;color:#F9EDD8;font-size:2cqw}
+.gs-ui .ib.r{border-radius:50%;font-size:1.4cqw}
+.gs-ui .cc{font:500 1.35cqw/1 'JetBrains Mono';color:#00191D;padding:1cqw 1.2cqw;box-shadow:inset 0 0 0 1px #CFC6B5}
+.gs-ui .icons .sec{font:900 1.75cqw/1 'Kanit';text-transform:uppercase;background:#FFC500;padding:1.1cqw 1.3cqw;margin-left:auto;color:#00191D}
+.gs-ui .two>.set{display:flex;flex-direction:column}
+.gs-ui .two>.set>.tok,.gs-ui .two>.set>.ts2,.gs-ui .two>.set>.ctl{flex:1;align-content:space-between}
+.gs-ui .tok{column-gap:0!important;row-gap:0!important}
+.gs-ui .tok>*{align-self:stretch;display:flex;align-items:center;padding:.9cqw 0}
+.gs-ui .tok>*:nth-child(-n+3){padding-top:0}.gs-ui .tok>*:nth-last-child(-n+3){padding-bottom:0}
+.gs-ui .tok>i{height:auto!important;width:3cqw;box-shadow:none;background:none!important;position:relative;margin-right:1.4cqw}
+.gs-ui .tok>i::before{content:"";width:3cqw;height:3cqw;border-radius:.5cqw;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.gs-ui .tok>span,.gs-ui .tok>em{border-top:1px solid #ECE8DF}.gs-ui .tok>span{padding-left:1.6cqw!important}.gs-ui .tok>span~i{}
+.gs-ui .tok>span:nth-child(2),.gs-ui .tok>em:nth-child(3){border-top:0}
 
 </style>
 </head>
@@ -273,7 +303,19 @@
   </div>
 </section>
 
-<section class="cs-custom is-on-dark cs-media" id="presentation-design" style="--ground:#6A68CE">
+<section class="cs-light is-white cs-media" id="show-formats-and-sub-brands">
+  <div class="wrap">
+    <div class="cs-head reveal">
+      <h2 class="cs-h">Sub-Brands</h2>
+      <p class="cs-hsub">A brand of brands has lots of… well, brands.</p>
+    </div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img cs-html sb" style="" role="img" aria-label="Fandom sub-brand logos"><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 Years of World Building" style="width:87.8%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:59.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:35.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:78.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:71.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" style="width:70.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:60.5%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:68.1%" loading="lazy"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-custom is-on-dark cs-media" id="presentation-design" style="--ground:#3A434B">
   <div class="wrap">
     <div class="cs-head reveal">
       <h2 class="cs-h">Presentation Design</h2>
@@ -282,9 +324,6 @@
     <div class="cs-grid reveal">
       <div class="cs-img has-img" style="aspect-ratio:2400/1600"><img src="/assets/fandom-brand/pres-template-collage.jpg" alt="Fandom presentation template system" loading="lazy"></div>
     </div>
-    <div class="cs-grid reveal" style="margin-top:clamp(40px,6.67vw,96px)">
-      <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-context-matters.jpg" alt="Go-to-market deck: context matters" loading="lazy"></div>
-    </div>
     <div class="cs-grid cs-grid-2 reveal">
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-allhands-2024.jpg" alt="2024 all-hands look-ahead title slide" loading="lazy"></div>
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-allhands-2025-v2.jpg" alt="2025 all-hands kickoff title slide" loading="lazy"></div>
@@ -292,6 +331,9 @@
     <div class="cs-grid cs-grid-2 reveal">
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-reach-fans.jpg" alt="Go-to-market deck: reach fans in every market" loading="lazy"></div>
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-work-together.jpg" alt="Partner deck: how should we work together in 2025" loading="lazy"></div>
+    </div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img video"><img src="/assets/fandom-brand/pres-context-matters.jpg" alt="Go-to-market deck: context matters" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -319,19 +361,7 @@
     </div>
     <div class="cs-grid cs-grid-2 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
       <div class="cs-img has-img" style="aspect-ratio:1584/1742"><img src="/assets/fandom-brand/gs-homepage.jpg" alt="GameSpot homepage in the 2023 brand" loading="lazy"></div>
-      <div class="cs-img has-img cs-html gs-ui" style="background:#EFEDE8;color:#00191D;aspect-ratio:1584/1742;" role="img" aria-label="GameSpot UI components: color tokens, type scale, button states, search, tabs, tags and an article card"><div class="hd"><b>GameSpot UI</b><span>Components · v2.3</span></div><div class="two"><div class="set"><span class="nm">Color tokens</span><div class="tok"><i style="background:#FFC500"></i><span>brand.primary</span><em>#FFC500</em><i style="background:#FF2D17"></i><span>signal.alert</span><em>#FF2D17</em><i style="background:#C200BB"></i><span>tag.article</span><em>#C200BB</em><i style="background:#004158"></i><span>accent.blue</span><em>#004158</em><i style="background:#00191D"></i><span>surface.inverse</span><em>#00191D</em><i style="background:#F9EDD8"></i><span>surface.base</span><em>#F9EDD8</em></div></div><div class="set"><span class="nm">Type scale</span><div class="ts"><div class="d1">Game deals</div><em>display / 32</em><div class="d2">Top upcoming games</div><em>heading / 20</em><div class="d3">Guides, walkthroughs and reviews.</div><em>body / 16</em><div class="d4">// NEWS · 32 MINS AGO</div><em>meta / 12</em></div></div></div><div class="set"><span class="nm">Button</span><div class="bt"><span></span><span class="mono">Default</span><span class="mono">Hover</span><span class="mono">Pressed</span><span class="mono">Disabled</span><span class="mono">Primary</span><span class="b p ">Read review</span><span class="b p h">Read review</span><span class="b p a">Read review</span><span class="b p x">Read review</span><span class="mono">Secondary</span><span class="b s ">Read review</span><span class="b s h">Read review</span><span class="b s a">Read review</span><span class="b s x">Read review</span><span class="mono">Ghost</span><span class="b gh ">Read review</span><span class="b gh h">Read review</span><span class="b gh a">Read review</span><span class="b gh x">Read review</span></div></div><div class="two"><div class="set"><span class="nm">Search · Tabs · Tag</span><div class="stack"><div class="in"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Search GameSpot</div><div class="in f"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Zelda</div><div class="tabs"><span>Popular</span><span>Recent</span><span class="on">Updated</span></div><div class="tags"><span class="tag" style="background:#C200BB">Article</span><span class="tag" style="background:#FF2D17">Review</span><span class="tag" style="background:#004158;color:#F9EDD8">Video</span><span class="tag" style="background:#FFC500">Deal</span></div></div></div><div class="set"><span class="nm">Card / list item</span><div class="vc"><div class="im"><img src="/assets/fandom-brand/gs-ui-thumb-a.jpg" alt=""><span class="pl">&#9654;</span></div><div class="bd"><span class="tag" style="background:#C200BB">Article</span><h5>Power Rangers trailer is full of morphenomenal magic</h5><div class="mono">32 mins ago · 14 comments</div></div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="cs-light is-white cs-media" id="show-formats-and-sub-brands">
-  <div class="wrap">
-    <div class="cs-head reveal">
-      <h2 class="cs-h">Sub-Brands</h2>
-      <p class="cs-hsub">A brand of brands has lots of… well, brands.</p>
-    </div>
-    <div class="cs-grid reveal">
-      <div class="cs-img has-img cs-html sb" style="" role="img" aria-label="Fandom sub-brand logos"><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 Years of World Building" style="width:87.8%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:59.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:35.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:78.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:71.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" style="width:70.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:60.5%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:68.1%" loading="lazy"></div></div>
+      <div class="cs-img has-img cs-html gs-ui" style="background:#F9EDD8;color:#00191D;aspect-ratio:1584/1742;" role="img" aria-label="GameSpot UI components: color tokens, type scale, button states, search, tabs, tags and an article card"><div class="hd"><b>GameSpot UI</b><span>Components · v2.3</span></div><div class="two"><div class="set"><span class="nm">Color tokens</span><div class="tok"><i style="--c:#FFC500"></i><span>brand.primary</span><em>#FFC500</em><i style="--c:#FF2D17"></i><span>signal.alert</span><em>#FF2D17</em><i style="--c:#C200BB"></i><span>tag.article</span><em>#C200BB</em><i style="--c:#004158"></i><span>accent.blue</span><em>#004158</em><i style="--c:#00191D"></i><span>surface.inverse</span><em>#00191D</em><i style="--c:#F9EDD8"></i><span>surface.base</span><em>#F9EDD8</em></div></div><div class="set"><span class="nm">Type scale</span><div class="ts2"><span class="k">display<b>32/32</b></span><span class="d1">Game deals</span><span class="k">title<b>24/28</b></span><span class="d2">Top upcoming games</span><span class="k">heading<b>18/22</b></span><span class="d2b">Burning Shores DLC is live</span><span class="k">body<b>16/24</b></span><span class="d3">Guides, walkthroughs and reviews.</span><span class="k">label<b>14/14</b></span><span class="d5">Popular · Updated</span><span class="k">meta<b>12/16</b></span><span class="d4">// NEWS · 32 MINS AGO</span></div></div></div><div class="set"><span class="nm">Button</span><div class="bt"><span></span><span class="mono">Default</span><span class="mono">Hover</span><span class="mono">Pressed</span><span class="mono">Disabled</span><span class="mono">Primary</span><span class="b p ">Read review</span><span class="b p h">Read review</span><span class="b p a">Read review</span><span class="b p x">Read review</span><span class="mono">Secondary</span><span class="b s ">Read review</span><span class="b s h">Read review</span><span class="b s a">Read review</span><span class="b s x">Read review</span><span class="mono">Ghost</span><span class="b gh ">Read review</span><span class="b gh h">Read review</span><span class="b gh a">Read review</span><span class="b gh x">Read review</span></div></div><div class="two"><div class="set"><span class="nm">Inputs · Navigation</span><div class="ctl"><span class="k">Search</span><div class="in"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Search GameSpot</div><span class="k">Focus</span><div class="in f"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>Zelda</div><span class="k">Tabs</span><div class="tabs"><span>Popular</span><span>Recent</span><span class="on">Updated</span></div><span class="k">Tags</span><div class="tags"><span class="tag" style="background:#C200BB">Article</span><span class="tag" style="background:#FF2D17">Review</span><span class="tag" style="background:#004158;color:#F9EDD8">Video</span><span class="tag" style="background:#FFC500">Deal</span></div><span class="k">Icon</span><div class="icons"><span class="ib">&#8249;</span><span class="ib">&#8250;</span><span class="ib r">&#9654;</span><span class="sec">Game deals</span></div></div></div><div class="set"><span class="nm">Card / list item</span><div class="vc"><div class="im"><img src="/assets/fandom-brand/gs-ui-thumb-a.jpg" alt=""><span class="pl">&#9654;</span></div><div class="bd"><span class="tag" style="background:#C200BB">Article</span><h5>Power Rangers trailer is full of morphenomenal magic</h5><div class="mono">32 mins ago · 14 comments</div></div></div></div></div>
     </div>
   </div>
 </section>
@@ -364,7 +394,7 @@
       <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-sdcc-08.jpg" alt="Guests at the Fandom step-and-repeat" loading="lazy"></div>
       <div class="cs-img has-img photo"><img src="/assets/fandom-brand/ev-sdcc-09.jpg" alt="Headline act on the rooftop stage" loading="lazy"></div>
     </div>
-    <div class="cs-grid cs-grid-2 reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+    <div class="cs-grid cs-grid-2 reveal">
       <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-nycc-09.jpg" alt="Fandom Party New York 2024 key art" loading="lazy"></div>
       <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-20-year.jpg" alt="Fandom 20 Years of World Building party graphics" loading="lazy"></div>
     </div>
