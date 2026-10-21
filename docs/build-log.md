@@ -7,6 +7,18 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-18 — Fandom polish, Figma rebuilds, Campaigns page
+
+**Fandom.** Palette tiles show hex only, secondaries taller than tertiaries (rows 3fr/2fr). Rubik panel is now purple with yellow type, Space Grotesk yellow with purple; the panels and the palette butt together. Logo row is 3fr/2fr so the cream lockup panel lines up with the three primaries (measured 120–840 both). "Visual Language" renamed "Styles and Image Treatments". Motion Design on brand cream.
+
+**From Max's Figma layouts.** Duotone grid and icon columns rebuilt in Figma as editable layers (79:2); Max recomposed them (82:16878, 82:13986) and the social section (82:27077). Each block exported at 2x and placed to match: personas first, then characters + icons as adjacent 600×640 blocks; social as John Wick panel (640) + Knives Out (560), Bond 1200×675, Andor (472) + stories panel (728), 48px between rows. Blocks stack on phones. Removed from social: Andor Empire, Tom Cruise, Eddie, Dumbledore, the separate Bond slides.
+
+**Campaigns page** (`content/campaigns.yml` → `campaigns.html`, art in `assets/campaigns/`). Four sections: Congregation Beth Sholom (cream), State of Fandom (#294148, cards on #558895), Kayu (cream), Franchise Features (#151516; Skywalker on #C3E9E9, Harry Potter cards on #282821). Grounds read from the live old site. Desktop cover SoF_2026_hero_01; phone cover CC_cover_02_mobile shown whole on #23CCD1 via new `cover_mobile_fit: contain` / `cover_mobile_bg:`. `links_html` is now optional in the intro. Menu and homepage Campaigns row link to `/campaigns.html`. All copy is DRAFT.
+
+Checked at 1440 and 390: all images load, no sideways scroll. All pushed (10-18 1–4).
+
+---
+
 ## 2026-10-17 (late evening) — Fandom Build v3, from Max's review
 
 Max reviewed Build v2 and the core problems were process, not taste: art was put on colors Claude picked instead of the ones it had on the old site, cutouts went in uncropped and unscaled, the presentation template collage was dropped and show title cards were added without asking, and the checks only proved images loaded. Two standing rules came out of it: art keeps the background it had on the old site, and American spelling everywhere.
@@ -405,6 +417,7 @@ suppresses it entirely.
   8 sections, 50 images, 7 videos (not yet pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
+- Campaigns collection — built 2026-10-18, four sections, draft copy
 - Layout catalog — every arrangement on one page for reference, including
   the six flush layouts and a custom-color section
 - Section grounds named per section: white, cream, brand dark, or any color
@@ -412,10 +425,11 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Fandom review, round 2.** Build v3 (see the end of `docs/fandom-recompose-plan.md`). Max pushes, reviews on staging, and answers the eight open questions.
-2. **Alex AI:** homepage description still a DRAFT placeholder (Max's copy); section grounds for Alex's 4 sections; clear the "DRAFT —" subheads.
-3. **Collections:** name and build Client Brands and Campaigns; fill the slideshow with real slides linked to sections.
-4. **Push** the uncommitted homepage, menu, slideshow and build.py changes when ready (staging is noindex, safe to push).
+1. **Campaigns review.** Max checks the page on staging; supply intro and subhead copy, a title for the fourth section ("Franchise Features" is a placeholder), and images for the homepage Campaigns row. Decide Beth Sholom cream vs white.
+2. **Mockups.** Pick the first real-world mockups (State of Fandom keynote auditorium, Beth Sholom brochure, Kayu postcards/hangtag/catalog, franchise pages on devices); Max supplies base photos; Claude composites the real art in.
+3. **Client Brands collection.** Name it and build it.
+4. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, the slideshow link to #office-branding.
+5. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
 
 **Further out**
 
