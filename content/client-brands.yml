@@ -1,11 +1,11 @@
 # CLIENT BRANDS — a Collection, built 2026-10-23 in Nick Pattison's board format:
 # one board of six 16:9 tiles per project, 14px gap, two-up on phones too.
+# Cover: Beth Sholom Unity spread (Max 2026-10-23). Archetypes removed (Max 2026-10-23).
 # Tiles are made by _scratch/cb/make_tiles.py from Max's originals (Linked Art) into assets/client-brands.
 # Grounds and intro copy read from the old maxspector.com/project/client-brands.
 title: Client Brands — Max Spector
-description: 'Brand identities for independent clients: Coffee Cultures, Verve Coffee Roasters, Venus Spirits, Craftsman and Wolves, Archetypes in Branding, The Brownie & Madam Optical Co., Kayu and Congregation
-  Beth Sholom.'
-cover: cover.jpg
+description: 'Brand identities for independent clients: Coffee Cultures, Verve Coffee Roasters, Venus Spirits, Craftsman and Wolves, The Brownie & Madam Optical Co., Kayu and Congregation Beth Sholom.'
+cover: cover-unity.jpg
 frames: 'off'
 intro:
   eyebrow: Client Brands
@@ -69,6 +69,19 @@ sections:
     - img: verve-6-mosaic.jpg
       alt: Verve logo set into a tile mosaic floor
       aspect: 16/9
+- heading: Trademarks & Monograms
+  subhead: The brand symbol at its purest and most direct.
+  ground: white
+  blocks:
+  - layout: grid-2
+    gap: 14
+    items:
+    - img: logos-1.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-2.jpg
+      alt: Client logos and marks
+      aspect: 1/1
 - heading: Venus Spirits
   subhead: A small batch of organic grain. A maker of spirits in the ocean air. Integrity. Time. Maturity. The risks of the unknown, the rewards of promise.
   ground: white
@@ -121,32 +134,6 @@ sections:
     - img: caw-6-jars.jpg
       alt: Craftsman and Wolves jar labels
       aspect: 16/9
-- heading: Archetypes in Branding
-  subhead: A guide and set of cards for internal strategic brand think sessions and client exercises.
-  ground: '#F14E23'
-  blocks:
-  - layout: grid-2
-    class: keep-row
-    gap: 14
-    items:
-    - img: arch-1-book.jpg
-      alt: Archetypes in Branding book cover
-      aspect: 16/9
-    - img: arch-2-cards.jpg
-      alt: Archetype cards, fronts and backs
-      aspect: 16/9
-    - img: arch-3-set-a.jpg
-      alt: Archetype card set
-      aspect: 16/9
-    - img: arch-4-spines.jpg
-      alt: Archetype card spines
-      aspect: 16/9
-    - img: arch-5-set-b.jpg
-      alt: Archetype card set
-      aspect: 16/9
-    - img: arch-6-passion.jpg
-      alt: 'Book spread: Passion and Conviction'
-      aspect: 16/9
 - heading: The Brownie & Madam Optical Co.
   subhead: '"A bespoke experience that nods to a bygone era, when crafted products and good service were the norm."'
   ground: '#32342A'
@@ -174,6 +161,25 @@ sections:
     - img: bm-6-path.jpg
       alt: There is no royal, flower-strewn path, only the one I create for myself
       aspect: 16/9
+- heading: Logotypes & Lockups
+  subhead: The full combination, as most brands present themselves.
+  ground: white
+  blocks:
+  - layout: grid-2
+    gap: 14
+    items:
+    - img: logos-3.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-4.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-5.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-6.jpg
+      alt: Client logos and marks
+      aspect: 1/1
 - heading: Kayu
   subhead: 'DRAFT — A brand world for handmade bags from Southeast Asia: postcards, catalog, and packaging.'
   ground: cream
@@ -226,28 +232,3 @@ sections:
     - img: bs-6-families.jpg
       alt: Brochure spreads profiling congregation families
       aspect: 16/9
-- heading: Trademarks, Monograms & Logotypes
-  subhead: DRAFT — The brand symbol at its purest, and the full combination as most brands present themselves.
-  ground: white
-  blocks:
-  - layout: grid-3
-    gap: 14
-    items:
-    - img: logos-1.jpg
-      alt: Client logos and marks
-      aspect: 1/1
-    - img: logos-2.jpg
-      alt: Client logos and marks
-      aspect: 1/1
-    - img: logos-3.jpg
-      alt: Client logos and marks
-      aspect: 1/1
-    - img: logos-4.jpg
-      alt: Client logos and marks
-      aspect: 1/1
-    - img: logos-5.jpg
-      alt: Client logos and marks
-      aspect: 1/1
-    - img: logos-6.jpg
-      alt: Client logos and marks
-      aspect: 1/1
