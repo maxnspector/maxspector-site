@@ -7,6 +7,22 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-23 (later) — Client Brands page built
+
+New page `client-brands.html`, from `content/client-brands.yml`, art in `assets/client-brands/`. Max chose the whole page first, using art that already exists, with six tiles per board everywhere.
+
+- **Format.** One board per project in Nick Pattison's style: six 16:9 tiles, two across, 14px gap, project name and one line above. Measured at 1440: tiles 593×333.6, gaps 14 / 14.4. At 390: 168×94.5, still two across (`keep-row`). No sideways scroll at either width, all 54 images load, no script errors.
+- **Tiles** are cut by `_scratch/cb/make_tiles.py` from Max's originals in Linked Art / Project - Client Brand Highlights (and assets/campaigns for Kayu and Beth Sholom), 1200×675, JPG q84. Each tile has a crop center you can adjust; rerun it for one project with `python3 _scratch/cb/make_tiles.py cc`.
+- **Order and grounds** match the old site: Coffee Cultures (cream), Verve (#433C2A), Venus (white), Craftsman and Wolves (cream), Archetypes (#F14E23), Brownie & Madam (#32342A), Kayu (cream), Beth Sholom (cream), then the six client-logo sheets on white.
+- **Copy.** The intro and the project one-liners are the old site's copy, carried over. Kayu, Beth Sholom and the logo section subheads are DRAFT.
+- **Picks to confirm.** Left out: CC collage, Archetypes spreads B + C, Brownie & Madam box (BM_02) and the circle poster (BM_07). Added: the Verve mosaic, which was in the folder but never on the old site. Kayu catalog pages and both Beth Sholom pairs are shown two to a tile on a #EDEBE3 panel. GDS and CA Freemason (1 and 2 pieces) are not on the page.
+- **Soft tiles** (small sources): CC wall (620px), CAW jars (643px), Venus aquavit (662px). These are the first ones to replace with new mockups.
+- **Links.** The menu (site.yml + index.html) and the homepage Client Brands row now point to `/client-brands.html`. Campaigns is still live until Max says to retire it.
+
+Not committed or pushed.
+
+---
+
 ## 2026-10-21 to 10-23 — Beth Sholom edits, site structure change, Client Brands format
 
 **Beth Sholom (Campaigns page, not pushed).**
@@ -462,6 +478,7 @@ suppresses it entirely.
   8 sections, 50 images, 7 videos (not yet pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
+- Client Brands collection — built 2026-10-23: 8 project boards + logo sheets (not pushed)
 - Campaigns collection — built 2026-10-18; DISSOLVING (2026-10-23): State of Fandom +
   Franchise Features now on Fandom, Kayu + Beth Sholom go to Client Brands
 - Layout catalog — every arrangement on one page for reference, including
@@ -471,12 +488,11 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Max pushes and reviews** the Beth Sholom edits and the Fandom page with State of Fandom + Franchise Features (check the Presentation → State of Fandom dark-to-dark transition).
-2. **Client Brands test board.** Build one board (likely Coffee Cultures) in the Pattison format: 16:9 tiles, 14px gap, name + one line above. Settle six vs nine tiles for the biggest projects. Name stays "Client Brands".
-3. **Then the rest of Client Brands:** gather each project's art (old site + Dropbox), list which boards need new mockups, and plan with Max; Beth Sholom reframed as a campaign brand.
-4. **Retire Campaigns** once Client Brands exists: page, menu link (site.yml + index.html), homepage row, assets/campaigns.
-5. **Fandom leftovers:** GameSpot template/thumbnail questions, Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
-6. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
+1. **Max pushes and reviews Client Brands**. Confirm the tile picks and crops, the logo section, and where GDS / CA Freemason go.
+2. **New mockups**: list which tiles get replaced, starting with the three soft ones (CC wall, CAW jars, Venus aquavit).
+3. **Retire Campaigns** once Max approves: page, menu link (site.yml + index.html), homepage row, assets/campaigns (Client Brands still borrows Kayu/Beth art from there via make_tiles.py, but its tiles are already copied).
+4. **Fandom leftovers:** GameSpot template/thumbnail questions, Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
+5. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
 
 **Further out**
 

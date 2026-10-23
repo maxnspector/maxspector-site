@@ -1,0 +1,253 @@
+# CLIENT BRANDS — a Collection, built 2026-10-23 in Nick Pattison's board format:
+# one board of six 16:9 tiles per project, 14px gap, two-up on phones too.
+# Tiles are made by _scratch/cb/make_tiles.py from Max's originals (Linked Art) into assets/client-brands.
+# Grounds and intro copy read from the old maxspector.com/project/client-brands.
+title: Client Brands — Max Spector
+description: 'Brand identities for independent clients: Coffee Cultures, Verve Coffee Roasters, Venus Spirits, Craftsman and Wolves, Archetypes in Branding, The Brownie & Madam Optical Co., Kayu and Congregation
+  Beth Sholom.'
+cover: cover.jpg
+frames: 'off'
+intro:
+  eyebrow: Client Brands
+  statement: The power of design is to make the hidden visible, the visible relevant, and the relevant of passionate concern. The job of design is to spark intrigue and curiosity—to captivate the user,
+    inspire them to disregard distractions, focus on your message—and of course, always, to tell amazing stories.
+  meta:
+  - label: Roles & Responsibilities
+    body: Art director and lead designer. Team leadership, project management, and production. Honoring the client as partner and subject matter expert.
+  - label: Design Agencies of Record
+    body: Work produced at the esteemed Chen Design Associates, and my independent design practice.
+sections:
+- heading: Coffee Cultures
+  subhead: Founded with an international spirit. Travel as the ends, not the means. Equal parts Olde England and Mel's Diner.
+  ground: cream
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: cc-1-assets.jpg
+      alt: 'Coffee Cultures core assets: primary trademark, secondary icon, brand colors and typefaces'
+      aspect: 16/9
+    - img: cc-2-painted.jpg
+      alt: 'Painted Coffee Cultures sign: Mission and 1301, South of Market'
+      aspect: 16/9
+    - img: cc-3-sign.jpg
+      alt: Hanging wooden Coffee Cultures sign outside the cafe
+      aspect: 16/9
+    - img: cc-4-detail.jpg
+      alt: Coffee Cultures cup, sandwich wrap and loyalty card
+      aspect: 16/9
+    - img: cc-5-board.jpg
+      alt: Coffee Cultures sandwich board covered in brand graphics
+      aspect: 16/9
+    - img: cc-6-wall.jpg
+      alt: A customer sitting beneath the Coffee Cultures mural wall
+      aspect: 16/9
+- heading: Verve Coffee Roasters
+  subhead: The logo that launched a single-origin revolutionary and pioneer in coffee's third wave.
+  ground: '#433C2A'
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: verve-1-espresso.jpg
+      alt: Verve Coffee Roasters logo on an espresso machine
+      aspect: 16/9
+    - img: verve-2-cupbag.jpg
+      alt: Verve coffee bag and cup
+      aspect: 16/9
+    - img: verve-3-door.jpg
+      alt: Verve logo set vertically on the cafe door
+      aspect: 16/9
+    - img: verve-4-glass.jpg
+      alt: Verve logo on the cafe window
+      aspect: 16/9
+    - img: verve-5-wall.jpg
+      alt: Verve logo on a corrugated-metal roastery wall
+      aspect: 16/9
+    - img: verve-6-mosaic.jpg
+      alt: Verve logo set into a tile mosaic floor
+      aspect: 16/9
+- heading: Venus Spirits
+  subhead: A small batch of organic grain. A maker of spirits in the ocean air. Integrity. Time. Maturity. The risks of the unknown, the rewards of promise.
+  ground: white
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: venus-1-assets.jpg
+      alt: 'Venus Spirits core assets: primary trademark, secondary icon, brand colors and typefaces'
+      aspect: 16/9
+    - img: venus-2-bottles.jpg
+      alt: Venus gin bottles with the botanical blend label
+      aspect: 16/9
+    - img: venus-3-barrel.jpg
+      alt: Venus Spirits logo branded on a barrel head
+      aspect: 16/9
+    - img: venus-4-label.jpg
+      alt: Close-up of the Venus small batch gin label
+      aspect: 16/9
+    - img: venus-5-box.jpg
+      alt: Venus gin gift box
+      aspect: 16/9
+    - img: venus-6-aquavit.jpg
+      alt: Close-up of the Venus aquavit label
+      aspect: 16/9
+- heading: Craftsman and Wolves
+  subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
+  ground: cream
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: caw-1-hero.jpg
+      alt: Craftsman and Wolves wordmark over the Rebel Within muffin
+      aspect: 16/9
+    - img: caw-2-icons.jpg
+      alt: Craftsman and Wolves secondary marks on black and gold
+      aspect: 16/9
+    - img: caw-3-logo.jpg
+      alt: Craftsman and Wolves monogram over the pastry counter
+      aspect: 16/9
+    - img: caw-4-mug.jpg
+      alt: Craftsman and Wolves enamel steel mug
+      aspect: 16/9
+    - img: caw-5-coast.jpg
+      alt: Craftsman and Wolves San Francisco coast graphic
+      aspect: 16/9
+    - img: caw-6-jars.jpg
+      alt: Craftsman and Wolves jar labels
+      aspect: 16/9
+- heading: Archetypes in Branding
+  subhead: A guide and set of cards for internal strategic brand think sessions and client exercises.
+  ground: '#F14E23'
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: arch-1-book.jpg
+      alt: Archetypes in Branding book cover
+      aspect: 16/9
+    - img: arch-2-cards.jpg
+      alt: Archetype cards, fronts and backs
+      aspect: 16/9
+    - img: arch-3-set-a.jpg
+      alt: Archetype card set
+      aspect: 16/9
+    - img: arch-4-spines.jpg
+      alt: Archetype card spines
+      aspect: 16/9
+    - img: arch-5-set-b.jpg
+      alt: Archetype card set
+      aspect: 16/9
+    - img: arch-6-passion.jpg
+      alt: 'Book spread: Passion and Conviction'
+      aspect: 16/9
+- heading: The Brownie & Madam Optical Co.
+  subhead: '"A bespoke experience that nods to a bygone era, when crafted products and good service were the norm."'
+  ground: '#32342A'
+  cite: Entrepreneur Magazine
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: bm-1-logo.jpg
+      alt: Brownie & Madam Optical Co. logo on yellow
+      aspect: 16/9
+    - img: bm-2-case.jpg
+      alt: Glasses in a Brownie & Madam case
+      aspect: 16/9
+    - img: bm-3-pattern.jpg
+      alt: Brownie & Madam pattern with the full lockup
+      aspect: 16/9
+    - img: bm-4-card.jpg
+      alt: Our House mission card in a shipping box
+      aspect: 16/9
+    - img: bm-5-chart.jpg
+      alt: 'Eye chart: Well behaved women seldom make history'
+      aspect: 16/9
+    - img: bm-6-path.jpg
+      alt: There is no royal, flower-strewn path, only the one I create for myself
+      aspect: 16/9
+- heading: Kayu
+  subhead: 'DRAFT — A brand world for handmade bags from Southeast Asia: postcards, catalog, and packaging.'
+  ground: cream
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: kayu-1-packaging.jpg
+      alt: Kayu packaging
+      aspect: 16/9
+    - img: kayu-2-card.jpg
+      alt: Kayu postcard
+      aspect: 16/9
+    - img: kayu-3-catalog.jpg
+      alt: Kayu catalog pages
+      aspect: 16/9
+    - img: kayu-4-card.jpg
+      alt: Kayu postcard
+      aspect: 16/9
+    - img: kayu-5-card.jpg
+      alt: Kayu postcard
+      aspect: 16/9
+    - img: kayu-6-card.jpg
+      alt: Kayu postcard
+      aspect: 16/9
+- heading: Congregation Beth Sholom
+  subhead: 'DRAFT — Unite + Ignite, a campaign brand for a 100-year-old congregation: brochure, courtyard and capital campaign.'
+  ground: cream
+  blocks:
+  - layout: grid-2
+    class: keep-row
+    gap: 14
+    items:
+    - img: bs-1-courtyard.jpg
+      alt: Unite + Ignite graphics on the glass doors of the Beth Sholom courtyard
+      aspect: 16/9
+    - img: bs-2-unity.jpg
+      alt: 'Brochure spread: Let us merge our lights in unity'
+      aspect: 16/9
+    - img: bs-3-covers.jpg
+      alt: Brochure front and back covers
+      aspect: 16/9
+    - img: bs-4-future.jpg
+      alt: 'Brochure spread: A bright and secure future'
+      aspect: 16/9
+    - img: bs-5-moments.jpg
+      alt: 'Brochure pages: History is made up of moments'
+      aspect: 16/9
+    - img: bs-6-families.jpg
+      alt: Brochure spreads profiling congregation families
+      aspect: 16/9
+- heading: Trademarks, Monograms & Logotypes
+  subhead: DRAFT — The brand symbol at its purest, and the full combination as most brands present themselves.
+  ground: white
+  blocks:
+  - layout: grid-3
+    gap: 14
+    items:
+    - img: logos-1.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-2.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-3.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-4.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-5.jpg
+      alt: Client logos and marks
+      aspect: 1/1
+    - img: logos-6.jpg
+      alt: Client logos and marks
+      aspect: 1/1
