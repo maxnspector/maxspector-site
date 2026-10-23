@@ -7,6 +7,34 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-21 to 10-23 — Beth Sholom edits, site structure change, Client Brands format
+
+**Beth Sholom (Campaigns page, not pushed).**
+- Removed the Unite + Ignite / "A good deed" pair.
+- Courtyard photo replaced with CBS-onsite-courtyard-1_02.jpg (`bs-courtyard.jpg`, 2400×1094, wider than the old 3:2).
+- Cover now pairs with the brochure back cover, page 20 ("107 years and counting", `bs-back-cover.jpg`). Max asked for a new partner for the cover.
+- New pair: brochure pages 04 + 05 (`bs-moments-left/right.jpg`, 1200×1600).
+- Both pairs carry `class: keep-row`, a new CSS modifier (end of styles.css) that keeps a `grid-2` pair side by side on phones. Measured: 588×784 each at 1440, 163×217 each at 390.
+- Section title is now "Unite + Ignite Capital Campaign"; Beth Sholom moves to the subhead (Max wants it de-emphasized, not hidden).
+- Source: Dropbox Case Study Files/Campaigns/Beth Sholom (the PNG folder holds all 20 brochure pages).
+
+**Site structure decided (Max, 2026-10-23).** Two case studies (Alex AI, Fandom) and one collection (Client Brands). The Campaigns page dissolves:
+- State of Fandom and Franchise Features moved into the Fandom page (images copied to assets/fandom-brand). New order: Core, Styles, Motion, Social, **Franchise Features**, Sub-Brands, Presentation, **State of Fandom** (id `state-of-fandom`), GameSpot, Events. Franchise Features is provisional; Max may cut it if the page runs long.
+- Kayu and Beth Sholom go to Client Brands. Beth Sholom gets reframed as a campaign brand.
+- The Campaigns page, its menu link and its homepage row stay until Client Brands exists, so State of Fandom / Franchise Features currently appear twice.
+- Watch: Presentation (#3A434B) and State of Fandom (#294148) are now back-to-back dark grounds. Check the transition once pushed.
+
+**Client Brands format (decided).** Modeled on Nick Pattison's studio boards (Max's copy: Figma `0HBJ3Yy0XQfskEgRoSk60w`, page 0:1; each board is one flattened image, 800×694 for 2×3, 1200×694 for 3×3).
+- Measured on the Gauge board: every tile is 16:9 (386×219), gutter about 9px on 800 wide, and a dark frame the same width as the gutter.
+- Recipe per board: logo on brand color / mark in the world / product UI or site / system (palette, pattern) / physical mockup / detail or variation.
+- On the site: one board per project at 1200 wide, 16:9 tiles of about 591×333, **14px gap** (Max agreed), project name plus one line above each board, two-up on phones.
+- Still open: nine-tile boards for the two biggest projects (Coffee Cultures, Brownie & Madam Optical), or six everywhere.
+- Inventory from the old site: Coffee Cultures 7, Archetypes 8, Brownie & Madam Optical 8, Venus 6, Craftsman and Wolves 6, Beth Sholom 8, Verve 5, Kayu 4+ (more on Campaigns), GDS 1, CA Freemason 2.
+
+**Why.** Campaigns felt thin, and State of Fandom was the only reason for it. Max ruled out an "archive" page (it reads as old stuff). "Client Brands" files the work by who it was for, which says range.
+
+---
+
 ## 2026-10-20 — Fandom: social update, GameSpot rework, Presentation edits
 
 **Social Content.** Re-exported from Max's revised Figma frame (82:27077): new John Wick panel colors, Knives Out as a framed card on gold, and the bottom row now one gradient panel holding Andor, Sonic and Metascore (`social-stories-trio.jpg`, 1200×620). Bond unchanged. Measured against Figma: 640/560×700, 1200×675, 1200×620.
@@ -434,7 +462,8 @@ suppresses it entirely.
   8 sections, 50 images, 7 videos (not yet pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
-- Campaigns collection — built 2026-10-18, four sections, draft copy
+- Campaigns collection — built 2026-10-18; DISSOLVING (2026-10-23): State of Fandom +
+  Franchise Features now on Fandom, Kayu + Beth Sholom go to Client Brands
 - Layout catalog — every arrangement on one page for reference, including
   the six flush layouts and a custom-color section
 - Section grounds named per section: white, cream, brand dark, or any color
@@ -442,11 +471,11 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Continue Fandom edits with Max** (he is walking the page section by section; GameSpot and Presentation Design were the last ones touched). Open questions still on GameSpot: whether the homepage mock + UI panel want a different template than `grid-2`, and a sharper card thumbnail.
-2. **Campaigns review.** Copy, a title for the fourth section ("Franchise Features" placeholder), homepage Campaigns row images, Beth Sholom cream vs white.
-3. **Mockups.** First real-world mockups; Max supplies base photos.
-4. **Client Brands collection.** Name it and build it.
-5. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
+1. **Max pushes and reviews** the Beth Sholom edits and the Fandom page with State of Fandom + Franchise Features (check the Presentation → State of Fandom dark-to-dark transition).
+2. **Client Brands test board.** Build one board (likely Coffee Cultures) in the Pattison format: 16:9 tiles, 14px gap, name + one line above. Settle six vs nine tiles for the biggest projects. Name stays "Client Brands".
+3. **Then the rest of Client Brands:** gather each project's art (old site + Dropbox), list which boards need new mockups, and plan with Max; Beth Sholom reframed as a campaign brand.
+4. **Retire Campaigns** once Client Brands exists: page, menu link (site.yml + index.html), homepage row, assets/campaigns.
+5. **Fandom leftovers:** GameSpot template/thumbnail questions, Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
 6. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
 
 **Further out**
