@@ -7,6 +7,18 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-25 — About page, menu cleanup, nav at the edges
+
+**About page** (`about.html`, hand-built like the homepage, dark ground). Built from the live maxspector.com/about, using the new type, colors and 12-column grid. The portrait is smaller (4 columns, 384px, was 570). Copy leads with a design-led-maker line, followed by Max's LinkedIn About copy (Alex, Fandom, agency/teaching, closer) and one new paragraph about building with AI. The four Highlights are rewritten around Design + Build, Agentic Workflows, Brand Systems, Leadership + Impact. In the lists, "Exhibitition" is fixed and the duplicate Verizon is removed. Photo: Linked Art/About/Max_2026_02.jpg → `assets/about/max-portrait.jpg` (800px).
+
+**Menu.** Campaigns is removed from every menu (site.yml + index.html), and About now links to `/about.html`. The homepage Campaigns row is gone. `campaigns.html` still exists but nothing links to it.
+
+**Nav.** The logo and + now sit at the window edges, 40px from the top, on every page (were inside the 1200 column on the homepage). The menu circle now opens from and closes onto the + button's measured center (`placeDot()` sets `--dot-x/--dot-y`). It was hard-coded before, which is why the dot landed in the wrong place. Measured on 4 pages at 1440 and 390: the circle center equals the button center, both at the top and after scrolling.
+
+Not pushed.
+
+---
+
 ## 2026-10-23 (later) — Client Brands page built
 
 New page `client-brands.html`, from `content/client-brands.yml`, art in `assets/client-brands/`. Max chose the whole page first, using art that already exists, with six tiles per board everywhere.
@@ -20,6 +32,7 @@ New page `client-brands.html`, from `content/client-brands.yml`, art in `assets/
 - **Links.** The menu (site.yml + index.html) and the homepage Client Brands row now point to `/client-brands.html`. Campaigns is still live until Max says to retire it.
 
 - **Revised same day (Max):** Archetypes in Branding removed. The logos are back to two sections, as on the old site: Trademarks & Monograms (sheets 1–2) after Verve, and Logotypes & Lockups (sheets 3–6) after Brownie & Madam. Measured at 1440, they start at 31% and 68% of the page height. The cover is now the Beth Sholom Unity spread (`cover-unity.jpg`, 2400×1350, from the 5400px original). The unused `arch-*` tiles are still in assets/client-brands.
+- **2026-10-25 (Max):** Franchise Features removed from the Fandom page (9 sections, 48 images now). Its art stays in assets/fandom-brand, unused, and the section is still on the Campaigns page until that page is retired.
 - **2026-10-25 (Max), later:** cover is now the Kayu "sun filtered" postcard (`cover-kayu.jpg`, from the 1200px Kayu_card_02, enlarged; Max will supply a larger file once the hero is settled). Repeats and low resolution are fine for now.
 - **2026-10-25 (Max):** cover was briefly the Verve window shot (`cover-verve.jpg`). The only source is 1024px wide, so the cover is enlarged about 2.3x and reads soft on big screens; it needs a larger original. The same shot is also Verve tile 4.
 

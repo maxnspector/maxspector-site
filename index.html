@@ -30,8 +30,7 @@
     <a href="/alex.html">Alex AI</a>
     <a href="/fandom-brand.html">Fandom</a>
     <a href="/client-brands.html">Client Brands</a>
-    <a href="/campaigns.html">Campaigns</a>
-    <a href="#">About</a>
+    <a href="/about.html">About</a>
   </nav>
 </div>
 
@@ -126,22 +125,6 @@
   </div>
 </a>
 
-<!-- COLLECTION ROW — Campaigns (clickable, hover) -->
-<a class="cs-row reveal" href="/campaigns.html" id="campaigns" data-rise="80">
-  <div class="wrap">
-    <p class="t-label cs-eyebrow">Collection</p>
-    <hr class="rule cs-hr" />
-    <div class="cs-row-meta">
-      <h3 class="t-title">Campaigns</h3>
-      <p class="t-body-lg cs-row-desc">DRAFT — description to come.</p>
-    </div>
-    <div class="cs-row-media arr-1L2R">
-      <div class="m-img big">IMAGE</div>
-      <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
-    </div>
-  </div>
-</a>
-
 <footer class="foot wrap rise-in">
   <span>© Max Spector 2026</span>
   <span><a href="mailto:max@maxspector.com">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/maxspector/">LinkedIn</a></span>
@@ -154,7 +137,10 @@ addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y
   else if(y<lastY&&navHidden){nav.classList.remove('nav-hidden');navHidden=false;}
   lastY=y;},{passive:true});
 const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
-menuBtn.addEventListener('click',()=>{nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+// Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
+function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
+placeDot();addEventListener('resize',placeDot,{passive:true});
+menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const risers=[...document.querySelectorAll('[data-rise]')];let ticking=false;
 const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;

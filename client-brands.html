@@ -27,8 +27,7 @@
     <a href="/alex.html">Alex AI</a>
     <a href="/fandom-brand.html">Fandom</a>
     <a href="/client-brands.html">Client Brands</a>
-    <a href="/campaigns.html">Campaigns</a>
-    <a href="#">About</a>
+    <a href="/about.html">About</a>
   </nav>
 </div>
 
@@ -227,7 +226,10 @@ function onScroll(){const y=scrollY;
 addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
 onScroll();
 const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
-if(menuBtn)menuBtn.addEventListener('click',()=>{nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+if(menuBtn)// Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
+function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
+placeDot();addEventListener('resize',placeDot,{passive:true});
+menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
 if(overlay)overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));

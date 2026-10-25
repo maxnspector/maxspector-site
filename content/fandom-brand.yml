@@ -317,30 +317,6 @@ sections:
     items:
     - {img: social-stories-trio.jpg, alt: "Andor social takeover, Sonic's top speed story, and Guess the Higher Metascore story", aspect: 2400/1239}
 
-- heading: Franchise Features
-  subhead: "DRAFT — Editorial campaigns for the biggest releases in entertainment, each with a look borrowed from its world."
-  id: franchise-features
-  ground: '#151516'
-  blocks:
-  - layout: full
-    items:
-    - {img: tp-switch.jpg, alt: "The definitive Nintendo Switch launch guide", aspect: 3/2}
-  - layout: flush-pair
-    space: 96
-    items:
-    - {img: tp-skywalker-balance.jpg, alt: "Skywalker feature illustration: Luke finding balance", aspect: 1/1, bg: '#C3E9E9', pad: 8}
-    - {img: tp-skywalker-page.jpg, alt: "How Luke Skywalker became the last Jedi: feature page", aspect: 1/1, bg: '#C3E9E9', pad: 8}
-  - layout: full
-    space: 96
-    items:
-    - {img: tp-hp-page.jpg, alt: "Fantastic Beasts feature page", aspect: 16/9}
-  - layout: grid-3
-    gap: 0
-    items:
-    - {img: tp-hp-hufflepuff.jpg, alt: "Hufflepuff timeline card", aspect: 1/1, bg: '#282821', pad: 8}
-    - {img: tp-hp-imperius.jpg, alt: "Imperius Curse explainer card", aspect: 1/1, bg: '#282821', pad: 8}
-    - {img: tp-hp-dumbledore.jpg, alt: "Dumbledore family tree card", aspect: 1/1, bg: '#282821', pad: 8}
-
 - heading: Sub-Brands
   id: show-formats-and-sub-brands
   subhead: A brand of brands has lots of… well, brands.
