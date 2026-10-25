@@ -529,6 +529,8 @@ suppresses it entirely.
 
 - 2026-10-25: Footer type (Max picked after 3 rounds of previews): one line, Poppins Medium 12 'Email • LinkedIn' + '• © MAX SPECTOR 2026' in 8px caps, all in the page text color; Email/LinkedIn hover coral (deliberate footer exception). Phones (<=520) stack the copyright under the links. Arrow now centered on the logo row. About: Highlights section removed; 3-to-15 added back to the Fandom sentence. CSS only for the footer, so all pages match. Not pushed.
 
+- 2026-10-25: Next link at end of case studies/collections: one row 'NEXT · Title · arrow' starting at column 5, equal 28px gaps (18 on phones), all three centered on one line; label is just 'Next'; title 72px (20% under .t-display). build.py next_up() + CSS. About: #connect section padding removed (lists->closing line 120, line->footer logo 200); 'Selected' added to the three list headings; bio gaps all 40. Not pushed.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from 10-23 to 10-25 (none of it pushed): Client Brands v2, About, menus without Campaigns, nav at edges, menu circle, footer dock + Next links, Fandom without Franchise Features. Watch the footer animation on a real scroll (trackpad and phone), and check whether the homepage logo position works now that it sits at the window edge.

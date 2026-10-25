@@ -20,7 +20,8 @@
 .about-photo{grid-column:1 / 5;margin:0;}
 .about-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;}
 .about-photo figcaption{margin-top:16px;}
-.about-bio{grid-column:6 / -1;display:flex;flex-direction:column;gap:24px;}
+.about-bio{grid-column:6 / -1;display:flex;flex-direction:column;gap:40px;}
+.about-bio .about-lead{margin-bottom:0;} /* all bio gaps 40, lead->body included */
 .about-lead{font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:clamp(26px,2.9vw,36px);line-height:1.25;letter-spacing:-.015em;color:var(--paper);margin:0 0 16px;}
 .about-sec{padding:120px 0 0;}
 .about-highlights{grid-column:5 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--col-gap);row-gap:56px;margin-top:40px;}
@@ -29,6 +30,7 @@
 .about-sec h2.t-title{color:var(--paper);}
 .about-lists{grid-column:5 / -1;display:flex;flex-direction:column;gap:48px;}
 .about-lists > div{display:flex;flex-direction:column;gap:16px;}
+#connect{padding:0;} /* drop the generic section padding: 120 above matches the other section gaps */
 .about-connect{grid-column:5 / -1;display:flex;flex-direction:column;gap:24px;padding:120px 0 40px;}
 .about-lead,.about-hero .t-display{text-box-trim:trim-both;text-box-edge:cap alphabetic;}
 @media(max-width:860px){
@@ -95,9 +97,9 @@
   <div class="wrap">
     <div class="sec-head"><span class="t-label">Recognition &amp; Clients</span><hr class="rule"/></div>
     <div class="about-lists" style="margin-top:40px">
-      <div class="reveal"><h2 class="t-title">Awards &amp; Recognition</h2><p class="t-body-lg">Communication Arts, Type Directors Club, Print Magazine, AIGA, Graphis, HOW Magazine, Art Directors Club, GDUSA, The Mohawk Show, STEP 100, ADDY Awards, Summit Creative Awards, West Coast Show, International Design Awards</p></div>
-      <div class="reveal"><h2 class="t-title">Exhibitions &amp; Publications</h2><p class="t-body-lg">Peace: 100 Ideas (book and exhibition), California Design Biennial, The Design of Dissent, AIGA 365, The Best of Cover Design, SF World Spirits Competition, Graphis Branding USA</p></div>
-      <div class="reveal"><h2 class="t-title">Clients</h2><p class="t-body-lg">Apple, Adobe, Marvel Studios, Instagram, Hulu, Paramount+, Verizon, SFMOMA, The North Face, Square Enix, Wendy&rsquo;s, Electronic Arts, Cirque du Soleil, Fox, Johnnie Walker, Pottery Barn, Sprite, Stanford University, Universal, Xfinity, Dell Technologies</p></div>
+      <div class="reveal"><h2 class="t-title">Selected Awards &amp; Recognition</h2><p class="t-body-lg">Communication Arts, Type Directors Club, Print Magazine, AIGA, Graphis, HOW Magazine, Art Directors Club, GDUSA, The Mohawk Show, STEP 100, ADDY Awards, Summit Creative Awards, West Coast Show, International Design Awards</p></div>
+      <div class="reveal"><h2 class="t-title">Selected Exhibitions &amp; Publications</h2><p class="t-body-lg">Peace: 100 Ideas (book and exhibition), California Design Biennial, The Design of Dissent, AIGA 365, The Best of Cover Design, SF World Spirits Competition, Graphis Branding USA</p></div>
+      <div class="reveal"><h2 class="t-title">Selected Clients</h2><p class="t-body-lg">Apple, Adobe, Marvel Studios, Instagram, Hulu, Paramount+, Verizon, SFMOMA, The North Face, Square Enix, Wendy&rsquo;s, Electronic Arts, Cirque du Soleil, Fox, Johnnie Walker, Pottery Barn, Sprite, Stanford University, Universal, Xfinity, Dell Technologies</p></div>
     </div>
   </div>
 </section>

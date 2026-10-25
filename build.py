@@ -312,8 +312,8 @@ def next_up(page, site):
         return ''
     n = items[(hrefs.index(me) + 1) % len(items)]
     return ('<nav class="next-up wrap" aria-label="Next">\n'
-            f'  <p class="t-label next-k">Next — {esc(n["kind"])}</p>\n'
-            f'  <a class="t-display next-link" href="{n["href"]}">{esc(n["label"])} {ARROW_R}</a>\n'
+            f'  <a class="next-link" href="{n["href"]}"><span class="t-label next-k">Next</span>'
+            f'<span class="t-display next-title">{esc(n["label"])}</span>{ARROW_R}</a>\n'
             '</nav>\n')
 
 def build(slug):

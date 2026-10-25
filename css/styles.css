@@ -507,9 +507,11 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 @media(prefers-reduced-motion:reduce){ .dock-ready .dock-logo,.dock-ready .dock-top{transition:none;} }
 
 /* NEXT UP — case studies point on to the next page (from footer option C). */
-.next-up{padding-top:120px;align-items:baseline;}
-.next-k{grid-column:1 / 5;}
-.next-link{grid-column:5 / -1;display:inline-flex;align-items:baseline;gap:28px;color:var(--paper);transition:color .25s var(--ease);justify-self:start;}
+.next-up{padding-top:120px;}
+/* Max 2026-10-25: one row, NEXT · title · arrow, title centered between equal 28px gaps; title 20% under .t-display */
+.next-link{grid-column:5 / -1;display:inline-flex;align-items:center;gap:28px;color:var(--paper);transition:color .25s var(--ease);justify-self:start;}
+.next-k{color:var(--paper);margin:0;}
+.next-title{font-size:clamp(32px,5vw,72px);color:inherit;}
 .next-link svg{width:54px;height:40px;flex:none;color:var(--coral);transition:transform .35s var(--ease);}
 .next-link:hover{color:var(--coral);}
 .next-link:hover svg{transform:translateX(8px);}
@@ -517,8 +519,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 .cs-page .next-link:hover{color:var(--coral);}
 @media(max-width:860px){
   .next-up{padding-top:96px;}
-  .next-k,.next-link{grid-column:1 / -1;}
-  .next-k{margin-bottom:20px;}
+  .next-link{grid-column:1 / -1;gap:18px;}
   .next-link svg{width:36px;height:28px;}
   .dock-foot{padding-top:96px;}
 }
