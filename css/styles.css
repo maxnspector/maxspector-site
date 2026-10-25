@@ -480,13 +480,21 @@ body.cs-page{background:var(--paper-3);}
    nav. Revised 2026-10-25: once you hit the bottom of the page the logo and arrow rise
    up from below the window — the mirror of the nav sliding down from the top when you
    scroll up. Scroll back up and they drop away again. Driven by js/footer-dock.js. */
-.dock-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:160px var(--edge) 40px;color:var(--paper);overflow:clip;}
+.dock-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:160px var(--edge) 40px;color:var(--paper);overflow:clip;}
 .dock-left{display:flex;align-items:center;gap:20px;}
 .dock-logo{display:block;width:65px;height:65px;flex:none;}
-.dock-meta{display:flex;flex-direction:column;gap:10px;}
-.dock-meta .hero-links{margin:0;}
+.dock-meta{display:flex;flex-wrap:wrap;align-items:center;row-gap:6px;}
+/* One line (Max 2026-10-25): Email • LinkedIn • (c) MAX SPECTOR 2026, all in the page's text color.
+   Email/LinkedIn turn coral on hover: a deliberate footer exception to coral-means-clickable. */
+.dock-meta .hero-links{margin:0;font-family:var(--sans);font-variation-settings:normal;font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.03em;text-transform:none;color:inherit;}
+.dock-meta .hero-links a{color:inherit;transition:color .2s var(--ease);}
+.dock-meta .hero-links a:hover{color:var(--coral);text-decoration:none;}
+.dock-meta .hero-links .sep{color:inherit;}
+.dock-meta .hero-links::after{content:"\2022";margin:0 .7em;}
+/* Phones: too narrow for one line, so the copyright drops below and the trailing bullet goes. */
+@media(max-width:520px){ .dock-meta{flex-direction:column;align-items:flex-start;row-gap:8px;} .dock-meta .hero-links::after{content:none;} }
 .dock-copy{margin:0;font-family:var(--sans);font-size:8px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:inherit;}
-.dock-top{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;margin:0 -14.5px -14.5px 0;color:var(--coral);}
+.dock-top{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;margin:0 -14.5px 0 0;color:var(--coral);}
 .dock-top svg{width:16px;height:18px;display:block;}
 .cs-page .dock-foot{color:var(--text-dark);}
 .cs-page .dock-foot .hero-links .sep{color:var(--text-dark);}

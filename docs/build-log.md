@@ -527,6 +527,8 @@ suppresses it entirely.
 
 - 2026-10-25: Footer: top nav now stays hidden whenever the footer logo is showing (no double logo); footer text block vertically centered on the logo. About: Email/LinkedIn removed from under the closing line (footer carries them). About copy reworked with Max (intro, Alex+process merged, Fandom shortened, agency line, caption, hero aside). Not pushed.
 
+- 2026-10-25: Footer type (Max picked after 3 rounds of previews): one line, Poppins Medium 12 'Email • LinkedIn' + '• © MAX SPECTOR 2026' in 8px caps, all in the page text color; Email/LinkedIn hover coral (deliberate footer exception). Phones (<=520) stack the copyright under the links. Arrow now centered on the logo row. About: Highlights section removed; 3-to-15 added back to the Fandom sentence. CSS only for the footer, so all pages match. Not pushed.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from 10-23 to 10-25 (none of it pushed): Client Brands v2, About, menus without Campaigns, nav at edges, menu circle, footer dock + Next links, Fandom without Franchise Features. Watch the footer animation on a real scroll (trackpad and phone), and check whether the homepage logo position works now that it sits at the window edge.
