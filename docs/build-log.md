@@ -20,6 +20,7 @@ New page `client-brands.html`, from `content/client-brands.yml`, art in `assets/
 - **Links.** The menu (site.yml + index.html) and the homepage Client Brands row now point to `/client-brands.html`. Campaigns is still live until Max says to retire it.
 
 - **Revised same day (Max):** Archetypes in Branding removed. The logos are back to two sections, as on the old site: Trademarks & Monograms (sheets 1–2) after Verve, and Logotypes & Lockups (sheets 3–6) after Brownie & Madam. Measured at 1440, they start at 31% and 68% of the page height. The cover is now the Beth Sholom Unity spread (`cover-unity.jpg`, 2400×1350, from the 5400px original). The unused `arch-*` tiles are still in assets/client-brands.
+- **2026-10-25 (Max):** cover is now the Verve window shot (`cover-verve.jpg`). The only source is 1024px wide, so the cover is enlarged about 2.3x and reads soft on big screens; it needs a larger original. The same shot is also Verve tile 4.
 
 Not committed or pushed.
 
