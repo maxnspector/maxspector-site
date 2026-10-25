@@ -525,6 +525,8 @@ suppresses it entirely.
 
 - 2026-10-25: Footer dock reworked (Max): the nav logo and + no longer fly down to the footer. Instead the footer's own logo and back-to-top arrow wait just below the window and rise into place (.35s) the moment you hit the page bottom, and drop away once you scroll back up 40px — the mirror of the nav sliding down from the top. Copyright line 11px -> 8px. js/footer-dock.js rewritten, CSS under FOOTER DOCK. Footer has overflow:clip so the hidden pieces don't add scroll length. Not pushed.
 
+- 2026-10-25: Footer: top nav now stays hidden whenever the footer logo is showing (no double logo); footer text block vertically centered on the logo. About: Email/LinkedIn removed from under the closing line (footer carries them). About copy reworked with Max (intro, Alex+process merged, Fandom shortened, agency line, caption, hero aside). Not pushed.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from 10-23 to 10-25 (none of it pushed): Client Brands v2, About, menus without Campaigns, nav at edges, menu circle, footer dock + Next links, Fandom without Franchise Features. Watch the footer animation on a real scroll (trackpad and phone), and check whether the homepage logo position works now that it sits at the window edge.

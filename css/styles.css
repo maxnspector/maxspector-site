@@ -481,9 +481,9 @@ body.cs-page{background:var(--paper-3);}
    up from below the window — the mirror of the nav sliding down from the top when you
    scroll up. Scroll back up and they drop away again. Driven by js/footer-dock.js. */
 .dock-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:160px var(--edge) 40px;color:var(--paper);overflow:clip;}
-.dock-left{display:flex;align-items:flex-end;gap:20px;}
+.dock-left{display:flex;align-items:center;gap:20px;}
 .dock-logo{display:block;width:65px;height:65px;flex:none;}
-.dock-meta{display:flex;flex-direction:column;gap:10px;padding-bottom:2px;}
+.dock-meta{display:flex;flex-direction:column;gap:10px;}
 .dock-meta .hero-links{margin:0;}
 .dock-copy{margin:0;font-family:var(--sans);font-size:8px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:inherit;}
 .dock-top{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;margin:0 -14.5px -14.5px 0;color:var(--coral);}
@@ -494,6 +494,8 @@ body.cs-page{background:var(--paper-3);}
 .dock-ready .dock-logo,.dock-ready .dock-top{transform:translateY(calc(100% + 48px));pointer-events:none;transition:transform .35s var(--ease);}
 .dock-ready .is-docked .dock-logo,.dock-ready .is-docked .dock-top{transform:none;pointer-events:auto;}
 .menu-btn span{transition:transform .35s var(--ease),opacity .35s var(--ease);}
+/* While the footer logo is showing, the top nav stays tucked away so there's only one logo. */
+body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 @media(prefers-reduced-motion:reduce){ .dock-ready .dock-logo,.dock-ready .dock-top{transition:none;} }
 
 /* NEXT UP — case studies point on to the next page (from footer option C). */
