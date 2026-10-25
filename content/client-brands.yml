@@ -252,18 +252,12 @@ sections:
     class: keep-row
     gap: 14
     items:
-    - img: v2/bs-cover.jpg
-      alt: Unite + Ignite brochure cover
-      aspect: 1200/1600
-    - img: v2/bs-back.jpg
-      alt: 'Brochure back cover: 107 years and counting'
-      aspect: 1200/1600
-    - img: v2/bs-mom-l.jpg
-      alt: 'Brochure page: History is made up of moments'
-      aspect: 1200/1600
-    - img: v2/bs-mom-r.jpg
-      alt: 'Brochure page: And moment to moment, for the 107 years'
-      aspect: 1200/1600
+    - img: v2/bs-logo-sq.jpg
+      alt: Unite + Ignite flame logo on gray
+      aspect: 1200/1200
+    - img: v2/bs-history-sq.jpg
+      alt: 'Brochure: History is made up of moments'
+      aspect: 1200/1200
     space: 14
   - layout: full
     items:

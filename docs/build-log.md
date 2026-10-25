@@ -509,7 +509,9 @@ suppresses it entirely.
   8 sections, 50 images, 7 videos (not yet pushed)
 - Alex AI page — V1 live 2026-10-04: Max's intro copy, brand plates, 8 live
   animations, 4 videos, product and campaign art
-- Client Brands collection — built 2026-10-23: 8 project boards + logo sheets (not pushed)
+- Client Brands collection — v2 2026-10-25: 7 projects (hero + tiles) + two logo sections (not pushed)
+- About page — built 2026-10-25 (not pushed)
+- Footer dock + Next links — 2026-10-25 (not pushed)
 - Campaigns collection — built 2026-10-18; DISSOLVING (2026-10-23): State of Fandom +
   Franchise Features now on Fandom, Kayu + Beth Sholom go to Client Brands
 - Layout catalog — every arrangement on one page for reference, including
@@ -517,13 +519,20 @@ suppresses it entirely.
 - Section grounds named per section: white, cream, brand dark, or any color
 - Scroll motion, hover, and the coral dropdown nav
 
+- 2026-10-25: Client Brands / Beth Sholom: four 3:4 brochure tiles replaced by two squares (Logo_gray_bg_square_01 left, History_moments_square_01 right) from Dropbox Case Study Files/Campaigns/Beth Sholom; added to make_cb2.py as bs-logo-sq / bs-history-sq. Not pushed.
+
+- 2026-10-25: About: Highlights / Awards / Exhibitions / Clients headings changed from coral to beige (Max: coral reads as a link). Rule: coral is for clickable things only. Not pushed.
+
+- 2026-10-25: Footer dock reworked (Max): the nav logo and + no longer fly down to the footer. Instead the footer's own logo and back-to-top arrow wait just below the window and rise into place (.35s) the moment you hit the page bottom, and drop away once you scroll back up 40px — the mirror of the nav sliding down from the top. Copyright line 11px -> 8px. js/footer-dock.js rewritten, CSS under FOOTER DOCK. Footer has overflow:clip so the hidden pieces don't add scroll length. Not pushed.
+
 **Next session starts here**
 
-1. **Max pushes and reviews Client Brands**. Confirm the tile picks and crops, the logo section, and where GDS / CA Freemason go.
-2. **New mockups**: list which tiles get replaced, starting with the three soft ones (CC wall, CAW jars, Venus aquavit).
-3. **Retire Campaigns** once Max approves: page, menu link (site.yml + index.html), homepage row, assets/campaigns (Client Brands still borrows Kayu/Beth art from there via make_tiles.py, but its tiles are already copied).
-4. **Fandom leftovers:** GameSpot template/thumbnail questions, Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
-5. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
+1. **Max pushes and reviews** everything from 10-23 to 10-25 (none of it pushed): Client Brands v2, About, menus without Campaigns, nav at edges, menu circle, footer dock + Next links, Fandom without Franchise Features. Watch the footer animation on a real scroll (trackpad and phone), and check whether the homepage logo position works now that it sits at the window edge.
+2. **About copy:** Max edits the new lines (maker lead, building paragraph, Highlights; check "one designer").
+3. **Client Brands:** confirm picks and crops (CC cup tile is weak), decide on the left-out images (Verve wall, B&M pattern + path card, Kayu cards 1/3/4/5, Beth Sholom families) and supply bigger files for soft images.
+4. **Retire Campaigns files:** campaigns.html, content/campaigns.yml, assets/campaigns (Client Brands still reads Kayu/Beth originals from there via make_cb2.py). Needs delete permission.
+5. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
+6. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
 
 **Further out**
 
