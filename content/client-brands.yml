@@ -1,11 +1,11 @@
 # CLIENT BRANDS — a Collection, built 2026-10-23 in Nick Pattison's board format:
 # one board of six 16:9 tiles per project, 14px gap, two-up on phones too.
-# Cover: Verve window (Max 2026-10-25; was the Beth Sholom Unity spread). Archetypes removed (Max 2026-10-23).
+# Cover: Kayu postcard "The sun filtered" (Max 2026-10-25; tried Beth Sholom Unity, then Verve window). Archetypes removed (Max 2026-10-23).
 # Tiles are made by _scratch/cb/make_tiles.py from Max's originals (Linked Art) into assets/client-brands.
 # Grounds and intro copy read from the old maxspector.com/project/client-brands.
 title: Client Brands — Max Spector
 description: 'Brand identities for independent clients: Coffee Cultures, Verve Coffee Roasters, Venus Spirits, Craftsman and Wolves, The Brownie & Madam Optical Co., Kayu and Congregation Beth Sholom.'
-cover: cover-verve.jpg
+cover: cover-kayu.jpg
 frames: 'off'
 intro:
   eyebrow: Client Brands
