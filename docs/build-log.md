@@ -7,6 +7,20 @@ re-upload, rather than retyping it.
 
 ---
 
+## 2026-10-25 (later) — Footer dock, Next links, Client Brands v2
+
+**Footer (option A "Bookends", from the Site Footer Options canvas).** No rule. Logo bottom-left, Email • LinkedIn and © beside it, a back-to-top arrow bottom-right, mirroring the nav. `js/footer-dock.js`: at the bottom of the page the nav's own logo and + fly down into the footer slots (the + fades into the arrow). Scroll up about 85px and they fly back to the top. The footer's copies only show once the flying ones land, so there is one logo on screen. Measured at 1440 and 390 on 5 pages: the landed logo and arrow sit exactly mirrored to the top ones (logo 40px from the edge and bottom, arrow center under the +). With reduced motion it swaps instantly. Shared footer markup is `templates/footer.html` (`{{FOOTER}}`), and the homepage and About carry a copy.
+
+**Next links (from option C).** Case studies and the collection end with "Next — Case Study / Collection" and a 90px link to the next menu item (Fandom → Client Brands → Alex AI). Set by `kind:` in site.yml (`{{NEXT}}` in the template). Not on the standalone Alex page.
+
+**Bug fixed.** On alex.html (standalone, no menu button), the 10-25 dot fix had left `if(menuBtn)` in front of the function, which broke the page script. It's guarded now, with no script errors on any page.
+
+**Client Brands v2 (Max).** The Pattison six-tile boards are dropped. Each project now opens on a full-width hero at the art's own shape, followed by four half-width tiles (square for CC, CAW, B&M; 5:4 for Verve and Venus; 4:5 catalog pages for Kayu; 3:4 brochure pages for Beth Sholom), with extra full-width pieces where the art is large and landscape. Art is in `assets/client-brands/v2`, cut by `_scratch/cb/make_cb2.py`. The old 16:9 tiles in assets/client-brands are now unused.
+
+Not pushed.
+
+---
+
 ## 2026-10-25 — About page, menu cleanup, nav at the edges
 
 **About page** (`about.html`, hand-built like the homepage, dark ground). Built from the live maxspector.com/about, using the new type, colors and 12-column grid. The portrait is smaller (4 columns, 384px, was 570). Copy leads with a design-led-maker line, followed by Max's LinkedIn About copy (Alex, Fandom, agency/teaching, closer) and one new paragraph about building with AI. The four Highlights are rewritten around Design + Build, Agentic Workflows, Brand Systems, Leadership + Impact. In the lists, "Exhibitition" is fixed and the duplicate Verizon is removed. Photo: Linked Art/About/Max_2026_02.jpg → `assets/about/max-portrait.jpg` (800px).

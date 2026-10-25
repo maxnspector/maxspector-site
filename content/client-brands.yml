@@ -1,5 +1,8 @@
 # CLIENT BRANDS — a Collection, built 2026-10-23 in Nick Pattison's board format:
-# one board of six 16:9 tiles per project, 14px gap, two-up on phones too.
+# REVISED 2026-10-25 (Max): each project opens on a full-width hero at the art's own shape,
+# then half-width tiles (square or near-square, ratio per project), plus extra full-width
+# pieces where the art is strong and landscape. 14px between pieces. Art: assets/client-brands/v2,
+# cut by _scratch/cb/make_cb2.py.
 # Cover: Kayu postcard "The sun filtered" (Max 2026-10-25; tried Beth Sholom Unity, then Verve window). Archetypes removed (Max 2026-10-23).
 # Tiles are made by _scratch/cb/make_tiles.py from Max's originals (Linked Art) into assets/client-brands.
 # Grounds and intro copy read from the old maxspector.com/project/client-brands.
@@ -21,54 +24,60 @@ sections:
   subhead: Founded with an international spirit. Travel as the ends, not the means. Equal parts Olde England and Mel's Diner.
   ground: cream
   blocks:
+  - layout: full
+    items:
+    - img: v2/cc-hero.jpg
+      alt: 'Painted Coffee Cultures sign: Mission and 1301, South of Market'
+      aspect: 1200/739
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: cc-1-assets.jpg
-      alt: 'Coffee Cultures core assets: primary trademark, secondary icon, brand colors and typefaces'
-      aspect: 16/9
-    - img: cc-2-painted.jpg
-      alt: 'Painted Coffee Cultures sign: Mission and 1301, South of Market'
-      aspect: 16/9
-    - img: cc-3-sign.jpg
+    - img: v2/cc-sign.jpg
       alt: Hanging wooden Coffee Cultures sign outside the cafe
-      aspect: 16/9
-    - img: cc-4-detail.jpg
+      aspect: 1200/1200
+    - img: v2/cc-detail.jpg
       alt: Coffee Cultures cup, sandwich wrap and loyalty card
-      aspect: 16/9
-    - img: cc-5-board.jpg
+      aspect: 1200/1200
+    - img: v2/cc-board.jpg
       alt: Coffee Cultures sandwich board covered in brand graphics
-      aspect: 16/9
-    - img: cc-6-wall.jpg
+      aspect: 1200/1200
+    - img: v2/cc-wall.jpg
       alt: A customer sitting beneath the Coffee Cultures mural wall
-      aspect: 16/9
+      aspect: 1200/1200
+    space: 14
+  - layout: full
+    items:
+    - img: v2/cc-assets.jpg
+      alt: 'Coffee Cultures core assets: primary trademark, secondary icon, brand colors and typefaces'
+      aspect: 2200/1600
+    space: 14
 - heading: Verve Coffee Roasters
   subhead: The logo that launched a single-origin revolutionary and pioneer in coffee's third wave.
   ground: '#433C2A'
   blocks:
+  - layout: full
+    items:
+    - img: v2/verve-hero.jpg
+      alt: Verve Coffee Roasters logo on an espresso machine
+      aspect: 2400/1627
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: verve-1-espresso.jpg
-      alt: Verve Coffee Roasters logo on an espresso machine
-      aspect: 16/9
-    - img: verve-2-cupbag.jpg
+    - img: v2/verve-cupbag.jpg
       alt: Verve coffee bag and cup
-      aspect: 16/9
-    - img: verve-3-door.jpg
+      aspect: 1200/960
+    - img: v2/verve-door.jpg
       alt: Verve logo set vertically on the cafe door
-      aspect: 16/9
-    - img: verve-4-glass.jpg
+      aspect: 1200/960
+    - img: v2/verve-glass.jpg
       alt: Verve logo on the cafe window
-      aspect: 16/9
-    - img: verve-5-wall.jpg
-      alt: Verve logo on a corrugated-metal roastery wall
-      aspect: 16/9
-    - img: verve-6-mosaic.jpg
+      aspect: 1200/960
+    - img: v2/verve-mosaic.jpg
       alt: Verve logo set into a tile mosaic floor
-      aspect: 16/9
+      aspect: 1200/960
+    space: 14
 - heading: Trademarks & Monograms
   subhead: The brand symbol at its purest and most direct.
   ground: white
@@ -86,81 +95,99 @@ sections:
   subhead: A small batch of organic grain. A maker of spirits in the ocean air. Integrity. Time. Maturity. The risks of the unknown, the rewards of promise.
   ground: white
   blocks:
+  - layout: full
+    items:
+    - img: v2/venus-hero.jpg
+      alt: Venus gin bottles with the botanical blend label
+      aspect: 2400/1634
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: venus-1-assets.jpg
-      alt: 'Venus Spirits core assets: primary trademark, secondary icon, brand colors and typefaces'
-      aspect: 16/9
-    - img: venus-2-bottles.jpg
-      alt: Venus gin bottles with the botanical blend label
-      aspect: 16/9
-    - img: venus-3-barrel.jpg
+    - img: v2/venus-barrel.jpg
       alt: Venus Spirits logo branded on a barrel head
-      aspect: 16/9
-    - img: venus-4-label.jpg
+      aspect: 1200/960
+    - img: v2/venus-label.jpg
       alt: Close-up of the Venus small batch gin label
-      aspect: 16/9
-    - img: venus-5-box.jpg
+      aspect: 1200/960
+    - img: v2/venus-box.jpg
       alt: Venus gin gift box
-      aspect: 16/9
-    - img: venus-6-aquavit.jpg
+      aspect: 1200/960
+    - img: v2/venus-aquavit.jpg
       alt: Close-up of the Venus aquavit label
-      aspect: 16/9
+      aspect: 1200/960
+    space: 14
+  - layout: full
+    items:
+    - img: v2/venus-assets.jpg
+      alt: 'Venus Spirits core assets: primary trademark, secondary icon, brand colors and typefaces'
+      aspect: 2200/1600
+    space: 14
 - heading: Craftsman and Wolves
   subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
   ground: cream
   blocks:
+  - layout: full
+    items:
+    - img: v2/caw-hero.jpg
+      alt: Craftsman and Wolves secondary marks on black and gold
+      aspect: 2400/1200
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: caw-1-hero.jpg
+    - img: v2/caw-egg.jpg
       alt: Craftsman and Wolves wordmark over the Rebel Within muffin
-      aspect: 16/9
-    - img: caw-2-icons.jpg
-      alt: Craftsman and Wolves secondary marks on black and gold
-      aspect: 16/9
-    - img: caw-3-logo.jpg
-      alt: Craftsman and Wolves monogram over the pastry counter
-      aspect: 16/9
-    - img: caw-4-mug.jpg
+      aspect: 1200/1200
+    - img: v2/caw-mug.jpg
       alt: Craftsman and Wolves enamel steel mug
-      aspect: 16/9
-    - img: caw-5-coast.jpg
-      alt: Craftsman and Wolves San Francisco coast graphic
-      aspect: 16/9
-    - img: caw-6-jars.jpg
+      aspect: 1200/1200
+    - img: v2/caw-logo.jpg
+      alt: Craftsman and Wolves monogram over the pastry counter
+      aspect: 1200/1200
+    - img: v2/caw-jars.jpg
       alt: Craftsman and Wolves jar labels
-      aspect: 16/9
+      aspect: 1200/1200
+    space: 14
+  - layout: full
+    items:
+    - img: v2/caw-coast.jpg
+      alt: Craftsman and Wolves San Francisco coast graphic
+      aspect: 1600/1080
+    space: 14
 - heading: The Brownie & Madam Optical Co.
   subhead: '"A bespoke experience that nods to a bygone era, when crafted products and good service were the norm."'
   ground: '#32342A'
   cite: Entrepreneur Magazine
   blocks:
+  - layout: full
+    items:
+    - img: v2/bm-hero.jpg
+      alt: Glasses in a Brownie & Madam case
+      aspect: 1920/1107
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: bm-1-logo.jpg
-      alt: Brownie & Madam Optical Co. logo on yellow
-      aspect: 16/9
-    - img: bm-2-case.jpg
-      alt: Glasses in a Brownie & Madam case
-      aspect: 16/9
-    - img: bm-3-pattern.jpg
-      alt: Brownie & Madam pattern with the full lockup
-      aspect: 16/9
-    - img: bm-4-card.jpg
+    - img: v2/bm-card.jpg
       alt: Our House mission card in a shipping box
-      aspect: 16/9
-    - img: bm-5-chart.jpg
+      aspect: 1200/1200
+    - img: v2/bm-chart.jpg
       alt: 'Eye chart: Well behaved women seldom make history'
-      aspect: 16/9
-    - img: bm-6-path.jpg
-      alt: There is no royal, flower-strewn path, only the one I create for myself
-      aspect: 16/9
+      aspect: 1200/1200
+    - img: v2/bm-poster.jpg
+      alt: 'Poster: Well-behaved women seldom make history'
+      aspect: 1200/1200
+    - img: v2/bm-box.jpg
+      alt: Brownie & Madam Optical Co. shipping box
+      aspect: 1200/1200
+    space: 14
+  - layout: full
+    items:
+    - img: v2/bm-logo.jpg
+      alt: Brownie & Madam Optical Co. logo on yellow
+      aspect: 1800/842
+    space: 14
 - heading: Logotypes & Lockups
   subhead: The full combination, as most brands present themselves.
   ground: white
@@ -184,51 +211,69 @@ sections:
   subhead: 'DRAFT — A brand world for handmade bags from Southeast Asia: postcards, catalog, and packaging.'
   ground: cream
   blocks:
+  - layout: full
+    items:
+    - img: v2/kayu-hero.jpg
+      alt: 'Kayu postcard: The sun filtered through the leaves'
+      aspect: 2400/1631
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: kayu-1-packaging.jpg
+    - img: v2/kayu-kapaa.jpg
+      alt: Kayu catalog page
+      aspect: 1200/1500
+    - img: v2/kayu-resort.jpg
+      alt: 'Kayu catalog page: Resort'
+      aspect: 1200/1500
+    - img: v2/kayu-teal.jpg
+      alt: Kayu catalog page
+      aspect: 1200/1500
+    - img: v2/kayu-weaving.jpg
+      alt: Kayu catalog page
+      aspect: 1200/1500
+    space: 14
+  - layout: full
+    items:
+    - img: v2/kayu-packaging.jpg
       alt: Kayu packaging
-      aspect: 16/9
-    - img: kayu-2-card.jpg
-      alt: Kayu postcard
-      aspect: 16/9
-    - img: kayu-3-catalog.jpg
-      alt: Kayu catalog pages
-      aspect: 16/9
-    - img: kayu-4-card.jpg
-      alt: Kayu postcard
-      aspect: 16/9
-    - img: kayu-5-card.jpg
-      alt: Kayu postcard
-      aspect: 16/9
-    - img: kayu-6-card.jpg
-      alt: Kayu postcard
-      aspect: 16/9
+      aspect: 2400/1553
+    space: 14
 - heading: Congregation Beth Sholom
   subhead: 'DRAFT — Unite + Ignite, a campaign brand for a 100-year-old congregation: brochure, courtyard and capital campaign.'
   ground: cream
   blocks:
+  - layout: full
+    items:
+    - img: v2/bs-hero.jpg
+      alt: Unite + Ignite graphics on the glass doors of the Beth Sholom courtyard
+      aspect: 2400/1094
   - layout: grid-2
     class: keep-row
     gap: 14
     items:
-    - img: bs-1-courtyard.jpg
-      alt: Unite + Ignite graphics on the glass doors of the Beth Sholom courtyard
-      aspect: 16/9
-    - img: bs-2-unity.jpg
+    - img: v2/bs-cover.jpg
+      alt: Unite + Ignite brochure cover
+      aspect: 1200/1600
+    - img: v2/bs-back.jpg
+      alt: 'Brochure back cover: 107 years and counting'
+      aspect: 1200/1600
+    - img: v2/bs-mom-l.jpg
+      alt: 'Brochure page: History is made up of moments'
+      aspect: 1200/1600
+    - img: v2/bs-mom-r.jpg
+      alt: 'Brochure page: And moment to moment, for the 107 years'
+      aspect: 1200/1600
+    space: 14
+  - layout: full
+    items:
+    - img: v2/bs-unity.jpg
       alt: 'Brochure spread: Let us merge our lights in unity'
-      aspect: 16/9
-    - img: bs-3-covers.jpg
-      alt: Brochure front and back covers
-      aspect: 16/9
-    - img: bs-4-future.jpg
+      aspect: 2400/1600
+    space: 14
+  - layout: full
+    items:
+    - img: v2/bs-future.jpg
       alt: 'Brochure spread: A bright and secure future'
-      aspect: 16/9
-    - img: bs-5-moments.jpg
-      alt: 'Brochure pages: History is made up of moments'
-      aspect: 16/9
-    - img: bs-6-families.jpg
-      alt: Brochure spreads profiling congregation families
-      aspect: 16/9
+      aspect: 2400/1600
+    space: 14

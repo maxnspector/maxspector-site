@@ -474,3 +474,45 @@ body.cs-page{background:var(--paper-3);}
 
 /* Content-file `class: keep-row` — a two-up pair that stays side by side on phones. */
 @media(max-width:520px){ .cs-grid-2.keep-row{grid-template-columns:repeat(2,1fr);} }
+
+/* ============================================================ FOOTER DOCK (Max 2026-10-25)
+   Footer A "Bookends": logo bottom-left, back-to-top arrow bottom-right, mirroring the
+   nav. js/footer-dock.js flies the nav's own logo and + down into these slots. */
+.dock-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:160px var(--edge) 40px;color:var(--paper);}
+.dock-left{display:flex;align-items:flex-end;gap:20px;}
+.dock-logo{display:block;width:65px;height:65px;flex:none;}
+.dock-meta{display:flex;flex-direction:column;gap:10px;padding-bottom:2px;}
+.dock-meta .hero-links{margin:0;}
+.dock-copy{margin:0;font-family:var(--sans);font-size:11px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:inherit;}
+.dock-top{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;margin:0 -14.5px -14.5px 0;color:var(--coral);}
+.dock-top svg{width:16px;height:18px;display:block;}
+.cs-page .dock-foot{color:var(--text-dark);}
+.cs-page .dock-foot .hero-links .sep{color:var(--text-dark);}
+/* With JS on, the footer's logo + arrow stay hidden until the travelling ones land. */
+.dock-ready .dock-logo,.dock-ready .dock-top{opacity:0;pointer-events:none;}
+.dock-ready .is-docked .dock-logo,.dock-ready .is-docked .dock-top{opacity:1;pointer-events:auto;}
+.is-docked .nav-inner > a,.is-docked .nav-inner > .nav-logo,.is-docked #menuBtn{opacity:0;pointer-events:none;}
+.dock-flying .nav{transform:none!important;}
+.dock-flying .nav-inner > a,.dock-flying #menuBtn{transition:none!important;}
+/* the + fades into an up arrow on its way down */
+.menu-btn .dock-arrow{position:absolute;left:50%;top:50%;width:16px;height:18px;transform:translate(-50%,-50%);opacity:0;color:var(--coral);transition:opacity .35s var(--ease);pointer-events:none;}
+.menu-btn span{transition:transform .35s var(--ease),opacity .35s var(--ease);}
+.menu-btn.as-arrow span{opacity:0;}
+.menu-btn.as-arrow .dock-arrow{opacity:1;}
+
+/* NEXT UP — case studies point on to the next page (from footer option C). */
+.next-up{padding-top:120px;align-items:baseline;}
+.next-k{grid-column:1 / 5;}
+.next-link{grid-column:5 / -1;display:inline-flex;align-items:baseline;gap:28px;color:var(--paper);transition:color .25s var(--ease);justify-self:start;}
+.next-link svg{width:54px;height:40px;flex:none;color:var(--coral);transition:transform .35s var(--ease);}
+.next-link:hover{color:var(--coral);}
+.next-link:hover svg{transform:translateX(8px);}
+.cs-page .next-k,.cs-page .next-link{color:var(--text-dark);}
+.cs-page .next-link:hover{color:var(--coral);}
+@media(max-width:860px){
+  .next-up{padding-top:96px;}
+  .next-k,.next-link{grid-column:1 / -1;}
+  .next-k{margin-bottom:20px;}
+  .next-link svg{width:36px;height:28px;}
+  .dock-foot{padding-top:96px;}
+}

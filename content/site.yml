@@ -1,10 +1,13 @@
 nav:
 - label: Alex AI
   href: '/alex.html'
+  kind: Case Study
 - label: Fandom
   href: '/fandom-brand.html'
+  kind: Case Study
 - label: Client Brands
   href: '/client-brands.html'
+  kind: Collection
 - label: About
   href: '/about.html'
 footer_left: '&copy; Max Spector 2026'

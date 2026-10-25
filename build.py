@@ -297,11 +297,31 @@ def intro(p):
             f'{meta}\n' + (f'      <p class="cs-body cs-link">{i["links_html"]}</p>\n' if i.get('links_html') else '') +
             '    </div>\n  </div>\n</section>')
 
+# NEXT UP (Max 2026-10-25): every case study / collection ends by pointing on to the
+# next one in menu order (wrapping round). Items need `kind:` in site.yml.
+ARROW_R = ('<svg viewBox="0 0 54 40" aria-hidden="true"><path d="M0 20h51M33 2l18 18-18 18" '
+           'fill="none" stroke="currentColor" stroke-width="2.5"/></svg>')
+
+def next_up(page, site):
+    if page.get('nav') == 'standalone' or page.get('next') is False:
+        return ''
+    items = [n for n in site['nav'] if n.get('kind')]
+    me = '/' + str(page.get('output', page.get('_slug'))) + '.html'
+    hrefs = [n['href'] for n in items]
+    if me not in hrefs:
+        return ''
+    n = items[(hrefs.index(me) + 1) % len(items)]
+    return ('<nav class="next-up wrap" aria-label="Next">\n'
+            f'  <p class="t-label next-k">Next — {esc(n["kind"])}</p>\n'
+            f'  <a class="t-display next-link" href="{n["href"]}">{esc(n["label"])} {ARROW_R}</a>\n'
+            '</nav>\n')
+
 def build(slug):
     _alt['n'] = 0          # each page starts its own alternation
     _alt['unnamed'] = 0
     _ids.clear()
     page = yaml.safe_load((ROOT / 'content' / f'{slug}.yml').read_text())
+    page['_slug'] = slug
     _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
     site = yaml.safe_load((ROOT / 'content' / 'site.yml').read_text())
@@ -312,7 +332,8 @@ def build(slug):
                  # The intro (description) always comes straight after the cover.
                  # `lead:` is one headless section placed directly after the intro.
                  ('INTRO', intro(page) + ('\n\n' + section(page['lead'], art) if page.get('lead') else '')),
-                 ('SECTIONS', '\n\n'.join(section(s, art) for s in page['sections']))]:
+                 ('SECTIONS', '\n\n'.join(section(s, art) for s in page['sections'])),
+                 ('NEXT', next_up(page, site)), ('FOOTER', (ROOT / 'templates' / 'footer.html').read_text())]:
         out = out.replace('{{%s}}' % k, v)
     # `frames: off` at the top of a content file drops the hairline round every piece.
     if str(page.get('frames', 'on')).lower() in ('off', 'false', 'none'):
@@ -322,6 +343,7 @@ def build(slug):
         import re
         out = re.sub(r'<a href="/" aria-label="Max Spector — home">(.*?)</a>',
                      r'<span class="nav-logo">\1</span>', out, count=1, flags=re.S)
+        out = out.replace('<a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home">', '<span class="dock-logo" data-dock="logo">', 1).replace('</svg></a>\n    <div class="dock-meta">', '</svg></span>\n    <div class="dock-meta">', 1)
         out = re.sub(r'\s*<button class="menu-btn".*?</button>', '', out, count=1, flags=re.S)
         out = re.sub(r'<div class="overlay" id="overlay">.*?</div>\n', '', out, count=1, flags=re.S)
     # `cover_mobile:` — a portrait cover for tall screens (phones, portrait tablets).
