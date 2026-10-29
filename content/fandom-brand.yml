@@ -318,17 +318,6 @@ sections:
     items:
     - {img: social-stories-trio.jpg, alt: "Andor social takeover, Sonic's top speed story, and Guess the Higher Metascore story", aspect: 2400/1239}
 
-- heading: Sub-Brands
-  id: show-formats-and-sub-brands
-  subhead: A brand of brands has lots of… well, brands.
-  ground: white
-  blocks:
-  - layout: full
-    items:
-    - html: '<div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:60.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:25.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:67.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:61.6%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:52.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:58.7%" loading="lazy"></div>'
-      html_class: sb
-      alt: Fandom sub-brand logos
-
 - heading: Presentation Design
   subhead: The business of making people forget they’re viewing a slide deck.
   ground: '#3A434B'
@@ -348,6 +337,17 @@ sections:
   - layout: full
     items:
     - {img: pres-context-matters.jpg, alt: "Go-to-market deck: context matters", ratio: video}
+
+- heading: Sub-Brands
+  id: show-formats-and-sub-brands
+  subhead: A brand of brands has lots of… well, brands.
+  ground: white
+  blocks:
+  - layout: full
+    items:
+    - html: '<div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:60.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:25.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:67.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:61.6%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:52.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:58.7%" loading="lazy"></div>'
+      html_class: sb
+      alt: Fandom sub-brand logos
 
 - heading: State of Fandom
   id: state-of-fandom
