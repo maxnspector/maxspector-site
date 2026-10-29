@@ -53,7 +53,7 @@ css: |
   .cs-img.pt{overflow:visible;padding:0;aspect-ratio:auto;background:none}
   .cs-img.pt img{display:block;width:101.35%;max-width:none;height:auto;margin-left:-1.35%}
   /* Sub-brand logos on white, each sized to the same visual area */
-  .cs-img.sb{padding:0;aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);background:none}
+  .cs-img.sb{padding:0;aspect-ratio:auto;display:grid;grid-template-columns:repeat(3,1fr);background:none}
   .sb-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center}
   .sb-cell img{height:auto;max-height:82%;object-fit:contain}
   @media(max-width:520px){.cs-img.sb{grid-template-columns:repeat(2,1fr)}}
@@ -257,6 +257,7 @@ sections:
 - heading: Styles and Image Treatments
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
   ground: white
+  flush_bottom: true   # the character/icon pair runs to the section's end
   blocks:
   - layout: full
     items:
@@ -264,7 +265,7 @@ sections:
       alt: The five Fandom personas, illustrated in the house style
       aspect: 1920/1265
   # Built in Figma (82:16878 + 82:13986), exported 2x. Two adjacent blocks; stack on phones.
-  - layout: flush-pair
+  - layout: flush-pair-bleed   # edge to edge (Max 2026-10-28)
     space: 96
     items:
     - img: vl-chars-pair.jpg
@@ -324,7 +325,7 @@ sections:
   blocks:
   - layout: full
     items:
-    - html: '<div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-20.svg" alt="Fandom 20 Years of World Building" style="width:87.8%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:59.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:35.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:78.1%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:71.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-global-sales.svg" alt="Fandom Global Sales Meeting" style="width:70.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:60.5%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:68.1%" loading="lazy"></div>'
+    - html: '<div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-stars.svg" alt="Fandom Stars" style="width:60.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandna.svg" alt="FanDNA" style="width:25.9%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fest-2022.svg" alt="Fandom Fest 2022" style="width:67.4%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-aanhpi.svg" alt="AANHPI Month" style="width:61.6%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-fandom-fest.svg" alt="Fandom Fest" style="width:52.2%" loading="lazy"></div><div class="sb-cell"><img src="/assets/fandom-brand/subbrand-french.svg" alt="Celebrating French Community" style="width:58.7%" loading="lazy"></div>'
       html_class: sb
       alt: Fandom sub-brand logos
 
@@ -371,7 +372,7 @@ sections:
 
 - heading: GameSpot
   subhead: A diverse content brand that keeps games as its core while embracing other entertainment media.
-  ground: '#00191D'
+  ground: '#002D3B'
   blocks:
   - layout: full
     items:

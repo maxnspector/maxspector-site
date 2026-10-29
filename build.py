@@ -279,6 +279,10 @@ def section(s, slug):
             buf.append(block(b, slug))
     if buf:
         parts.append('  <div class="wrap">\n' + '\n'.join(buf) + '\n  </div>')
+    # `flush_bottom: true` (Max 2026-10-28): drop the section's bottom padding so
+    # a closing edge-to-edge block runs straight into the next section.
+    if s.get('flush_bottom'):
+        ground += ' cs-flush-bottom'
     return (f'<section class="{ground} cs-media"{idattr}{gstyle}>\n'
             + '\n'.join(parts) + '\n</section>')
 

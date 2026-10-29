@@ -533,12 +533,13 @@ suppresses it entirely.
 
 **Next session starts here**
 
-1. **Max pushes and reviews** everything from 10-23 to 10-25 (none of it pushed): Client Brands v2, About, menus without Campaigns, nav at edges, menu circle, footer dock + Next links, Fandom without Franchise Features. Watch the footer animation on a real scroll (trackpad and phone), and check whether the homepage logo position works now that it sits at the window edge.
-2. **About copy:** Max edits the new lines (maker lead, building paragraph, Highlights; check "one designer").
-3. **Client Brands:** confirm picks and crops (CC cup tile is weak), decide on the left-out images (Verve wall, B&M pattern + path card, Kayu cards 1/3/4/5, Beth Sholom families) and supply bigger files for soft images.
-4. **Retire Campaigns files:** campaigns.html, content/campaigns.yml, assets/campaigns (Client Brands still reads Kayu/Beth originals from there via make_cb2.py). Needs delete permission.
+1. **Max pushes and reviews** everything since 10-23 (nothing pushed): Client Brands v2 + Beth Sholom squares, About (all copy reworked, Highlights removed), footer (rise-from-below animation, one-line type, centered arrow), Next link redesign, Fandom social gradients + stacked lockup on Dark Gray. Watch the footer on a real trackpad scroll and on a phone.
+2. **Max has more edits queued** — start there.
+3. **Client Brands:** confirm picks and crops, decide on left-out images, supply bigger files for soft images; subhead still says "DRAFT —".
+4. **Retire Campaigns files** (campaigns.html, content/campaigns.yml, assets/campaigns) — but make_cb2.py still reads Kayu/Beth originals from assets/campaigns, so move those first. Needs delete permission.
 5. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
-6. **Alex AI:** homepage description, section grounds, clear the "DRAFT —" subheads.
+6. **Alex AI:** homepage description, section grounds, clear "DRAFT —" subheads.
+7. Optional: scale the Next-link arrow down 20% to match the smaller title.
 
 **Further out**
 

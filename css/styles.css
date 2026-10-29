@@ -283,6 +283,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 
 /* media sections: centered header + image grid */
 .cs-media{padding:72px 0;}
+.cs-media.cs-flush-bottom{padding-bottom:0;}
 .cs-head{grid-column:1 / -1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;margin-bottom:52px;}
 .cs-head .cs-hsub{max-width:60ch;}
 .cs-grid{grid-column:1 / -1;display:grid;gap:24px;}
