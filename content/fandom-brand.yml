@@ -205,8 +205,8 @@ sections:
       bg: '#F9EDD8'
       pad: 15
     - img: logo-stacked-b-cream.svg
-      alt: Fandom stacked lockup reversed in cream, on Fandom purple
-      bg: '#520044'
+      alt: Fandom stacked lockup reversed in cream, on dark gray
+      bg: '#3A434B'   # Dark Gray (Max 2026-10-25, picked over Purple Black / Light Gray), was Fandom Purple
       pad: 27
   - layout: full
     class: core-palette
