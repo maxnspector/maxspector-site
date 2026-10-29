@@ -357,13 +357,6 @@ sections:
   - layout: full
     items:
     - {img: sof-collage.jpg, alt: "State of Fandom report: cover and key slides", aspect: 2400/1610}
-  - layout: full
-    space: 96
-    items:
-    - {img: sof-74.jpg, alt: "Slide: 74% of fans spent more time with entertainment", aspect: 16/9}
-  - layout: full
-    items:
-    - {img: sof-trends.jpg, alt: "Slides: four major trends and What's next?", aspect: 16/9}
   - layout: flush-pair
     space: 96
     items:
@@ -372,7 +365,7 @@ sections:
 
 - heading: GameSpot
   subhead: A diverse content brand that keeps games as its core while embracing other entertainment media.
-  ground: '#002D3B'
+  ground: '#002833'
   blocks:
   - layout: full
     items:

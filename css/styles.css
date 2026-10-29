@@ -495,7 +495,14 @@ body.cs-page{background:var(--paper-3);}
 /* Phones: too narrow for one line, so the copyright drops below and the trailing bullet goes. */
 @media(max-width:520px){ .dock-meta{flex-direction:column;align-items:flex-start;row-gap:8px;} .dock-meta .hero-links::after{content:none;} }
 .dock-copy{margin:0;font-family:var(--sans);font-size:8px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:inherit;}
-.dock-top{width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;margin:0 -14.5px 0 0;color:var(--coral);}
+/* Max 2026-10-28: logo and back-to-top take the footer's text color and turn coral on hover,
+   like Email / LinkedIn. "Back to top" label sits left of the arrow in the same type. */
+.dock-logo{color:inherit;}
+.dock-logo .monogram{color:inherit;transition:color .2s var(--ease);}
+.dock-logo:hover .monogram{color:var(--coral);}
+.dock-top{height:44px;flex:none;display:flex;align-items:center;gap:10px;margin:0;color:inherit;transition:color .2s var(--ease);}
+.dock-top:hover{color:var(--coral);}
+.dock-top-label{font-family:var(--sans);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.03em;white-space:nowrap;}
 .dock-top svg{width:16px;height:18px;display:block;}
 .cs-page .dock-foot{color:var(--text-dark);}
 .cs-page .dock-foot .hero-links .sep{color:var(--text-dark);}
