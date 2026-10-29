@@ -353,11 +353,23 @@ sections:
   id: state-of-fandom
   subhead: "DRAFT — Fandom's annual research report on the fan mindset, designed for the keynote stage, the sales deck, and social."
   ground: '#294148'
+  flush_bottom: true   # the 66% / 74% pair runs to the section's end
   blocks:
   - layout: full
     items:
-    - {img: sof-collage.jpg, alt: "State of Fandom report: cover and key slides", aspect: 2400/1610}
-  - layout: flush-pair
+    - {img: sof-slide-01.jpg, alt: "State of Fandom report cover slide", aspect: 16/9}
+  - layout: grid-2
+    space: 96
+    items:
+    - {img: sof-slide-02.jpg, alt: "Slide: what the State of Fandom report is", aspect: 16/9}
+    - {img: sof-slide-04.jpg, alt: "Slide: people found connection through entertainment, 80% and 41%", aspect: 16/9}
+    - {img: sof-slide-05.jpg, alt: "Slide: four major trends emerged in consumer behavior", aspect: 16/9}
+    - {img: sof-slide-11.jpg, alt: "Slide: new habits are here to stay, 91%", aspect: 16/9}
+  - layout: full
+    space: 96
+    items:
+    - {img: sof-hero-whats-next.jpg, alt: "State of Fandom slide: What's next?", aspect: 16/9}
+  - layout: flush-pair-bleed   # edge to edge (Max 2026-10-28)
     space: 96
     items:
     - {img: sof-detail-66.jpg, alt: "Social card: 66% of fans turned back the clock", aspect: 1200/1331}
