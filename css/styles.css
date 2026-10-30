@@ -531,3 +531,8 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
   .next-link svg{width:36px;height:28px;}
   .dock-foot{padding-top:96px;}
 }
+
+/* BAND (Max 2026-10-29): a bleed block whose panel color runs edge to edge while the
+   art sits smaller inside it (client-brands asset boards). Phones show the art full width. */
+.cs-grid-bleed.band .cs-img{border:0;}
+@media(max-width:520px){ .band .cs-img{aspect-ratio:2200/1600!important;} .band .cs-img.contain img{padding:0;} }

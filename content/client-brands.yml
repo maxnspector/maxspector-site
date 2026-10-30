@@ -26,9 +26,9 @@ sections:
   blocks:
   - layout: full
     items:
-    - img: v2/cc-hero.jpg
-      alt: 'Painted Coffee Cultures sign: Mission and 1301, South of Market'
-      aspect: 1200/739
+    - img: v2/cc-hero-pattern.jpg   # Max 2026-10-29: the old site's pattern header (Linked Art/Client_brands_header_01)
+      alt: 'Coffee Cultures pattern: a grid of the brand marks, badges and type in orange, gold, cream and brown'
+      aspect: 3840/2160
   - layout: grid-2
     class: keep-row
     gap: 14
@@ -46,11 +46,14 @@ sections:
       alt: A customer sitting beneath the Coffee Cultures mural wall
       aspect: 1200/1200
     space: 14
-  - layout: full
+  - layout: bleed   # Max 2026-10-29: art smaller, its background runs edge to edge
+    class: band
     items:
     - img: v2/cc-assets.jpg
+      bg: '#FFFFFF'
+      pad: 3
       alt: 'Coffee Cultures core assets: primary trademark, secondary icon, brand colors and typefaces'
-      aspect: 2200/1600
+      aspect: 1440/800
     space: 14
 - heading: Verve Coffee Roasters
   subhead: The logo that launched a single-origin revolutionary and pioneer in coffee's third wave.
@@ -58,9 +61,9 @@ sections:
   blocks:
   - layout: full
     items:
-    - img: v2/verve-hero.jpg
-      alt: Verve Coffee Roasters logo on an espresso machine
-      aspect: 2400/1627
+    - img: v2/verve-hero-mosaic.jpg   # Max 2026-10-29: Shinjuku tile floor is the hero
+      alt: Verve Coffee Roasters logo set in gold into a black-and-white tile mosaic floor, Shinjuku
+      aspect: 3/2
   - layout: grid-2
     class: keep-row
     gap: 14
@@ -74,8 +77,8 @@ sections:
     - img: v2/verve-glass.jpg
       alt: Verve logo on the cafe window
       aspect: 1200/960
-    - img: v2/verve-mosaic.jpg
-      alt: Verve logo set into a tile mosaic floor
+    - img: v2/verve-espresso.jpg   # was the hero until 2026-10-29
+      alt: Verve Coffee Roasters logo on an espresso machine
       aspect: 1200/960
     space: 14
 - heading: Trademarks & Monograms
@@ -117,11 +120,14 @@ sections:
       alt: Close-up of the Venus aquavit label
       aspect: 1200/960
     space: 14
-  - layout: full
+  - layout: bleed   # Max 2026-10-29: art smaller, its background runs edge to edge
+    class: band
     items:
     - img: v2/venus-assets.jpg
+      bg: '#EEF7F6'
+      pad: 3
       alt: 'Venus Spirits core assets: primary trademark, secondary icon, brand colors and typefaces'
-      aspect: 2200/1600
+      aspect: 1440/800
     space: 14
 - heading: Craftsman and Wolves
   subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
