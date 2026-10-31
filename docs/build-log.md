@@ -599,14 +599,25 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
-1. DONE 2026-10-31 (session 3): redirects checked live — /docs/, /content/, /templates/, /build.py and /case-study.html all redirect; /fandom-full-width loads.
-2. DONE 2026-10-31 (session 3): row scroll-in built. Image rows only (`.cs-grid.reveal`); headings and intro text stay static. CSS in styles.css under "Row scroll-in"; JS in templates/case-study.html (head sets `rows-anim` unless reduced motion; observer at the end of the body). Verified headless at 1440x900: rows wait at opacity 0 / 40px, play on entry, reset when they drop below the screen, rows jumped past stay shown, reduced motion shows everything. Applies to every page built from the template (Alex AI, Fandom, Fandom full-width, Client Brands). Homepage and About get it in the rollout. Max approved the motion (10-31).
+Session 3 (10-31) done: redirects confirmed; scroll-in row animation built and approved (see the build entry below the list). Push pending if not yet done.
+
+1. **Full-width becomes the site design (Max, 10-31).** Make it the default on fandom-brand (move `style: wide`, `grounds_all: white`, the `wide:` overrides into the real page; retire fandom-full-width), then Alex AI, Client Brands, homepage and About. Decide headings/intro alignment with the 28px edge. Ask Max per page where panels go and which rows pair or go 3-up. Homepage and About are hand-built (not the template): add the scroll-in there (same CSS + JS as templates/case-study.html).
+2. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
+3. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files; Fandom leftovers; Alex AI homepage description and subheads.
+
+**Session 4 (10-31, evening)**
+
+- DONE: full-width is now the real Fandom page. `style: wide` + `grounds_all: white` moved into content/fandom-brand.yml (the `wide:` overrides stay on their blocks and now always apply). Output matches the approved fandom-full-width.html exactly, plus the Next link the test page lacked. /fandom-full-width and .html now 301 to /fandom-brand in _redirects. fandom-full-width.yml/.html left in place, unused (delete needs permission).
+- DONE (to review): Alex AI switched to full-width as a straight port (`style: wide`, `grounds_all: white`, no panels or re-pairing yet). Checked at 1440 and 390: every row 28px edge (16 on phones), no sideways scroll, no broken images, no script errors. alex.html is the page shared with hiring managers, so it changes live only when Max pushes.
+- OPEN: the Next link and section headings still sit on the 1200 column (Next starts at x=528 on 1440) while rows run 28 to 1412. Part of the headings/intro alignment decision.
+
+**Done in session 3 (10-31)**
+
+- DONE 2026-10-31 (session 3): redirects checked live — /docs/, /content/, /templates/, /build.py and /case-study.html all redirect; /fandom-full-width loads.
+- DONE 2026-10-31 (session 3): row scroll-in built. Image rows only (`.cs-grid.reveal`); headings and intro text stay static. CSS in styles.css under "Row scroll-in"; JS in templates/case-study.html (head sets `rows-anim` unless reduced motion; observer at the end of the body). Verified headless at 1440x900: rows wait at opacity 0 / 40px, play on entry, reset when they drop below the screen, rows jumped past stay shown, reduced motion shows everything. Applies to every page built from the template (Alex AI, Fandom, Fandom full-width, Client Brands). Homepage and About get it in the rollout. Max approved the motion (10-31).
    - Revision 10-31: rows that sit flush against the previous row (back-to-back panels, zero gap) move as one group, so a section never splits mid-animation. Pieces after the first in a row follow left to right: each starts 0.15s later and 20px lower. Test on the live page with ?stagger=0.1 (gap between pieces) and ?third=0.5 (when the third starts). Verified headless. Not pushed; Max to pick the delays.
    - Revision 10-31: pieces that touch side by side (no gutter, e.g. GameSpot palette + is/is-not list, Fandom lockups, type samples) get no left-to-right follow; the row comes in whole (`row-whole`, set by measuring in JS).
    - Revision 10-31: padded panels (`panel:`) also come in whole, all their rows together, no left-to-right follow (Max chose this).
-3. **Full-width becomes the site design (Max, 10-31).** Make it the default on fandom-brand (move `style: wide`, `grounds_all: white`, the `wide:` overrides into the real page; retire fandom-full-width), then Alex AI, Client Brands, homepage and About. Decide headings/intro alignment with the 28px edge. Ask Max per page where panels go and which rows pair or go 3-up.
-4. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
-5. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files; Fandom leftovers; Alex AI homepage description and subheads.
 
 **Further out**
 

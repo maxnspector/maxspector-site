@@ -8,3 +8,7 @@
 /templates/* / 302
 /build.py / 302
 /case-study.html / 302
+
+# The full-width test page became the real Fandom page (Max 2026-10-31).
+/fandom-full-width /fandom-brand 301
+/fandom-full-width.html /fandom-brand 301

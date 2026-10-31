@@ -3,6 +3,8 @@ description: Designing Alex — an AI recruiter that takes a role from open to s
 output: alex
 cover: cover-keynote-7.jpg
 cover_mobile: cover-keynote-7-mobile.jpg
+style: wide          # full-width layout, the site design (Max 2026-10-31)
+grounds_all: white
 frames: off
 nav: standalone
 intro:
