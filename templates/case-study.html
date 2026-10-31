@@ -69,18 +69,32 @@ document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
 /* Row scroll-in (Max 2026-10-31). A row below the screen waits 40px low and
    invisible; as it enters it rises and fades in. If it drops back below the
    screen it resets, so it plays again next time. Rows above stay shown.
-   Rows already on screen at load show at once, with no animation. */
+   Rows already on screen at load show at once, with no animation.
+   Rows that sit flush against the row before them (back-to-back panels, zero
+   gap) read as one section, so they move together as one group.
+   Inside a row, pieces after the first follow left to right on a short delay.
+   Test other delays with ?stagger=0.15 (seconds between pieces) and
+   ?third=0.4 (when the third piece starts). */
 if(document.documentElement.classList.contains('rows-anim')){
-  const rows=[...document.querySelectorAll('.cs-grid.reveal')];
-  const show=(el,instant)=>{if(instant){el.classList.add('row-instant');el.classList.add('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('row-instant')));}else el.classList.add('in');};
-  rows.forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)show(el,true);});
+  const q=new URLSearchParams(location.search),rs=document.documentElement.style;
+  if(q.has('stagger'))rs.setProperty('--stag',(+q.get('stagger')||0)+'s');
+  if(q.has('third'))rs.setProperty('--stag3',(+q.get('third')||0)+'s');
+  const rows=[...document.querySelectorAll('.cs-grid.reveal')],groups=[];
+  rows.forEach(el=>{
+    const p=el.previousElementSibling,g=groups[groups.length-1];
+    const flush=p&&g&&g.includes(p)&&el.offsetParent===p.offsetParent&&(el.offsetTop-(p.offsetTop+p.offsetHeight))<=1;
+    if(flush)g.push(el);else groups.push([el]);
+  });
+  const lead=new Map(groups.map(g=>[g[0],g]));
+  const show=(g,instant)=>{g.forEach(el=>{if(instant){el.classList.add('row-instant');el.classList.add('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('row-instant')));}else el.classList.add('in');});};
+  groups.forEach(g=>{if(g[0].getBoundingClientRect().top<innerHeight)show(g,true);});
   const rio=new IntersectionObserver((es)=>{es.forEach(e=>{
-    const el=e.target;
-    if(e.isIntersecting){show(el,false);}
-    else if(e.boundingClientRect.top>=(e.rootBounds?e.rootBounds.bottom:innerHeight)){el.classList.remove('in');}
-    else if(!el.classList.contains('in')){show(el,true);}  // jumped past it: above the screen stays shown
+    const g=lead.get(e.target);
+    if(e.isIntersecting){show(g,false);}
+    else if(e.boundingClientRect.top>=(e.rootBounds?e.rootBounds.bottom:innerHeight)){g.forEach(el=>el.classList.remove('in'));}
+    else if(!e.target.classList.contains('in')){show(g,true);}  // jumped past it: above the screen stays shown
   });},{threshold:0});
-  rows.forEach(el=>rio.observe(el));
+  groups.forEach(g=>rio.observe(g[0]));
 }
 /* video: play only while on screen. Under prefers-reduced-motion nothing
    autoplays — the poster stands in and the viewer gets controls instead. */
