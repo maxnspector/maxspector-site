@@ -536,3 +536,23 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
    art sits smaller inside it (client-brands asset boards). Phones show the art full width. */
 .cs-grid-bleed.band .cs-img{border:0;}
 @media(max-width:520px){ .band .cs-img{aspect-ratio:2200/1600!important;} .band .cs-img.contain img{padding:0;} }
+
+/* ===== WIDE STYLE TEST (Max 2026-10-31, kylebmacy.com reference) =====
+   Page opts in with `style: wide`. Image rows span the window minus an even
+   edge (var(--edge): 40px desktop, 20px phones = the logo/+ inset), every row
+   is 40px apart, splits touch, and the whole column stops growing at 1920px.
+   Headings and the intro keep the 1200 grid for this first comparison. */
+.cs-wide{--wide:min(calc(100% - 2*var(--edge)), 1840px);--row-gap:var(--edge);}
+.cs-wide .cs-media > .wrap{width:var(--wide);}
+.cs-wide .cs-media > .wrap > .cs-head{width:min(100%, 1200px);justify-self:center;}
+.cs-wide .cs-media .cs-grid{gap:0;}
+.cs-wide .cs-media .cs-grid .cs-img{border:0;border-radius:0;}
+.cs-wide .cs-media .cs-grid + .cs-grid,
+.cs-wide .cs-media .wrap + .cs-grid,
+.cs-wide .cs-media .cs-grid + .wrap{margin-top:var(--row-gap);}
+/* `space:` values from the content file collapse to the one even gap,
+   except space: 0, which still butts pieces together (palette, type panels). */
+.cs-wide .cs-media .cs-grid[style*="margin-top"]:not([style*="clamp(0px"]){margin-top:var(--row-gap)!important;}
+/* Edge-to-edge blocks take the same edge as everything else. */
+.cs-wide .cs-media > .cs-grid-bleed{width:var(--wide);margin-inline:auto;}
+.cs-wide .cs-media.cs-flush-bottom{padding-bottom:72px;}

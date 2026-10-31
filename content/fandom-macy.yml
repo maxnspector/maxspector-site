@@ -1,0 +1,9 @@
+# WIDE TEST of the Fandom page (Max 2026-10-31), in the kylebmacy.com style:
+# every image row runs nearly the full window with an even 40px edge (the same
+# inset as the logo and +), splits sit flush, and growth stops at 1920px.
+# All content comes from fandom-brand.yml; edit that file, then rebuild both:
+#   python3 build.py fandom-brand fandom-macy
+extends: fandom-brand
+assets: fandom-brand
+output: fandom-macy
+style: wide

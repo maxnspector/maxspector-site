@@ -537,10 +537,35 @@ suppresses it entirely.
   Client Brands: CC and Venus asset boards are full-bleed bands in the art's own bg color (new `band` class; art ~981px at 1440, full width on phones). CC hero = old site pattern (Linked Art/Client_brands_header_01). Verve hero = Shinjuku tile floor; espresso shot moved to a tile; window tile re-cut from a sharper file.
   Mockups (paused): three SoF keynote composites in Dropbox Case Study Files/Campaigns/State of Fandom (SoF_keynote_mockup_01/02_two-slides/03_16x9). Kyle Macy method researched: mostly paid template libraries (Mockup Maison codes in his file names), agency-made images, and Figma exports, not AI.
 
+
+## 2026-10-31 (session 2) — Wide (Kyle Macy-style) test page
+
+Measured kylebmacy.com/Addison-AI first: a fixed 28px side edge at every width,
+32–36px between rows, no width cap; each two-block row is ONE image file with
+the halves touching.
+
+Decisions (Max): test on Fandom; stop growing at 1920px; splits flush (with
+care so adjacent images don't get busy — Macy's mockups carry extra space).
+
+Built `fandom-macy.html` from `content/fandom-macy.yml`, which `extends:`
+fandom-brand.yml (new build.py feature) and sets `style: wide`. All copy and
+art still come from fandom-brand.yml; rebuild both with
+`python3 build.py fandom-brand fandom-macy`. CSS is scoped to `.cs-wide` at the
+end of styles.css; fandom-brand.html output is byte-identical.
+- Image rows: window minus a 40px edge (the logo/+ inset; 20px on phones),
+  capped at 1840 content / 1920 total. Rows 40px apart; `space: 0` butts kept.
+  Splits flush. Old edge-to-edge blocks take the same edge.
+- Headings and intro deliberately left on the 1200 grid for this first look.
+- Verified by render: edges 40/40 at 1440 and 1920, 360/360 at 2560, 20/20 at
+  390; every in-section row gap 40 (20 on phones); 0px horizontal overflow.
+- Sharpness: at 1920 the photos are only 1.0–1.6x their display width, so they
+  will look soft on Retina. Wide rows need ~3700px exports, halves ~1850px.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).
-2. **NEW main task: Macy-style layout comparison.** Build a variant case-study template in the kylebmacy.com project-page style: every row is either one full-width landscape image or a full-width row split into two blocks, with generous, even padding around the edges, filling the screen dramatically. Build it on one real page (Fandom or Alex) so Max can compare it with the current template side by side before deciding. If he adopts it, the homepage and About need a consistency pass.
+2. **Macy-style comparison — BUILT 10-31 as fandom-macy.html.** Max pushes, compares with fandom-brand.html, decides. Open: GameSpot three-up (Macy uses only 1 or 2 per row), headings/intro width, busy flush pairs, larger exports if adopted.
+   Original brief: Build a variant case-study template in the kylebmacy.com project-page style: every row is either one full-width landscape image or a full-width row split into two blocks, with generous, even padding around the edges, filling the screen dramatically. Build it on one real page (Fandom or Alex) so Max can compare it with the current template side by side before deciding. If he adopts it, the homepage and About need a consistency pass.
    - Width: Macy's site scales without limit. Max leans toward stopping growth at about 1800 to 1920px but is open to unlimited if it's simpler. Claude recommended a cap near 1920 (images would otherwise need 3840px+ files to stay sharp on big screens); settle with Max.
 3. Verve: R0013766-1_02.jpg (gold VERVE on glass) unused; ask whether it replaces the window or espresso tile.
 4. Mockups are paused; when they resume, pick one of the three SoF keynote composites and place it.

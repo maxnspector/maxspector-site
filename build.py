@@ -325,6 +325,13 @@ def build(slug):
     _alt['unnamed'] = 0
     _ids.clear()
     page = yaml.safe_load((ROOT / 'content' / f'{slug}.yml').read_text())
+    # `extends: other-slug` (Max 2026-10-31): a variant page that takes every
+    # field of another content file and overrides only what it sets itself.
+    # Used for the wide (Macy-style) test of Fandom, so content is never doubled.
+    if page.get('extends'):
+        base = yaml.safe_load((ROOT / 'content' / f"{page['extends']}.yml").read_text())
+        base.update({k: v for k, v in page.items() if k != 'extends'})
+        page = base
     page['_slug'] = slug
     _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
@@ -342,6 +349,10 @@ def build(slug):
     # `frames: off` at the top of a content file drops the hairline round every piece.
     if str(page.get('frames', 'on')).lower() in ('off', 'false', 'none'):
         out = out.replace('<body class="cs-page">', '<body class="cs-page no-frames">', 1)
+    # `style: wide` (Max 2026-10-31, Kyle Macy test): image rows run nearly the
+    # full window, with an even edge, flush splits, and growth capped at 1920px.
+    if str(page.get('style', '')).lower() == 'wide':
+        out = out.replace('<body class="cs-page', '<body class="cs-wide cs-page', 1)
     # `nav: standalone` — logo stays but links nowhere, and the menu is removed.
     if page.get('nav') == 'standalone':
         import re
