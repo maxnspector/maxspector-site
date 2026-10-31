@@ -547,10 +547,10 @@ the halves touching.
 Decisions (Max): test on Fandom; stop growing at 1920px; splits flush (with
 care so adjacent images don't get busy — Macy's mockups carry extra space).
 
-Built `fandom-macy.html` from `content/fandom-macy.yml`, which `extends:`
+Built `fandom-full-width.html` from `content/fandom-full-width.yml`, which `extends:`
 fandom-brand.yml (new build.py feature) and sets `style: wide`. All copy and
 art still come from fandom-brand.yml; rebuild both with
-`python3 build.py fandom-brand fandom-macy`. CSS is scoped to `.cs-wide` at the
+`python3 build.py fandom-brand fandom-full-width`. CSS is scoped to `.cs-wide` at the
 end of styles.css; fandom-brand.html output is byte-identical.
 - Image rows: window minus a 40px edge (the logo/+ inset; 20px on phones),
   capped at 1840 content / 1920 total. Rows 40px apart; `space: 0` butts kept.
@@ -561,10 +561,18 @@ end of styles.css; fandom-brand.html output is byte-identical.
 - Sharpness: at 1920 the photos are only 1.0–1.6x their display width, so they
   will look soft on Retina. Wide rows need ~3700px exports, halves ~1850px.
 
+**Refinements (same day):** renamed to `fandom-full-width.html` (no reference
+name in the URL). Image edge 28px (16 on phones) with rows 28 apart; logo, +
+and footer moved in to 48px (24 on phones) so they sit inside the image edge.
+Every section on white via new `grounds_all: white` (intro stays cream). Cover
+inset by the same 28px on the sides and top. Verified by render at 1440, 1920,
+2560 and 390: cover 28/28/28, image rows 28/28, logo and + at 48, all sections
+white, 0px overflow.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).
-2. **Macy-style comparison — BUILT 10-31 as fandom-macy.html.** Max pushes, compares with fandom-brand.html, decides. Open: GameSpot three-up (Macy uses only 1 or 2 per row), headings/intro width, busy flush pairs, larger exports if adopted.
+2. **Macy-style comparison — BUILT 10-31 as fandom-full-width.html.** Max pushes, compares with fandom-brand.html, decides. Open: GameSpot three-up (Macy uses only 1 or 2 per row), headings/intro width, busy flush pairs, larger exports if adopted.
    Original brief: Build a variant case-study template in the kylebmacy.com project-page style: every row is either one full-width landscape image or a full-width row split into two blocks, with generous, even padding around the edges, filling the screen dramatically. Build it on one real page (Fandom or Alex) so Max can compare it with the current template side by side before deciding. If he adopts it, the homepage and About need a consistency pass.
    - Width: Macy's site scales without limit. Max leans toward stopping growth at about 1800 to 1920px but is open to unlimited if it's simpler. Claude recommended a cap near 1920 (images would otherwise need 3840px+ files to stay sharp on big screens); settle with Max.
 3. Verve: R0013766-1_02.jpg (gold VERVE on glass) unused; ask whether it replaces the window or espresso tile.
