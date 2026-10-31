@@ -1,10 +1,11 @@
 # FULL-WIDTH TEST of the Fandom page (Max 2026-10-31): the cover and every image
 # row run nearly the full window with an even 28px edge, splits sit flush,
-# growth stops at 1920px, and every section sits on white.
+# growth stops at 1920px, and the whole page sits on the homepage/About dark.
 # All content comes from fandom-brand.yml; edit that file, then rebuild both:
 #   python3 build.py fandom-brand fandom-full-width
 extends: fandom-brand
 assets: fandom-brand
 output: fandom-full-width
 style: wide
-grounds_all: white
+grounds_all: dark   # was white (first test)
+theme: dark

@@ -356,6 +356,15 @@ def build(slug):
     # full window, with an even edge, flush splits, and growth capped at 1920px.
     if str(page.get('style', '')).lower() == 'wide':
         out = out.replace('<body class="cs-page', '<body class="cs-wide cs-page', 1)
+    # `theme: dark` (Max 2026-10-31): the whole page on the homepage/About dark
+    # green — intro, sections (use with `grounds_all: dark`), next link, footer.
+    # Dropping the cs-page class lets the footer and next link take the site's
+    # default dark-page colors.
+    if str(page.get('theme', '')).lower() == 'dark':
+        import re as _re
+        out = _re.sub(r'<body class="([^"]*)">', lambda m: '<body class="%s">' % ' '.join(
+            c for c in m.group(1).split() if c != 'cs-page'), out, count=1)
+        out = out.replace('<section class="cs-light is-cream" id="intro">', '<section class="cs-dark" id="intro">', 1)
     # `nav: standalone` — logo stays but links nowhere, and the menu is removed.
     if page.get('nav') == 'standalone':
         import re

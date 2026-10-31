@@ -1,3 +1,10 @@
 # Old Alex AI URL, already shared with a hiring manager: send it to the new one.
 /alex-ai /alex 301
 /alex-ai.html /alex 301
+
+# Working files that live in the repo but shouldn't be readable on the web (Max 2026-10-31).
+/docs/* / 302
+/content/* / 302
+/templates/* / 302
+/build.py / 302
+/case-study.html / 302

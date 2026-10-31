@@ -569,6 +569,14 @@ inset by the same 28px on the sides and top. Verified by render at 1440, 1920,
 2560 and 390: cover 28/28/28, image rows 28/28, logo and + at 48, all sections
 white, 0px overflow.
 
+**Dark test (same day):** fandom-full-width now sits entirely on the
+homepage/About dark green (#25341B) with beige text: new `theme: dark` (drops
+the cs-page class, turns the intro dark) plus `grounds_all: dark`. Verified by
+render: body and every section #25341B, headings/intro/footer #CFC5AA, 0px
+overflow. Also added `_redirects` rules sending /docs/*, /content/*,
+/templates/*, /build.py and /case-study.html to the homepage so working files
+aren't readable on the web (check after push).
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).
