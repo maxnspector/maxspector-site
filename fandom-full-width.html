@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/styles.css" />
+<!-- Row scroll-in (Max 2026-10-31): rows start hidden only when JS runs and motion is allowed. -->
+<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 <style>
 @font-face{font-family:'Rubik';src:url('/assets/fandom-brand/fonts/rubik.woff2') format('woff2');font-weight:300 900;font-display:swap}
 @font-face{font-family:'Space Grotesk';src:url('/assets/fandom-brand/fonts/spacegrotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
@@ -468,6 +470,22 @@ menuBtn&&menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('
 if(overlay)overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
+/* Row scroll-in (Max 2026-10-31). A row below the screen waits 40px low and
+   invisible; as it enters it rises and fades in. If it drops back below the
+   screen it resets, so it plays again next time. Rows above stay shown.
+   Rows already on screen at load show at once, with no animation. */
+if(document.documentElement.classList.contains('rows-anim')){
+  const rows=[...document.querySelectorAll('.cs-grid.reveal')];
+  const show=(el,instant)=>{if(instant){el.classList.add('row-instant');el.classList.add('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('row-instant')));}else el.classList.add('in');};
+  rows.forEach(el=>{if(el.getBoundingClientRect().top<innerHeight)show(el,true);});
+  const rio=new IntersectionObserver((es)=>{es.forEach(e=>{
+    const el=e.target;
+    if(e.isIntersecting){show(el,false);}
+    else if(e.boundingClientRect.top>=(e.rootBounds?e.rootBounds.bottom:innerHeight)){el.classList.remove('in');}
+    else if(!el.classList.contains('in')){show(el,true);}  // jumped past it: above the screen stays shown
+  });},{threshold:0});
+  rows.forEach(el=>rio.observe(el));
+}
 /* video: play only while on screen. Under prefers-reduced-motion nothing
    autoplays — the poster stands in and the viewer gets controls instead. */
 /* HTML animation embeds: scale the authored canvas to fit its frame, and don't

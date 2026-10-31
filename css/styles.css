@@ -206,6 +206,11 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
    (no fade-and-rise). Class kept so the JS hook stays harmless. */
 .reveal{opacity:1;transform:none;transition:none;}
 .reveal.in{opacity:1;transform:none;}
+/* Row scroll-in (Max 2026-10-31): image rows only. `rows-anim` is set in the
+   page head when JS runs and reduced motion is off, so without it rows just show. */
+.rows-anim .cs-grid.reveal{opacity:0;transform:translateY(40px);transition:transform 1s ease-in-out,opacity .8s ease-in-out;}
+.rows-anim .cs-grid.reveal.in{opacity:1;transform:none;}
+.rows-anim .cs-grid.reveal.row-instant{transition:none;}
 
 /* footer */
 .foot{grid-column:1 / -1;padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
