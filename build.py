@@ -71,7 +71,8 @@ def media(it, slug):
                 f'aria-label="{esc(it.get("alt", ""))}">{"".join(cells)}</div>')
     if it.get('video'):
         v = it['video']
-        return (f'      <div class="cs-img has-img{ratio}"><video muted loop playsinline preload="none" '
+        vst = f' style="aspect-ratio:{it["aspect"]}"' if it.get('aspect') else ''
+        return (f'      <div class="cs-img has-img{ratio}"{vst}><video muted loop playsinline preload="none" '
                 f'poster="{src(v)}-poster.jpg" aria-label="{esc(it.get("alt",""))}">'
                 f'<source src="{src(v)}.mp4" type="video/mp4"></video></div>')
     if it.get('html'):
@@ -159,6 +160,12 @@ def block(b, slug):
         # loud pieces sit smaller, with air round them). `space: 96` sets the gap above it.
         if b.get('width'):
             style = (style + ';' if style else '') + f'width:100%;max-width:{b["width"]}px;justify-self:center'
+        # `panel: '#hex'` (Max 2026-10-31): the row sits in a tinted panel with
+        # generous inner padding, so cards and slides get room around them.
+        # Back-to-back panels of the same block run read as one panel.
+        if b.get('panel'):
+            extra_cls += ' cs-panel'
+            style = (style + ';' if style else '') + f'background:{b["panel"]}'
         if 'space' in b:
             style = (style + ';' if style else '') + (f'margin-top:clamp({min(b["space"], 40)}px,{b["space"] / 14.4:.2f}vw,{b["space"]}px)')
         c = f'{cls}{extra_cls} reveal'
@@ -333,6 +340,17 @@ def build(slug):
         base.update({k: v for k, v in page.items() if k != 'extends'})
         page = base
     page['_slug'] = slug
+    # `wide:` on a block (Max 2026-10-31) holds overrides used only on `style: wide`
+    # pages — e.g. different `cols` — and `wide_aspect:` on an item likewise.
+    # Normal pages ignore both, so one content file serves both layouts.
+    if str(page.get('style', '')).lower() == 'wide':
+        for sec in page['sections']:
+            for b in sec['blocks']:
+                if isinstance(b.get('wide'), dict):
+                    b.update(b['wide'])
+                for it in b.get('items', []) or []:
+                    if isinstance(it, dict) and it.get('wide_aspect'):
+                        it['aspect'] = it['wide_aspect']
     # `grounds_all: white` (Max 2026-10-31): every section on one ground, for tests.
     if page.get('grounds_all'):
         page['sections'] = [dict(s, ground=page['grounds_all']) for s in page['sections']]

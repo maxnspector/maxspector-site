@@ -539,15 +539,15 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 
 /* ===== FULL-WIDTH STYLE TEST (Max 2026-10-31) =====
    Page opts in with `style: wide`. The cover and every image row span the
-   window minus an even edge (--wide-edge: 28px desktop, 16px phones); rows sit
-   that same distance apart, splits touch, and the column stops at 1920px.
+   window minus an even edge (--wide-edge: 28px desktop, 16px phones); rows and
+   side-by-side pieces sit that same distance apart, and the column stops at 1920px.
    The logo, + and footer sit further in (--edge 48px) so they don't ride the
    image edge. Headings and the intro keep the 1200 grid. */
 .cs-wide{--edge:clamp(24px, 3.4vw, 48px);--wide-edge:clamp(16px, 2vw, 28px);
   --wide:min(calc(100% - 2*var(--wide-edge)), calc(1920px - 2*var(--wide-edge)));--row-gap:var(--wide-edge);}
 .cs-wide .cs-media > .wrap{width:var(--wide);}
 .cs-wide .cs-media > .wrap > .cs-head{width:min(100%, 1200px);justify-self:center;}
-.cs-wide .cs-media .cs-grid{gap:0;}
+.cs-wide .cs-media .cs-grid{gap:var(--row-gap);}  /* side-by-side pieces get the same gutter as the rows; a block's own `gap: 0` (composed panels) still butts */
 .cs-wide .cs-media .cs-grid .cs-img{border:0;border-radius:0;}
 .cs-wide .cs-media .cs-grid + .cs-grid,
 .cs-wide .cs-media .wrap + .cs-grid,
@@ -558,5 +558,10 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 /* Edge-to-edge blocks take the same edge as everything else. */
 .cs-wide .cs-media > .cs-grid-bleed{width:var(--wide);margin-inline:auto;}
 .cs-wide .cs-media.cs-flush-bottom{padding-bottom:72px;}
-/* Cover: inset by the same edge on the sides and top, on the white page. */
-.cs-wide .cs-cover{width:var(--wide);margin:var(--wide-edge) auto 0;height:calc(100vh - var(--wide-edge));height:calc(100svh - var(--wide-edge));}
+/* Panels (`panel: '#hex'` on a block): a tinted field with padding of 8% of its
+   width on every side, and a tighter gutter between the pieces inside. Two
+   panels in a row join into one field. */
+.cs-wide{--panel-pad:8%;--panel-gap:clamp(12px, 1.6vw, 28px);}
+.cs-wide .cs-media .cs-grid.cs-panel{padding:var(--panel-pad);gap:var(--panel-gap);}
+.cs-wide .cs-media .cs-grid.cs-panel + .cs-grid.cs-panel{margin-top:0!important;padding-top:var(--panel-gap);}
+.cs-wide .cs-media .cs-grid.cs-panel:has(+ .cs-grid.cs-panel){padding-bottom:0;}

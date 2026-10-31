@@ -577,6 +577,26 @@ overflow. Also added `_redirects` rules sending /docs/*, /content/*,
 /templates/*, /build.py and /case-study.html to the homepage so working files
 aren't readable on the web (check after push).
 
+**Back to white + gutters (same day):** fandom-full-width returned to white
+sections and a full-frame cover. Side-by-side pieces now get the same 28px
+gutter as the rows (16 on phones); blocks with their own `gap: 0` (lockups +
+palette, type panels, John Wick/Knives Out, GameSpot palette + voice list) still
+butt. New per-block `wide:` overrides and per-item `wide_aspect:` apply only on
+`style: wide` pages, so fandom-brand.yml serves both. First use: Motion row is
+a square flame-mark pattern beside the 16:9 By the Numbers video, same height.
+Verified at 1440: 488x488 + 868x488, gutter 28; at 1920: 661 + 1175, both 661
+tall; cover 0 to full width; all sections white; 0px overflow; fandom-brand.html
+unchanged.
+
+**Panels (same day):** new block option `panel: '#hex'` puts a row in a tinted
+field padded 8% of its width on every side, with a tighter inner gutter
+(clamp 12–28px); back-to-back panels join into one field. Used on the
+full-width test only (via `wide:`), each in the color Max already chose for
+that section: Presentation slides (2024/2025 + Reach Fans/Work Together, one
+joined 2x2 panel) on #3A434B, State of Fandom slides on #294148, GameSpot
+social cards on #002833. Verified at 1440 and 390: padding 111px (29 on
+phones), gutter 23 (12), joined panel seamless, 0px overflow.
+
 **Next session starts here**
 
 1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).

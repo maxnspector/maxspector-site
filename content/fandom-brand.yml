@@ -290,10 +290,12 @@ sections:
       alt: The Fandom personas connecting into a network
       ratio: video
   - layout: grid-2
+    wide: {cols: 1fr 1.778fr}   # full-width test only: square pattern + 16:9, same height
     items:
     - video: motion-mark-pattern
       alt: The flame mark repeated as a moving pattern
       ratio: video
+      wide_aspect: 1/1
     - video: motion-by-the-numbers
       alt: By the Numbers show open
       ratio: video
@@ -327,10 +329,12 @@ sections:
     - {img: pres-template-collage-v2.jpg, alt: Fandom presentation template system, title and section slides, aspect: 2400/1600}
   - layout: grid-2
     space: 96
+    wide: {panel: '#3A434B'}   # full-width test: slides in a panel (section ground color)
     items:
     - {img: pres-allhands-2024.jpg, alt: 2024 all-hands look-ahead title slide, ratio: video}
     - {img: pres-allhands-2025-v2.jpg, alt: 2025 all-hands kickoff title slide, ratio: video}
   - layout: grid-2
+    wide: {panel: '#3A434B'}
     items:
     - {img: pres-reach-fans.jpg, alt: "Go-to-market deck: reach fans in every market", ratio: video}
     - {img: pres-work-together.jpg, alt: "Partner deck: how should we work together in 2025", ratio: video}
@@ -360,6 +364,7 @@ sections:
     - {img: sof-slide-01.jpg, alt: "State of Fandom report cover slide", aspect: 16/9}
   - layout: grid-2
     space: 96
+    wide: {panel: '#294148'}   # full-width test: slides in a panel (section ground color)
     items:
     - {img: sof-slide-02.jpg, alt: "Slide: what the State of Fandom report is", aspect: 16/9}
     - {img: sof-slide-04.jpg, alt: "Slide: people found connection through entertainment, 80% and 41%", aspect: 16/9}
@@ -408,6 +413,7 @@ sections:
       aspect: 458/458
   - layout: grid-3
     space: 96
+    wide: {panel: '#002833'}   # full-width test: cards in a panel (section ground color)
     items:
     - {img: gs-social-news.jpg, alt: "GameSpot news card: Blizzard's Overwatch team unionizes", ratio: portrait}
     - {img: gs-social-quote.jpg, alt: GameSpot quote card with Jeremy Renner, ratio: portrait}
