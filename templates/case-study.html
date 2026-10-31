@@ -85,6 +85,9 @@ if(document.documentElement.classList.contains('rows-anim')){
     const flush=p&&g&&g.includes(p)&&el.offsetParent===p.offsetParent&&(el.offsetTop-(p.offsetTop+p.offsetHeight))<=1;
     if(flush)g.push(el);else groups.push([el]);
   });
+  // Pieces that touch side by side (no gap), and anything in a padded panel, read as
+  // one piece: no left-to-right follow (Max 2026-10-31).
+  rows.forEach(el=>{const k=[...el.children];if(el.classList.contains('cs-panel')||k.some((c,i)=>i&&Math.abs(c.offsetTop-k[i-1].offsetTop)<2&&c.offsetLeft-(k[i-1].offsetLeft+k[i-1].offsetWidth)<=1))el.classList.add('row-whole');});
   const lead=new Map(groups.map(g=>[g[0],g]));
   const show=(g,instant)=>{g.forEach(el=>{if(instant){el.classList.add('row-instant');el.classList.add('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.remove('row-instant')));}else el.classList.add('in');});};
   groups.forEach(g=>{if(g[0].getBoundingClientRect().top<innerHeight)show(g,true);});

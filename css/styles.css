@@ -221,6 +221,7 @@ body.menu-open .menu-btn span{background:var(--paper-2);}
 .rows-anim .cs-grid.reveal > :nth-child(2){--d:var(--stag);}
 .rows-anim .cs-grid.reveal > :nth-child(3){--d:var(--stag3,calc(var(--stag) * 2));}
 .rows-anim .cs-grid.reveal > :nth-child(n+4){--d:calc(var(--stag3,calc(var(--stag) * 2)) + var(--stag));}
+.rows-anim .cs-grid.reveal.row-whole > :nth-child(n+2){opacity:1;transform:none;transition:none;}
 
 /* footer */
 .foot{grid-column:1 / -1;padding:64px 0 56px;border-top:1px solid var(--line);margin-top:36px;color:var(--paper);font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
