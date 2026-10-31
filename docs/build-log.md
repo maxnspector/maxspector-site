@@ -531,15 +531,20 @@ suppresses it entirely.
 
 - 2026-10-25: Next link at end of case studies/collections: one row 'NEXT · Title · arrow' starting at column 5, equal 28px gaps (18 on phones), all three centered on one line; label is just 'Next'; title 72px (20% under .t-display). build.py next_up() + CSS. About: #connect section padding removed (lists->closing line 120, line->footer logo 200); 'Selected' added to the three list headings; bio gaps all 40. Not pushed.
 
+- 2026-10-28/31 session (not pushed unless Max pushed after 10-28 v1):
+  Fandom: Sub-Brands 3 across, Fandom 20 + Global Sales logos removed, Stars up / FanDNA down, logos capped at +15% vs the old 4-across size. GameSpot ground #002833. Character/icon pair and SoF 66%/74% pair now edge to edge (`flush-pair-bleed`) and butt the next section (new section option `flush_bottom: true`). State of Fandom rebuilt from State_of_Fandom_2025_1-2.pdf (slides in _scratch/sof/hi): slide 1 full, 2x2 of slides 2/4/5/11, What's Next hero (SoF_2026_hero_01), then the 66/74 pair; collage, sof-74 and sof-trends removed. Presentation Design moved above Sub-Brands.
+  Footer (all pages incl. index/about): logo + up arrow take the footer text color, coral on hover; "Back to top" label beside the arrow in the Email/LinkedIn type.
+  Client Brands: CC and Venus asset boards are full-bleed bands in the art's own bg color (new `band` class; art ~981px at 1440, full width on phones). CC hero = old site pattern (Linked Art/Client_brands_header_01). Verve hero = Shinjuku tile floor; espresso shot moved to a tile; window tile re-cut from a sharper file.
+  Mockups (paused): three SoF keynote composites in Dropbox Case Study Files/Campaigns/State of Fandom (SoF_keynote_mockup_01/02_two-slides/03_16x9). Kyle Macy method researched: mostly paid template libraries (Mockup Maison codes in his file names), agency-made images, and Figma exports, not AI.
+
 **Next session starts here**
 
-1. **Max pushes and reviews** everything since 10-23 (nothing pushed): Client Brands v2 + Beth Sholom squares, About (all copy reworked, Highlights removed), footer (rise-from-below animation, one-line type, centered arrow), Next link redesign, Fandom social gradients + stacked lockup on Dark Gray. Watch the footer on a real trackpad scroll and on a phone.
-2. **Max has more edits queued** — start there.
-3. **Client Brands:** confirm picks and crops, decide on left-out images, supply bigger files for soft images; subhead still says "DRAFT —".
-4. **Retire Campaigns files** (campaigns.html, content/campaigns.yml, assets/campaigns) — but make_cb2.py still reads Kayu/Beth originals from assets/campaigns, so move those first. Needs delete permission.
-5. **Fandom leftovers:** Black History Month logo file, Spot On / SGF video, draft subheads, slideshow link to #office-branding.
-6. **Alex AI:** homepage description, section grounds, clear "DRAFT —" subheads.
-7. Optional: scale the Next-link arrow down 20% to match the smaller title.
+1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).
+2. **NEW main task: Macy-style layout comparison.** Build a variant case-study template in the kylebmacy.com project-page style: every row is either one full-width landscape image or a full-width row split into two blocks, with generous, even padding around the edges, filling the screen dramatically. Build it on one real page (Fandom or Alex) so Max can compare it with the current template side by side before deciding. If he adopts it, the homepage and About need a consistency pass.
+   - Width: Macy's site scales without limit. Max leans toward stopping growth at about 1800 to 1920px but is open to unlimited if it's simpler. Claude recommended a cap near 1920 (images would otherwise need 3840px+ files to stay sharp on big screens); settle with Max.
+3. Verve: R0013766-1_02.jpg (gold VERVE on glass) unused; ask whether it replaces the window or espresso tile.
+4. Mockups are paused; when they resume, pick one of the three SoF keynote composites and place it.
+5. Older open items still stand: Client Brands picks/crops and "DRAFT —" subhead; retire Campaigns files (move Kayu/Beth originals first; needs delete permission); Fandom leftovers (BHM logo, Spot On/SGF video, draft subheads); Alex AI homepage description, grounds, "DRAFT —" subheads.
 
 **Further out**
 
