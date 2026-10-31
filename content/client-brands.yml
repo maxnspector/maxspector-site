@@ -10,6 +10,8 @@ title: Client Brands — Max Spector
 description: 'Brand identities for independent clients: Coffee Cultures, Verve Coffee Roasters, Venus Spirits, Craftsman and Wolves, The Brownie & Madam Optical Co., Kayu and Congregation Beth Sholom.'
 cover: cover-kayu.jpg
 frames: 'off'
+style: wide          # full-width layout, the site design (Max 2026-10-31)
+grounds_all: white   # section ground: lines below kept for reference / panel colors
 intro:
   eyebrow: Client Brands
   statement: The power of design is to make the hidden visible, the visible relevant, and the relevant of passionate concern. The job of design is to spark intrigue and curiosity—to captivate the user,

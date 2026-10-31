@@ -609,6 +609,7 @@ Session 3 (10-31) done: redirects confirmed; scroll-in row animation built and a
 
 - DONE: full-width is now the real Fandom page. `style: wide` + `grounds_all: white` moved into content/fandom-brand.yml (the `wide:` overrides stay on their blocks and now always apply). Output matches the approved fandom-full-width.html exactly, plus the Next link the test page lacked. /fandom-full-width and .html now 301 to /fandom-brand in _redirects. fandom-full-width.yml/.html left in place, unused (delete needs permission).
 - DONE (to review): Alex AI switched to full-width as a straight port (`style: wide`, `grounds_all: white`, no panels or re-pairing yet). Checked at 1440 and 390: every row 28px edge (16 on phones), no sideways scroll, no broken images, no script errors. alex.html is the page shared with hiring managers, so it changes live only when Max pushes.
+- DONE (to review): Client Brands switched to full-width as a straight port (`style: wide`, `grounds_all: white`). The 14px gap between pieces and 14px between rows inside a project are kept. Verve (#433C2A), Brownie & Madam (#32342A) and the cream projects now sit on white; their ground: lines stay in the file. Checked at 1440 and 390: 28px edge (16 on phones), no sideways scroll, all 46 images load, no script errors.
 - OPEN: the Next link and section headings still sit on the 1200 column (Next starts at x=528 on 1440) while rows run 28 to 1412. Part of the headings/intro alignment decision.
 
 **Done in session 3 (10-31)**
