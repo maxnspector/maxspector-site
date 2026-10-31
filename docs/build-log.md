@@ -599,13 +599,11 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
-1. **Max pushes and reviews** everything from the 10-28 to 10-31 session (list above).
-2. **Macy-style comparison — BUILT 10-31 as fandom-full-width.html.** Max pushes, compares with fandom-brand.html, decides. Open: GameSpot three-up (Macy uses only 1 or 2 per row), headings/intro width, busy flush pairs, larger exports if adopted.
-   Original brief: Build a variant case-study template in the kylebmacy.com project-page style: every row is either one full-width landscape image or a full-width row split into two blocks, with generous, even padding around the edges, filling the screen dramatically. Build it on one real page (Fandom or Alex) so Max can compare it with the current template side by side before deciding. If he adopts it, the homepage and About need a consistency pass.
-   - Width: Macy's site scales without limit. Max leans toward stopping growth at about 1800 to 1920px but is open to unlimited if it's simpler. Claude recommended a cap near 1920 (images would otherwise need 3840px+ files to stay sharp on big screens); settle with Max.
-3. Verve: R0013766-1_02.jpg (gold VERVE on glass) unused; ask whether it replaces the window or espresso tile.
-4. Mockups are paused; when they resume, pick one of the three SoF keynote composites and place it.
-5. Older open items still stand: Client Brands picks/crops and "DRAFT —" subhead; retire Campaigns files (move Kayu/Beth originals first; needs delete permission); Fandom leftovers (BHM logo, Spot On/SGF video, draft subheads); Alex AI homepage description, grounds, "DRAFT —" subheads.
+1. **After Max's push:** confirm /docs/build-log.md and /content/fandom-brand.yml now redirect to the homepage, and /fandom-full-width.html loads.
+2. **Scroll-in reveal (Max wants it).** Spec read from the reference site's CSS: a row below the screen sits at opacity 0, translateY(40px); on entering it transitions to 1 / 0 (transform 1s ease-in-out, opacity 0.8s ease-in-out); it re-hides when it drops back below the screen, so it animates again next time; rows above the screen stay shown. Build our own version per row (.cs-grid), respect prefers-reduced-motion, no flash on load for rows already in view. Note: an older `.reveal` class is on every block already (styles currently static) — reuse or replace it.
+3. **Full-width becomes the site design (Max, 10-31).** Make it the default on fandom-brand (move `style: wide`, `grounds_all: white`, the `wide:` overrides into the real page; retire fandom-full-width), then Alex AI, Client Brands, homepage and About. Decide headings/intro alignment with the 28px edge. Ask Max per page where panels go and which rows pair or go 3-up.
+4. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
+5. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files; Fandom leftovers; Alex AI homepage description and subheads.
 
 **Further out**
 
