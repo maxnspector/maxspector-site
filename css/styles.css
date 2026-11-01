@@ -593,7 +593,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 .cs-wide .cs-media{padding:clamp(56px, 7vw, 100px) 0 var(--wide-edge);}
 .cs-wide .cs-media > .wrap > .cs-head{width:100%;justify-self:stretch;align-items:flex-start;text-align:left;
   gap:24px;margin-bottom:clamp(48px, 7vw, 100px);padding-top:18px;border-top:1px solid currentColor;}
-.cs-wide .cs-media .cs-h{font-size:clamp(36px, 4.45vw, 64px);line-height:1.15;letter-spacing:-.01em;}
+.cs-wide .cs-media .cs-h{font-size:clamp(30px, 3.75vw, 54px);line-height:1;letter-spacing:-.01em;}  /* Max 2026-11-01: 54 / 100% (was 64 / 115%) */
 .cs-wide .cs-media .cs-hsub{font-style:italic;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.5px;
   max-width:none;text-box-trim:none;}
 .cs-wide .cs-head-split{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:var(--row-gap);
