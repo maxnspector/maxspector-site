@@ -96,7 +96,6 @@ sections:
       alt: 'Social card: interview everyone, hire the best, over a recruiter at a laptop'
     - img: social-candidate.jpg
       alt: 'Social card: interview everyone, hire the best, over a candidate on the phone'
-    gap: 0
   - layout: grid-2
     items:
     - img: brand-art-a.jpg

@@ -590,7 +590,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
    the header to the first row; sections start 100 below the previous row + 28.
    `head: split` (93:31699) puts the heading in the left half and the section's
    first block in the right half, both starting 18 under the rule. */
-.cs-wide .cs-media{padding:clamp(56px, 7vw, 100px) 0 var(--wide-edge);}
+.cs-wide .cs-media{padding:clamp(106px, calc(7vw + 50px), 150px) 0 var(--wide-edge);}  /* Max 2026-11-01: +50 above every section rule (was 56-100) */
 .cs-wide .cs-media > .wrap > .cs-head{width:100%;justify-self:stretch;align-items:flex-start;text-align:left;
   gap:24px;margin-bottom:clamp(48px, 7vw, 100px);padding-top:18px;border-top:1px solid currentColor;}
 .cs-wide .cs-media .cs-h{font-size:clamp(30px, 3.75vw, 54px);line-height:1;letter-spacing:-.01em;}  /* Max 2026-11-01: 54 / 100% (was 64 / 115%) */
@@ -633,3 +633,12 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 @media (max-width:860px){
   .cs-wide .cs-media > .wrap > .cs-head > *,.cs-wide .cs-head-split > .cs-head > *{max-width:100%;}
 }
+
+/* `class: panel-solo` (Max 2026-11-01): a panel that keeps its full padding and
+   stays a separate field even when the next block is also a panel. */
+.cs-wide .cs-media .cs-grid.cs-panel.panel-solo{padding:var(--panel-pad)!important;}
+.cs-wide .cs-media .cs-grid.cs-panel.panel-solo + .cs-grid.cs-panel{margin-top:var(--row-gap)!important;padding-top:var(--panel-pad);}
+
+/* `frame: true` on full-width pages (Max 2026-11-01): a light hairline round a
+   piece whose own background matches the page (e.g. Alex "interview everyone"). */
+.cs-wide .cs-media .cs-grid .cs-img.framed{border:1px solid rgba(84,94,61,.2);}

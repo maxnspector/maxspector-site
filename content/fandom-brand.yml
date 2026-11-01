@@ -101,7 +101,7 @@ css: |
   /* GameSpot homepage mock: 1px white keyline */
   .cs-img.has-img:has(img[src$="gs-homepage.jpg"]){border:1px solid #FFFFFF!important;box-sizing:border-box}
   /* GameSpot core UI: a product-style component sheet beside the homepage */
-  .cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#F9EDD8!important;color:#1E1E1E!important}
+  .cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#fff!important;color:#1E1E1E!important;border:1px dashed #9747FF!important;border-radius:.6cqw!important}   /* Max 2026-11-01: white, with the inner boxes' dashed border */
   .gs-ui *{box-sizing:border-box}
   .gs-ui>*+*{margin-top:4.6cqw}
   .gs-ui>.hd+*{margin-top:5.6cqw}
@@ -290,11 +290,6 @@ sections:
     - video: motion-love-of-fans
       alt: For the love of fans, the brand tagline animated
       ratio: video
-  - layout: full
-    items:
-    - video: motion-persona-network
-      alt: The Fandom personas connecting into a network
-      ratio: video
   - layout: grid-2
     wide: {cols: 1fr 1.778fr}   # square pattern + 16:9, same height
     items:
@@ -304,6 +299,11 @@ sections:
       wide_aspect: 1/1
     - video: motion-by-the-numbers
       alt: By the Numbers show open
+      ratio: video
+  - layout: full
+    items:
+    - video: motion-persona-network
+      alt: The Fandom personas connecting into a network
       ratio: video
 
 - heading: Social Content
@@ -331,6 +331,8 @@ sections:
   ground: '#3A434B'
   blocks:
   - layout: full
+    class: panel-solo   # Max 2026-11-01: ample padding around the collage; its own panel, not joined to the slides below
+    wide: {panel: '#3A434B'}
     items:
     - {img: pres-template-collage-v2.jpg, alt: Fandom presentation template system, title and section slides, aspect: 2400/1600}
   - layout: grid-2
@@ -442,6 +444,8 @@ sections:
       aspect: 1584/1742
 
 - heading: Events
+  head: split
+  split_block: 8   # Max 2026-11-01: welcome wall in the right half, the SDCC key art follows full width
   subhead: Fandom has had a prominent presence in major entertainment and gaming events for over a decade.
   ground: white
   blocks:
@@ -450,14 +454,12 @@ sections:
     - {img: ev-sdcc-hero.jpg, alt: Fandom Party at San Diego Comic-Con 2023 key art, presented by Paramount Plus, ratio: video}
   - layout: grid-2
     items:
-    - {img: ev-sdcc-wall.jpg, alt: The welcome wall design for the Fandom party}
-    - {img: ev-sdcc-04.jpg, alt: Guests at the Fandom party under the neon flame mark}
-  - layout: grid-2
-    items:
     - {img: ev-sdcc-grid-b.jpg, alt: "Fan Central Arcade signage, pillows and party graphics"}
     - {img: ev-sdcc-grid-a.jpg, alt: Stairs painted with For the Love of Fans}
-  - layout: full
+  - layout: grid-2   # Max 2026-11-01: ev-sdcc-04 lost its partner to the header; paired with ev-sdcc-03, same height
+    wide: {cols: 1fr 1.167fr}
     items:
+    - {img: ev-sdcc-04.jpg, alt: Guests at the Fandom party under the neon flame mark, aspect: 1/1}
     - {img: ev-sdcc-03.jpg, alt: A guest in costume holding up her 2023 party lanyard, aspect: 2117/1814}
   - layout: grid-2
     items:
@@ -478,3 +480,6 @@ sections:
     items:
     - {img: ev-nycc-12.jpg, alt: Happy Birthday Fandom graphic, ratio: photo}
     - {img: ev-nycc-13.jpg, alt: A guest at the Fandom party photo wall, ratio: photo}
+  - layout: full   # right half of the two-column header
+    items:
+    - {img: ev-sdcc-wall.jpg, alt: The welcome wall design for the Fandom party, aspect: 1/1}

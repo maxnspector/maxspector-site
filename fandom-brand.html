@@ -88,7 +88,7 @@
 /* GameSpot homepage mock: 1px white keyline */
 .cs-img.has-img:has(img[src$="gs-homepage.jpg"]){border:1px solid #FFFFFF!important;box-sizing:border-box}
 /* GameSpot core UI: a product-style component sheet beside the homepage */
-.cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#F9EDD8!important;color:#1E1E1E!important}
+.cs-html.gs-ui{padding:4.5%;justify-content:flex-start;font-family:'Kanit';letter-spacing:normal;background:#fff!important;color:#1E1E1E!important;border:1px dashed #9747FF!important;border-radius:.6cqw!important}   /* Max 2026-11-01: white, with the inner boxes' dashed border */
 .gs-ui *{box-sizing:border-box}
 .gs-ui>*+*{margin-top:4.6cqw}
 .gs-ui>.hd+*{margin-top:5.6cqw}
@@ -277,12 +277,12 @@
     <div class="cs-grid reveal">
       <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-love-of-fans-poster.jpg" aria-label="For the love of fans, the brand tagline animated"><source src="/assets/fandom-brand/motion-love-of-fans.mp4" type="video/mp4"></video></div>
     </div>
-    <div class="cs-grid reveal">
-      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-persona-network-poster.jpg" aria-label="The Fandom personas connecting into a network"><source src="/assets/fandom-brand/motion-persona-network.mp4" type="video/mp4"></video></div>
-    </div>
     <div class="cs-grid cs-grid-2 has-cols reveal" style="--cols:1fr 1.778fr">
       <div class="cs-img has-img video" style="aspect-ratio:1/1"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-mark-pattern-poster.jpg" aria-label="The flame mark repeated as a moving pattern"><source src="/assets/fandom-brand/motion-mark-pattern.mp4" type="video/mp4"></video></div>
       <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-by-the-numbers-poster.jpg" aria-label="By the Numbers show open"><source src="/assets/fandom-brand/motion-by-the-numbers.mp4" type="video/mp4"></video></div>
+    </div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img video"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/motion-persona-network-poster.jpg" aria-label="The Fandom personas connecting into a network"><source src="/assets/fandom-brand/motion-persona-network.mp4" type="video/mp4"></video></div>
     </div>
   </div>
 </section>
@@ -312,7 +312,7 @@
       <h2 class="cs-h">Presentation Design</h2>
       <p class="cs-hsub">The business of making people forget they’re viewing a slide deck.</p>
     </div>
-    <div class="cs-grid reveal">
+    <div class="cs-grid panel-solo cs-panel reveal" style="background:#3A434B">
       <div class="cs-img has-img" style="aspect-ratio:2400/1600"><img src="/assets/fandom-brand/pres-template-collage-v2.jpg" alt="Fandom presentation template system" loading="lazy"></div>
     </div>
     <div class="cs-grid cs-grid-2 cs-panel reveal" style="background:#3A434B;margin-top:clamp(40px,6.67vw,96px)">
@@ -396,22 +396,24 @@
 
 <section class="cs-light is-white cs-media" id="events">
   <div class="wrap">
-    <div class="cs-head reveal">
+    <div class="cs-head-split">
+    <div class="cs-head">
       <h2 class="cs-h">Events</h2>
       <p class="cs-hsub">Fandom has had a prominent presence in major entertainment and gaming events for over a decade.</p>
+    </div>
+    <div class="cs-grid reveal">
+      <div class="cs-img has-img" style="aspect-ratio:1/1"><img src="/assets/fandom-brand/ev-sdcc-wall.jpg" alt="The welcome wall design for the Fandom party" loading="lazy"></div>
+    </div>
     </div>
     <div class="cs-grid reveal">
       <div class="cs-img has-img video"><img src="/assets/fandom-brand/ev-sdcc-hero.jpg" alt="Fandom Party at San Diego Comic-Con 2023 key art" loading="lazy"></div>
     </div>
     <div class="cs-grid cs-grid-2 reveal">
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-wall.jpg" alt="The welcome wall design for the Fandom party" loading="lazy"></div>
-      <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-04.jpg" alt="Guests at the Fandom party under the neon flame mark" loading="lazy"></div>
-    </div>
-    <div class="cs-grid cs-grid-2 reveal">
       <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-grid-b.jpg" alt="Fan Central Arcade signage, pillows and party graphics" loading="lazy"></div>
       <div class="cs-img has-img"><img src="/assets/fandom-brand/ev-sdcc-grid-a.jpg" alt="Stairs painted with For the Love of Fans" loading="lazy"></div>
     </div>
-    <div class="cs-grid reveal">
+    <div class="cs-grid cs-grid-2 has-cols reveal" style="--cols:1fr 1.167fr">
+      <div class="cs-img has-img" style="aspect-ratio:1/1"><img src="/assets/fandom-brand/ev-sdcc-04.jpg" alt="Guests at the Fandom party under the neon flame mark" loading="lazy"></div>
       <div class="cs-img has-img" style="aspect-ratio:2117/1814"><img src="/assets/fandom-brand/ev-sdcc-03.jpg" alt="A guest in costume holding up her 2023 party lanyard" loading="lazy"></div>
     </div>
     <div class="cs-grid cs-grid-2 reveal">
