@@ -276,7 +276,17 @@ def section(s, slug):
     # `bleed` blocks live OUTSIDE the .wrap so they are full-width by structure,
     # with no 100vw maths that a scrollbar can push past the viewport.
     parts, buf = [], ([head] if head else [])
-    for b in s['blocks']:
+    blocks = list(s['blocks'])
+    # `head: split` (Max 2026-11-01, Figma 93:31699 "Two-Column Header Row"):
+    # the heading takes the left half and the section's first block sits in the
+    # right half, both under the one rule. Only on `style: wide` pages.
+    if head and s.get('head') == 'split' and blocks:
+        # `split_block: N` lifts block N (0-based) into the right half instead,
+        # so a wide opener can stay as the first full-width row underneath.
+        first = blocks.pop(int(s.get('split_block', 0)))
+        buf = ['    <div class="cs-head-split">\n' + head.replace('class="cs-head reveal"', 'class="cs-head"')
+               + '\n' + block(first, slug) + '\n    </div>']
+    for b in blocks:
         if b['layout'] in BLEED:
             if buf:
                 parts.append('  <div class="wrap">\n' + '\n'.join(buf) + '\n  </div>')

@@ -29,6 +29,8 @@ lead:
       speed: 1.2
 sections:
 - heading: Brand Identity
+  head: split
+  split_block: 3
   subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
   - layout: feature
@@ -89,6 +91,7 @@ sections:
     - img: billboard-subway.jpg
       alt: Interview everyone, hire the best subway billboard
       ratio: wide
+      wide_aspect: 2400/1710  # shown whole in the split header (Max 2026-11-01)
   - layout: grid-2
     items:
     - img: social-recruiter.jpg
@@ -108,6 +111,8 @@ sections:
     - img: brand-art-e.jpg
       alt: Brand art, a painted circle around the Alex mark
 - heading: Feature Animations
+  head: split
+  split_block: 1
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
   - layout: grid-3
@@ -204,6 +209,8 @@ sections:
         pad: 0.04
         zoom: 0.95
 - heading: Brand in the World
+  head: split
+  split_block: 1
   subhead: How Alex shows up for candidates and customers. Photography, office signage, swag, and sales materials.
   blocks:
   - layout: grid-3
@@ -222,6 +229,7 @@ sections:
     - img: signage-entry.jpg
       alt: Alex logo on a dark slatted wall in an office reception
       ratio: wide
+      wide_aspect: 1200/1054  # shown whole in the split header (Max 2026-11-01)
   - layout: full
     items:
     - img: sales-deck-overview.jpg

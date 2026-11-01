@@ -261,6 +261,7 @@ sections:
       aspect: 600/360
 
 - heading: Styles and Image Treatments
+  head: split
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
   ground: white
   flush_bottom: true   # the character/icon pair runs to the section's end
@@ -327,6 +328,7 @@ sections:
     - {img: social-stories-trio.jpg, alt: "Andor social takeover, Sonic's top speed story, and Guess the Higher Metascore story", aspect: 2400/1239}
 
 - heading: Presentation Design
+  head: split
   subhead: The business of making people forget they’re viewing a slide deck.
   ground: '#3A434B'
   blocks:
@@ -442,6 +444,8 @@ sections:
       aspect: 1584/1742
 
 - heading: Events
+  head: split
+  split_block: 3
   subhead: Fandom has had a prominent presence in major entertainment and gaming events for over a decade.
   ground: white
   blocks:

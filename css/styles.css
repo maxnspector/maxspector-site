@@ -581,3 +581,42 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 .cs-wide .cs-media .cs-grid.cs-panel{padding:var(--panel-pad);gap:var(--panel-gap);}
 .cs-wide .cs-media .cs-grid.cs-panel + .cs-grid.cs-panel{margin-top:0!important;padding-top:var(--panel-gap);}
 .cs-wide .cs-media .cs-grid.cs-panel:has(+ .cs-grid.cs-panel){padding-bottom:0;}
+
+/* ===== SECTION HEADERS, full-width pages (Max 2026-11-01, Figma 92:30112) =====
+   Edge to Edge Header Row (92:30137): a 1px rule across the full image width,
+   18px down to the heading, left-aligned. Heading Playfair Light 64 (opsz 35,
+   wdth 103), 1.15 leading, -0.01em, cap-trimmed. Subhead Poppins Medium Italic
+   14, 1.4 leading, 0.5px tracking, untrimmed, 24 below the heading. 100px from
+   the header to the first row; sections start 100 below the previous row + 28.
+   `head: split` (93:31699) puts the heading in the left half and the section's
+   first block in the right half, both starting 18 under the rule. */
+.cs-wide .cs-media{padding:clamp(56px, 7vw, 100px) 0 var(--row-gap);}
+.cs-wide .cs-media > .wrap > .cs-head{width:100%;justify-self:stretch;align-items:flex-start;text-align:left;
+  gap:24px;margin-bottom:clamp(48px, 7vw, 100px);padding-top:18px;border-top:1px solid currentColor;}
+.cs-wide .cs-media .cs-h{font-size:clamp(36px, 4.45vw, 64px);line-height:1.15;letter-spacing:-.01em;}
+.cs-wide .cs-media .cs-hsub{font-style:italic;font-weight:500;font-size:14px;line-height:1.4;letter-spacing:.5px;
+  max-width:none;text-box-trim:none;}
+.cs-wide .cs-head-split{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:var(--row-gap);
+  align-items:start;padding-top:18px;border-top:1px solid currentColor;}
+.cs-wide .cs-head-split > .cs-head{grid-column:1;width:auto;margin:0;gap:24px;align-items:flex-start;text-align:left;}
+.cs-wide .cs-media .cs-head-split > .cs-grid.cs-grid{grid-column:2;margin:0!important;}
+.cs-wide .cs-media .cs-head-split + .cs-grid,.cs-wide .cs-media .cs-head-split + .wrap{margin-top:var(--row-gap);}
+@media (max-width:860px){
+  .cs-wide .cs-head-split{grid-template-columns:1fr;row-gap:clamp(48px, 7vw, 100px);}
+  .cs-wide .cs-media .cs-head-split > .cs-grid.cs-grid{grid-column:1;}
+}
+
+/* ===== INTRO, full-width pages (Max 2026-11-01, Figma 92:30122) =====
+   The intro becomes an inset cream box: same width as the image rows, 28 below
+   the cover, padding 100 top/bottom and 120 at the sides. Statement column 739
+   (label 30 above the statement), 126 of air, meta column 282 (blocks 42 apart,
+   label 16 above body). Centered in the box as in the file. */
+.cs-wide #intro.cs-light{background:transparent;padding:var(--row-gap) 0 0;}
+.cs-wide #intro > .cs-intro{width:var(--wide);margin-inline:auto;background:var(--paper-2);
+  padding:clamp(48px, 7vw, 100px) clamp(20px, 8.33vw, 120px);
+  display:grid;grid-template-columns:minmax(0,739px) minmax(0,282px);column-gap:126px;justify-content:center;align-items:start;}
+.cs-wide #intro .cs-intro-statement,.cs-wide #intro .cs-intro-meta{grid-column:auto;}
+@media (max-width:860px){
+  .cs-wide #intro > .cs-intro{grid-template-columns:1fr;row-gap:40px;}
+  .cs-wide #intro .cs-intro-meta{margin-top:0;}
+}

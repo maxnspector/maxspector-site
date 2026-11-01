@@ -58,6 +58,7 @@ sections:
       aspect: 1440/800
     space: 14
 - heading: Verve Coffee Roasters
+  head: split
   subhead: The logo that launched a single-origin revolutionary and pioneer in coffee's third wave.
   ground: '#433C2A'
   blocks:
@@ -97,6 +98,7 @@ sections:
       alt: Client logos and marks
       aspect: 1/1
 - heading: Venus Spirits
+  head: split
   subhead: A small batch of organic grain. A maker of spirits in the ocean air. Integrity. Time. Maturity. The risks of the unknown, the rewards of promise.
   ground: white
   blocks:
@@ -132,6 +134,8 @@ sections:
       aspect: 1440/800
     space: 14
 - heading: Craftsman and Wolves
+  head: split
+  split_block: 2
   subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
   ground: cream
   blocks:
@@ -216,6 +220,7 @@ sections:
       alt: Client logos and marks
       aspect: 1/1
 - heading: Kayu
+  head: split
   subhead: 'DRAFT — A brand world for handmade bags from Southeast Asia: postcards, catalog, and packaging.'
   ground: cream
   blocks:
@@ -248,6 +253,8 @@ sections:
       aspect: 2400/1553
     space: 14
 - heading: Congregation Beth Sholom
+  head: split
+  split_block: 2
   subhead: 'DRAFT — Unite + Ignite, a campaign brand for a 100-year-old congregation: brochure, courtyard and capital campaign.'
   ground: cream
   blocks:

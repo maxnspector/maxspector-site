@@ -599,17 +599,30 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
-Session 3 (10-31) done: redirects confirmed; scroll-in row animation built and approved (see the build entry below the list). Push pending if not yet done.
+Session 4 (10-31, evening) wrapped. Fandom, Alex AI and Client Brands are all on the full-width layout. Client Brands: all white, no panels (Max chose this). Max pushes and reviews if not yet done.
 
-1. **Full-width becomes the site design (Max, 10-31).** Make it the default on fandom-brand (move `style: wide`, `grounds_all: white`, the `wide:` overrides into the real page; retire fandom-full-width), then Alex AI, Client Brands, homepage and About. Decide headings/intro alignment with the 28px edge. Ask Max per page where panels go and which rows pair or go 3-up. Homepage and About are hand-built (not the template): add the scroll-in there (same CSS + JS as templates/case-study.html).
-2. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
-3. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files; Fandom leftovers; Alex AI homepage description and subheads.
+1. **Alex AI decisions (asked, not answered):** panel the three Feature Animation cards (suggested), maybe the 2x2 brand art grid; leave the full-width animations single or pair Cheat detection + Workflow (test first).
+2. **Headings, intro and Next link alignment** with the 28px edge, or keep them on the centered 1200 column. Affects every page, so decide before the homepage/About pass.
+3. **Homepage and About** get the full-width consistency pass and the scroll-in (same CSS + JS as templates/case-study.html; they are hand-built).
+4. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
+5. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files and fandom-full-width.yml/.html (need delete permission); Fandom leftovers; Alex AI homepage description and subheads.
+
+**Session 5 (11-01): new section headers (Figma 92:30112)**
+
+- DONE: every section header on full-width pages (Alex AI, Fandom, Client Brands) now follows Max's Figma. **Edge to Edge** (92:30137): a 1px rule across the image width, heading 18 below, left-aligned; Playfair Light 64 (opsz 35, wdth 103), 1.15 leading, -0.01em, cap-trimmed; subhead Poppins Medium Italic 14, 1.4 leading, 0.5px, 24 below; 100 to the first row. Sections start 100 below the previous section's last row + 28. Phones: heading 36, gaps scale down to 56/48. CSS under "SECTION HEADERS" at the end of styles.css. This replaces the centered 1200-column headings on these pages.
+- DONE: **Two-Column header** (93:31699): `head: split` on a section puts the heading in the left half and one block in the right half, both 18 under the rule (678 + 28 + 678 at 1440); stacks on phones. `split_block: N` lifts block N into the right half so a wide opener stays as the first full-width row below. Right-half pieces must be 3:2 or squarer (Max's rule).
+- DONE (Max approved the list): two-column on 11 sections. Alex: Brand Identity (subway billboard), Feature Animations (Verify animation), Brand in the World (lobby signage). Billboard and signage now show whole in the split (`wide_aspect`), not the 1.6 `ratio: wide` crop. Fandom: Styles (personas), Presentation (collage), Events (SDCC 03). Client Brands: Verve, Venus, Kayu (their heroes), Craftsman & Wolves (coast), Beth Sholom (Unity spread).
+- Edge-to-edge for now (no piece fits without breaking a composed pair/trio/2x2): Fandom Core Brand Elements, Motion, Social, Sub-Brands, State of Fandom, GameSpot; Client Brands Coffee Cultures, Brownie & Madam, both logo sections. Max may export 3:2-or-squarer versions of the openers later.
+- Alex Feature Animation cards: three across with 28 gutters and edges (Max's call); they already were, no change.
+- Verified by render at 1440 and 390 on all three pages: rule 28 to 1412, heading 18 under the rule, subhead 24 under the heading, 100 to the first row, split columns 28-706 / 734-1412, every split piece at 3:2 or squarer, 28 (16 on phones) to the next row, 0px horizontal overflow, no script errors. Not pushed.
+- DONE (Max approved): intro is now an inset cream box (Figma 92:30122) on full-width pages: image-row width, 28 below the cover, padding 100/120, statement column 739 + 126 air + meta column 282, centered; label 30 above statement, meta blocks 42 apart, label 16 above body. Verified at 1440: box 28-1412, statement starts 148, meta 1010-1292, 100 from box to the first section rule; at 1920 the columns center in the box; at 390 it stacks with 32 side padding. 0px overflow, no script errors. CSS under "INTRO, full-width pages". Not pushed. Homepage and About still need the consistency pass.
 
 **Session 4 (10-31, evening)**
 
 - DONE: full-width is now the real Fandom page. `style: wide` + `grounds_all: white` moved into content/fandom-brand.yml (the `wide:` overrides stay on their blocks and now always apply). Output matches the approved fandom-full-width.html exactly, plus the Next link the test page lacked. /fandom-full-width and .html now 301 to /fandom-brand in _redirects. fandom-full-width.yml/.html left in place, unused (delete needs permission).
 - DONE (to review): Alex AI switched to full-width as a straight port (`style: wide`, `grounds_all: white`, no panels or re-pairing yet). Checked at 1440 and 390: every row 28px edge (16 on phones), no sideways scroll, no broken images, no script errors. alex.html is the page shared with hiring managers, so it changes live only when Max pushes.
 - DONE (to review): Client Brands switched to full-width as a straight port (`style: wide`, `grounds_all: white`). The 14px gap between pieces and 14px between rows inside a project are kept. Verve (#433C2A), Brownie & Madam (#32342A) and the cream projects now sit on white; their ground: lines stay in the file. Checked at 1440 and 390: 28px edge (16 on phones), no sideways scroll, all 46 images load, no script errors.
+- DECIDED: Client Brands stays all white, no panels.
 - OPEN: the Next link and section headings still sit on the 1200 column (Next starts at x=528 on 1440) while rows run 28 to 1412. Part of the headings/intro alignment decision.
 
 **Done in session 3 (10-31)**
