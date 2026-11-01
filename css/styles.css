@@ -573,7 +573,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 .cs-wide .cs-media .cs-grid[style*="margin-top"]:not([style*="clamp(0px"]){margin-top:var(--row-gap)!important;}
 /* Edge-to-edge blocks take the same edge as everything else. */
 .cs-wide .cs-media > .cs-grid-bleed{width:var(--wide);margin-inline:auto;}
-.cs-wide .cs-media.cs-flush-bottom{padding-bottom:72px;}
+.cs-wide .cs-media.cs-flush-bottom{padding-bottom:var(--wide-edge);}
 /* Panels (`panel: '#hex'` on a block): a tinted field with padding of 8% of its
    width on every side, and a tighter gutter between the pieces inside. Two
    panels in a row join into one field. */
@@ -590,7 +590,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
    the header to the first row; sections start 100 below the previous row + 28.
    `head: split` (93:31699) puts the heading in the left half and the section's
    first block in the right half, both starting 18 under the rule. */
-.cs-wide .cs-media{padding:clamp(56px, 7vw, 100px) 0 var(--row-gap);}
+.cs-wide .cs-media{padding:clamp(56px, 7vw, 100px) 0 var(--wide-edge);}
 .cs-wide .cs-media > .wrap > .cs-head{width:100%;justify-self:stretch;align-items:flex-start;text-align:left;
   gap:24px;margin-bottom:clamp(48px, 7vw, 100px);padding-top:18px;border-top:1px solid currentColor;}
 .cs-wide .cs-media .cs-h{font-size:clamp(36px, 4.45vw, 64px);line-height:1.15;letter-spacing:-.01em;}
@@ -611,12 +611,25 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
    the cover, padding 100 top/bottom and 120 at the sides. Statement column 739
    (label 30 above the statement), 126 of air, meta column 282 (blocks 42 apart,
    label 16 above body). Centered in the box as in the file. */
-.cs-wide #intro.cs-light{background:transparent;padding:var(--row-gap) 0 0;}
-.cs-wide #intro > .cs-intro{width:var(--wide);margin-inline:auto;background:var(--paper-2);
-  padding:clamp(48px, 7vw, 100px) clamp(20px, 8.33vw, 120px);
-  display:grid;grid-template-columns:minmax(0,739px) minmax(0,282px);column-gap:126px;justify-content:center;align-items:start;}
+.cs-wide #intro.cs-light{background:transparent;padding:var(--wide-edge) 0;}
+/* REVISED same day (Max, Figma 92:30122 v2): no cream box. Statement column
+   650, 126 of air, meta 282, the group centered in the row width (163 in from
+   the 28 edge at 1440, so 191 from the window), 100 above and below. */
+.cs-wide #intro > .cs-intro{width:var(--wide);margin-inline:auto;background:none;
+  padding:clamp(48px, 7vw, 100px) clamp(0px, 4vw, 120px);
+  display:grid;grid-template-columns:minmax(0,650px) minmax(0,282px);column-gap:clamp(40px, 8.75vw, 126px);justify-content:center;align-items:start;}
 .cs-wide #intro .cs-intro-statement,.cs-wide #intro .cs-intro-meta{grid-column:auto;}
 @media (max-width:860px){
   .cs-wide #intro > .cs-intro{grid-template-columns:1fr;row-gap:40px;}
   .cs-wide #intro .cs-intro-meta{margin-top:0;}
+}
+
+/* Header text width (Max 2026-11-01): headings and subheads never run the full
+   width. Edge-to-edge headers stop at half the row; in the two-column header the
+   text rags inside the left 60% of its column, leaving 40% open. The rule
+   above stays full width. */
+.cs-wide .cs-media > .wrap > .cs-head > *{max-width:50%;}
+.cs-wide .cs-head-split > .cs-head > *{max-width:60%;}
+@media (max-width:860px){
+  .cs-wide .cs-media > .wrap > .cs-head > *,.cs-wide .cs-head-split > .cs-head > *{max-width:100%;}
 }

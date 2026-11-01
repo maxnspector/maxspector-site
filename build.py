@@ -384,6 +384,11 @@ def build(slug):
     # full window, with an even edge, flush splits, and growth capped at 1920px.
     if str(page.get('style', '')).lower() == 'wide':
         out = out.replace('<body class="cs-page', '<body class="cs-wide cs-page', 1)
+        # `row_gap: N` (Max 2026-11-01): one spacing for the whole page — between
+        # side-by-side pieces, between rows, and in the split header — so a page
+        # set tighter (Client Brands, 14) lines up everywhere.
+        if page.get('row_gap') is not None:
+            out = out.replace('<body class="cs-wide', f'<body style="--row-gap:{int(page["row_gap"])}px" class="cs-wide', 1)
     # `theme: dark` (Max 2026-10-31): the whole page on the homepage/About dark
     # green — intro, sections (use with `grounds_all: dark`), next link, footer.
     # Dropping the cs-page class lets the footer and next link take the site's
