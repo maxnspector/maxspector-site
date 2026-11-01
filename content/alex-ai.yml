@@ -29,8 +29,6 @@ lead:
       speed: 1.2
 sections:
 - heading: Brand Identity
-  head: split
-  split_block: 3
   subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
   - layout: feature
@@ -111,8 +109,6 @@ sections:
     - img: brand-art-e.jpg
       alt: Brand art, a painted circle around the Alex mark
 - heading: Feature Animations
-  head: split
-  split_block: 1
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
   - layout: grid-3
@@ -209,8 +205,6 @@ sections:
         pad: 0.04
         zoom: 0.95
 - heading: Brand in the World
-  head: split
-  split_block: 1
   subhead: How Alex shows up for candidates and customers. Photography, office signage, swag, and sales materials.
   blocks:
   - layout: grid-3

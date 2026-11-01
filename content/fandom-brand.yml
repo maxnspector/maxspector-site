@@ -261,7 +261,6 @@ sections:
       aspect: 600/360
 
 - heading: Styles and Image Treatments
-  head: split
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.
   ground: white
   flush_bottom: true   # the character/icon pair runs to the section's end
@@ -328,7 +327,6 @@ sections:
     - {img: social-stories-trio.jpg, alt: "Andor social takeover, Sonic's top speed story, and Guess the Higher Metascore story", aspect: 2400/1239}
 
 - heading: Presentation Design
-  head: split
   subhead: The business of making people forget they’re viewing a slide deck.
   ground: '#3A434B'
   blocks:
@@ -381,7 +379,7 @@ sections:
   - layout: full
     space: 96
     items:
-    - {img: sof-hero-whats-next.jpg, alt: "State of Fandom slide: What's next?", aspect: 16/9}
+    - {img: sof-keynote-whats-next.jpg, alt: "State of Fandom keynote: the What's next? slide on stage before an audience", aspect: 3680/2494}   # Max 2026-11-01: SoF_keynote_mockup_04 replaces the flat slide
   - layout: flush-pair-bleed   # edge to edge (Max 2026-10-28)
     space: 96
     items:
@@ -444,8 +442,6 @@ sections:
       aspect: 1584/1742
 
 - heading: Events
-  head: split
-  split_block: 3
   subhead: Fandom has had a prominent presence in major entertainment and gaming events for over a decade.
   ground: white
   blocks:
