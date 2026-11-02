@@ -612,6 +612,11 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 - Alex: social cards 28 apart; light hairline on framed pieces (`frame: true` works on wide pages).
 - Figma: "Social post mockup — 3 up (1920x1080)" template + "Social post card" component on the Fandom page (x 21300), for Max to fill and export.
 
+**Session 6 (11-01)**
+- Fandom type sheet, Space Mono panel (Max): the slash and the two divider lines under the stats are now full brand yellow (#FFC500), like every other foreground element on that panel (were 40% / 35% see-through). Not pushed.
+- Fandom Core Brand Elements (Max): logo row and palette each 20% shorter (row height 510 -> 408, palette 1200/440 -> 1200/352). Logos ~15% smaller (pad 15 -> 20 cream, 27 -> 20 dark gray). Measured at 1440: row 471 tall (was 588), palette 406; wordmark 498 wide (was 581), stacked lockup 249 tall (was 293). Phones unchanged. Not pushed.
+- Fandom personas illustration (Max): 10% smaller, centered with more white each side, via new block option `width: 90%` (build.py now takes a % as well as px). Measured at 1440: 1246 wide (was 1384), 97 each side (was 28), 821 tall; phones 322 wide, 34 each side. 0px overflow. Not pushed.
+
 **Next**
 1. Max pushes and reviews session 5 on the live site; take his fixes.
 2. More two-column headers as Max supplies square/tall pieces (Kayu, Beth Sholom, Alex, other Fandom sections).

@@ -159,7 +159,10 @@ def block(b, slug):
         # `width: 792` narrows one block and centers it in the column (Max 2026-10-17:
         # loud pieces sit smaller, with air round them). `space: 96` sets the gap above it.
         if b.get('width'):
-            style = (style + ';' if style else '') + f'width:100%;max-width:{b["width"]}px;justify-self:center'
+            # `width: 90%` (Max 2026-11-01) narrows by a share of the row instead,
+            # so it scales with the fluid full-width rows.
+            w = str(b['width']); w = w if w.endswith('%') else f'{w}px'
+            style = (style + ';' if style else '') + f'width:100%;max-width:{w};justify-self:center;margin-inline:auto'
         # `panel: '#hex'` (Max 2026-10-31): the row sits in a tinted panel with
         # generous inner padding, so cards and slides get room around them.
         # Back-to-back panels of the same block run read as one panel.
