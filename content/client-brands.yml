@@ -158,8 +158,7 @@ sections:
     - img: v2/caw-interior.jpg   # Max 2026-11-01: CAW_interior_01.jpg
       alt: Inside the Craftsman and Wolves shop, pastry case under a wood-beamed ceiling
       aspect: 1/1
-  - layout: grid-2   # Max 2026-11-01: monogram + wolf squares, mug (vertical) on the right, one height
-    wide: {cols: 1fr 1fr 0.8125fr}
+  - layout: grid-2   # monogram + wolf (Max's separate files)
     items:
     - img: v2/caw-monogram.jpg
       alt: Craftsman and Wolves monogram in gold on dark
@@ -167,18 +166,15 @@ sections:
     - img: v2/caw-wolf.jpg
       alt: Craftsman and Wolves wolf mark on gold
       aspect: 1/1
-    - img: v2/caw-mug-01.jpg   # Max 2026-11-01: correct file, CAW_mug_01.jpg
-      alt: Craftsman and Wolves enamel steel mug
-      aspect: 1300/1600
-  - layout: grid-2   # Max 2026-11-01: coast + poster, same height, both shown whole
-    wide: {cols: 1.481fr 0.667fr}   # coast + poster at one height
+  - layout: grid-2   # Max 2026-11-01: coast + mug, same height, both shown whole (poster removed)
+    wide: {cols: 1.481fr 0.8125fr}
     items:
     - img: v2/caw-coast.jpg
       alt: Craftsman and Wolves San Francisco coast graphic
       aspect: 1600/1080
-    - img: v2/caw-poster.jpg   # Max 2026-11-01: CAW_wallpaper_poster_01.jpg
-      alt: Craftsman and Wolves wallpaper poster, a green-toned seaside scene
-      aspect: 1200/1800
+    - img: v2/caw-mug-01.jpg   # Max 2026-11-01: correct file, CAW_mug_01.jpg
+      alt: Craftsman and Wolves enamel steel mug
+      aspect: 1300/1600
     space: 14
   - layout: full   # right half of the two-column header: the logo-on-cafe image (Max 2026-11-01)
     items:
