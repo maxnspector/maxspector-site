@@ -145,29 +145,39 @@ sections:
   subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
   ground: cream
   blocks:
-  - layout: full
+  - layout: grid-2   # Max 2026-11-01: the 2:1 logos image split into its two halves (Max's separate files)
     items:
-    - img: v2/caw-hero.jpg
-      alt: Craftsman and Wolves secondary marks on black and gold
-      aspect: 2400/1200
-  - layout: grid-3
+    - img: v2/caw-monogram.jpg
+      alt: Craftsman and Wolves monogram in gold on dark
+      aspect: 1/1
+    - img: v2/caw-wolf.jpg
+      alt: Craftsman and Wolves wolf mark on gold
+      aspect: 1/1
+  - layout: grid-3   # logo, jars, interior three across (Max 2026-11-01)
     class: keep-row
     items:
-    - img: v2/caw-mug.jpg
-      alt: Craftsman and Wolves enamel steel mug
-      aspect: 1200/1200
     - img: v2/caw-logo.jpg
       alt: Craftsman and Wolves monogram over the pastry counter
       aspect: 1200/1200
-    - img: v2/caw-jars.jpg
+    - img: v2/caw-jars-02.jpg   # Max 2026-11-01: newest file, CAW_jars_02.jpg, center square crop
       alt: Craftsman and Wolves jar labels
       aspect: 1200/1200
+    - img: v2/caw-interior.jpg   # Max 2026-11-01: CAW_interior_01.jpg
+      alt: Inside the Craftsman and Wolves shop, pastry case under a wood-beamed ceiling
+      aspect: 1/1
     space: 14
-  - layout: full
+  - layout: grid-2   # Max 2026-11-01: coast + mug + poster, same height, all shown whole
+    wide: {cols: 1.481fr 1fr 0.667fr}   # coast, mug, poster at one height
     items:
     - img: v2/caw-coast.jpg
       alt: Craftsman and Wolves San Francisco coast graphic
       aspect: 1600/1080
+    - img: v2/caw-mug.jpg
+      alt: Craftsman and Wolves enamel steel mug
+      aspect: 1200/1200
+    - img: v2/caw-poster.jpg   # Max 2026-11-01: CAW_wallpaper_poster_01.jpg
+      alt: Craftsman and Wolves wallpaper poster, a green-toned seaside scene
+      aspect: 1200/1800
     space: 14
   - layout: full   # right half of the two-column header (Max 2026-11-01)
     items:

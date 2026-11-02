@@ -332,9 +332,9 @@ sections:
   blocks:
   - layout: full
     class: panel-solo   # Max 2026-11-01: ample padding around the collage; its own panel, not joined to the slides below
-    wide: {panel: '#3A434B'}
+    wide: {panel: '#838D86'}   # Max 2026-11-01: Fandom Light Gray (slides below stay Dark Gray)
     items:
-    - {img: pres-template-collage-v2.jpg, alt: Fandom presentation template system, title and section slides, aspect: 2400/1600}
+    - {img: pres-template-collage-lightgray.jpg, alt: Fandom presentation template system, title and section slides, aspect: 2400/1600}
   - layout: grid-2
     space: 96
     wide: {panel: '#3A434B'}   # slides in a panel (section ground color)
