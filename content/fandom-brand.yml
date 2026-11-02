@@ -55,6 +55,50 @@ css: |
   .ty-mono{font-family:'Space Mono';font-weight:700}
   .ty-mono .ty-aa{font-size:18cqw}
   .ty-mono .ty-set{font-weight:400;font-size:2.9cqw}
+  /* Typography sheet (Max 2026-11-01, option A): Rubik specimen on cream, then Space Grotesk + Space Mono panels.
+     Sized from the 1384px mockup: --u = 1px at 1384 wide, scales with the row. Stacks below 760px. */
+  .cs-html.tyA{aspect-ratio:auto!important;height:auto!important;padding:0;justify-content:flex-start;background:none;container-type:inline-size;letter-spacing:normal}
+  .tyA *{box-sizing:border-box}
+  .tyA>*{--u:calc(100cqw/1384)}
+  .tyA .lb{font:400 max(9px,calc(var(--u)*12))/1.3 'Space Mono',monospace;letter-spacing:.12em;text-transform:uppercase;display:flex;justify-content:space-between;gap:1em;padding-bottom:calc(var(--u)*20);border-bottom:1px solid currentColor}
+  .tyA .mn{font:400 max(9px,calc(var(--u)*12))/1.3 'Space Mono',monospace;letter-spacing:.08em}
+  .tyA .p{background:#F9EDD8;color:#520044;padding:calc(var(--u)*72) calc(var(--u)*80) calc(var(--u)*80)}
+  .tyA .g{display:grid;grid-template-columns:calc(var(--u)*380) 1fr 1.25fr;gap:calc(var(--u)*56);padding-top:calc(var(--u)*40)}
+  .tyA .aa{font:300 calc(var(--u)*250)/.8 'Rubik';letter-spacing:-.04em;margin-bottom:calc(var(--u)*44);white-space:nowrap}
+  .tyA .nm{font:500 calc(var(--u)*52)/1 'Rubik';padding-top:calc(var(--u)*28);border-top:1px solid #520044}
+  .tyA .role{font:400 max(12px,calc(var(--u)*16))/1.35 'Rubik';margin-top:calc(var(--u)*14)}
+  .tyA .meta{display:flex;justify-content:space-between;margin-top:calc(var(--u)*56);padding-top:calc(var(--u)*16);border-top:1px solid rgba(82,0,68,.3)}
+  .tyA .w>div{display:flex;justify-content:space-between;align-items:center;padding:calc(var(--u)*13) 0;border-bottom:1px solid rgba(82,0,68,.3)}
+  .tyA .w>div:first-child{border-top:1px solid rgba(82,0,68,.3)}
+  .tyA .w .s{font:400 calc(var(--u)*38)/1 'Rubik'}
+  .tyA .h{font:700 calc(var(--u)*64)/1 'Rubik';letter-spacing:-.02em}
+  .tyA .h em{font-style:normal;color:#FA005A}
+  .tyA .bd{font:400 max(12px,calc(var(--u)*16))/1.5 'Rubik';columns:2;column-gap:calc(var(--u)*28);margin:calc(var(--u)*32) 0 calc(var(--u)*40)}
+  .tyA .set{font:400 calc(var(--u)*30)/1.35 'Rubik';padding-top:calc(var(--u)*24);border-top:1px solid #520044;opacity:.75}
+  .tyA .sec{display:grid;grid-template-columns:1fr 1fr}
+  .tyA .sec>div{padding:calc(var(--u)*56) calc(var(--u)*80) calc(var(--u)*64)}
+  .tyA .sg{background:#FFC500;color:#520044}
+  .tyA .sm{background:#520044;color:#FFC500}
+  .tyA .sgh{font:700 calc(var(--u)*56)/1 'Space Grotesk';letter-spacing:-.03em;margin:calc(var(--u)*44) 0 calc(var(--u)*36)}
+  .tyA .sgw{font:400 max(12px,calc(var(--u)*20))/1 'Space Grotesk';display:flex;gap:calc(var(--u)*26)}
+  .tyA .pair{display:flex;align-items:flex-start;gap:calc(var(--u)*28);margin-top:calc(var(--u)*36)}
+  .tyA .big{font:700 calc(var(--u)*96)/1 'Space Mono';letter-spacing:-.04em}
+  .tyA .vs{font:400 calc(var(--u)*96)/1 'Space Mono';opacity:.4}
+  .tyA .cap{font:400 max(9px,calc(var(--u)*13))/1.5 'Space Mono';letter-spacing:.06em;text-transform:uppercase;margin-top:calc(var(--u)*12)}
+  .tyA .data{margin-top:calc(var(--u)*40);font:400 max(10px,calc(var(--u)*15))/1.3 'Space Mono'}
+  .tyA .data>div{display:grid;grid-template-columns:calc(var(--u)*110) 1fr auto;gap:.5em;padding:calc(var(--u)*12) 0;border-top:1px solid rgba(255,197,0,.35)}
+  .tyA .data b{font-weight:700}
+  @container (max-width:760px){
+    .tyA>*{--u:calc(100cqw/700)}
+    .tyA .g{grid-template-columns:1fr;gap:calc(var(--u)*48)}
+    .tyA .aa{font-size:calc(var(--u)*200)}
+    .tyA .sec{grid-template-columns:1fr}
+    .tyA .bd{columns:1}
+    .tyA .lb,.tyA .mn{font-size:10px}
+    .tyA .role,.tyA .bd{font-size:14px}
+    .tyA .cap{font-size:10px}
+    .tyA .data{font-size:11px}
+  }
   /* Photo treatments: Max's original grid; the figures break out past the tiles */
   .cs-img.pt{overflow:visible;padding:0;aspect-ratio:auto;background:none}
   .cs-img.pt img{display:block;width:101.35%;max-width:none;height:auto;margin-left:-1.35%}
@@ -234,31 +278,12 @@ sections:
       rows: 3fr 2fr   # secondaries (top) taller than tertiaries (bottom)
       alt: 'Fandom palette: primaries red, yellow and purple, then four secondaries over four tertiaries'
       aspect: 1200/440
-  - layout: full
+  - layout: full   # Max 2026-11-01: typography sheet, option A (replaces the Rubik panel + Grotesk/Mono pair)
     space: 96
     items:
-    - html: <div class="ty-label"><span>Rubik</span><span>Primary typeface · display and body</span></div><div class="ty-main"><div class="ty-aa">Aa Bb Cc</div><div class="ty-weights"><span style="font-weight:300">Light</span><br><span style="font-weight:400">Regular</span><br><span style="font-weight:500">Medium</span><br><span style="font-weight:600">SemiBold</span><br><span style="font-weight:700">Bold</span><br><span style="font-weight:800">ExtraBold</span><br><span style="font-weight:900">Black</span></div></div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>1234567890!@#$%^&amp;*()</div>
-      html_class: ty-display
-      alt: Rubik, the primary typeface, in its seven weights
-      bg: '#520044'
-      ink: '#FFC500'
-      aspect: 1200/540
-  - layout: grid-2
-    gap: 0
-    space: 0   # butts against the Rubik panel above
-    items:
-    - html: <div class="ty-label"><span>Space Grotesk</span><span>Headlines</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
-      html_class: ty-small ty-grotesk
-      alt: Space Grotesk, the headline typeface
-      bg: '#FFC500'
-      ink: '#520044'
-      aspect: 600/360
-    - html: <div class="ty-label"><span>Space Mono</span><span>Accents and data</span></div><div class="ty-aa">Aa Bb Cc</div><div class="ty-set">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
-      html_class: ty-small ty-mono
-      alt: Space Mono, the accent and data typeface
-      bg: '#F9EDD8'
-      ink: '#FA005A'
-      aspect: 600/360
+    - html: '<div class="p"><div class="lb"><span>Typography</span><span>01 — Primary typeface</span></div><div class="g"><div><div class="aa">Aa</div><div class="nm">Rubik</div><div class="role">Display, headlines and body. Rounded corners, friendly at any size.</div><div class="meta mn"><span>Sans serif</span><span>Google Fonts</span></div></div><div class="w"><div><span class="mn">Light 300</span><span class="s" style="font-weight:300">Aa</span></div><div><span class="mn">Regular 400</span><span class="s" style="font-weight:400">Aa</span></div><div><span class="mn">Medium 500</span><span class="s" style="font-weight:500">Aa</span></div><div><span class="mn">SemiBold 600</span><span class="s" style="font-weight:600">Aa</span></div><div><span class="mn">Bold 700</span><span class="s" style="font-weight:700">Aa</span></div><div><span class="mn">ExtraBold 800</span><span class="s" style="font-weight:800">Aa</span></div><div><span class="mn">Black 900</span><span class="s" style="font-weight:900">Aa</span></div></div><div><div class="h">For the Love<br>of <em>Fans</em></div><div class="bd">Fandom is where fans go deeper on the stories, characters and worlds they love. Rubik carries the brand through all of it. Its softened corners keep headlines warm, even at the heaviest weight, and the same family holds up everywhere from a wiki caption to a billboard.</div><div class="set">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 !@#$%&amp;*()</div></div></div></div><div class="sec"><div class="sg"><div class="lb"><span>Space Grotesk</span><span>Headlines</span></div><div class="sgh">The worlds fans live in, and the stories they can’t stop talking about.</div><div class="sgw"><span style="font-weight:300">Light</span><span>Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span></div></div><div class="sm"><div class="lb"><span>Space Mono</span><span>Accents and data</span></div><div class="pair"><div><div class="big">60%</div><div class="cap">turned back<br>the clock</div></div><div class="vs">/</div><div><div class="big">74%</div><div class="cap">spent more time<br>with entertainment</div></div></div><div class="data"><div><span>SOURCE</span><span>State of Fandom report</span><b>2025</b></div><div><span>NUMERALS</span><span>0123456789</span><b>TABULAR</b></div></div></div></div>'
+      html_class: tyA
+      alt: 'Fandom typography: Rubik in seven weights, Space Grotesk for headlines, Space Mono for data'
 
 - heading: Styles and Image Treatments
   subhead: Photo treatments, illustration, and iconography. A house style broad enough to hold every fandom.

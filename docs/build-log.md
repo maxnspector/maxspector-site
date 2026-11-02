@@ -599,13 +599,25 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
-Session 4 (10-31, evening) wrapped. Fandom, Alex AI and Client Brands are all on the full-width layout. Client Brands: all white, no panels (Max chose this). Max pushes and reviews if not yet done.
+Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from GitHub Desktop and reviews first. The session-5 notes below are in the order they were made and some were later reversed; this summary is the final state.
 
-1. **Alex AI decisions (asked, not answered):** panel the three Feature Animation cards (suggested), maybe the 2x2 brand art grid; leave the full-width animations single or pair Cheat detection + Workflow (test first).
-2. **Headings, intro and Next link alignment** with the 28px edge, or keep them on the centered 1200 column. Affects every page, so decide before the homepage/About pass.
-3. **Homepage and About** get the full-width consistency pass and the scroll-in (same CSS + JS as templates/case-study.html; they are hand-built).
-4. Sharper exports for full-width rows (~3700px wide; halves ~1850px), then the compression pass.
-5. Older open items: Verve R0013766-1_02.jpg; Client Brands picks/crops and "DRAFT —" subheads; retire Campaigns files and fandom-full-width.yml/.html (need delete permission); Fandom leftovers; Alex AI homepage description and subheads.
+**Final state after session 5**
+- Section headers (Figma 92:30112): rule across the row, heading Playfair Light 54 / 100% line height, italic Poppins subhead, left-aligned; heading text max 50% of the row (edge-to-edge) or 60% of its column (two-column). 178px from a section's last row to the next rule (phones 122).
+- Two-column headers (`head: split` + `split_block:`) only where the right piece is square or taller AND a full-width image follows: Client Brands Coffee Cultures (sign), Verve (window, square crop), Venus (barrel, square crop), Craftsman & Wolves (logo-on-cafe tile), Brownie & Madam (box); Fandom Events (SDCC welcome wall). Everything else is edge-to-edge.
+- Intro (Figma 92:30122 v2): no background, statement 650 + 126 gap + meta 282, centered, 100 above and below.
+- Spacing 28 everywhere on all three wide pages (Client Brands 14px gaps removed).
+- Image rule: every piece shown whole at its own proportions; mixed rows share one height.
+- Craftsman & Wolves now: logo header, landscape hero, jars + interior, monogram + wolf, coast + mug. Poster and egg out.
+- Fandom: typography section replaced by the option-A sheet (class `tyA`); Presentation collage in its own Light Gray panel; Motion pattern + By the Numbers row moved up; SoF "What's next?" is now the keynote mockup; GameSpot UI panel white with dashed purple border.
+- Alex: social cards 28 apart; light hairline on framed pieces (`frame: true` works on wide pages).
+- Figma: "Social post mockup — 3 up (1920x1080)" template + "Social post card" component on the Fandom page (x 21300), for Max to fill and export.
+
+**Next**
+1. Max pushes and reviews session 5 on the live site; take his fixes.
+2. More two-column headers as Max supplies square/tall pieces (Kayu, Beth Sholom, Alex, other Fandom sections).
+3. Homepage and About consistency pass (new headers, intro, spacing, scroll-in).
+4. Sharper exports for full-width rows, then the compression pass.
+5. Older open items: Client Brands "DRAFT —" subheads (incl. the Unite + Ignite one Claude reworded); retire Campaigns files, fandom-full-width.yml/.html and unused images (need delete permission); Alex homepage description.
 
 **Session 5 (11-01): new section headers (Figma 92:30112)**
 
@@ -613,6 +625,7 @@ Session 4 (10-31, evening) wrapped. Fandom, Alex AI and Client Brands are all on
 - DONE: **Two-Column header** (93:31699): `head: split` on a section puts the heading in the left half and one block in the right half, both 18 under the rule (678 + 28 + 678 at 1440); stacks on phones. `split_block: N` lifts block N into the right half so a wide opener stays as the first full-width row below. Right-half pieces must be 3:2 or squarer (Max's rule).
 - DONE (Max approved the list): two-column on 11 sections. Alex: Brand Identity (subway billboard), Feature Animations (Verify animation), Brand in the World (lobby signage). Billboard and signage now show whole in the split (`wide_aspect`), not the 1.6 `ratio: wide` crop. Fandom: Styles (personas), Presentation (collage), Events (SDCC 03). Client Brands: Verve, Venus, Kayu (their heroes), Craftsman & Wolves (coast), Beth Sholom (Unity spread).
 - RULE (Max): a two-column header's right piece is square or taller, and a full-width image follows it immediately. Max picked the pieces: Coffee Cultures sign, Verve window (square crop, verve-glass-sq.jpg, centered), Venus barrel (square crop, venus-barrel-sq.jpg, right side kept so the wordmark stays whole), Craftsman & Wolves egg, Brownie & Madam box. Each comes out of its 2x2 tile grid; the other 3 tiles now sit three across. Each section's hero follows full width. All other two-column headers (Kayu, Beth Sholom, Alex, Fandom) are back to edge-to-edge since their pieces were landscape. Measured at 1440: right pieces 678x678, hero 1384 wide 28 below, tiles 443 wide; phones stack at 358; 0px overflow, no script errors.
+- Fandom typography (Max picked option A after 3 rounds): one live-HTML sheet replaces the Rubik panel + Space Grotesk/Mono pair. Rubik specimen on cream (Aa, name, 7-weight ladder, "For the Love of Fans", 2-col paragraph 5+5 lines, alphabet); Space Grotesk on yellow (headline + weights); Space Mono on purple (60% / 74% State of Fandom pair, source + 0123456789 rows). Sized from the 1384 mockup via --u (container units); stacks below 760px. Class `tyA` in the page css.
 - Craftsman & Wolves (Max): wallpaper poster removed; mug back beside the coast image (same height, both whole); monogram + wolf a square pair again.
 - Craftsman & Wolves (Max): mug moved to the right of monogram + wolf (two squares + vertical 1300x1600, one height, all whole); coast + poster now a pair at one height.
 - Craftsman & Wolves (Max): jars + interior row moved above monogram + wolf.
