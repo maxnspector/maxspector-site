@@ -141,11 +141,16 @@ sections:
       aspect: 1/1   # square crop for the split header (Max 2026-11-01)
 - heading: Craftsman and Wolves
   head: split
-  split_block: 3
+  split_block: 4
   subhead: Created to turn tradition on its head. A city of pedants and epicures nodded its head in approval.
   ground: cream
   blocks:
-  - layout: grid-2   # Max 2026-11-01: the 2:1 logos image split into its two halves (Max's separate files)
+  - layout: full   # Max 2026-11-01: new landscape hero, first full-width image after the header
+    items:
+    - img: v2/caw-hero-landscape.jpg
+      alt: Craftsman and Wolves wordmark over the Rebel Within, a muffin with a soft-cooked egg inside
+      aspect: 2048/1169
+  - layout: grid-2   # monogram + wolf (Max's separate files)
     items:
     - img: v2/caw-monogram.jpg
       alt: Craftsman and Wolves monogram in gold on dark
@@ -153,36 +158,31 @@ sections:
     - img: v2/caw-wolf.jpg
       alt: Craftsman and Wolves wolf mark on gold
       aspect: 1/1
-  - layout: grid-3   # logo, jars, interior three across (Max 2026-11-01)
-    class: keep-row
+  - layout: grid-2   # Max 2026-11-01: jars + interior, two across
     items:
-    - img: v2/caw-logo.jpg
-      alt: Craftsman and Wolves monogram over the pastry counter
-      aspect: 1200/1200
     - img: v2/caw-jars-02.jpg   # Max 2026-11-01: newest file, CAW_jars_02.jpg, center square crop
       alt: Craftsman and Wolves jar labels
       aspect: 1200/1200
     - img: v2/caw-interior.jpg   # Max 2026-11-01: CAW_interior_01.jpg
       alt: Inside the Craftsman and Wolves shop, pastry case under a wood-beamed ceiling
       aspect: 1/1
-    space: 14
   - layout: grid-2   # Max 2026-11-01: coast + mug + poster, same height, all shown whole
-    wide: {cols: 1.481fr 1fr 0.667fr}   # coast, mug, poster at one height
+    wide: {cols: 1.481fr 0.812fr 0.667fr}   # coast, mug, poster at one height
     items:
     - img: v2/caw-coast.jpg
       alt: Craftsman and Wolves San Francisco coast graphic
       aspect: 1600/1080
-    - img: v2/caw-mug.jpg
+    - img: v2/caw-mug-01.jpg   # Max 2026-11-01: correct file, CAW_mug_01.jpg
       alt: Craftsman and Wolves enamel steel mug
-      aspect: 1200/1200
+      aspect: 1300/1600
     - img: v2/caw-poster.jpg   # Max 2026-11-01: CAW_wallpaper_poster_01.jpg
       alt: Craftsman and Wolves wallpaper poster, a green-toned seaside scene
       aspect: 1200/1800
     space: 14
-  - layout: full   # right half of the two-column header (Max 2026-11-01)
+  - layout: full   # right half of the two-column header: the logo-on-cafe image (Max 2026-11-01)
     items:
-    - img: v2/caw-egg.jpg
-      alt: Craftsman and Wolves wordmark over the Rebel Within muffin
+    - img: v2/caw-logo.jpg
+      alt: Craftsman and Wolves monogram over the pastry counter
       aspect: 1200/1200
 - heading: The Brownie & Madam Optical Co.
   head: split
