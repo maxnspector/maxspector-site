@@ -684,3 +684,6 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 #featured > .wrap,.cs-row > .wrap{width:var(--wide);column-gap:var(--wide-edge);}
 #featured .slider-foot{column-gap:var(--wide-edge);margin-top:var(--wide-edge);}
 .cs-row-media,.cs-row-media .m-col{gap:var(--wide-edge);}
+/* Max 2026-11-03: +40 above and below each project row (padding, so the hover
+   background gets the extra room too). 44 -> 84 at desktop, ~55 on phones. */
+.cs-row{padding-block:clamp(44px, calc(44px + 2.78vw), 84px);}

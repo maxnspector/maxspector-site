@@ -623,6 +623,8 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 - CASE-STUDY NAV (Max, trial): logo and + in the page text color #545E3D like the footer, coral on hover, cream while the menu is open. Watch: reads well on the Fandom and Kayu covers, nearly disappears on the dark Alex keynote cover.
 - SCROLL-IN on homepage + About (Max): same rise + fade as case-study rows, via `.row-in` + js/row-in.js. Homepage: slideshow and the three case-row image groups (pieces follow left to right); About: portrait. Replaces the homepage parallax rise (data-rise removed from #featured and the case rows). Headers and homepage layout deliberately untouched (Max not settled on the case-study headers). Not pushed.
 - HOMEPAGE full width (Max picked option 1 from mockups, 11-03): slideshow and project rows run 28 from the window edge (16 on phones), capped at 1920, 28 gutters; hero stays on the 1200 column. CSS under "HOMEPAGE, full width". Measured in the mockup at 1440: slideshow 1384x779, row images 913x560. Not pushed.
+- HOMEPAGE rows (Max, 11-03): +40 padding above and below each project row so the hover background isn't cramped (44 -> 84 at 1440; scales down to ~55 on phones). Not pushed.
+- HOMEPAGE (Max, 11-03): Featured Work slideshow parallax back (`data-rise="180"` on #featured): it sits 180px low and rises into place as you scroll. The slideshow's scroll-in fade removed so the two don't double up; the project rows keep the scroll-in. Not pushed.
 
 **Next**
 1. Max pushes and reviews session 5 on the live site; take his fixes.
