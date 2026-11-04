@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/styles.css" />
+<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 </head>
 <body>
 
@@ -56,10 +57,10 @@
 </section>
 
 <!-- FEATURED WORK -->
-<section id="featured" data-rise="180">
+<section id="featured">
   <div class="wrap">
     <div class="sec-head"><span class="t-label">Featured Work</span><hr class="rule"/></div>
-    <div class="slider reveal" id="slider">
+    <div class="slider reveal row-in" id="slider">
       <div class="slides" id="slides">
         <!-- SLIDES: each links to a page or a section, e.g. href="/fandom-brand.html#office-branding".
              data-caption is the line under the slideshow while that slide shows. -->
@@ -78,7 +79,7 @@
 </section>
 
 <!-- CASE STUDY ROW — Alex AI (clickable, hover) -->
-<a class="cs-row reveal" href="/alex.html" id="alex-ai" data-rise="80">
+<a class="cs-row reveal" href="/alex.html" id="alex-ai">
   <div class="wrap">
     <p class="t-label cs-eyebrow">Case Study</p>
     <hr class="rule cs-hr" />
@@ -86,7 +87,7 @@
       <h3 class="t-title">Alex AI</h3>
       <p class="t-body-lg cs-row-desc">DRAFT — Alex description to come.</p>
     </div>
-    <div class="cs-row-media arr-1L2R">
+    <div class="cs-row-media arr-1L2R row-in stagger">
       <div class="m-img big">IMAGE</div>
       <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
     </div>
@@ -94,7 +95,7 @@
 </a>
 
 <!-- CASE STUDY ROW — Fandom (clickable, hover) -->
-<a class="cs-row reveal" href="/fandom-brand.html" id="fandom" data-rise="80">
+<a class="cs-row reveal" href="/fandom-brand.html" id="fandom">
   <div class="wrap">
     <p class="t-label cs-eyebrow">Case Study</p>
     <hr class="rule cs-hr" />
@@ -102,7 +103,7 @@
       <h3 class="t-title">Fandom</h3>
       <p class="t-body-lg cs-row-desc">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
     </div>
-    <div class="cs-row-media arr-1L2R">
+    <div class="cs-row-media arr-1L2R row-in stagger">
       <div class="m-img big">IMAGE</div>
       <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
     </div>
@@ -110,7 +111,7 @@
 </a>
 
 <!-- COLLECTION ROW — Client Brands (clickable, hover) -->
-<a class="cs-row reveal" href="/client-brands.html" id="client-brands" data-rise="80">
+<a class="cs-row reveal" href="/client-brands.html" id="client-brands">
   <div class="wrap">
     <p class="t-label cs-eyebrow">Collection</p>
     <hr class="rule cs-hr" />
@@ -118,7 +119,7 @@
       <h3 class="t-title">Client Brands</h3>
       <p class="t-body-lg cs-row-desc">DRAFT — description to come.</p>
     </div>
-    <div class="cs-row-media arr-1R2L">
+    <div class="cs-row-media arr-1R2L row-in stagger">
       <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
       <div class="m-img big">IMAGE</div>
     </div>
@@ -146,7 +147,7 @@ const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById
 // Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
 function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
 placeDot();addEventListener('resize',placeDot,{passive:true});
-menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+menuBtn.addEventListener('click',()=>{if(!overlay.classList.contains('open'))document.documentElement.style.setProperty('--sbw',(innerWidth-document.documentElement.clientWidth)+'px');placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const risers=[...document.querySelectorAll('[data-rise]')];let ticking=false;
 const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -173,6 +174,7 @@ document.getElementById('next').addEventListener('click',()=>{go(idx+1);stop();}
 document.getElementById('prev').addEventListener('click',()=>{go(idx-1);stop();});
 go(0);reset();
 </script>
+<script src="/js/row-in.js" defer></script>
 <script src="/js/footer-dock.js" defer></script>
 </body>
 </html>

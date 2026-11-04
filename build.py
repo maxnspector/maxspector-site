@@ -171,6 +171,12 @@ def block(b, slug):
             style = (style + ';' if style else '') + f'background:{b["panel"]}'
         if 'space' in b:
             style = (style + ';' if style else '') + (f'margin-top:clamp({min(b["space"], 40)}px,{b["space"] / 14.4:.2f}vw,{b["space"]}px)')
+        # `air_above: 80` (Max 2026-11-01): extra white space above this row on
+        # full-width pages, on top of the normal 28 row gap. Scales down on phones.
+        if b.get('air_above'):
+            n = b['air_above']
+            extra_cls += ' air-above'
+            style = (style + ';' if style else '') + f'--air:clamp({n // 2}px,{n / 14.4:.2f}vw,{n}px)'
         c = f'{cls}{extra_cls} reveal'
         st = f' style="{style}"' if style else ''
         return f'    <div class="{c}"{st}>\n{inner}\n    </div>'

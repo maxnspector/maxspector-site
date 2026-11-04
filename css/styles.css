@@ -571,6 +571,7 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 /* `space:` values from the content file collapse to the one even gap,
    except space: 0, which still butts pieces together (palette, type panels). */
 .cs-wide .cs-media .cs-grid[style*="margin-top"]:not([style*="clamp(0px"]){margin-top:var(--row-gap)!important;}
+.cs-wide .cs-media .cs-grid.air-above.air-above[style]{margin-top:calc(var(--row-gap) + var(--air))!important;}
 /* Edge-to-edge blocks take the same edge as everything else. */
 .cs-wide .cs-media > .cs-grid-bleed{width:var(--wide);margin-inline:auto;}
 .cs-wide .cs-media.cs-flush-bottom{padding-bottom:var(--wide-edge);}
@@ -642,3 +643,44 @@ body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
 /* `frame: true` on full-width pages (Max 2026-11-01): a light hairline round a
    piece whose own background matches the page (e.g. Alex "interview everyone"). */
 .cs-wide .cs-media .cs-grid .cs-img.framed{border:1px solid rgba(84,94,61,.2);}
+
+
+/* ===== NAV + FOOTER, all pages (Max 2026-11-01) ===== */
+/* Logo and + sit the same distance from the window edge on every page (the
+   case-study spacing: 48 at desktop, 24 on phones). The footer matches. */
+.nav-inner,.dock-foot{padding-left:clamp(24px,3.4vw,48px);padding-right:clamp(24px,3.4vw,48px);}
+/* Logo 10% smaller, top and footer (65 -> 58.5). */
+.monogram,.dock-logo{width:58.5px;height:58.5px;}
+/* Opening the menu locks the page scroll, which removes the scrollbar and made
+   the + jump right by its width (so the circle missed it). The JS stores the
+   scrollbar width in --sbw on open; the nav holds its place by that amount. */
+body.menu-open{padding-right:var(--sbw,0px);}
+body.menu-open .nav{right:var(--sbw,0px);}
+/* Case-study pages (trial): logo and + in the page text color, like the footer,
+   coral on hover. Cream while the coral menu is open. */
+.menu-btn span{transition:transform .35s var(--ease),opacity .35s var(--ease),background-color .2s var(--ease);}
+.cs-page .nav .monogram{color:var(--text-dark);}
+.cs-page .nav .menu-btn span{background:var(--text-dark);}
+.cs-page .nav-inner > a:hover .monogram{color:var(--coral);}
+.cs-page .nav .menu-btn:hover span{background:var(--coral);}
+body.cs-page.menu-open .nav .monogram{color:var(--paper-2);}
+body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
+
+/* ===== Scroll-in, homepage + About (Max 2026-11-01) =====
+   Same motion as the case-study image rows: waits 40px low and invisible,
+   rises and fades in as it enters, resets once it drops below the screen.
+   `.stagger` pieces after the first follow left to right. js/row-in.js. */
+.rows-anim .row-in{opacity:0;transform:translateY(40px);transition:transform 1s ease-in-out,opacity .8s ease-in-out;}
+.rows-anim .row-in.in{opacity:1;transform:none;}
+.rows-anim .row-in.stagger > :nth-child(n+2){opacity:0;transform:translateY(20px);transition:transform .8s ease-in-out var(--stag),opacity .6s ease-in-out var(--stag);}
+.rows-anim .row-in.stagger.in > :nth-child(n+2){opacity:1;transform:none;}
+.rows-anim .row-in.row-instant,.rows-anim .row-in.row-instant > *{transition:none!important;}
+
+/* ===== HOMEPAGE, full width (Max 2026-11-03, option 1) =====
+   The slideshow and the project rows run the window minus the 28px edge
+   (16 on phones), capped at 1920, with 28px gutters, like the case-study
+   image rows. The hero stays on the 1200 column. */
+#featured,.cs-row{--wide-edge:clamp(16px,2vw,28px);--wide:min(calc(100% - 2*var(--wide-edge)), calc(1920px - 2*var(--wide-edge)));}
+#featured > .wrap,.cs-row > .wrap{width:var(--wide);column-gap:var(--wide-edge);}
+#featured .slider-foot{column-gap:var(--wide-edge);margin-top:var(--wide-edge);}
+.cs-row-media,.cs-row-media .m-col{gap:var(--wide-edge);}

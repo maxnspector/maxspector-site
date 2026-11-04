@@ -302,7 +302,7 @@
       <div class="cs-img has-img" style="aspect-ratio:1920/1265"><img src="/assets/fandom-brand/personas.jpg" alt="The five Fandom personas, illustrated in the house style" loading="lazy"></div>
     </div>
   </div>
-    <div class="cs-grid cs-flush cs-flush-pair cs-grid-bleed reveal" style="margin-top:clamp(40px,6.67vw,96px)">
+    <div class="cs-grid cs-flush cs-flush-pair cs-grid-bleed air-above reveal" style="margin-top:clamp(40px,6.67vw,96px);--air:clamp(40px,5.56vw,80px)">
       <div class="cs-img has-img" style="aspect-ratio:600/640"><img src="/assets/fandom-brand/vl-chars-pair.jpg" alt="Miles Morales, Black Widow, Harry Potter and Isabelle in the Fandom duotone photo treatment, on brand-color panels" loading="lazy"></div>
       <div class="cs-img has-img" style="aspect-ratio:600/640"><img src="/assets/fandom-brand/vl-icons-pair.jpg" alt="Sixteen Fandom icons in four brand-color columns" loading="lazy"></div>
     </div>
@@ -511,7 +511,7 @@ const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById
 // Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
 function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
 if(menuBtn&&overlay){placeDot();addEventListener('resize',placeDot,{passive:true});}
-menuBtn&&menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+menuBtn&&menuBtn.addEventListener('click',()=>{if(!overlay.classList.contains('open'))document.documentElement.style.setProperty('--sbw',(innerWidth-document.documentElement.clientWidth)+'px');placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
 if(overlay)overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));

@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/css/styles.css" />
+<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 <style>
 /* ABOUT (2026-10-25) — homepage type + grid, dark ground. */
 .about-hero{padding:100px 0 0;}
@@ -79,7 +80,7 @@
 <!-- PORTRAIT + BIO -->
 <section class="about-intro">
   <div class="wrap">
-    <figure class="about-photo reveal">
+    <figure class="about-photo reveal row-in">
       <img src="/assets/about/max-portrait.jpg" alt="Portrait of Max Spector" width="800" height="800" />
       <figcaption class="t-body-sm">Selfie staged to suggest sincerity</figcaption>
     </figure>
@@ -134,11 +135,12 @@ const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById
 // Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
 function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
 placeDot();addEventListener('resize',placeDot,{passive:true});
-menuBtn.addEventListener('click',()=>{placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+menuBtn.addEventListener('click',()=>{if(!overlay.classList.contains('open'))document.documentElement.style.setProperty('--sbw',(innerWidth-document.documentElement.clientWidth)+'px');placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
 overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
 document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
 </script>
+<script src="/js/row-in.js" defer></script>
 <script src="/js/footer-dock.js" defer></script>
 </body>
 </html>

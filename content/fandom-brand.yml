@@ -300,6 +300,7 @@ sections:
   # Built in Figma (82:16878 + 82:13986), exported 2x. Two adjacent blocks; stack on phones.
   - layout: flush-pair-bleed   # edge to edge (Max 2026-10-28)
     space: 96
+    air_above: 80   # Max 2026-11-01: more white after the personas illustration
     items:
     - img: vl-chars-pair.jpg
       alt: Miles Morales, Black Widow, Harry Potter and Isabelle in the Fandom duotone photo treatment, on brand-color panels
