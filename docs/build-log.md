@@ -599,6 +599,14 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 6 (11-01 to 11-03) wrapped. NOTHING from session 6 is pushed** (Max committed partway, as 34f2519; everything after the Space Mono fix is uncommitted). Max pushes and reviews first. Full list under "Session 6" below.
+- Fandom: Space Mono panel lines all yellow; logo row + palette 20% shorter, logos ~15% smaller; personas 90% width; +80 white after personas.
+- All pages: + no longer jumps when the menu opens (scrollbar fix); logo/+/footer 48 from the edge everywhere; logo 10% smaller.
+- Case-study pages (TRIAL): nav logo and + in olive, coral on hover. Check the dark Alex cover, where olive nearly disappears.
+- Homepage: full width (slideshow + rows at 28 edge), row images and caption aligned to the hero text, +40 padding per row, slideshow parallax back, rows scroll in. About: portrait scrolls in.
+- Max is not settled on the case-study section headers; don't carry them to the homepage or About until he decides.
+- NEXT: Max starts "Positioning work" in a fresh session (design-led builder/maker, AI + agentic up front; research the language first; homepage hero is the first place it lands). Website next: Max's review of session 6, then the header rethink.
+
 Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from GitHub Desktop and reviews first. The session-5 notes below are in the order they were made and some were later reversed; this summary is the final state.
 
 **Final state after session 5**
@@ -625,6 +633,7 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 - HOMEPAGE full width (Max picked option 1 from mockups, 11-03): slideshow and project rows run 28 from the window edge (16 on phones), capped at 1920, 28 gutters; hero stays on the 1200 column. CSS under "HOMEPAGE, full width". Measured in the mockup at 1440: slideshow 1384x779, row images 913x560. Not pushed.
 - HOMEPAGE rows (Max, 11-03): +40 padding above and below each project row so the hover background isn't cramped (44 -> 84 at 1440; scales down to ~55 on phones). Not pushed.
 - HOMEPAGE (Max, 11-03): Featured Work slideshow parallax back (`data-rise="180"` on #featured): it sits 180px low and rises into place as you scroll. The slideshow's scroll-in fade removed so the two don't double up; the project rows keep the scroll-in. Not pushed.
+- HOMEPAGE alignment (Max, 11-03): slideshow caption and project-row images now start at the hero text's x (cols 5-12 of the 1200 column) and keep their right edge on the wide row, so the image groups are a little smaller and the rows shorter. Done by measuring in a small script in index.html (margin-left), not CSS math, so it holds with scrollbars and at every width; phones (<=860) unchanged. Measured with scrollbars at 1440: hero, caption and images all start at 521; images 877x538; row 740 tall. 1920: all at 761. 1100: all at 383. 0 overflow, no script errors. Not pushed.
 
 **Next**
 1. Max pushes and reviews session 5 on the live site; take his fixes.

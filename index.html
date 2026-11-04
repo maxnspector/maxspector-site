@@ -174,6 +174,24 @@ document.getElementById('next').addEventListener('click',()=>{go(idx+1);stop();}
 document.getElementById('prev').addEventListener('click',()=>{go(idx-1);stop();});
 go(0);reset();
 </script>
+<script>
+/* Max 2026-11-03: the slideshow caption and the project-row images start at the
+   same x as the hero text (cols 5-12 of the 1200 column), keeping their right
+   edge on the wide row. Measured, so it holds at every width and with scrollbars.
+   Phones (<=860) stack full width, so no offset there. */
+(function(){
+  const hero=document.querySelector('.hero .inner');
+  const els=[...document.querySelectorAll('.slider-caption,.cs-row-media')];
+  function align(){
+    els.forEach(el=>el.style.marginLeft='');
+    if(innerWidth<=860)return;
+    const x=hero.getBoundingClientRect().left;
+    els.forEach(el=>{const d=x-el.getBoundingClientRect().left;if(d>0)el.style.marginLeft=d+'px';});
+  }
+  align();addEventListener('resize',align,{passive:true});
+  if(document.fonts)document.fonts.ready.then(align);
+})();
+</script>
 <script src="/js/row-in.js" defer></script>
 <script src="/js/footer-dock.js" defer></script>
 </body>
