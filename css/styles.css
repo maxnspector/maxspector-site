@@ -694,7 +694,7 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
    sticky while its section scrolls. Right 8 columns (913 at 1440): all art.
    Cover inset 28 at 1440/900. Labels Playfair Bold 16 / 18, 1.5px tracking, caps;
    body Playfair Light 20 / 1.3, -0.5px. No rules. */
-.cs-rail{--rail-top:120px;}   /* sticky stop: clears the nav logo when the nav slides back in */
+.cs-rail{--rail-top:28px;}   /* sticky stop (Max 11-07: 28 from the top; was 120 to clear the nav logo) */
 .cs-rail .cs-cover{height:auto;aspect-ratio:1440/900;width:var(--wide);margin:var(--wide-edge) auto 0;}
 .cs-rail .cs-scroll{color:#fff;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);margin:0;}
 .cs-rail .cs-scroll svg{width:13px;height:28px;}
@@ -709,8 +709,8 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   letter-spacing:-.5px;margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
 .cs-rail .rail-link{font-style:italic;font-variation-settings:'opsz' 12,'wdth' 100,'wght' 400;}
 .cs-rail .rail-link a{color:var(--coral);}
-/* intro: 136 below the cover, 116 to the first section (as in the file) */
-.cs-rail #intro.rail-intro{background:transparent;padding:136px 0 0;}
+/* intro: 196 below the cover, 176 to the first section (Max 11-07: file's 136/116 + 60 each) */
+.cs-rail #intro.rail-intro{background:transparent;padding:196px 0 0;}
 .cs-rail #intro .rail-head{position:static;gap:28px;max-width:none;}
 .cs-rail .rail-title{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 87.5;font-size:clamp(48px,6.25vw,90px);line-height:.93;
   margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
@@ -719,9 +719,9 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 .cs-rail .rail-meta{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;margin-top:80px;}
 .cs-rail .rail-meta-col{display:flex;flex-direction:column;gap:36px;}
 .cs-rail .rail-meta-block{display:flex;flex-direction:column;gap:20px;}
-/* sections: first art row lines up with the label; 116 after the intro, then 178 between sections */
-.cs-rail .cs-media{padding:150px 0 var(--wide-edge);}
-.cs-rail #intro + .cs-media{padding-top:116px;}
+/* sections: first art row lines up with the label; 176 after the intro, then 200 between sections (Max 11-07) */
+.cs-rail .cs-media{padding:calc(200px - var(--wide-edge)) 0 var(--wide-edge);}
+.cs-rail #intro + .cs-media{padding-top:176px;}
 .cs-rail .cs-media.cs-flush-bottom{padding-bottom:var(--wide-edge);}
 .cs-rail .rail-body > .cs-grid-bleed{width:100%;}
 @media (max-width:860px){

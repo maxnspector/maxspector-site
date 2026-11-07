@@ -599,13 +599,18 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
-**Session 7 (11-07): RAIL LAYOUT TEST (Figma 110:592) — built, not pushed**
-- New test page `fandom-rail.html` (content/fandom-rail.yml extends fandom-brand.yml, `layout: rail`). Rebuild with `python3 build.py fandom-brand fandom-rail`.
-- Cover inset 28 at 1440/900 with the Figma down arrow (white, 14 from the bottom). Intro: "Case Study" label + 90px title in cols 1-4; statement, then meta in two columns (gap 56), in cols 5-12. 136 cover-to-intro, 116 intro-to-first-section (as in the file).
-- Sections: label (Playfair Bold 16/18, 1.5px, caps) + description (Playfair Light 20/1.3) in cols 1-4, max 324 wide, sticky at 120 from the top until the section's last row passes; all art in cols 5-12 (913 at 1440). 178 between sections. No rules. Split headers ignored: the split piece leads its section's column. Bleeds stay in the column.
-- Phones (<=860): label stacks above the art, not sticky.
-- Measured at 1440: cover 28/28/1384x865, arrow y 851 (file 850), label y 1029 / title 1066 (file 1028/1065), right column x 499 w 913, every section's label top = first row top, 178 gaps, 0 overflow, 0 broken images, no script errors. Page 20,875 tall vs 30,753 for the current Fandom page.
-- Open questions for Max: sticky offset vs nav, footer/Next alignment, type sheet scale at 913, label weight (file says Bold), section spacing, collection title length.
+**Session 7 (11-03 to 11-07) wrapped.** The test page is pushed (063cc52, 11-7 v1). NOT pushed: Max's spacing adjustments (sticky 28, intro +60, 200 between sections) = 11-7 v2. Max pushes, then scrolls /fandom-rail.html on staging.
+
+**RAIL LAYOUT TEST (Figma 110:592)**
+- New test page `fandom-rail.html` (content/fandom-rail.yml extends fandom-brand.yml, `layout: rail`). Rebuild with `python3 build.py fandom-brand fandom-rail`. The live Fandom page is unchanged.
+- Cover inset 28 at 1440/900 with the Figma down arrow (white, 14 from the bottom). Intro: "Case Study" label (from the page's menu kind) + 90px title in cols 1-4; statement, then meta in two columns (gap 56), in cols 5-12.
+- Sections: label (Playfair Bold 16/18, 1.5px, caps) + description (Playfair Light 20/1.3) in cols 1-4, max 324 wide, sticky until the section's last row passes; all art in cols 5-12 (913 at 1440). No rules. Split-header pieces lead their section's column; bleeds stay in the column. Phones (<=860): label above the art, not sticky.
+- Max's adjustments (11-07): sticky at 28 from the top (was 120 to clear the logo); intro 196 below the cover and 176 above the first section (Figma 136/116 + 60); 200 between sections (was 178).
+- Measured at 1440: cover 28/28 1384x865, arrow y 851 (file 850), label y 1029 / title 1066 (file 1028/1065), right column x 499 w 913, labels align with each first row and hold at 28, gaps 196 / 176 / 200, 0 overflow, 0 broken images, no script errors. Page 20,875 tall before the spacing change vs 30,753 for the current Fandom page.
+- KNOWN: at 28 the nav logo overlaps the stuck label when the nav slides back in on scroll-up (Max will move it down if it looks bad; 120 cleared it).
+- Open if adopted: footer and Next link don't line up with the columns; type sheet small at 913; label weight (file says Bold, site labels are 550); "Client Brands" wraps at 90px in the left column; Figma logo at 42 from the edge vs site 48.
+- Next-up now also works on `extends:` test pages (build.py `_extends`).
+- Section-header mockups from the start of session 7 (7 options, cloud workspace only) are on hold behind this test.
 
 
 **Session 6 (11-01 to 11-03) wrapped. NOTHING from session 6 is pushed** (Max committed partway, as 34f2519; everything after the Space Mono fix is uncommitted). Max pushes and reviews first. Full list under "Session 6" below.
