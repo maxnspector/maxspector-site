@@ -497,56 +497,49 @@ body.cs-page{background:var(--paper-3);}
    nav. Revised 2026-10-25: once you hit the bottom of the page the logo and arrow rise
    up from below the window — the mirror of the nav sliding down from the top when you
    scroll up. Scroll back up and they drop away again. Driven by js/footer-dock.js. */
-.dock-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:160px var(--edge) 40px;color:var(--paper);overflow:clip;}
-.dock-left{display:flex;align-items:center;gap:20px;}
-.dock-logo{display:block;width:65px;height:65px;flex:none;}
-.dock-meta{display:flex;flex-wrap:wrap;align-items:center;row-gap:6px;}
-/* One line (Max 2026-10-25): Email • LinkedIn • (c) MAX SPECTOR 2026, all in the page's text color.
-   Email/LinkedIn turn coral on hover: a deliberate footer exception to coral-means-clickable. */
-.dock-meta .hero-links{margin:0;font-family:var(--sans);font-variation-settings:normal;font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.03em;text-transform:none;color:inherit;}
-.dock-meta .hero-links a{color:inherit;transition:color .2s var(--ease);}
-.dock-meta .hero-links a:hover{color:var(--coral);text-decoration:none;}
-.dock-meta .hero-links .sep{color:inherit;}
-.dock-meta .hero-links::after{content:"\2022";margin:0 .7em;}
-/* Phones: too narrow for one line, so the copyright drops below and the trailing bullet goes. */
-@media(max-width:520px){ .dock-meta{flex-direction:column;align-items:flex-start;row-gap:8px;} .dock-meta .hero-links::after{content:none;} }
-.dock-copy{margin:0;font-family:var(--sans);font-size:8px;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;color:inherit;}
-/* Max 2026-10-28: logo and back-to-top take the footer's text color and turn coral on hover,
-   like Email / LinkedIn. "Back to top" label sits left of the arrow in the same type. */
-.dock-logo{color:inherit;}
+/* Footer row (Max 2026-11-07, Figma 110:2001): logo, EMAIL, LINKEDIN at left (28 apart);
+   NEXT · title · arrow starting at column 5 of the wide grid (case studies only); UP + arrow
+   at right. Hover: logo, Email, LinkedIn, NEXT + its arrow, and UP + its arrow go coral;
+   the Next arrow also slides right. The next title keeps the text color. */
+.dock-foot{position:relative;display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding:160px var(--edge) 40px;color:var(--paper);overflow:clip;}
+.dock-left{display:flex;align-items:center;gap:28px;}
+.dock-logo{display:block;width:58.5px;height:58.5px;flex:none;color:inherit;}
 .dock-logo .monogram{color:inherit;transition:color .2s var(--ease);}
 .dock-logo:hover .monogram{color:var(--coral);}
-.dock-top{height:44px;flex:none;display:flex;align-items:center;gap:10px;margin:0;color:inherit;transition:color .2s var(--ease);}
+/* Footer labels: Playfair Bold 14, 1.5px tracking, caps, cap-trimmed (Figma). */
+.foot-link,.foot-k{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 700;font-size:14px;line-height:18px;
+  letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;color:inherit;
+  text-box-trim:trim-both;text-box-edge:cap alphabetic;transition:color .2s var(--ease);}
+.foot-link:hover{color:var(--coral);text-decoration:none;}
+.dock-top{flex:none;display:flex;align-items:center;gap:13px;margin:0;color:inherit;transition:color .2s var(--ease);}
 .dock-top:hover{color:var(--coral);}
-.dock-top-label{font-family:var(--sans);font-size:12px;font-weight:500;line-height:1.2;letter-spacing:.03em;white-space:nowrap;}
-.dock-top svg{width:16px;height:18px;display:block;}
+.dock-top svg{display:block;flex:none;}
+/* Next: left edge on column 5 of the wide grid (same x as the rail art column). */
+.next-link{position:absolute;left:calc((100% - var(--wide)) / 2 + (var(--wide) - 11 * var(--wide-edge)) * 4 / 12 + 4 * var(--wide-edge));
+  display:flex;align-items:center;gap:28px;color:inherit;}
+.next-link:hover{text-decoration:none;}
+.next-title{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 87.5;font-size:48px;line-height:1.25;
+  letter-spacing:-0.72px;white-space:nowrap;color:inherit;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.next-link .next-k,.next-link .arrow-r{transition:color .2s var(--ease),transform .35s var(--ease);}
+.next-link .arrow-r{display:block;flex:none;}
+.next-link:hover .next-k,.next-link:hover .arrow-r{color:var(--coral);}
+.next-link:hover .arrow-r{transform:translateX(8px);}
 .cs-page .dock-foot{color:var(--text-dark);}
-.cs-page .dock-foot .hero-links .sep{color:var(--text-dark);}
 /* With JS on, the logo + arrow wait below the window edge until the page bottom is reached. */
-.dock-ready .dock-logo,.dock-ready .dock-top{transform:translateY(calc(100% + 48px));pointer-events:none;transition:transform .35s var(--ease);}
+.dock-ready .dock-logo,.dock-ready .dock-top{transform:translateY(calc(100% + 48px));pointer-events:none;transition:transform .35s var(--ease),color .2s var(--ease);}
 .dock-ready .is-docked .dock-logo,.dock-ready .is-docked .dock-top{transform:none;pointer-events:auto;}
 .menu-btn span{transition:transform .35s var(--ease),opacity .35s var(--ease);}
 /* While the footer logo is showing, the top nav stays tucked away so there's only one logo. */
 body.is-docked:not(.menu-open) .nav{transform:translateY(-100%);}
-@media(prefers-reduced-motion:reduce){ .dock-ready .dock-logo,.dock-ready .dock-top{transition:none;} }
-
-/* NEXT UP — case studies point on to the next page (from footer option C). */
-.next-up{padding-top:120px;}
-/* Max 2026-10-25: one row, NEXT · title · arrow, title centered between equal 28px gaps; title 20% under .t-display */
-.next-link{grid-column:5 / -1;display:inline-flex;align-items:center;gap:28px;color:var(--paper);transition:color .25s var(--ease);justify-self:start;}
-.next-k{color:var(--paper);margin:0;}
-.next-title{font-size:clamp(32px,5vw,72px);color:inherit;}
-.next-link svg{width:54px;height:40px;flex:none;color:var(--coral);transition:transform .35s var(--ease);}
-.next-link:hover{color:var(--coral);}
-.next-link:hover svg{transform:translateX(8px);}
-.cs-page .next-k,.cs-page .next-link{color:var(--text-dark);}
-.cs-page .next-link:hover{color:var(--coral);}
+@media(prefers-reduced-motion:reduce){ .dock-ready .dock-logo,.dock-ready .dock-top{transition:color .2s var(--ease);} }
+/* Up to 860: Next takes its own line above the logo row. */
 @media(max-width:860px){
-  .next-up{padding-top:96px;}
-  .next-link{grid-column:1 / -1;gap:18px;}
-  .next-link svg{width:36px;height:28px;}
-  .dock-foot{padding-top:96px;}
+  .dock-foot{flex-wrap:wrap;padding-top:96px;row-gap:56px;}
+  .next-link{position:static;order:-1;flex-basis:100%;gap:18px;}
+  .next-title{font-size:36px;letter-spacing:-0.54px;}
 }
+@media(max-width:420px){ .dock-left{gap:20px;} }
 
 /* BAND (Max 2026-10-29): a bleed block whose panel color runs edge to edge while the
    art sits smaller inside it (client-brands asset boards). Phones show the art full width. */

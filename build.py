@@ -374,8 +374,11 @@ def intro(p):
 
 # NEXT UP (Max 2026-10-25): every case study / collection ends by pointing on to the
 # next one in menu order (wrapping round). Items need `kind:` in site.yml.
-ARROW_R = ('<svg viewBox="0 0 54 40" aria-hidden="true"><path d="M0 20h51M33 2l18 18-18 18" '
-           'fill="none" stroke="currentColor" stroke-width="2.5"/></svg>')
+# Footer Next arrow (Max 2026-11-07, Figma 110:2001): the Figma "down arrow" turned to
+# point right, drawn in currentColor so it can take the hover color.
+ARROW_R = ('<svg class="arrow-r" viewBox="0 0 29.061 13.7886" width="29.06" height="13.79" aria-hidden="true">'
+           '<path d="M21.6363 13.2583L28.0003 6.8943L21.6363 0.5303" fill="none" stroke="currentColor" stroke-width="1.5"/>'
+           '<rect y="6.1443" width="28" height="1.5" fill="currentColor"/></svg>')
 
 def next_up(page, site):
     if page.get('nav') == 'standalone' or page.get('next') is False:
@@ -388,10 +391,9 @@ def next_up(page, site):
     if me not in hrefs:
         return ''
     n = items[(hrefs.index(me) + 1) % len(items)]
-    return ('<nav class="next-up wrap" aria-label="Next">\n'
-            f'  <a class="next-link" href="{n["href"]}"><span class="t-label next-k">Next</span>'
-            f'<span class="t-display next-title">{esc(n["label"])}</span>{ARROW_R}</a>\n'
-            '</nav>\n')
+    # Max 2026-11-07 (Figma 110:2001): Next sits in the footer row, not above it.
+    return (f'  <a class="next-link" href="{n["href"]}"><span class="foot-k next-k">Next</span>'
+            f'<span class="next-title">{esc(n["label"])}</span>{ARROW_R}</a>\n')
 
 def build(slug):
     _alt['n'] = 0          # each page starts its own alternation
@@ -437,7 +439,7 @@ def build(slug):
                  # `lead:` is one headless section placed directly after the intro.
                  ('INTRO', intro(page) + ('\n\n' + section(page['lead'], art) if page.get('lead') else '')),
                  ('SECTIONS', '\n\n'.join(section(s, art) for s in page['sections'])),
-                 ('NEXT', next_up(page, site)), ('FOOTER', (ROOT / 'templates' / 'footer.html').read_text())]:
+                 ('NEXT', ''), ('FOOTER', (ROOT / 'templates' / 'footer.html').read_text().replace('<!--NEXT-->\n', next_up(page, site)))]:
         out = out.replace('{{%s}}' % k, v)
     # `frames: off` at the top of a content file drops the hairline round every piece.
     if str(page.get('frames', 'on')).lower() in ('off', 'false', 'none'):
@@ -471,7 +473,7 @@ def build(slug):
         import re
         out = re.sub(r'<a href="/" aria-label="Max Spector — home">(.*?)</a>',
                      r'<span class="nav-logo">\1</span>', out, count=1, flags=re.S)
-        out = out.replace('<a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home">', '<span class="dock-logo" data-dock="logo">', 1).replace('</svg></a>\n    <div class="dock-meta">', '</svg></span>\n    <div class="dock-meta">', 1)
+        out = out.replace('<a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home">', '<span class="dock-logo" data-dock="logo">', 1).replace('</svg></a>\n    <a class="foot-link"', '</svg></span>\n    <a class="foot-link"', 1)
         out = re.sub(r'\s*<button class="menu-btn".*?</button>', '', out, count=1, flags=re.S)
         out = re.sub(r'<div class="overlay" id="overlay">.*?</div>\n', '', out, count=1, flags=re.S)
     # `cover_mobile:` — a portrait cover for tall screens (phones, portrait tablets).
