@@ -687,3 +687,49 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 /* Max 2026-11-03: +40 above and below each project row (padding, so the hover
    background gets the extra room too). 44 -> 84 at desktop, ~55 on phones. */
 .cs-row{padding-block:clamp(44px, calc(44px + 2.78vw), 84px);}
+
+/* ===== RAIL LAYOUT TEST (Max 2026-11-07, Figma 110:592) =====
+   Page opts in with `layout: rail` (on top of `style: wide`). 12 columns across
+   the image-row width, 28 gutters. Left 4 columns: label + description (324 max),
+   sticky while its section scrolls. Right 8 columns (913 at 1440): all art.
+   Cover inset 28 at 1440/900. Labels Playfair Bold 16 / 18, 1.5px tracking, caps;
+   body Playfair Light 20 / 1.3, -0.5px. No rules. */
+.cs-rail{--rail-top:120px;}   /* sticky stop: clears the nav logo when the nav slides back in */
+.cs-rail .cs-cover{height:auto;aspect-ratio:1440/900;width:var(--wide);margin:var(--wide-edge) auto 0;}
+.cs-rail .cs-scroll{color:#fff;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);margin:0;}
+.cs-rail .cs-scroll svg{width:13px;height:28px;}
+.cs-rail .wrap.rail{width:var(--wide);max-width:none;margin-inline:auto;display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--row-gap);padding:0;}
+.cs-rail .rail-head{grid-column:1 / 5;align-self:start;max-width:324px;display:flex;flex-direction:column;gap:20px;
+  position:sticky;top:var(--rail-top);}
+.cs-rail .rail-body{grid-column:5 / -1;min-width:0;}
+.cs-rail .rail-label{font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 700;font-size:16px;line-height:18px;
+  letter-spacing:1.5px;text-transform:uppercase;margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.cs-rail .rail-sub,.cs-rail .rail-body-text{font-family:var(--serif);font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:20px;line-height:1.3;
+  letter-spacing:-.5px;margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.cs-rail .rail-link{font-style:italic;font-variation-settings:'opsz' 12,'wdth' 100,'wght' 400;}
+.cs-rail .rail-link a{color:var(--coral);}
+/* intro: 136 below the cover, 116 to the first section (as in the file) */
+.cs-rail #intro.rail-intro{background:transparent;padding:136px 0 0;}
+.cs-rail #intro .rail-head{position:static;gap:28px;max-width:none;}
+.cs-rail .rail-title{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 87.5;font-size:clamp(48px,6.25vw,90px);line-height:.93;
+  margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.cs-rail .rail-statement{font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:clamp(26px,2.5vw,36px);line-height:1.25;
+  letter-spacing:-.54px;margin:0;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.cs-rail .rail-meta{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;margin-top:80px;}
+.cs-rail .rail-meta-col{display:flex;flex-direction:column;gap:36px;}
+.cs-rail .rail-meta-block{display:flex;flex-direction:column;gap:20px;}
+/* sections: first art row lines up with the label; 116 after the intro, then 178 between sections */
+.cs-rail .cs-media{padding:150px 0 var(--wide-edge);}
+.cs-rail #intro + .cs-media{padding-top:116px;}
+.cs-rail .cs-media.cs-flush-bottom{padding-bottom:var(--wide-edge);}
+.cs-rail .rail-body > .cs-grid-bleed{width:100%;}
+@media (max-width:860px){
+  .cs-rail .wrap.rail{grid-template-columns:1fr;row-gap:32px;}
+  .cs-rail .rail-head,.cs-rail .rail-body{grid-column:1;}
+  .cs-rail .rail-head{position:static;max-width:none;}
+  .cs-rail #intro.rail-intro{padding-top:72px;}
+  .cs-rail .rail-meta{grid-template-columns:1fr;row-gap:36px;margin-top:48px;}
+  .cs-rail .cs-media{padding-top:96px;}
+  .cs-rail #intro + .cs-media{padding-top:72px;}
+}

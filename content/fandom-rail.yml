@@ -1,0 +1,10 @@
+# RAIL LAYOUT TEST of the Fandom page (Max 2026-11-07, Figma 110:592):
+# past the cover and intro, the left four columns stay open except for the
+# section label + description, which sticks near the top while its section
+# scrolls; all art runs in the right eight columns.
+# All content comes from fandom-brand.yml; edit that file, then rebuild both:
+#   python3 build.py fandom-brand fandom-rail
+extends: fandom-brand
+assets: fandom-brand
+output: fandom-rail
+layout: rail

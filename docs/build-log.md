@@ -599,6 +599,15 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 7 (11-07): RAIL LAYOUT TEST (Figma 110:592) — built, not pushed**
+- New test page `fandom-rail.html` (content/fandom-rail.yml extends fandom-brand.yml, `layout: rail`). Rebuild with `python3 build.py fandom-brand fandom-rail`.
+- Cover inset 28 at 1440/900 with the Figma down arrow (white, 14 from the bottom). Intro: "Case Study" label + 90px title in cols 1-4; statement, then meta in two columns (gap 56), in cols 5-12. 136 cover-to-intro, 116 intro-to-first-section (as in the file).
+- Sections: label (Playfair Bold 16/18, 1.5px, caps) + description (Playfair Light 20/1.3) in cols 1-4, max 324 wide, sticky at 120 from the top until the section's last row passes; all art in cols 5-12 (913 at 1440). 178 between sections. No rules. Split headers ignored: the split piece leads its section's column. Bleeds stay in the column.
+- Phones (<=860): label stacks above the art, not sticky.
+- Measured at 1440: cover 28/28/1384x865, arrow y 851 (file 850), label y 1029 / title 1066 (file 1028/1065), right column x 499 w 913, every section's label top = first row top, 178 gaps, 0 overflow, 0 broken images, no script errors. Page 20,875 tall vs 30,753 for the current Fandom page.
+- Open questions for Max: sticky offset vs nav, footer/Next alignment, type sheet scale at 913, label weight (file says Bold), section spacing, collection title length.
+
+
 **Session 6 (11-01 to 11-03) wrapped. NOTHING from session 6 is pushed** (Max committed partway, as 34f2519; everything after the Space Mono fix is uncommitted). Max pushes and reviews first. Full list under "Session 6" below.
 - Fandom: Space Mono panel lines all yellow; logo row + palette 20% shorter, logos ~15% smaller; personas 90% width; +80 white after personas.
 - All pages: + no longer jumps when the menu opens (scrollbar fix); logo/+/footer 48 from the edge everywhere; logo 10% smaller.

@@ -271,10 +271,35 @@ def section_id(s):
     return sid
 
 
+_rail = {'on': False}
+
+def rail_section(s, slug, ground, gstyle, idattr):
+    # `layout: rail` (Max 2026-11-07, Figma 110:592): the section label and
+    # description sit in the left four columns and stick near the top while the
+    # section scrolls; every piece of art runs in the right eight columns.
+    # Splits and bleeds are ignored here: everything stays in the right column.
+    sub = esc(s['subhead']) if s.get('subhead') else ''
+    head = ''
+    if s.get('heading'):
+        head = (f'      <h2 class="rail-label">{esc(s["heading"])}</h2>\n'
+                + (f'      <p class="rail-sub">{sub}</p>\n' if sub else ''))
+    blocks = list(s['blocks'])
+    # a `head: split` piece was chosen as the section opener: it leads the column here
+    if s.get('head') == 'split' and blocks:
+        blocks.insert(0, blocks.pop(int(s.get('split_block', 0))))
+    body = '\n'.join(block(b, slug) for b in blocks)
+    if s.get('flush_bottom'):
+        ground += ' cs-flush-bottom'
+    return (f'<section class="{ground} cs-media"{idattr}{gstyle}>\n  <div class="wrap rail">\n'
+            f'    <div class="rail-head">\n{head}    </div>\n'
+            f'    <div class="rail-body">\n{body}\n    </div>\n  </div>\n</section>')
+
 def section(s, slug):
     ground, gstyle = ground_of(s)
     sid = section_id(s)
     idattr = f' id="{sid}"' if sid else ''
+    if _rail['on']:
+        return rail_section(s, slug, ground, gstyle, idattr)
     sub = esc(s['subhead']) if s.get('subhead') else ''
     if s.get('cite'):
         sub += f'<cite>{esc(s["cite"])}</cite>'
@@ -312,7 +337,27 @@ def section(s, slug):
     return (f'<section class="{ground} cs-media"{idattr}{gstyle}>\n'
             + '\n'.join(parts) + '\n</section>')
 
+def rail_intro(p):
+    # Figma 110:592: kind label + page title in the left columns; statement,
+    # then the meta blocks in two columns, in the right eight.
+    i = p['intro']
+    metas = [f'        <div class="rail-meta-block">\n          <p class="rail-label">{esc(m["label"])}</p>\n'
+             f'          <p class="rail-body-text">{esc(m["body"])}</p>\n        </div>' for m in i['meta']]
+    link = (f'        <p class="rail-body-text rail-link">{i["links_html"]}</p>\n' if i.get('links_html') else '')
+    # links go under the last meta block, in its column (as in the Figma)
+    col_a = metas[0] if metas else ''
+    col_b = '\n'.join(metas[1:])
+    meta = (f'      <div class="rail-meta">\n        <div class="rail-meta-col">\n{col_a}\n        </div>\n'
+            f'        <div class="rail-meta-col">\n{col_b}\n{link}        </div>\n      </div>\n')
+    return ('<!-- INTRO -->\n<section class="cs-light rail-intro" id="intro">\n  <div class="wrap rail">\n'
+            f'    <div class="rail-head">\n      <p class="rail-label">{esc(p.get("_kind", "Case Study"))}</p>\n'
+            f'      <h1 class="rail-title">{esc(i["eyebrow"])}</h1>\n    </div>\n'
+            f'    <div class="rail-body">\n      <p class="rail-statement">{esc(i["statement"])}</p>\n{meta}'
+            '    </div>\n  </div>\n</section>')
+
 def intro(p):
+    if _rail['on']:
+        return rail_intro(p)
     i = p['intro']
     meta = '\n'.join(
         f'      <div class="cs-meta-block">\n'
@@ -338,6 +383,8 @@ def next_up(page, site):
     items = [n for n in site['nav'] if n.get('kind')]
     me = '/' + str(page.get('output', page.get('_slug'))) + '.html'
     hrefs = [n['href'] for n in items]
+    if me not in hrefs and page.get('_extends'):
+        me = '/' + str(page['_extends']) + '.html'   # test variants point on like their base page
     if me not in hrefs:
         return ''
     n = items[(hrefs.index(me) + 1) % len(items)]
@@ -357,6 +404,7 @@ def build(slug):
     if page.get('extends'):
         base = yaml.safe_load((ROOT / 'content' / f"{page['extends']}.yml").read_text())
         base.update({k: v for k, v in page.items() if k != 'extends'})
+        base['_extends'] = page['extends']
         page = base
     page['_slug'] = slug
     # `wide:` on a block (Max 2026-10-31) holds overrides used only on `style: wide`
@@ -376,6 +424,11 @@ def build(slug):
     _alt['mode'] = str(page.get('grounds', 'white')).lower()   # white | alternate
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
     site = yaml.safe_load((ROOT / 'content' / 'site.yml').read_text())
+    _rail['on'] = str(page.get('layout', '')).lower() == 'rail'
+    if _rail['on']:
+        # the label over the title: this page's kind in the menu (Case Study / Collection)
+        base_href = '/' + str(page.get('_extends', slug)) + '.html'
+        page['_kind'] = next((n['kind'] for n in site['nav'] if n.get('kind') and n['href'] == base_href), 'Case Study')
     nav = '\n'.join(f'    <a href="{n["href"]}">{n["label"]}</a>' for n in site['nav'])
     out = (ROOT / 'templates' / 'case-study.html').read_text()
     for k, v in [('TITLE', page['title']), ('DESCRIPTION', page['description']),
@@ -407,6 +460,11 @@ def build(slug):
         out = _re.sub(r'<body class="([^"]*)">', lambda m: '<body class="%s">' % ' '.join(
             c for c in m.group(1).split() if c != 'cs-page'), out, count=1)
         out = out.replace('<section class="cs-light is-cream" id="intro">', '<section class="cs-dark" id="intro">', 1)
+    # `layout: rail` (Max 2026-11-07): body class + the Figma down arrow on the cover.
+    if _rail['on']:
+        out = out.replace('<body class="cs-wide', '<body class="cs-rail cs-wide', 1)
+        out = out.replace('<svg viewBox="0 0 36 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L18 15 35 1"/></svg>',
+                          '<svg viewBox="0 0 13 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.5 0V27M1.5 22L6.5 27 11.5 22"/></svg>', 1)
     # `nav: standalone` — logo stays but links nowhere, and the menu is removed.
     if page.get('nav') == 'standalone':
         import re
