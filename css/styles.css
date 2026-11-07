@@ -733,3 +733,12 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   .cs-rail .cs-media{padding-top:96px;}
   .cs-rail #intro + .cs-media{padding-top:72px;}
 }
+
+/* Rail labels: fade + shift (Max 2026-11-07). Opacity is set by js/rail.js.
+   .shift slides a label 108px right while the nav is showing, so it clears the
+   logo; width is capped so the shifted label never runs into the art column. */
+@media (min-width:861px){
+  .cs-rail .cs-media .rail-head{max-width:min(324px, calc(100% - 108px));transition:transform .3s var(--ease);will-change:transform,opacity;}
+  .cs-rail .cs-media .rail-head.shift{transform:translateX(108px);}
+}
+@media (prefers-reduced-motion:reduce){.cs-rail .cs-media .rail-head{transition:none;}}

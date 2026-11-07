@@ -463,6 +463,7 @@ def build(slug):
     # `layout: rail` (Max 2026-11-07): body class + the Figma down arrow on the cover.
     if _rail['on']:
         out = out.replace('<body class="cs-wide', '<body class="cs-rail cs-wide', 1)
+        out = out.replace('<script src="/js/footer-dock.js" defer></script>', '<script src="/js/footer-dock.js" defer></script>\n<script src="/js/rail.js" defer></script>', 1)
         out = out.replace('<svg viewBox="0 0 36 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L18 15 35 1"/></svg>',
                           '<svg viewBox="0 0 13 28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.5 0V27M1.5 22L6.5 27 11.5 22"/></svg>', 1)
     # `nav: standalone` — logo stays but links nowhere, and the menu is removed.
