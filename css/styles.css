@@ -761,10 +761,10 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   .cs-rail .nav.scrolled .nav-inner{padding-top:20px;}
   .cs-rail .dock-foot{padding-left:42px;padding-right:42px;padding-bottom:42px;}
   /* Max 11-08: UP stays pinned at the footer's own spot (42 from the right, centered on the
-     footer logo row) and rises in whenever the nav shows (scrolling up), as well as at the
-     page bottom. js/rail.js sets .on-dark over dark content, turning it white. */
+     footer logo row) and rises in only while scrolling up (with the nav) and at the page bottom. Always the
+     dark text color, coral on hover (Max 11-08 dropped the light/dark switch). */
   .cs-rail .dock-top{position:fixed;right:42px;bottom:calc(42px + (58.5px - 19.06px) / 2);z-index:40;}
-  .dock-ready .cs-rail.rail-nav-up .dock-top{transform:none;pointer-events:auto;}
-  .cs-rail .dock-top.on-dark{color:#fff;}
-  .cs-rail .dock-top.on-dark:hover{color:var(--coral);}
+  /* Hidden: pushed fully below the window (its fixed spot is ~62 up, so the old 100%+48 left it peeking). */
+  .dock-ready .cs-rail .dock-top{transform:translateY(140px);}
+  .dock-ready .cs-rail.rail-nav-up .dock-top,.dock-ready .cs-rail.is-docked .dock-top{transform:none;pointer-events:auto;}
 }
