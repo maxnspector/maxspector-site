@@ -748,7 +748,7 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 /* Persistent page name (Max 11-08): once the first section's name reaches the top it is
    handed to this fixed copy, which stays in column 1 while section labels swap, and
    leaves with the last section. Hidden while the nav logo shows. */
-.rail-page-fixed{position:fixed;top:var(--rail-top);left:calc((100% - var(--wide)) / 2);z-index:30;visibility:hidden;pointer-events:none;}
+.rail-page-fixed{position:fixed;top:var(--rail-top);left:calc((100% - var(--wide)) / 2);width:calc((var(--wide) - 11 * var(--row-gap)) / 12);z-index:30;visibility:hidden;pointer-events:none;}
 .rail-page-fixed.on{visibility:visible;}
 .cs-rail .rail-page.handed{visibility:hidden;}
 @media (max-width:860px){ .rail-page-fixed{display:none;} }

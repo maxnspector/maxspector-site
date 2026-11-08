@@ -601,6 +601,10 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Session 7 (11-03 to 11-07) wrapped.** The test page is pushed (063cc52, 11-7 v1). NOT pushed: Max's spacing adjustments (sticky 28, intro +60, 200 between sections) = 11-7 v2. Max pushes, then scrolls /fandom-rail.html on staging.
 
+**FIX (Max 11-08):** the fixed page-name copy had no width, so "Client Brands" went to one line and crowded the label once it stuck. It now takes column 1's width. Measured: in-flow and fixed match (1440: 90 wide, 2 lines; 1100: 68 wide; 1920: column is 130 so it fits one line both ways). Not pushed.
+
+**ALEX NAV (Max 11-08):** `nav: standalone` removed from alex-ai.yml. alex.html now has the full menu (+ at 42/42), the logo links home (top and footer), and the footer shows Next · Fandom. Menu checked: opens, links to Alex AI, Fandom, Client Brands, About; no script errors. Not pushed.
+
 **RAIL ROLLOUT (Max 11-08): the rail is the site layout.** `layout: rail` set on fandom-brand.yml, alex-ai.yml and client-brands.yml (Fandom, Alex AI, Client Brands). /fandom-rail now 301s to /fandom-brand (files left in place). UP label removed, arrow only (all pages). Nav + footer chrome made global (CSS "NAV + FOOTER, every page"): desktop logo and + at 42 from sides and top, footer 42 sides and bottom, UP pinned 42 from the right and shown only while scrolling up (new js/nav-up.js sets body.nav-up; included on the template, index and about) and at the page bottom. Phones keep 24 edges and the regular footer dock. Measured at 1440 on all 5 pages: logo 42/42, + 42/42, UP 42 right / 62 bottom on scroll-up, hidden on scroll-down, footer logo 42/42; 0 overflow; no script errors. Alex's `lead:` animation now sits in the right 8 columns like everything else. Not pushed.
 
 **UP FIX (Max 11-08):** pinned UP was peeking in all the time (its hide offset was too small for a fixed button). Now fully below the window except while scrolling up (with the nav) and at the page bottom. Light/dark switch removed: always text color, coral hover. Measured: off-screen on load and scrolling down, in at 42/62 on scroll-up and at the bottom. Not pushed.

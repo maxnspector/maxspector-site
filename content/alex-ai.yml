@@ -7,7 +7,7 @@ style: wide          # full-width layout, the site design (Max 2026-10-31)
 layout: rail         # sticky label rail, the site layout (Max 2026-11-08)
 grounds_all: white
 frames: off
-nav: standalone
+# nav: standalone removed 2026-11-08 (Max): Alex now has the normal menu, footer links and Next
 intro:
   eyebrow: Alex AI
   statement: "Alex is an AI recruiter that interviews every applicant, takes over the busywork, and creates space for hiring teams to build candidate relationships. I joined as founding designer and built the brand and design systems, styles, motion, and everything that goes in front of customers."
