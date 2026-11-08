@@ -688,7 +688,8 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
    Cover inset 28 at 1440/900. Labels Playfair Bold 16 / 18, 1.5px tracking, caps;
    body Playfair Light 20 / 1.3, -0.5px. No rules. */
 .cs-rail{--rail-top:28px;}   /* sticky stop (Max 11-07: 28 from the top; was 120 to clear the nav logo) */
-.cs-rail .cs-cover{height:auto;aspect-ratio:1440/900;width:var(--wide);margin:var(--wide-edge) auto 0;}
+/* Max 11-07: cover fills the first screen with an even 28 border on all four sides (16 on phones). */
+.cs-rail .cs-cover{height:calc(100vh - 2 * var(--wide-edge));height:calc(100svh - 2 * var(--wide-edge));width:var(--wide);margin:var(--wide-edge) auto 0;}
 .cs-rail .cs-scroll{color:#fff;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);margin:0;}
 .cs-rail .cs-scroll svg{width:13px;height:28px;}
 .cs-rail .wrap.rail{width:var(--wide);max-width:none;margin-inline:auto;display:grid;
