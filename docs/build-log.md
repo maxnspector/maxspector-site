@@ -601,6 +601,8 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Session 7 (11-03 to 11-07) wrapped.** The test page is pushed (063cc52, 11-7 v1). NOT pushed: Max's spacing adjustments (sticky 28, intro +60, 200 between sections) = 11-7 v2. Max pushes, then scrolls /fandom-rail.html on staging.
 
+**RAIL WIDTHS (Max 11-08, Figma at 1440):** page name box = column 1 minus 12 (78 at 1440), in-flow and fixed; big intro title capped at columns 1-3 (325 at 1440), leaving a column and two gutters before the statement at column 5. Also fixed a stray `}` left in styles.css by the nav/footer move that was silently dropping the rules after it. Measured at 1440: title 325, statement 499, page name 78 (Client Brands on 2 lines), label 146; nav/footer checks on all 5 pages unchanged. Not pushed.
+
 **FIX (Max 11-08):** the fixed page-name copy had no width, so "Client Brands" went to one line and crowded the label once it stuck. It now takes column 1's width. Measured: in-flow and fixed match (1440: 90 wide, 2 lines; 1100: 68 wide; 1920: column is 130 so it fits one line both ways). Not pushed.
 
 **ALEX NAV (Max 11-08):** `nav: standalone` removed from alex-ai.yml. alex.html now has the full menu (+ at 42/42), the logo links home (top and footer), and the footer shows Next · Fandom. Menu checked: opens, links to Alex AI, Fandom, Client Brands, About; no script errors. Not pushed.
