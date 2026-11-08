@@ -745,6 +745,13 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   transition:opacity .3s var(--ease);}
 .cs-rail .cs-media .rail-sub{line-height:1.2;}
 .rail-nav-up .cs-rail .rail-page,.cs-rail.rail-nav-up .rail-page{opacity:0;}
+/* Persistent page name (Max 11-08): once the first section's name reaches the top it is
+   handed to this fixed copy, which stays in column 1 while section labels swap, and
+   leaves with the last section. Hidden while the nav logo shows. */
+.rail-page-fixed{position:fixed;top:var(--rail-top);left:calc((100% - var(--wide)) / 2);z-index:30;visibility:hidden;pointer-events:none;}
+.rail-page-fixed.on{visibility:visible;}
+.cs-rail .rail-page.handed{visibility:hidden;}
+@media (max-width:860px){ .rail-page-fixed{display:none;} }
 @media (max-width:860px){ .cs-rail .rail-page{display:none;} .cs-rail .rail-text{display:flex;flex-direction:column;gap:20px;} }
 @media (prefers-reduced-motion:reduce){.cs-rail .rail-page{transition:none;}}
 /* Rail pages: logo and + 42 from the sides and top (Figma 110:592), spaced for the cover's

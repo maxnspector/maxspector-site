@@ -283,9 +283,13 @@ def rail_section(s, slug, ground, gstyle, idattr):
     if s.get('heading'):
         # Max 2026-11-08 (Figma 111:2012): page name in column 1, label +
         # description from column 2. The name hides while the nav logo shows.
-        head = (f'      <p class="rail-page">{esc(_rail.get("name", ""))}</p>\n'
-                f'      <div class="rail-text">\n'
-                f'      <h2 class="rail-label">{esc(s["heading"])}</h2>\n'
+        # Max 11-08 (later): the page name is written once, in the first section;
+        # js/rail.js then holds it fixed at the top for the rest of the sections.
+        first = not _rail.get('named')
+        _rail['named'] = True
+        head = ((f'      <p class="rail-page">{esc(_rail.get("name", ""))}</p>\n' if first else '')
+                + '      <div class="rail-text">\n'
+                + f'      <h2 class="rail-label">{esc(s["heading"])}</h2>\n'
                 + (f'      <p class="rail-sub">{sub}</p>\n' if sub else '')
                 + '      </div>\n')
     blocks = list(s['blocks'])
@@ -433,6 +437,7 @@ def build(slug):
     site = yaml.safe_load((ROOT / 'content' / 'site.yml').read_text())
     _rail['on'] = str(page.get('layout', '')).lower() == 'rail'
     _rail['name'] = (page.get('intro') or {}).get('eyebrow', page.get('title', ''))
+    _rail['named'] = False
     if _rail['on']:
         # the label over the title: this page's kind in the menu (Case Study / Collection)
         base_href = '/' + str(page.get('_extends', slug)) + '.html'

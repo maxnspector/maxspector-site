@@ -80,3 +80,29 @@
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req,{passive:true});
   addEventListener('load',req);setInterval(req,700);   // videos change frame by frame
 })();
+
+/* Persistent page name (Max 2026-11-08). The first section's page name scrolls
+   up with it; once it reaches the sticky stop, a fixed copy takes over and stays
+   put while later section labels swap underneath it. It is pushed off the top by
+   the end of the last section, and hides with the rest while the nav shows. */
+(function(){
+  if(!document.body.classList.contains('cs-rail'))return;
+  const src=document.querySelector('.cs-media .rail-head .rail-page');
+  const walls=[...document.querySelectorAll('.cs-media .wrap.rail')];
+  if(!src||!walls.length)return;
+  const fx=src.cloneNode(true);fx.classList.add('rail-page-fixed');fx.setAttribute('aria-hidden','true');
+  document.body.appendChild(fx);
+  const last=walls[walls.length-1];
+  let t=false;
+  function update(){t=false;
+    if(innerWidth<=860){fx.classList.remove('on');src.classList.remove('handed');return;}
+    const top=parseFloat(getComputedStyle(document.body).getPropertyValue('--rail-top'))||28;
+    const stuck=src.getBoundingClientRect().top<=top+0.5;
+    const h=fx.offsetHeight, end=last.getBoundingClientRect().bottom;
+    const on=stuck&&end>0;
+    fx.classList.toggle('on',on);src.classList.toggle('handed',on);
+    fx.style.transform=on?`translateY(${Math.min(0,end-top-h).toFixed(1)}px)`:'';
+  }
+  const req=()=>{if(!t){t=true;requestAnimationFrame(update);}};
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req,{passive:true});update();
+})();
