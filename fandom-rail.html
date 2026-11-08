@@ -13,6 +13,7 @@
 <!-- Row scroll-in (Max 2026-10-31): rows start hidden only when JS runs and motion is allowed. -->
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 <style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img{background-image:url('/assets/fandom-brand/cover-2026-mobile.jpg')!important}}</style>
+<style>@media (max-aspect-ratio:4/5){.cs-cover{height:auto!important;aspect-ratio:1440/2560;max-height:100svh}.cs-rail .cs-cover{max-height:calc(100svh - 2 * var(--wide-edge))}}</style>
 <style>
 @font-face{font-family:'Rubik';src:url('/assets/fandom-brand/fonts/rubik.woff2') format('woff2');font-weight:300 900;font-display:swap}
 @font-face{font-family:'Space Grotesk';src:url('/assets/fandom-brand/fonts/spacegrotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
@@ -625,5 +626,6 @@ addEventListener('load',()=>{const t=location.hash&&document.getElementById(deco
 </script>
 <script src="/js/footer-dock.js" defer></script>
 <script src="/js/rail.js" defer></script>
+<script src="/js/cover-arrow.js" defer></script>
 </body>
 </html>

@@ -692,6 +692,9 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 .cs-rail .cs-cover{height:calc(100vh - 2 * var(--wide-edge));height:calc(100svh - 2 * var(--wide-edge));width:var(--wide);margin:var(--wide-edge) auto 0;}
 .cs-rail .cs-scroll{color:#fff;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);margin:0;}
 .cs-rail .cs-scroll svg{width:13px;height:28px;}
+/* Cover arrow on light art (js/cover-arrow.js adds .on-light, Max 11-08). */
+.cs-scroll{transition:color .3s var(--ease);}
+.cs-scroll.on-light,.cs-rail .cs-scroll.on-light{color:var(--text-dark);}
 .cs-rail .wrap.rail{width:var(--wide);max-width:none;margin-inline:auto;display:grid;
   grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--row-gap);padding:0;}
 .cs-rail .rail-head{grid-column:1 / 5;align-self:start;max-width:324px;display:flex;flex-direction:column;gap:20px;

@@ -4,6 +4,7 @@ title: Fandom — Max Spector
 description: "Building and running the Fandom brand: identity, motion, social, presentations, GameSpot and events."
 cover: cover-2026.jpg   # Max 2026-11-07: Fandom_brand_hero_2026_DT_01 (old cover.jpg unused)
 cover_mobile: cover-2026-mobile.jpg
+cover_mobile_fit: width   # never crop the sides further than the art itself does
 frames: off
 # Full-width layout (Max 2026-10-31): the design for the whole site. Image rows run
 # nearly the full window with a 28px edge, growth stops at 1920px, and every section

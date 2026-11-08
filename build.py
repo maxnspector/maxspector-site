@@ -485,6 +485,15 @@ def build(slug):
                if page.get('cover_mobile_fit') == 'contain' else '')
         out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){.cs-cover-media.has-img'
                           f'{{background-image:url(\'{url}\')!important{fit}}}}}</style>\n</head>', 1)
+    # `cover_mobile_fit: width` (Max 2026-11-08): the phone art is cropped by design
+    # right at its edges, so the sides must never crop further. On tall screens the
+    # cover takes the art's own shape, capped at one screen (then only top/bottom crop).
+    if page.get('cover_mobile') and page.get('cover_mobile_fit') == 'width':
+        from PIL import Image as _Im
+        mw, mh = _Im.open(ROOT / 'assets' / art / page['cover_mobile']).size
+        out = out.replace('</head>', '<style>@media (max-aspect-ratio:4/5){'
+                          f'.cs-cover{{height:auto!important;aspect-ratio:{mw}/{mh};max-height:100svh}}'
+                          f'.cs-rail .cs-cover{{max-height:calc(100svh - 2 * var(--wide-edge))}}}}</style>\n</head>', 1)
     # `css:` — extra styles for this page only (its brand fonts, panel type).
     if page.get('css'):
         out = out.replace('</head>', f'<style>\n{page["css"]}\n</style>\n</head>', 1)
