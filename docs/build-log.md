@@ -599,6 +599,23 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 8 (11-07 to 11-08) wrapped.** Max pushed through 11-8 v9 during the session (check GitHub Desktop); homepage v3 is the last change and is NOT pushed (summary: `11-8 v10 – Homepage v3 from Figma`).
+
+**Final state after session 8**
+- Rail layout (`layout: rail`) on Fandom, Alex AI and Client Brands. Page name (78 wide at 1440) shows once, then pinned at the top (js/rail.js), hidden on scroll-up; labels fade over the last 400px of a section; description + page name 120% line height; intro title capped at cols 1-3. /fandom-rail -> /fandom-brand.
+- Footer everywhere (Figma 110:2001): logo / EMAIL / LINKEDIN, NEXT · title · arrow from col 5, up arrow (no label) pinned 42 from the right, shown on scroll-up (js/nav-up.js) and at the bottom. Nav logo and + 42/42 on desktop.
+- Alex AI: normal nav/menu/footer/Next.
+- Fandom: 2026 hero art; screen-height cover with even 28 border; phone cover never crops past the art's own edge (`cover_mobile_fit: width`); cover arrow auto light/dark (js/cover-arrow.js).
+- HOMEPAGE v3 (Figma 110:1762), body.home, CSS "HOMEPAGE v3": hero from col 5 (eyebrow/Ex labels Playfair 650 16 caps, Ex keys italic 14), coral down arrow; slideshow full width with label + dots (cols 1-4), italic slide title + caption (cols 5-9), Fig. counter right (data-title / data-caption on each slide); rows: label, 60px Light title (beige, coral on row hover), description in cols 1-3; square cols 5-9 + two stacked cols 10-12 (Alex 311/221, others 1:1); 100 above/below. Row art exported from Figma into assets/home (Alex, Fandom). Coral Hover #8C8259 (logo, +, down arrow on dark pages). Measured at 1440 within 1px of Figma.
+
+**Next**
+1. Max pushes 11-8 v10 and reviews the homepage and the rail pages live.
+2. From Max: Client Brands row art, Alex + Client Brands row descriptions (DRAFT now), slideshow slides with titles/captions.
+3. About page pass (nav/footer done; layout not yet matched to the new system).
+4. Delete retired files (fandom-rail*, fandom-full-width*, campaigns*, unused images) once Max grants delete permission.
+5. Older: sharper exports for full-width rows, compression pass.
+
+
 **Session 7 (11-03 to 11-07) wrapped.** The test page is pushed (063cc52, 11-7 v1). NOT pushed: Max's spacing adjustments (sticky 28, intro +60, 200 between sections) = 11-7 v2. Max pushes, then scrolls /fandom-rail.html on staging.
 
 **RAIL WIDTHS (Max 11-08, Figma at 1440):** page name box = column 1 minus 12 (78 at 1440), in-flow and fixed; big intro title capped at columns 1-3 (325 at 1440), leaving a column and two gutters before the statement at column 5. Also fixed a stray `}` left in styles.css by the nav/footer move that was silently dropping the rules after it. Measured at 1440: title 325, statement 499, page name 78 (Client Brands on 2 lines), label 146; nav/footer checks on all 5 pages unchanged. Not pushed.

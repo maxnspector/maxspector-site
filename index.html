@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/css/styles.css" />
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 </head>
-<body>
+<body class="home">
 
 <!-- NAV -->
 <header class="nav" id="nav">
@@ -35,93 +35,84 @@
   </nav>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="wrap">
-    <div class="inner">
-      <p class="t-label eyebrow">Max Spector</p>
+<!-- HERO (Figma 110:1762, Max 2026-11-08) -->
+<section class="hero h-hero" id="top">
+  <div class="h-wrap">
+    <div class="h-hero-inner">
+      <p class="h-label">Max Spector</p>
       <h1 class="t-display">Intention with taste,<br>for the benefit of<br>people <span class="amp">&amp;</span> products.</h1>
-
-      <div class="hero-grid">
-        <div class="col reveal"><p class="t-label k">Ex. A</p><h3 class="t-sub">Lead Designer</h3><p class="t-body-sm">Unlocking originality through curiosity, partnership, and play.</p></div>
-        <div class="col reveal"><p class="t-label k">Ex. B</p><h3 class="t-sub">Design Leader</h3><p class="t-body-sm">Leading with clarity and trust, shaping culture, having fun.</p></div>
-        <div class="col reveal"><p class="t-label k">Ex. C</p><h3 class="t-sub">Agentic Process</h3><p class="t-body-sm">Directing AI models to accelerate and expand what’s possible.</p></div>
-        <div class="col reveal"><p class="t-label k">Ex. D</p><h3 class="t-sub">Impact-Focused</h3><p class="t-body-sm">Turning ideas into outcomes in awareness, growth, and revenue.</p></div>
-      </div>
-
-      <div class="hero-links reveal">
-        <a href="mailto:max@maxspector.com">Email</a> &nbsp;<span class="sep">•</span>&nbsp; <a href="https://www.linkedin.com/in/maxspector/" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="h-ex">
+        <div class="col reveal"><p class="h-k">Ex. A</p><h3 class="h-label">Lead Designer</h3><p class="h-ex-body">Unlocking originality through curiosity, partnership, and play.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. B</p><h3 class="h-label">Design Leader</h3><p class="h-ex-body">Leading with clarity and trust, shaping culture, having fun.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. C</p><h3 class="h-label">Agentic Process</h3><p class="h-ex-body">Directing AI models to accelerate and expand what’s possible.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. D</p><h3 class="h-label">Impact-Focused</h3><p class="h-ex-body">Turning ideas into outcomes in awareness, growth, and revenue.</p></div>
       </div>
     </div>
   </div>
+  <a class="h-down" href="#featured" aria-label="Scroll to featured work"><svg viewBox="0 0 13.7886 29.061" width="13.79" height="29.06" aria-hidden="true"><path d="M0.5303 21.6363L6.8943 28.0003L13.2583 21.6363" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6.1443" width="1.5" height="28" fill="currentColor"/></svg></a>
 </section>
 
 <!-- FEATURED WORK -->
-<section id="featured" data-rise="180">
-  <div class="wrap">
-    <div class="sec-head"><span class="t-label">Featured Work</span><hr class="rule"/></div>
-    <div class="slider reveal" id="slider">
+<section id="featured" class="h-featured" data-rise="180">
+  <div class="h-wrap">
+    <div class="slider h-slider" id="slider">
       <div class="slides" id="slides">
-        <!-- SLIDES: each links to a page or a section, e.g. href="/fandom-brand.html#office-branding".
-             data-caption is the line under the slideshow while that slide shows. -->
-        <a class="slide active" href="#" data-caption="DRAFT — Project name, from the Client Brands collection"><span class="slide-ph">Work example — 16:9</span></a>
-        <a class="slide" href="#" data-caption="DRAFT — Project name, from the Campaigns collection"><span class="slide-ph">Work example — 16:9</span></a>
-        <a class="slide" href="#" data-caption="DRAFT — Project name, from the Fandom case study"><span class="slide-ph">Work example — 16:9</span></a>
+        <!-- SLIDES: href = page or section (e.g. /fandom-brand.html#state-of-fandom); data-title = italic
+             line under the slideshow; data-caption = the description below it. -->
+        <a class="slide active" href="#" data-title="DRAFT — Project name" data-caption="DRAFT — from the Client Brands collection"><span class="slide-ph">Work example — 16:9</span></a>
+        <a class="slide" href="#" data-title="DRAFT — Project name" data-caption="DRAFT — from the Alex AI case study"><span class="slide-ph">Work example — 16:9</span></a>
+        <a class="slide" href="#" data-title="DRAFT — Project name" data-caption="DRAFT — from the Fandom case study"><span class="slide-ph">Work example — 16:9</span></a>
       </div>
-      <button class="slider-arrow prev" id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button class="slider-arrow next" id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button class="slider-arrow prev" id="prev" aria-label="Previous"><svg viewBox="0 0 15 29" width="15" height="29" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 1L1 14.5 14 28"/></svg></button>
+      <button class="slider-arrow next" id="next" aria-label="Next"><svg viewBox="0 0 15 29" width="15" height="29" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l13 13.5L1 28"/></svg></button>
     </div>
-    <div class="slider-foot reveal">
-      <div class="dots" id="dots"></div>
-      <p class="t-body-lg slider-caption" id="slideCaption" aria-live="polite"></p>
+    <div class="h-foot">
+      <div class="h-foot-left"><p class="h-label">Featured Work</p><div class="dots" id="dots"></div></div>
+      <div class="h-foot-mid"><p class="h-cap-title" id="slideTitle"></p><p class="h-cap" id="slideCaption" aria-live="polite"></p></div>
+      <p class="h-fig" id="slideFig"></p>
     </div>
   </div>
 </section>
 
-<!-- CASE STUDY ROW — Alex AI (clickable, hover) -->
-<a class="cs-row reveal" href="/alex.html" id="alex-ai">
-  <div class="wrap">
-    <p class="t-label cs-eyebrow">Case Study</p>
-    <hr class="rule cs-hr" />
-    <div class="cs-row-meta">
-      <h3 class="t-title">Alex AI</h3>
-      <p class="t-body-lg cs-row-desc">DRAFT — Alex description to come.</p>
+<!-- PROJECT ROWS (clickable; hover darkens the row and turns the title coral) -->
+<a class="cs-row h-row reveal" href="/alex.html" id="alex-ai">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Case Study</p>
+      <h3 class="h-title">Alex AI</h3>
+      <p class="h-desc">DRAFT — Alex description to come.</p>
     </div>
-    <div class="cs-row-media arr-1L2R row-in stagger">
-      <div class="m-img big">IMAGE</div>
-      <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
-    </div>
-  </div>
-</a>
-
-<!-- CASE STUDY ROW — Fandom (clickable, hover) -->
-<a class="cs-row reveal" href="/fandom-brand.html" id="fandom">
-  <div class="wrap">
-    <p class="t-label cs-eyebrow">Case Study</p>
-    <hr class="rule cs-hr" />
-    <div class="cs-row-meta">
-      <h3 class="t-title">Fandom</h3>
-      <p class="t-body-lg cs-row-desc">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
-    </div>
-    <div class="cs-row-media arr-1L2R row-in stagger">
-      <div class="m-img big">IMAGE</div>
-      <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
+    <div class="h-media h-alex row-in stagger">
+      <div class="h-img big"><img src="/assets/home/alex-big.jpg" alt="Alex logo mark over a blurred office, behind vertical lines" loading="lazy"></div>
+      <div class="h-col"><div class="h-img"><img src="/assets/home/alex-top.jpg" alt="Alex reaching candidates by SMS, video, WhatsApp, email and phone" loading="lazy"></div><div class="h-img"><img src="/assets/home/alex-bottom.jpg" alt="Candidate on her phone with an Alex interview message" loading="lazy"></div></div>
     </div>
   </div>
 </a>
 
-<!-- COLLECTION ROW — Client Brands (clickable, hover) -->
-<a class="cs-row reveal" href="/client-brands.html" id="client-brands">
-  <div class="wrap">
-    <p class="t-label cs-eyebrow">Collection</p>
-    <hr class="rule cs-hr" />
-    <div class="cs-row-meta">
-      <h3 class="t-title">Client Brands</h3>
-      <p class="t-body-lg cs-row-desc">DRAFT — description to come.</p>
+<a class="cs-row h-row reveal" href="/fandom-brand.html" id="fandom">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Case Study</p>
+      <h3 class="h-title">Fandom</h3>
+      <p class="h-desc">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
     </div>
-    <div class="cs-row-media arr-1R2L row-in stagger">
-      <div class="m-col"><div class="m-img">IMAGE</div><div class="m-img">IMAGE</div></div>
-      <div class="m-img big">IMAGE</div>
+    <div class="h-media h-even row-in stagger">
+      <div class="h-img big"><img src="/assets/home/fandom-big.jpg" alt="Fandom logo with the For the Love of Fans tagline" loading="lazy"></div>
+      <div class="h-col"><div class="h-img"><img src="/assets/home/fandom-top.jpg" alt="Fandom brand campaign art" loading="lazy"></div><div class="h-img"><img src="/assets/home/fandom-bottom.jpg" alt="Fandom SDCC welcome wall" loading="lazy"></div></div>
+    </div>
+  </div>
+</a>
+
+<a class="cs-row h-row reveal" href="/client-brands.html" id="client-brands">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Collection</p>
+      <h3 class="h-title">Client Brands</h3>
+      <p class="h-desc">DRAFT — description to come.</p>
+    </div>
+    <div class="h-media h-even row-in stagger">
+      <div class="h-img big">IMAGE</div>
+      <div class="h-col"><div class="h-img">IMAGE</div><div class="h-img">IMAGE</div></div>
     </div>
   </div>
 </a>
@@ -173,22 +164,11 @@ document.getElementById('prev').addEventListener('click',()=>{go(idx-1);stop();}
 go(0);reset();
 </script>
 <script>
-/* Max 2026-11-03: the slideshow caption and the project-row images start at the
-   same x as the hero text (cols 5-12 of the 1200 column), keeping their right
-   edge on the wide row. Measured, so it holds at every width and with scrollbars.
-   Phones (<=860) stack full width, so no offset there. */
-(function(){
-  const hero=document.querySelector('.hero .inner');
-  const els=[...document.querySelectorAll('.slider-caption,.cs-row-media')];
-  function align(){
-    els.forEach(el=>el.style.marginLeft='');
-    if(innerWidth<=860)return;
-    const x=hero.getBoundingClientRect().left;
-    els.forEach(el=>{const d=x-el.getBoundingClientRect().left;if(d>0)el.style.marginLeft=d+'px';});
-  }
-  align();addEventListener('resize',align,{passive:true});
-  if(document.fonts)document.fonts.ready.then(align);
-})();
+/* Slide title + Fig. counter under the slideshow (Max 2026-11-08, Figma 110:1762). */
+(function(){const sl=[...document.querySelectorAll('#slides .slide')],t=document.getElementById('slideTitle'),f=document.getElementById('slideFig');
+ const pad=n=>String(n).padStart(2,'0');
+ function upd(){const i=Math.max(0,sl.findIndex(s=>s.classList.contains('active')));t.textContent=sl[i].dataset.title||'';f.textContent='Fig. '+pad(i+1)+' / '+pad(sl.length);}
+ sl.forEach(s=>new MutationObserver(upd).observe(s,{attributes:true,attributeFilter:['class']}));upd();})();
 </script>
 <script src="/js/row-in.js" defer></script>
 <script src="/js/footer-dock.js" defer></script>
