@@ -752,5 +752,12 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 @media (min-width:861px){
   .cs-rail .nav-inner{padding-left:42px;padding-right:42px;padding-top:42px;}
   .cs-rail .nav.scrolled .nav-inner{padding-top:20px;}
-  .cs-rail .dock-foot{padding-left:42px;padding-right:42px;}
+  .cs-rail .dock-foot{padding-left:42px;padding-right:42px;padding-bottom:42px;}
+  /* Max 11-08: UP stays pinned at the footer's own spot (42 from the right, centered on the
+     footer logo row) and rises in whenever the nav shows (scrolling up), as well as at the
+     page bottom. js/rail.js sets .on-dark over dark content, turning it white. */
+  .cs-rail .dock-top{position:fixed;right:42px;bottom:calc(42px + (58.5px - 19.06px) / 2);z-index:40;}
+  .dock-ready .cs-rail.rail-nav-up .dock-top{transform:none;pointer-events:auto;}
+  .cs-rail .dock-top.on-dark{color:#fff;}
+  .cs-rail .dock-top.on-dark:hover{color:var(--coral);}
 }
