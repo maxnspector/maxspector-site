@@ -12,3 +12,7 @@
 # The full-width test page became the real Fandom page (Max 2026-10-31).
 /fandom-full-width /fandom-brand 301
 /fandom-full-width.html /fandom-brand 301
+
+# The rail test became the site layout (Max 2026-11-08).
+/fandom-rail /fandom-brand 301
+/fandom-rail.html /fandom-brand 301

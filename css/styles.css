@@ -754,17 +754,19 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 @media (max-width:860px){ .rail-page-fixed{display:none;} }
 @media (max-width:860px){ .cs-rail .rail-page{display:none;} .cs-rail .rail-text{display:flex;flex-direction:column;gap:20px;} }
 @media (prefers-reduced-motion:reduce){.cs-rail .rail-page{transition:none;}}
-/* Rail pages: logo and + 42 from the sides and top (Figma 110:592), spaced for the cover's
-   corners; the footer uses the same 42 side edge. Phones keep 24. */
+/* ===== NAV + FOOTER, every page (Max 2026-11-08, from the rail template, Figma 110:592) =====
+   Desktop: logo and + 42 from the sides and top, spaced for the cover corners; footer side
+   and bottom edges 42. The UP arrow (no label) is pinned at its footer spot, 42 from the right
+   and centered on the footer logo row; it rises in only while scrolling up (body.nav-up, set
+   by js/nav-up.js when the nav shows) and at the page bottom. Phones keep 24 and the
+   regular footer dock. */
 @media (min-width:861px){
-  .cs-rail .nav-inner{padding-left:42px;padding-right:42px;padding-top:42px;}
-  .cs-rail .nav.scrolled .nav-inner{padding-top:20px;}
-  .cs-rail .dock-foot{padding-left:42px;padding-right:42px;padding-bottom:42px;}
-  /* Max 11-08: UP stays pinned at the footer's own spot (42 from the right, centered on the
-     footer logo row) and rises in only while scrolling up (with the nav) and at the page bottom. Always the
-     dark text color, coral on hover (Max 11-08 dropped the light/dark switch). */
-  .cs-rail .dock-top{position:fixed;right:42px;bottom:calc(42px + (58.5px - 19.06px) / 2);z-index:40;}
-  /* Hidden: pushed fully below the window (its fixed spot is ~62 up, so the old 100%+48 left it peeking). */
-  .dock-ready .cs-rail .dock-top{transform:translateY(140px);}
-  .dock-ready .cs-rail.rail-nav-up .dock-top,.dock-ready .cs-rail.is-docked .dock-top{transform:none;pointer-events:auto;}
+  .nav-inner{padding-left:42px;padding-right:42px;padding-top:42px;}
+  .nav.scrolled .nav-inner{padding-top:20px;}
+  .dock-foot{padding-left:42px;padding-right:42px;padding-bottom:42px;}
+  .dock-top{position:fixed;right:42px;bottom:calc(42px + (58.5px - 19.06px) / 2);z-index:40;}
+  .dock-ready .dock-top{transform:translateY(140px);}
+  .dock-ready .nav-up .dock-top,.dock-ready .is-docked .dock-top{transform:none;pointer-events:auto;}
+  body.menu-open .dock-top{visibility:hidden;}
+}
 }

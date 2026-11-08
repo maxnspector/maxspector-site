@@ -11,6 +11,7 @@ frames: off
 # sits on white (the ground: lines below are kept for reference and for panel colors).
 # `wide:` on a block holds the overrides this layout uses.
 style: wide
+layout: rail         # sticky label rail, the site layout (Max 2026-11-08)
 grounds_all: white
 intro:
   eyebrow: Fandom

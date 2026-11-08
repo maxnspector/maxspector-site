@@ -4,6 +4,7 @@ output: alex
 cover: cover-keynote-7.jpg
 cover_mobile: cover-keynote-7-mobile.jpg
 style: wide          # full-width layout, the site design (Max 2026-10-31)
+layout: rail         # sticky label rail, the site layout (Max 2026-11-08)
 grounds_all: white
 frames: off
 nav: standalone

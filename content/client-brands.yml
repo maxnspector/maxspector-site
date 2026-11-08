@@ -11,6 +11,7 @@ description: 'Brand identities for independent clients: Coffee Cultures, Verve C
 cover: cover-kayu.jpg
 frames: 'off'
 style: wide          # full-width layout, the site design (Max 2026-10-31)
+layout: rail         # sticky label rail, the site layout (Max 2026-11-08)
 grounds_all: white   # section ground: lines below kept for reference / panel colors
 intro:
   eyebrow: Client Brands
