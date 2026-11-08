@@ -764,3 +764,5 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 - Build the CMS, once a second case study has proven the content model.
 - Staggered/offset pairs — the one layout from the original wish-list still
   unbuilt.
+
+**ABOUT v2 (session 9, 11-08):** no About frame exists in Figma, so About was moved onto the homepage v3 system. body.home tokens (28 edge/gutters, 1920 cap, 12-col wide grid). Hero from col 5 with the Playfair 650 16 label; aside is italic 20. Portrait cols 1-4 (443 at 1440), bio and lists cols 5-10 (678), 20px body (h-desc), lead 36. "Recognition & Clients" label sits in cols 1-4 like a rail label; rule removed; list headings are Playfair 650 labels (were Poppins). Spacing: 160 hero to portrait, 200 between sections, 160 before footer. Measured at 1440: label/title/lead/lists all start x 499, portrait 28-471, 0 overflow; 390 stacks at 16 edges, 0 overflow. Not pushed (summary: `11-8 v11 – About on the new grid`).
