@@ -731,11 +731,26 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   .cs-rail #intro + .cs-media{padding-top:72px;}
 }
 
-/* Rail labels: fade + shift (Max 2026-11-07). Opacity is set by js/rail.js.
-   .shift slides a label 108px right while the nav is showing, so it clears the
-   logo; width is capped so the shifted label never runs into the art column. */
+/* Rail labels (Max 2026-11-08, Figma 111:2012). Section heads: page name (Playfair Light
+   Italic 20) in column 1, label + description (263 wide) from column 2. js/rail.js fades the
+   whole head as it scrolls off, and adds .rail-nav-up to the body while the nav logo is
+   showing (scrolling up), which hides the page name so it never sits under the logo. */
 @media (min-width:861px){
-  .cs-rail .cs-media .rail-head{max-width:min(324px, calc(100% - 108px));transition:transform .3s var(--ease);will-change:transform,opacity;}
-  .cs-rail .cs-media .rail-head.shift{transform:translateX(108px);}
+  .cs-rail .cs-media .rail-head{max-width:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--row-gap);
+    align-items:start;will-change:opacity;}
+  .cs-rail .rail-text{grid-column:2 / -1;max-width:263px;display:flex;flex-direction:column;gap:20px;}
 }
-@media (prefers-reduced-motion:reduce){.cs-rail .cs-media .rail-head{transition:none;}}
+.cs-rail .rail-page{grid-column:1;margin:0;font-family:var(--serif);font-style:italic;font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;
+  font-size:20px;line-height:1.2;letter-spacing:-0.5px;color:var(--text-dark);text-box-trim:trim-both;text-box-edge:cap alphabetic;
+  transition:opacity .3s var(--ease);}
+.cs-rail .cs-media .rail-sub{line-height:1.2;}
+.rail-nav-up .cs-rail .rail-page,.cs-rail.rail-nav-up .rail-page{opacity:0;}
+@media (max-width:860px){ .cs-rail .rail-page{display:none;} .cs-rail .rail-text{display:flex;flex-direction:column;gap:20px;} }
+@media (prefers-reduced-motion:reduce){.cs-rail .rail-page{transition:none;}}
+/* Rail pages: logo and + 42 from the sides and top (Figma 110:592), spaced for the cover's
+   corners; the footer uses the same 42 side edge. Phones keep 24. */
+@media (min-width:861px){
+  .cs-rail .nav-inner{padding-left:42px;padding-right:42px;padding-top:42px;}
+  .cs-rail .nav.scrolled .nav-inner{padding-top:20px;}
+  .cs-rail .dock-foot{padding-left:42px;padding-right:42px;}
+}

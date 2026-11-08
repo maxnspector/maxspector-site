@@ -281,8 +281,13 @@ def rail_section(s, slug, ground, gstyle, idattr):
     sub = esc(s['subhead']) if s.get('subhead') else ''
     head = ''
     if s.get('heading'):
-        head = (f'      <h2 class="rail-label">{esc(s["heading"])}</h2>\n'
-                + (f'      <p class="rail-sub">{sub}</p>\n' if sub else ''))
+        # Max 2026-11-08 (Figma 111:2012): page name in column 1, label +
+        # description from column 2. The name hides while the nav logo shows.
+        head = (f'      <p class="rail-page">{esc(_rail.get("name", ""))}</p>\n'
+                f'      <div class="rail-text">\n'
+                f'      <h2 class="rail-label">{esc(s["heading"])}</h2>\n'
+                + (f'      <p class="rail-sub">{sub}</p>\n' if sub else '')
+                + '      </div>\n')
     blocks = list(s['blocks'])
     # a `head: split` piece was chosen as the section opener: it leads the column here
     if s.get('head') == 'split' and blocks:
@@ -427,6 +432,7 @@ def build(slug):
     art = page.get('assets', slug)   # optional: borrow another page's asset folder
     site = yaml.safe_load((ROOT / 'content' / 'site.yml').read_text())
     _rail['on'] = str(page.get('layout', '')).lower() == 'rail'
+    _rail['name'] = (page.get('intro') or {}).get('eyebrow', page.get('title', ''))
     if _rail['on']:
         # the label over the title: this page's kind in the menu (Case Study / Collection)
         base_href = '/' + str(page.get('_extends', slug)) + '.html'

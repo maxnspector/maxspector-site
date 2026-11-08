@@ -2,8 +2,9 @@
    1. Fade: once a section's end is 400px from the point where its stuck label
       starts moving off, the label fades, reaching 0 (invisible) just as it
       leaves the top of the window. Position-based, so it reverses on scroll-up.
-   2. Shift: while the nav is showing (i.e. while scrolling up), every section
-      label sits 108px right so it clears the logo; it returns on scroll-down. */
+   2. Page name: while the nav is showing (i.e. while scrolling up) the body gets
+      .rail-nav-up, which hides each head's page name (Max 11-08; replaces the
+      108px shift); it comes back on scroll-down. */
 (function(){
   if(!document.body.classList.contains('cs-rail'))return;
   const FADE=400, MIN=0;
@@ -17,15 +18,15 @@
     const desk=innerWidth>860;
     const navUp=nav&&!nav.classList.contains('nav-hidden')&&scrollY>140;
     const top=railTop();
+    document.body.classList.toggle('rail-nav-up',desk&&navUp);
     heads.forEach(h=>{
-      if(!desk){h.style.opacity='';h.classList.remove('shift');return;}
+      if(!desk){h.style.opacity='';return;}
       const r=h.getBoundingClientRect(), w=h.parentElement.getBoundingClientRect();
       const left=Math.max(w.bottom-r.bottom,0);           // px until the label starts moving off
       const off=left+Math.max(r.bottom,0);                // px until it is fully off the top
       const span=FADE+top+r.height;
       const t=Math.min(Math.max(off/span,0),1);
       h.style.opacity=(MIN+(1-MIN)*t).toFixed(3);
-      h.classList.toggle('shift',navUp);
     });
   }
   function req(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
