@@ -599,6 +599,25 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 9 (11-08 to 11-09) wrapped. Everything is pushed (through 6b58a50, 11-8 v16).**
+
+**Final state after session 9**
+- About rebuilt from Max's Figma 113:2575 (all tops match at 1440); new portrait export 1000px from Figma.
+- Up arrow (pinned, scroll-up) only on pages taller than 4 screens and after 2 screens down (NN/g); footer arrow unchanged.
+- Homepage: Client Brands row art (Coffee Cultures big; wolf / Brownie & Madam stacked, Alex 311/221 split); Client Brands description from the old site; slideshow now 8 slides (assets/home/slides), each linking to its section, titles/captions are Claude's wording; GameSpot slide is the review video (plays only while showing).
+- Client Brands: Unite + Ignite family spread added (second to last).
+
+**Next session: HOMEPAGE DISCUSSION FIRST (suggestions, not builds).** Max's notes (11-09):
+1. Slideshow isn't working as hoped. Maybe too big: you can't see the slide and the caption/elements below it together. Or the image picks aren't strong yet.
+2. Slideshow should auto-advance on a timer every few seconds. (Check the current autoplay code: it exists but stops for good once arrows/dots are used and pauses on hover/focus; confirm what Max is seeing.)
+3. Prev/next arrows get lost on light slides; they should switch color for contrast.
+4. Slide dots under Featured Work: hit area too small; lines look thin. Check against Figma 110:1762 (get_design_context on the dots) before proposing.
+5. Whole-row hover/click on the case study / collection rows feels awkward, since the rows fill most of the screen.
+Claude brings options with pros/cons for each; Max decides before anything is built.
+
+Still open from before: Alex row description (DRAFT); sharper Verve (1152) and Verify (1200) slide exports; Unite + Ignite family spread is 1500 wide; delete retired files once delete permission is given.
+
+
 **Session 8 (11-07 to 11-08) wrapped.** Max pushed through 11-8 v9 during the session (check GitHub Desktop); homepage v3 is the last change and is NOT pushed (summary: `11-8 v10 – Homepage v3 from Figma`).
 
 **Final state after session 8**
@@ -776,3 +795,10 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 **HOMEPAGE SLIDESHOW (Max 11-08, session 9):** 8 slides replace the 3 placeholders, cropped to 16:9 in assets/home/slides (max 2400 wide): Alex billboard, Coffee Cultures pattern, State of Fandom keynote, Verve window, Alex Verify, Brownie & Madam case, GameSpot review score (white border trimmed), Unite + Ignite spread. Each links to its section (build link check: all land). Titles and captions are Claude's wording ("<Project>" / "<what it is>, from the <page>"), for Max to revise. Verve (1152) and Verify (1200) are soft at the 1384 display width. Beige arrows are hard to see on light slides; open question. Not pushed.
 
 **SLIDESHOW VIDEO (Max 11-08):** GameSpot slide is now the review score video (assets/fandom-brand/gs-review-anim.mp4, 1920x1080, 3.9s loop, poster gs-review-anim-poster.jpg), muted. index.html go() calls slideVideos(): the active slide's video plays, others pause; reduced motion shows the poster only. .slide video shares the img cover rule. Checked headless: video loads on slide 7, pauses on leaving, no script errors (playback itself not watched; test browser). assets/home/slides/fandom-gamespot.jpg now unused. Not pushed.
+
+**SESSION 10 (11-09): homepage fixes from Max's notes** (summary: `11-9 v1 – Slideshow timer, dots, arrows, row links`)
+- Timer: every 5s, driven by a coral fill in the active dot (its end advances the slide). Arrows and dots restart the full 5s instead of stopping autoplay. Pauses on hover/focus and while the slideshow is off screen. Reduced motion: no autoplay, active dot solid coral. Measured: no change at 4.5s, advanced by 5.5s; held through 6.5s of hover; advanced 5s after leaving.
+- Dots match Figma 110:1937: 36x4 dashes, 6 apart, inactive white 20%, active coral. Click area 42x24 each (was 36x2). Label top to dash top 28, as in Figma.
+- Arrows: each reads the slide behind it (js/slide-arrows.js) and turns dark (#25341B) on light art; hover coral. Position unchanged: they were already 28 inside the slide (prev glyph x 56 = Figma). Figma's next arrow sits 14 inside; the site keeps 28 for symmetry (ask Max).
+- Rows are no longer one big link: only the title and the image group link (`.h-media` is an `<a>`, tabindex -1 so keyboard users get one stop per row). No full-row darkening; hovering the title or images turns the title coral and zooms the images.
+- Still open: slideshow size (option A, cap the height so slide + caption fit one screen, not decided).

@@ -826,7 +826,7 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 .home .h-meta{grid-column:1 / 4;display:flex;flex-direction:column;}
 .home .h-title{font-family:var(--serif);font-variation-settings:'wght' 300,'opsz' 50,'wdth' 87.5;font-size:60px;line-height:1.25;letter-spacing:-.9px;
   color:var(--paper);margin:35px 0 27px;text-box-trim:trim-both;text-box-edge:cap alphabetic;transition:color .25s var(--ease);}
-.home .h-row:hover .h-title{color:var(--coral);}
+.home .h-row:has(.h-title a:hover,.h-media:hover) .h-title{color:var(--coral);}  /* only title + images are links (Max 11-09) */
 .home .h-desc{font-family:var(--serif);font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:20px;line-height:1.3;letter-spacing:-.5px;
   color:var(--paper);margin:0;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
 .home .h-media{grid-column:5 / -1;display:grid;grid-template-columns:subgrid;}
@@ -836,7 +836,7 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
 .home .h-img{position:relative;overflow:hidden;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;
   color:rgba(207,197,170,.35);font:600 12px/1 var(--sans);letter-spacing:.18em;min-height:0;}
 .home .h-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
-.home .h-row:hover .h-img img{transform:scale(1.03);}
+.home .h-media:hover .h-img img{transform:scale(1.03);}
 /* coral hover on dark pages (homepage, About): logo and + */
 body:not(.cs-page) .nav-inner > a:hover .monogram{color:var(--coral-hover);}
 body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
@@ -856,3 +856,25 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
   .home .h-col{grid-column:2;gap:16px;}
   #featured.h-featured{padding:72px 0 48px;}
 }
+
+/* ===== HOMEPAGE 11-09 (Max): row links, dots, slide arrows ===== */
+.home .h-title a{color:inherit;}
+.home .h-title a:focus-visible,.home .h-media:focus-visible{outline:1px solid var(--coral);outline-offset:6px;}
+.home a.h-media{color:inherit;}
+/* Dots per Figma 110:1937: 36x4 dashes, 6 apart, inactive white 20%, active coral.
+   Each button is 42x24 (dash + gap) so the click area is bigger than the dash.
+   The active dash fills coral left to right over 5s; the end of the fill advances the slide. */
+.home .h-foot .dots{gap:0;}
+.home .h-foot-left{gap:9px;}  /* label top to dash top = 28, as in Figma (the 24px button adds 10 above the dash) */
+.home .h-foot .dots button{position:relative;width:42px;height:24px;background:none;padding:0;}
+.home .h-foot .dots button::before,.home .h-foot .dots button::after{content:"";position:absolute;left:0;top:10px;width:36px;height:4px;}
+.home .h-foot .dots button::before{background:rgba(255,255,255,.2);transition:background .2s;}
+.home .h-foot .dots button:hover::before{background:rgba(255,255,255,.4);}
+.home .h-foot .dots button::after{background:var(--coral);transform:scaleX(0);transform-origin:left center;}
+.home .h-foot .dots.static button.active::after{transform:none;}
+.home .h-foot .dots button.run::after{animation:dotfill 5s linear forwards;}
+.home .h-foot .dots.hold button.run::after{animation-play-state:paused;}
+@keyframes dotfill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+/* Slide arrows go dark over light slides (js/slide-arrows.js) */
+.home .slider-arrow.on-light{color:var(--bg);}
+.home .slider-arrow:hover{color:var(--coral);}

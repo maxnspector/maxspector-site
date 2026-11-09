@@ -79,48 +79,48 @@
   </div>
 </section>
 
-<!-- PROJECT ROWS (clickable; hover darkens the row and turns the title coral) -->
-<a class="cs-row h-row reveal" href="/alex.html" id="alex-ai">
+<!-- PROJECT ROWS: only the title and the image group are links (Max 11-09); hovering either turns the title coral -->
+<div class="h-row reveal" id="alex-ai">
   <div class="h-wrap">
     <div class="h-meta">
       <p class="h-label">Case Study</p>
-      <h3 class="h-title">Alex AI</h3>
+      <h3 class="h-title"><a href="/alex.html">Alex AI</a></h3>
       <p class="h-desc">DRAFT — Alex description to come.</p>
     </div>
-    <div class="h-media h-alex row-in stagger">
+    <a class="h-media h-alex row-in stagger" href="/alex.html" tabindex="-1" aria-label="Alex AI">
       <div class="h-img big"><img src="/assets/home/alex-big.jpg" alt="Alex logo mark over a blurred office, behind vertical lines" loading="lazy"></div>
       <div class="h-col"><div class="h-img"><img src="/assets/home/alex-top.jpg" alt="Alex reaching candidates by SMS, video, WhatsApp, email and phone" loading="lazy"></div><div class="h-img"><img src="/assets/home/alex-bottom.jpg" alt="Candidate on her phone with an Alex interview message" loading="lazy"></div></div>
-    </div>
+    </a>
   </div>
-</a>
+</div>
 
-<a class="cs-row h-row reveal" href="/fandom-brand.html" id="fandom">
+<div class="h-row reveal" id="fandom">
   <div class="h-wrap">
     <div class="h-meta">
       <p class="h-label">Case Study</p>
-      <h3 class="h-title">Fandom</h3>
+      <h3 class="h-title"><a href="/fandom-brand.html">Fandom</a></h3>
       <p class="h-desc">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
     </div>
-    <div class="h-media h-even row-in stagger">
+    <a class="h-media h-even row-in stagger" href="/fandom-brand.html" tabindex="-1" aria-label="Fandom">
       <div class="h-img big"><img src="/assets/home/fandom-big.jpg" alt="Fandom logo with the For the Love of Fans tagline" loading="lazy"></div>
       <div class="h-col"><div class="h-img"><img src="/assets/home/fandom-top.jpg" alt="Fandom brand campaign art" loading="lazy"></div><div class="h-img"><img src="/assets/home/fandom-bottom.jpg" alt="Fandom SDCC welcome wall" loading="lazy"></div></div>
-    </div>
+    </a>
   </div>
-</a>
+</div>
 
-<a class="cs-row h-row h-cb reveal" href="/client-brands.html" id="client-brands">
+<div class="h-row h-cb reveal" id="client-brands">
   <div class="h-wrap">
     <div class="h-meta">
       <p class="h-label">Collection</p>
-      <h3 class="h-title">Client Brands</h3>
+      <h3 class="h-title"><a href="/client-brands.html">Client Brands</a></h3>
       <p class="h-desc">Agency-side and independent work, building brand stories and sparking curiosity across tech, retail, entertainment, and culture.</p>
     </div>
-    <div class="h-media h-even row-in stagger">
+    <a class="h-media h-even row-in stagger" href="/client-brands.html" tabindex="-1" aria-label="Client Brands">
       <div class="h-img big"><img src="/assets/home/cb-big.jpg" alt="Coffee Cultures carved wooden sign hanging outside the cafe" loading="lazy"></div>
       <div class="h-col"><div class="h-img"><img src="/assets/home/cb-top.jpg" alt="Craftsman and Wolves wolf crest on gold" loading="lazy"></div><div class="h-img"><img src="/assets/home/cb-bottom.jpg" alt="Brownie &amp; Madam Optical Co. kraft eyeglass box" loading="lazy"></div></div>
-    </div>
+    </a>
   </div>
-</a>
+</div>
 
 <footer class="dock-foot" id="siteFoot">
   <div class="dock-left">
@@ -156,18 +156,21 @@ const caption=document.getElementById('slideCaption'),slider=document.getElement
 function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';slideVideos();}
 // Video slides play only while showing, never with reduced motion (Max 11-08).
 function slideVideos(){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;slides.forEach((s,k)=>{const v=s.querySelector('video');if(!v)return;if(k===idx&&!rm){v.play().catch(()=>{});}else{v.pause();}});}
-// Autoplay pauses while the pointer or keyboard focus is on the slideshow,
-// and stops for good once someone uses the arrows or dots.
-let stopped=false,paused=false;
-function reset(){clearInterval(timer);if(!stopped&&!paused&&!reduceMotion)timer=setInterval(()=>go(idx+1),6500);}
-function stop(){stopped=true;clearInterval(timer);}
-slider.addEventListener('mouseenter',()=>{paused=true;reset();});
-slider.addEventListener('mouseleave',()=>{paused=false;reset();});
-slider.addEventListener('focusin',()=>{paused=true;reset();});
-slider.addEventListener('focusout',()=>{paused=false;reset();});
-dots.forEach(d=>d.addEventListener('click',stop));
-document.getElementById('next').addEventListener('click',()=>{go(idx+1);stop();});
-document.getElementById('prev').addEventListener('click',()=>{go(idx-1);stop();});
+// Autoplay (Max 11-09): every 5s, driven by the progress fill in the active dot
+// (its animationend advances). Pauses while the pointer or keyboard focus is on
+// the slideshow, or while it's off screen. Arrows and dots restart the full 5s.
+let paused=false,offscreen=false;
+function reset(){if(reduceMotion)return;dots.forEach(d=>d.classList.remove('run'));void dotsWrap.offsetWidth;dots[idx].classList.add('run');hold();}
+function hold(){dotsWrap.classList.toggle('hold',paused||offscreen);}
+dots.forEach(d=>d.addEventListener('animationend',e=>{if(e.target===d&&d.classList.contains('run')){go(idx+1);reset();}}));
+slider.addEventListener('mouseenter',()=>{paused=true;hold();});
+slider.addEventListener('mouseleave',()=>{paused=false;hold();});
+slider.addEventListener('focusin',()=>{paused=true;hold();});
+slider.addEventListener('focusout',()=>{paused=false;hold();});
+new IntersectionObserver(es=>{offscreen=!es[0].isIntersecting;hold();},{threshold:.35}).observe(slider);
+document.getElementById('next').addEventListener('click',()=>{go(idx+1);reset();});
+document.getElementById('prev').addEventListener('click',()=>{go(idx-1);reset();});
+if(reduceMotion)dotsWrap.classList.add('static');
 go(0);reset();
 </script>
 <script>
@@ -177,6 +180,7 @@ go(0);reset();
  function upd(){const i=Math.max(0,sl.findIndex(s=>s.classList.contains('active')));t.textContent=sl[i].dataset.title||'';f.textContent='Fig. '+pad(i+1)+' / '+pad(sl.length);}
  sl.forEach(s=>new MutationObserver(upd).observe(s,{attributes:true,attributeFilter:['class']}));upd();})();
 </script>
+<script src="/js/slide-arrows.js" defer></script>
 <script src="/js/row-in.js" defer></script>
 <script src="/js/footer-dock.js" defer></script>
 <script src="/js/nav-up.js" defer></script>
