@@ -65,7 +65,7 @@
         <a class="slide" href="/client-brands.html#verve-coffee-roasters" data-title="Verve Coffee Roasters" data-caption="Storefront identity, from the Client Brands collection"><img src="/assets/home/slides/cb-verve.jpg" alt="Verve Coffee Roasters logo on a cafe window" loading="lazy"></a>
         <a class="slide" href="/alex.html#brand-in-the-world" data-title="Alex Verify" data-caption="Product imagery, from the Alex AI case study"><img src="/assets/home/slides/alex-verify.jpg" alt="Alex identity verification card beside a candidate on her phone" loading="lazy"></a>
         <a class="slide" href="/client-brands.html#the-brownie-and-madam-optical-co" data-title="The Brownie &amp; Madam Optical Co." data-caption="Packaging, from the Client Brands collection"><img src="/assets/home/slides/cb-brownie-madam.jpg" alt="Brownie &amp; Madam glasses in their branded case" loading="lazy"></a>
-        <a class="slide" href="/fandom-brand.html#gamespot" data-title="GameSpot" data-caption="Review motion graphics, from the Fandom case study"><img src="/assets/home/slides/fandom-gamespot.jpg" alt="GameSpot review score graphic" loading="lazy"></a>
+        <a class="slide" href="/fandom-brand.html#gamespot" data-title="GameSpot" data-caption="Review motion graphics, from the Fandom case study"><video muted loop playsinline preload="none" poster="/assets/fandom-brand/gs-review-anim-poster.jpg" aria-label="GameSpot review score animation"><source src="/assets/fandom-brand/gs-review-anim.mp4" type="video/mp4"></video></a>
         <a class="slide" href="/client-brands.html#unite-ignite" data-title="Unite + Ignite" data-caption="Capital campaign brochure, from the Client Brands collection"><img src="/assets/home/slides/cb-unite-ignite.jpg" alt="Brochure spread: Let us merge our lights in unity" loading="lazy"></a>
       </div>
       <button class="slider-arrow prev" id="prev" aria-label="Previous"><svg viewBox="0 0 15 29" width="15" height="29" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 1L1 14.5 14 28"/></svg></button>
@@ -153,7 +153,9 @@ const slides=[...document.querySelectorAll('#slides .slide')];const dotsWrap=doc
 slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Go to slide '+(i+1));b.addEventListener('click',()=>{go(i);reset();});dotsWrap.appendChild(b);});
 const dots=[...dotsWrap.children];
 const caption=document.getElementById('slideCaption'),slider=document.getElementById('slider');
-function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';}
+function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';slideVideos();}
+// Video slides play only while showing, never with reduced motion (Max 11-08).
+function slideVideos(){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;slides.forEach((s,k)=>{const v=s.querySelector('video');if(!v)return;if(k===idx&&!rm){v.play().catch(()=>{});}else{v.pause();}});}
 // Autoplay pauses while the pointer or keyboard focus is on the slideshow,
 // and stops for good once someone uses the arrows or dots.
 let stopped=false,paused=false;
