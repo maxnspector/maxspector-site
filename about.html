@@ -13,35 +13,50 @@
 <link rel="stylesheet" href="/css/styles.css" />
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
 <style>
-/* ABOUT v2 (2026-11-08) — on the homepage v3 system: same wide 12-col grid (28 edge/gutters,
-   1920 cap via body.home), Playfair 650 labels, 20px body, no rules. Text runs cols 5-10;
-   portrait cols 1-4; section labels in cols 1-4 like the rail pages. */
+/* ABOUT v3 (Max 2026-11-08, Figma 113:2575). Wide 12-col grid via body.home.
+   Text block starts at column 5, 795 max (same as the homepage hero). Inside it, the bio
+   and list text start 267 in (list label 184 + gap 83). The portrait (443 square) ends 80
+   before the bio, so it reaches back into the left columns. */
 .ab-hero{padding:100px 0 0;}
-.ab-hero .h-hero-inner{gap:40px;}
-.ab-hero .h-hero-inner .t-display{margin:0;}
-.ab-aside{font-family:var(--serif);font-style:italic;font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:20px;line-height:1.3;letter-spacing:-.5px;
+.ab-hero .h-hero-inner{gap:0;}
+.ab-hero .h-hero-inner .t-display{margin:40px 0 0;}
+.ab-main{grid-column:5 / -1;max-width:795px;}
+.ab-aside,.ab-cap{font-family:var(--serif);font-style:italic;font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:20px;line-height:1.3;letter-spacing:-.5px;
   color:var(--paper);margin:0;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
-.ab-intro{padding:160px 0 0;}
-.ab-intro .h-wrap,.ab-sec .h-wrap{align-items:start;}
-.ab-photo{grid-column:1 / 5;margin:0;}
+.about .ab-aside{margin-top:50px;}
+.ab-lead{font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:36px;line-height:1.25;letter-spacing:-.54px;
+  color:var(--paper);margin:0;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.ab-intro{padding:140px 0 0;}
+.ab-intro .ab-lead{max-width:800px;}
+.ab-pair{position:relative;display:grid;grid-template-columns:267px minmax(0,1fr);margin-top:80px;align-items:start;}
+.ab-photo{grid-column:1;width:443px;margin:0 0 0 calc(267px - 80px - 443px);}
 .ab-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;}
-.ab-photo figcaption{margin-top:24px;font-style:italic;}
-.ab-col{grid-column:5 / 11;display:flex;flex-direction:column;gap:40px;}
-.ab-lead{font-family:var(--serif);font-variation-settings:'opsz' 20,'wdth' 100,'wght' 300;font-size:clamp(26px,2.5vw,36px);line-height:1.25;letter-spacing:-.015em;
-  color:var(--paper);margin:0;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
-.ab-col .h-desc{margin:0;}
-.ab-sec{padding:200px 0 0;}
-.ab-sec-label{grid-column:1 / 5;}
-.ab-lists{grid-column:5 / 11;display:flex;flex-direction:column;gap:56px;}
-.ab-lists > div{display:flex;flex-direction:column;gap:20px;}
-.ab-connect{padding:200px 0 160px;}
+.about .ab-cap{margin-top:16px;max-width:325px;}
+.ab-bio{grid-column:2;}
+.ab-bio p{font-family:var(--serif);font-variation-settings:'opsz' 7.5,'wdth' 99,'wght' 300;font-size:20px;line-height:1.3;letter-spacing:-.5px;color:var(--paper);margin:0 0 20px;}
+.ab-bio p:last-child{margin:0;}
+.ab-bio{text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.ab-bio p:first-child{text-box-trim:trim-start;text-box-edge:cap alphabetic;}
+.ab-bio p:last-child{text-box-trim:trim-end;text-box-edge:cap alphabetic;}
+.ab-sec{padding:137px 0 0;}
+.ab-lists{display:flex;flex-direction:column;gap:72px;}
+.ab-row{display:flex;gap:83px;align-items:start;}
+.about .ab-row .h-label{width:184px;flex:none;}
+.ab-row .h-desc{flex:1;min-width:0;margin:0;}
+.ab-connect{padding:0;}
+.ab-connect .ab-lead{margin-top:138px;}
+@media(min-width:861px){.about .dock-foot{padding-top:191px;}}  /* Figma: 190 from the closing note to the footer logo */
 @media(max-width:860px){
-  .ab-photo,.ab-col,.ab-sec-label,.ab-lists{grid-column:1;}
-  .ab-intro{padding-top:72px;}
-  .ab-photo{max-width:384px;margin-bottom:48px;}
+  .ab-main{grid-column:1;}
+  .ab-pair{display:block;margin-top:56px;}
+  .ab-photo{width:100%;max-width:384px;margin:0 0 48px;}
+  .ab-intro{padding-top:96px;}
   .ab-sec{padding-top:96px;}
-  .ab-sec .ab-sec-label{margin-bottom:40px;}
-  .ab-connect{padding:96px 0 96px;}
+  .ab-lists{gap:40px;}
+  .ab-row{flex-direction:column;gap:16px;}
+  .about .ab-row .h-label{width:auto;}
+  .ab-lead{font-size:28px;}
+  .ab-connect .ab-lead{margin-top:96px;}
 }
 </style>
 </head>
@@ -73,23 +88,27 @@
     <div class="h-hero-inner">
       <p class="h-label">About</p>
       <h1 class="t-display">My purpose is simply to make cool things with amazing people.</h1>
-      <p class="ab-aside">(Also welcome: amazing things with cool people)</p>
+      <p class="ab-aside">(Also amenable to making amazing things with cool people)</p>
     </div>
   </div>
 </section>
 
-<!-- PORTRAIT + BIO -->
+<!-- LEAD + PORTRAIT + BIO -->
 <section class="ab-intro">
   <div class="h-wrap">
-    <figure class="ab-photo reveal row-in">
-      <img src="/assets/about/max-portrait.jpg" alt="Portrait of Max Spector" width="800" height="800" />
-      <figcaption class="h-ex-body">Selfie staged to suggest sincerity</figcaption>
-    </figure>
-    <div class="ab-col reveal">
+    <div class="ab-main">
       <p class="ab-lead">I&rsquo;m a design-led maker. I work at agentic scale for brands and products, business and culture.</p>
-      <p class="h-desc">As Founding Designer at Alex AI (YC W24), I&rsquo;m the creative lead for brand, digital, GTM, and customer-facing product. My process is AI-native, with hands-on work for precision and polish. As the space between idea and execution approaches zero, I operate at the cadence of a full creative team. A design system is the way a team produces assets, and what used to be a prototype is now the deliverable.</p>
-      <p class="h-desc">Before Alex, I was head of brand and marketing design at Fandom, where I grew the team from 3 to 15, led global rebrands of Fandom and GameSpot, and drove $20M+ in attributed revenue. I introduced AI workflows early, enabling the team to move faster and operate at greater scale.</p>
-      <p class="h-desc">Earlier, I worked agency-side and taught design at the university level. Clients included Apple, Adobe, Stanford, and The North Face. My work earned 50+ industry awards, including recognition from AIGA, Communication Arts, and the Type Directors Club.</p>
+      <div class="ab-pair">
+        <figure class="ab-photo reveal row-in">
+          <img src="/assets/about/max-portrait.jpg" alt="Portrait of Max Spector" width="1000" height="1000" />
+          <figcaption class="ab-cap">Staged selfie suggesting sincerity</figcaption>
+        </figure>
+        <div class="ab-bio reveal">
+          <p>As Founding Designer at Alex AI (YC W24), I&rsquo;m the creative lead for brand, digital, GTM, and customer-facing product. My process is AI-native, with hands-on work for precision and polish. As the space between idea and execution approaches zero, I operate at the cadence of a full creative team. A design system is the way a team produces assets, and what used to be a prototype is now the deliverable.</p>
+          <p>Before Alex, I was head of brand and marketing design at Fandom, where I grew the team from 3 to 15, led global rebrands of Fandom and GameSpot, and drove $20M+ in attributed revenue. I introduced AI workflows early, enabling the team to move faster and operate at greater scale.</p>
+          <p>Earlier, I worked agency-side and taught design at the university level. Clients included Apple, Adobe, Stanford, and The North Face. My work earned 50+ industry awards, including recognition from AIGA, Communication Arts, and the Type Directors Club.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -97,11 +116,10 @@
 <!-- LISTS -->
 <section class="ab-sec" id="recognition">
   <div class="h-wrap">
-    <p class="h-label ab-sec-label">Recognition &amp; Clients</p>
-    <div class="ab-lists">
-      <div class="reveal"><h2 class="h-label">Selected Awards &amp; Recognition</h2><p class="h-desc">Communication Arts, Type Directors Club, Print Magazine, AIGA, Graphis, HOW Magazine, Art Directors Club, GDUSA, The Mohawk Show, STEP 100, ADDY Awards, Summit Creative Awards, West Coast Show, International Design Awards</p></div>
-      <div class="reveal"><h2 class="h-label">Selected Exhibitions &amp; Publications</h2><p class="h-desc">Peace: 100 Ideas (book and exhibition), California Design Biennial, The Design of Dissent, AIGA 365, The Best of Cover Design, SF World Spirits Competition, Graphis Branding USA</p></div>
-      <div class="reveal"><h2 class="h-label">Selected Clients</h2><p class="h-desc">Apple, Adobe, Marvel Studios, Instagram, Hulu, Paramount+, Verizon, SFMOMA, The North Face, Square Enix, Wendy&rsquo;s, Electronic Arts, Cirque du Soleil, Fox, Johnnie Walker, Pottery Barn, Sprite, Stanford University, Universal, Xfinity, Dell Technologies</p></div>
+    <div class="ab-main ab-lists">
+      <div class="ab-row reveal"><h2 class="h-label">Selected awards &amp; recognition</h2><p class="h-desc">Communication Arts, Type Directors Club, Print Magazine, AIGA, Graphis, HOW Magazine, Art Directors Club, GDUSA, The Mohawk Show, STEP 100, ADDY Awards, Summit Creative Awards, West Coast Show, International Design Awards</p></div>
+      <div class="ab-row reveal"><h2 class="h-label">Exhibitions &amp; publications</h2><p class="h-desc">Peace: 100 Ideas (book and exhibition), California Design Biennial, The Design of Dissent, AIGA 365, The Best of Cover Design, SF World Spirits Competition, Graphis Branding USA</p></div>
+      <div class="ab-row reveal"><h2 class="h-label">Selected clients</h2><p class="h-desc">Apple, Adobe, Marvel Studios, Instagram, Hulu, Paramount+, Verizon, SFMOMA, The North Face, Square Enix, Wendy&rsquo;s, Electronic Arts, Cirque du Soleil, Fox, Johnnie Walker, Pottery Barn, Sprite, Stanford University, Universal, Xfinity, Dell Technologies</p></div>
     </div>
   </div>
 </section>
@@ -109,8 +127,8 @@
 <!-- CONNECT -->
 <section class="ab-connect" id="connect">
   <div class="h-wrap">
-    <div class="ab-col reveal">
-      <p class="ab-lead">If you&rsquo;re building something cool, facing an impossible task, or making someone&rsquo;s life better, let&rsquo;s talk.</p>
+    <div class="ab-main">
+      <p class="ab-lead">If you&rsquo;re trying something that&rsquo;s never been done, working an unsolvable problem, or making someone&rsquo;s life better, let&rsquo;s talk.</p>
     </div>
   </div>
 </section>
