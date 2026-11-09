@@ -298,3 +298,9 @@ sections:
       alt: 'Brochure spread: A bright and secure future'
       aspect: 2400/1600
     space: 14
+  - layout: full
+    items:
+    - img: v2/bs-families.jpg
+      alt: 'Brochure spread: The Sohn & Sturm family and Susie Coliver & Bob Herman'
+      aspect: 1500/1000
+    space: 14
