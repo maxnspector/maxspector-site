@@ -599,6 +599,8 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 10 (11-09 to 11-10) wrapped.** Pushed through 11-9 v1. NOT pushed: `11-10 v1 – Hero centered, arrow under Ex row`. Details: "SESSION 10" and "HERO v2" at the end of this file. Next: Max pushes and reviews; decide slideshow size (option A: cap the height so slide + caption fit one screen) and the right slide arrow inset (Figma 14 vs site 28).
+
 **Session 9 (11-08 to 11-09) wrapped. Everything is pushed (through 6b58a50, 11-8 v16).**
 
 **Final state after session 9**
@@ -804,3 +806,6 @@ Session 5 (11-01) wrapped. NOTHING from session 5 is pushed: Max pushes from Git
 - Still open: slideshow size (option A, cap the height so slide + caption fit one screen, not decided).
 
 **HERO v2 (Max 11-10, Figma 115:3107)** (summary: `11-10 v1 – Hero centered, arrow under Ex row`): the hero block is centered vertically in the window (min-height 100svh, 100 padding top and bottom so it never meets the logo on short windows). The coral down arrow moved inside the block, left-aligned, 60 below the Ex row. Copy unchanged (already matched). Measured at 1440x919: label 187, headline 236, Ex row 535, arrow 703, exactly Figma; 187 above and below. 1440x800: 128/128. 1920x1080: 268/268. 1440x640: hero grows to 745, 100/100. 390x844: 130/130. 0 overflow, no script errors.
+
+**ALEX REORDER (Max 11-10, session 11)** (summary: `11-10 v2 – Alex: animation + billboard lead Brand Identity`): the hiring-sequence animation (anim-hero-v11, was the headless `lead:` right after the intro) and the subway billboard are now the first two pieces of Brand Identity, before the lockup trio. `lead:` removed from alex-ai.yml. "Brand in the World" renamed "Extended Design System" (address now #extended-design-system); the homepage Alex Verify slide link updated to match (build link check: all land). Measured at 1440: animation 913x571, billboard 913x651, then lockup trio, all at x 499; 0 overflow, no script errors. Not pushed.
+Figma note (Max 11-10): two frames are named "Homepage (24px spacing)". 110:1762 is now Max's exploration copy (slideshow in cols 5-12, 913x514); the design of record is the other, left-hand copy (node ID not yet read). Slideshow size/placement still undecided.

@@ -16,8 +16,11 @@ intro:
     body: "Brand identity, motion design, and collateral. Product design lead, design system in partnership
       with our founding engineers."
   links_html: See more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
-lead:
+sections:
+- heading: Brand Identity
+  subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
+  # interview animation (was the page lead) + subway billboard moved here first (Max 2026-11-10)
   - layout: full
     items:
     - embed: anim-hero-v11.html
@@ -28,10 +31,12 @@ lead:
       h: 900
       bg: '#EEF2E1'
       speed: 1.2
-sections:
-- heading: Brand Identity
-  subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
-  blocks:
+  - layout: full
+    items:
+    - img: billboard-subway.jpg
+      alt: Interview everyone, hire the best subway billboard
+      ratio: wide
+      wide_aspect: 2400/1710  # shown whole in the split header (Max 2026-11-01)
   - layout: feature
     class: trio
     cols: 874fr 302fr
@@ -85,12 +90,6 @@ sections:
     - img: brand-plate-type-v4.jpg
       alt: DM Sans type specimen in four weights on dark green
       aspect: 2400/1356
-  - layout: full
-    items:
-    - img: billboard-subway.jpg
-      alt: Interview everyone, hire the best subway billboard
-      ratio: wide
-      wide_aspect: 2400/1710  # shown whole in the split header (Max 2026-11-01)
   - layout: grid-2
     items:
     - img: social-recruiter.jpg
@@ -204,7 +203,7 @@ sections:
         fit: contain
         pad: 0.04
         zoom: 0.95
-- heading: Brand in the World
+- heading: Extended Design System
   subhead: How Alex shows up for candidates and customers. Photography, office signage, swag, and sales materials.
   blocks:
   - layout: grid-3
