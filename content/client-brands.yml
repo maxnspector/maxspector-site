@@ -62,11 +62,19 @@ sections:
       alt: Hanging wooden Coffee Cultures sign outside the cafe
       aspect: 1200/1200
 - heading: Verve Coffee Roasters
-  head: split
-  split_block: 2
   subhead: The logo that launched a single-origin revolutionary and pioneer in coffee's third wave.
   ground: '#433C2A'
   blocks:
+  - layout: full   # Verve brand reel leads the section (Max 2026-11-12); frames from Figma 120:3622
+    items:
+    - video: v2/verve-reel
+      alt: Verve brand reel, the VERVE wordmark over a quick sequence of coffee, cafe and farm photos
+      aspect: 16/9
+  - layout: full   # was the split-header opener; now follows the reel (Max 2026-11-12)
+    items:
+    - img: v2/verve-glass-sq.jpg
+      alt: Verve logo on the cafe window
+      aspect: 1/1   # square crop for the split header (Max 2026-11-01)
   - layout: full
     items:
     - img: v2/verve-hero-mosaic.jpg   # Max 2026-10-29: Shinjuku tile floor is the hero
@@ -85,11 +93,6 @@ sections:
       alt: Verve Coffee Roasters logo on an espresso machine
       aspect: 1200/960
     space: 14
-  - layout: full   # right half of the two-column header (Max 2026-11-01)
-    items:
-    - img: v2/verve-glass-sq.jpg
-      alt: Verve logo on the cafe window
-      aspect: 1/1   # square crop for the split header (Max 2026-11-01)
 - heading: Trademarks & Monograms
   subhead: The brand symbol at its purest and most direct.
   ground: white
