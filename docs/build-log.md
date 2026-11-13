@@ -816,4 +816,4 @@ Figma note (Max 11-10): two frames are named "Homepage (24px spacing)". 110:1762
 - Client Brands: Verve section now opens with the reel (16:9), then the window square, mosaic and the three tiles. `head: split` / `split_block` removed from Verve (the reel leads instead of the window).
 - Homepage: the Verve slide (4th of 8) now plays the reel instead of cb-verve.jpg (same link and caption). assets/home/slides/cb-verve.jpg now unused.
 - Verified at 1440: reel 913x514 at x 499, playing (frame changed from the poster), window 913x913 and mosaic 913x609 follow; homepage slide 4 carries the video; 0 overflow, no script errors, slideshow links all land.
-- Café interior (Verve slideshow 6, node 120:3610) is still a 1200px source in Figma.
+- Café interior updated 11-12 to the 4096px source (Verve slideshow 6, node 121:3647); reel re-rendered, 5.6 MB.
