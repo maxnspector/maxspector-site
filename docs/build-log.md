@@ -599,6 +599,16 @@ phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
 **Next session starts here**
 
+**Session 12 (11-14): homepage STRATEGY discussion. Nothing built, nothing to push except this log.** Homepage design is paused until positioning v3 is done (separate session, trigger "Positioning work"; handoff in the Design & Profession folder, `positioning_handoff_2026-11-14.md`).
+- Homepage job (agreed direction): a tech/AI hiring manager understands what Max is, sees proof of quality, and clicks Alex AI within about a screen and a half.
+- Max leaning, not final: Alex-led homepage with the full site kept (Alex clearly bigger than Fandom and Client Brands; today it is close to equal weight).
+- Slideshow: Max counts impressions, not clicks. At 5s a slide, a 10-second look gets two images. Direction: replace it with a reel at Verve-reel pace. A smaller slideshow is out (reads as a fourth project row); the three-column layout didn't fix hierarchy either.
+- Open when homepage work resumes: where the reel sits (Claude suggested hero level, opening on Alex shots, projects one level below; not agreed); reel as an edited video file vs. a coded sequence of stills and clips (pause on hover to show title + link). Slideshow size/placement and the right-arrow inset are moot if the reel replaces it.
+- Two gaps Max agreed with: the first screen shows no work and the headline names no role; "Agentic Process" has nothing proving it. Both wait on positioning.
+- When "Website rebuild" opens next: check whether positioning v3 exists before designing the hero or reel.
+
+**Session 11 (11-10 to 11-12) wrapped.** Everything is pushed (through 11-12 v2). Done: Alex reorder + "Extended Design System"; new About headshot; Verve brand reel (Client Brands opener + homepage slide 4). Open: slideshow size/placement (Max testing in Figma play copy 110:1762; design of record is the other "Homepage (24px spacing)" frame) and right-arrow inset. Details: "ALEX REORDER", "ABOUT PORTRAIT", "VERVE REEL" at the end of this file.
+
 **Session 10 (11-09 to 11-10) wrapped.** Pushed through 11-9 v1. NOT pushed: `11-10 v1 – Hero centered, arrow under Ex row`. Details: "SESSION 10" and "HERO v2" at the end of this file. Next: Max pushes and reviews; decide slideshow size (option A: cap the height so slide + caption fit one screen) and the right slide arrow inset (Figma 14 vs site 28).
 
 **Session 9 (11-08 to 11-09) wrapped. Everything is pushed (through 6b58a50, 11-8 v16).**
