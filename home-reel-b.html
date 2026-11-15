@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Max Spector — Design across brand & product</title>
+<meta name="description" content="Max Spector — Design across brand and product, for people and purpose." />
+<!-- STAGING: keep the site out of search engines. REMOVE this line at public launch. -->
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/styles.css" />
+<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches)document.documentElement.classList.add('rows-anim');</script>
+<style>/* REEL TEST (11-15): one looping video replaces the slideshow, same width and 16:9 frame */
+.home .h-reel{grid-column:1/-1;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--bg-soft);}
+.home .h-reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.home .h-reel-foot{grid-column:1/-1;margin-top:24px;}
+</style>
+</head>
+<body class="home">
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Max Spector — home">
+      <svg class="monogram" viewBox="0 0 65 65" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.91,50.71l3.31-6.64,3.31,6.64h-6.62ZM50.95,54.7l-5.37-5.82,7.73-8.28h-4.22l-5.62,6.07-5.56-6.07h-4.22l7.68,8.29-8.35,8.89h4.27l6.22-6.66,4.98,5.42c-4.58,3.05-10.07,4.83-15.97,4.83-6.41,0-12.33-2.1-17.13-5.65l1.06-2.1h9.56l2.07,4.15h3.54l-8.82-17.19h-3.11l-6.74,13.11c-5.71-5.28-9.3-12.83-9.3-21.2,0-9.08,4.21-17.18,10.78-22.48v26.86h3.62V7.88h.09l12.78,29h3.31l12.69-29h.09v29h3.62V10.02c6.57,5.3,10.79,13.41,10.79,22.48s-4.06,16.89-10.43,22.2M32.5,3.62c4.02,0,7.86.83,11.34,2.32l-11.34,25.8L21.16,5.94c3.48-1.49,7.32-2.32,11.34-2.32M32.5,0C14.58,0,0,14.58,0,32.5s14.58,32.5,32.5,32.5,32.5-14.58,32.5-32.5S50.42,0,32.5,0"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- OVERLAY MENU -->
+<div class="overlay" id="overlay">
+  <nav>
+    <a href="/alex.html">Alex AI</a>
+    <a href="/fandom-brand.html">Fandom</a>
+    <a href="/client-brands.html">Client Brands</a>
+    <a href="/about.html">About</a>
+  </nav>
+</div>
+
+<!-- HERO (Figma 115:3107, Max 2026-11-10): centered in the window, arrow under the Ex row -->
+<section class="hero h-hero" id="top">
+  <div class="h-wrap">
+    <div class="h-hero-inner">
+      <p class="h-label">Max Spector</p>
+      <h1 class="t-display">Intention with taste,<br>for the benefit of<br>people <span class="amp">&amp;</span> products.</h1>
+      <div class="h-ex">
+        <div class="col reveal"><p class="h-k">Ex. A</p><h3 class="h-label">Lead Designer</h3><p class="h-ex-body">Unlocking originality through curiosity, partnership, and play.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. B</p><h3 class="h-label">Design Leader</h3><p class="h-ex-body">Leading with clarity and trust, shaping culture, having fun.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. C</p><h3 class="h-label">Agentic Process</h3><p class="h-ex-body">Directing AI models to accelerate and expand what’s possible.</p></div>
+        <div class="col reveal"><p class="h-k">Ex. D</p><h3 class="h-label">Impact-Focused</h3><p class="h-ex-body">Turning ideas into outcomes in awareness, growth, and revenue.</p></div>
+      </div>
+      <a class="h-down" href="#featured" aria-label="Scroll to featured work"><svg viewBox="0 0 13.7886 29.061" width="13.79" height="29.06" aria-hidden="true"><path d="M0.5303 21.6363L6.8943 28.0003L13.2583 21.6363" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6.1443" width="1.5" height="28" fill="currentColor"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section id="featured" class="h-featured" data-rise="180">
+  <div class="h-wrap">
+    <div class="h-reel"><video autoplay muted loop playsinline preload="auto" poster="/assets/home/reel-b-poster.jpg" aria-label="Reel of work from Alex AI, Fandom and Client Brands"><source src="/assets/home/reel-b.mp4" type="video/mp4"></video></div>
+    <div class="h-reel-foot"><p class="h-label">Featured Work</p></div>
+    <script>if(matchMedia('(prefers-reduced-motion:reduce)').matches)document.querySelector('.h-reel video').removeAttribute('autoplay');</script>
+  </div>
+</section>
+
+<!-- PROJECT ROWS: only the title and the image group are links (Max 11-09); hovering either turns the title coral -->
+<div class="h-row reveal" id="alex-ai">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Case Study</p>
+      <h3 class="h-title"><a href="/alex.html">Alex AI</a></h3>
+      <p class="h-desc">DRAFT — Alex description to come.</p>
+    </div>
+    <a class="h-media h-alex row-in stagger" href="/alex.html" tabindex="-1" aria-label="Alex AI">
+      <div class="h-img big"><img src="/assets/home/alex-big.jpg" alt="Alex logo mark over a blurred office, behind vertical lines" loading="lazy"></div>
+      <div class="h-col"><div class="h-img"><img src="/assets/home/alex-top.jpg" alt="Alex reaching candidates by SMS, video, WhatsApp, email and phone" loading="lazy"></div><div class="h-img"><img src="/assets/home/alex-bottom.jpg" alt="Candidate on her phone with an Alex interview message" loading="lazy"></div></div>
+    </a>
+  </div>
+</div>
+
+<div class="h-row reveal" id="fandom">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Case Study</p>
+      <h3 class="h-title"><a href="/fandom-brand.html">Fandom</a></h3>
+      <p class="h-desc">The in-house creation and launch of a vibrant brand identity; brought to life across social channels, marketing initiatives, and the core product platform.</p>
+    </div>
+    <a class="h-media h-even row-in stagger" href="/fandom-brand.html" tabindex="-1" aria-label="Fandom">
+      <div class="h-img big"><img src="/assets/home/fandom-big.jpg" alt="Fandom logo with the For the Love of Fans tagline" loading="lazy"></div>
+      <div class="h-col"><div class="h-img"><img src="/assets/home/fandom-top.jpg" alt="Fandom brand campaign art" loading="lazy"></div><div class="h-img"><img src="/assets/home/fandom-bottom.jpg" alt="Fandom SDCC welcome wall" loading="lazy"></div></div>
+    </a>
+  </div>
+</div>
+
+<div class="h-row h-cb reveal" id="client-brands">
+  <div class="h-wrap">
+    <div class="h-meta">
+      <p class="h-label">Collection</p>
+      <h3 class="h-title"><a href="/client-brands.html">Client Brands</a></h3>
+      <p class="h-desc">Agency-side and independent work, building brand stories and sparking curiosity across tech, retail, entertainment, and culture.</p>
+    </div>
+    <a class="h-media h-even row-in stagger" href="/client-brands.html" tabindex="-1" aria-label="Client Brands">
+      <div class="h-img big"><img src="/assets/home/cb-big.jpg" alt="Coffee Cultures carved wooden sign hanging outside the cafe" loading="lazy"></div>
+      <div class="h-col"><div class="h-img"><img src="/assets/home/cb-top.jpg" alt="Craftsman and Wolves wolf crest on gold" loading="lazy"></div><div class="h-img"><img src="/assets/home/cb-bottom.jpg" alt="Brownie &amp; Madam Optical Co. kraft eyeglass box" loading="lazy"></div></div>
+    </a>
+  </div>
+</div>
+
+<footer class="dock-foot" id="siteFoot">
+  <div class="dock-left">
+    <a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home"><svg class="monogram" viewBox="0 0 65 65" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.91,50.71l3.31-6.64,3.31,6.64h-6.62ZM50.95,54.7l-5.37-5.82,7.73-8.28h-4.22l-5.62,6.07-5.56-6.07h-4.22l7.68,8.29-8.35,8.89h4.27l6.22-6.66,4.98,5.42c-4.58,3.05-10.07,4.83-15.97,4.83-6.41,0-12.33-2.1-17.13-5.65l1.06-2.1h9.56l2.07,4.15h3.54l-8.82-17.19h-3.11l-6.74,13.11c-5.71-5.28-9.3-12.83-9.3-21.2,0-9.08,4.21-17.18,10.78-22.48v26.86h3.62V7.88h.09l12.78,29h3.31l12.69-29h.09v29h3.62V10.02c6.57,5.3,10.79,13.41,10.79,22.48s-4.06,16.89-10.43,22.2M32.5,3.62c4.02,0,7.86.83,11.34,2.32l-11.34,25.8L21.16,5.94c3.48-1.49,7.32-2.32,11.34-2.32M32.5,0C14.58,0,0,14.58,0,32.5s14.58,32.5,32.5,32.5,32.5-14.58,32.5-32.5S50.42,0,32.5,0"/></svg></a>
+    <a class="foot-link" href="mailto:max@maxspector.com">Email</a>
+    <a class="foot-link" href="https://www.linkedin.com/in/maxspector/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <a class="dock-top" data-dock="btn" href="#top" aria-label="Back to top"><svg class="arrow-up" viewBox="0 0 13.7886 19.061" width="13.79" height="19.06" aria-hidden="true"><path d="M13.2583 7.4246L6.8943 1.0607L0.5303 7.4246" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="6.1443" y="1.061" width="1.5" height="18" fill="currentColor"/></svg></a>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');let lastY=scrollY,navHidden=false;
+addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>40);
+  if(y>lastY&&y>140&&!navHidden){nav.classList.add('nav-hidden');navHidden=true;}
+  else if(y<lastY&&navHidden){nav.classList.remove('nav-hidden');navHidden=false;}
+  lastY=y;},{passive:true});
+const menuBtn=document.getElementById('menuBtn'),overlay=document.getElementById('overlay');
+// Menu circle opens from, and closes back onto, the center of the + button (Max 2026-10-25).
+function placeDot(){const r=menuBtn.getBoundingClientRect();overlay.style.setProperty('--dot-x',(r.left+r.width/2)+'px');overlay.style.setProperty('--dot-y',(r.top+r.height/2)+'px');}
+placeDot();addEventListener('resize',placeDot,{passive:true});
+menuBtn.addEventListener('click',()=>{if(!overlay.classList.contains('open'))document.documentElement.style.setProperty('--sbw',(innerWidth-document.documentElement.clientWidth)+'px');placeDot();nav.classList.remove('nav-hidden');navHidden=false;const o=overlay.classList.toggle('open');menuBtn.classList.toggle('open',o);menuBtn.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';document.body.classList.toggle('menu-open',o);});
+overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{overlay.classList.remove('open');menuBtn.classList.remove('open');document.body.style.overflow='';document.body.classList.remove('menu-open');}));
+const risers=[...document.querySelectorAll('[data-rise]')];let ticking=false;
+const reduceMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function rise(){const vh=innerHeight,maxS=Math.max(1,document.documentElement.scrollHeight-vh),y=scrollY;risers.forEach(el=>{const amt=parseFloat(el.dataset.rise)||100;const top=el.getBoundingClientRect().top-(el._rise||0);const docTop=top+y;const start=Math.min(docTop,vh);const end=Math.max(start-500,docTop-maxS);let p=(top-end)/Math.max(1,start-end);p=Math.min(1,Math.max(0,p));const v=p*amt;el._rise=v;el.style.transform=`translateY(${v.toFixed(1)}px)`;});ticking=false;}
+if(risers.length&&!reduceMotion){addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(rise);ticking=true;}},{passive:true});addEventListener('resize',rise,{passive:true});rise();}
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+document.querySelectorAll('.reveal,.rise-in').forEach(el=>io.observe(el));
+/* reel test: slideshow JS removed */
+</script>
+
+<script src="/js/row-in.js" defer></script>
+<script src="/js/footer-dock.js" defer></script>
+<script src="/js/nav-up.js" defer></script>
+</body>
+</html>
