@@ -235,9 +235,9 @@ sections:
       aspect: 2400/991
   - layout: full
     items:
-    - img: one-sheet-digital-2400.jpg
-      alt: Alex one-sheet, digital edition
-      aspect: 2400/1440
+    - img: one-sheet-laptop-mock.jpg
+      alt: Alex one-sheet, digital edition, shown on a laptop
+      aspect: 1960/1571
   - layout: grid-2
     items:
     - img: coordinator-hero.jpg

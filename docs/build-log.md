@@ -834,3 +834,5 @@ Figma note (Max 11-10): two frames are named "Homepage (24px spacing)". 110:1762
 - Homepage: the Verve slide (4th of 8) now plays the reel instead of cb-verve.jpg (same link and caption). assets/home/slides/cb-verve.jpg now unused.
 - Verified at 1440: reel 913x514 at x 499, playing (frame changed from the poster), window 913x913 and mosaic 913x609 follow; homepage slide 4 carries the video; 0 overflow, no script errors, slideshow links all land.
 - Café interior updated 11-12 to the 4096px source (Verve slideshow 6, node 121:3647); reel re-rendered, 5.6 MB.
+
+- 2026-11-15: Alex AI one-sheet swapped from the flat `one-sheet-digital-2400.jpg` to Max's laptop mockup (Dropbox Case Study Files/Alex AI/Alex_one_sheet_2026_V2_digital_mock_02.jpg, 1960x1571) as `assets/alex-ai/one-sheet-laptop-mock.jpg`, aspect 1960/1571. Not pushed (summary `11-15 v3 – Alex one-sheet laptop mockup`).
