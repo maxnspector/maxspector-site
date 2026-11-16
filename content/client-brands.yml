@@ -31,9 +31,9 @@ sections:
   blocks:
   - layout: full
     items:
-    - img: v2/cc-hero-pattern.jpg   # Max 2026-10-29: the old site's pattern header (Linked Art/Client_brands_header_01)
-      alt: 'Coffee Cultures pattern: a grid of the brand marks, badges and type in orange, gold, cream and brown'
-      aspect: 3840/2160
+    - img: v2/cc-wall-mock.jpg   # Max 2026-11-15: wall mockup replaces the flat pattern (Dropbox Case Study Files/Client Brands/Coffee Cultures/CC_wall_mock_2026_02.jpg)
+      alt: 'Coffee Cultures posters pasted across a concrete wall: badges, monograms, script type and the street-number graphic, with a passerby'
+      aspect: 2250/1500
   - layout: grid-3
     class: keep-row
     items:
