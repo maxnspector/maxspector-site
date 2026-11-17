@@ -246,3 +246,11 @@ sections:
     - img: verify-hero.jpg
       alt: Candidate on her phone in an airport lounge beside a completed identity verification card
       aspect: 1888/1422
+  - layout: grid-2
+    items:
+    - img: stats-phone.jpg
+      alt: Phone showing Alex's Measurable Impact stats, 1,000,000+ candidates interviewed, 96% prefer Alex, 2x faster time-to-hire, 33+ ATS integrations, 26+ languages
+      aspect: 1/1
+    - img: tote-bag.jpg
+      alt: Olive Alex tote bag printed with the brand mark and Interview everyone
+      aspect: 1/1
