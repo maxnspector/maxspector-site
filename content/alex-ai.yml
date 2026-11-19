@@ -96,17 +96,11 @@ sections:
       alt: 'Social card: interview everyone, hire the best, over a recruiter at a laptop'
     - img: social-candidate.jpg
       alt: 'Social card: interview everyone, hire the best, over a candidate on the phone'
-  - layout: grid-2
+  - layout: full
     items:
-    - img: brand-art-a.jpg
-      alt: Logo construction drawing
-    - img: brand-art-b.jpg
-      alt: Brand art, applied repeated down the page to a single hired
-    - img: brand-art-c.jpg
-      frame: true
-      alt: Brand art, "interview everyone, hire the best one" set in oversized type
-    - img: brand-art-e.jpg
-      alt: Brand art, a painted circle around the Alex mark
+    - img: brand-art-wall-mock.jpg
+      alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
+      aspect: 2400/1600
 - heading: Feature Animations
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
