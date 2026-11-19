@@ -1,0 +1,9 @@
+# Interview copy of the Alex AI page (Max 2026-11-18): identical to alex.yml content,
+# but no menu, no home link and no Next, so it can be sent without exposing the
+# unfinished site. Takes everything from alex-ai.yml; rebuilt automatically
+# whenever alex-ai is built (`follows_base`). Edit alex-ai.yml, never this file.
+extends: alex-ai
+output: alex-ai
+nav: standalone
+follows_base: true
+assets: alex-ai      # use the same image folder as the main page

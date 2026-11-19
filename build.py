@@ -541,6 +541,15 @@ def check_home_links():
 
 
 if __name__ == '__main__':
-    for slug in (sys.argv[1:] or ['fandom-brand']):
+    slugs = sys.argv[1:] or ['fandom-brand']
+    for slug in slugs:
         build(slug)
+    # `follows_base: true` (Max 2026-11-18): a variant that must stay in step with
+    # its base page is rebuilt whenever the base is (e.g. the no-nav Alex interview copy).
+    for f in sorted((ROOT / 'content').glob('*.yml')):
+        if f.stem in slugs:
+            continue
+        v = yaml.safe_load(f.read_text()) or {}
+        if isinstance(v, dict) and v.get('follows_base') and v.get('extends') in slugs:
+            build(f.stem)
     check_home_links()
