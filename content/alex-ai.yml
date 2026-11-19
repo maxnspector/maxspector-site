@@ -101,7 +101,7 @@ sections:
     - img: brand-art-wall-mock.jpg
       alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
       aspect: 2400/1600
-- heading: Feature Animations
+- heading: Product in Motion
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
   - layout: grid-3
