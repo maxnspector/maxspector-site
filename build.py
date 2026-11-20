@@ -484,7 +484,7 @@ def build(slug):
         import re
         out = re.sub(r'<a href="/" aria-label="Max Spector — home">(.*?)</a>',
                      r'<span class="nav-logo">\1</span>', out, count=1, flags=re.S)
-        out = out.replace('<a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home">', '<span class="dock-logo" data-dock="logo">', 1).replace('</svg></a>\n    <a class="foot-link"', '</svg></span>\n    <a class="foot-link"', 1)
+        out = out.replace('<a class="dock-logo" data-dock="logo" href="/" aria-label="Max Spector — home">', '<span class="dock-logo" data-dock="logo">', 1).replace('</svg></a>\n    <a class="foot-icon"', '</svg></span>\n    <a class="foot-icon"', 1)
         out = re.sub(r'\s*<button class="menu-btn".*?</button>', '', out, count=1, flags=re.S)
         out = re.sub(r'<div class="overlay" id="overlay">.*?</div>\n', '', out, count=1, flags=re.S)
     # `cover_mobile:` — a portrait cover for tall screens (phones, portrait tablets).

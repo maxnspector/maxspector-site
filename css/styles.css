@@ -764,7 +764,7 @@ body.cs-page.menu-open .nav .menu-btn span{background:var(--paper-2);}
   .nav-inner{padding-left:42px;padding-right:42px;padding-top:42px;}
   .nav.scrolled .nav-inner{padding-top:20px;}
   .dock-foot{padding-left:42px;padding-right:42px;padding-bottom:42px;}
-  .dock-top{position:fixed;right:42px;bottom:calc(42px + (58.5px - 19.06px) / 2);z-index:40;}
+  .dock-top{position:fixed;right:42px;bottom:calc(42px + (36px - 19.06px) / 2);z-index:40;}
   .dock-ready .dock-top{transform:translateY(140px);}
   .dock-ready .nav-up .dock-top,.dock-ready .is-docked .dock-top{transform:none;pointer-events:auto;}
   body.menu-open .dock-top{visibility:hidden;}
@@ -878,3 +878,13 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 /* Slide arrows go dark over light slides (js/slide-arrows.js) */
 .home .slider-arrow.on-light{color:var(--bg);}
 .home .slider-arrow:hover{color:var(--coral);}
+
+/* FOOTER ICONS (Max 2026-11-19, Figma 113:2769 / 144:345): Email and LinkedIn become
+   36px circle icons, and the footer logo shrinks to the same 36px; 21.6 apart. All three
+   take the footer text color and go coral on hover. The nav logo is unchanged. */
+.dock-left{gap:21.6px;}
+.dock-foot .dock-logo,.dock-foot .dock-logo .monogram{width:36px;height:36px;}
+.foot-icon{display:block;flex:none;width:36px;height:36px;color:inherit;transition:color .2s var(--ease);}
+.foot-icon:hover{color:var(--coral);}
+.foot-ico{display:block;width:36px;height:36px;}
+@media(max-width:420px){ .dock-left{gap:21.6px;} }
