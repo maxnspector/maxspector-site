@@ -888,3 +888,11 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 .foot-icon:hover{color:var(--coral);}
 .foot-ico{display:block;width:36px;height:36px;}
 @media(max-width:420px){ .dock-left{gap:21.6px;} }
+/* Footer icons rise in with the logo (Max 2026-11-19): logo first, then Email, then
+   LinkedIn, in quick succession (70ms apart). The delay only applies on the way in;
+   scrolling back up drops all three together. Hover color is never delayed. */
+.dock-ready .foot-icon{transform:translateY(calc(100% + 48px));pointer-events:none;transition:transform .35s var(--ease),color .2s var(--ease);}
+.dock-ready .is-docked .foot-icon{transform:none;pointer-events:auto;}
+.dock-ready .is-docked .foot-icon[aria-label="Email"]{transition:transform .35s var(--ease) 70ms,color .2s var(--ease);}
+.dock-ready .is-docked .foot-icon[aria-label="LinkedIn"]{transition:transform .35s var(--ease) 140ms,color .2s var(--ease);}
+@media(prefers-reduced-motion:reduce){ .dock-ready .foot-icon,.dock-ready .is-docked .foot-icon[aria-label]{transition:color .2s var(--ease);} }

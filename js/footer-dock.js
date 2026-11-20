@@ -22,8 +22,10 @@
   // Already at the bottom on load (reload, short page): show without the rise.
   check();
   if (shown) {
-    [lslot, bslot].forEach(el => { if (el) el.style.transition = 'none'; });
-    requestAnimationFrame(() => requestAnimationFrame(() => [lslot, bslot].forEach(el => { if (el) el.style.transition = ''; })));
+    // the Email + LinkedIn icons (2026-11-19) rise with the logo, so they skip it too
+    const all = [lslot, bslot, ...document.querySelectorAll('#siteFoot .foot-icon')];
+    all.forEach(el => { if (el) el.style.transition = 'none'; });
+    requestAnimationFrame(() => requestAnimationFrame(() => all.forEach(el => { if (el) el.style.transition = ''; })));
   }
   root.classList.add('dock-ready');
   let ticking = false;
