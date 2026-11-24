@@ -156,16 +156,15 @@ const caption=document.getElementById('slideCaption'),slider=document.getElement
 function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';slideVideos();}
 // Video slides play only while showing, never with reduced motion (Max 11-08).
 function slideVideos(){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;slides.forEach((s,k)=>{const v=s.querySelector('video');if(!v)return;if(k===idx&&!rm){v.play().catch(()=>{});}else{v.pause();}});}
-// Autoplay (Max 11-09): every 5s, driven by the progress fill in the active dot
-// (its animationend advances). Pauses while the pointer or keyboard focus is on
-// the slideshow, or while it's off screen. Arrows and dots restart the full 5s.
+// Autoplay (Max 11-09, revised 11-23): every 3s, driven by the progress fill in the
+// active dot (its animationend advances). No pause on mouse hover (the slideshow fills
+// the screen, so it was paused all the time). Pauses only for keyboard focus inside the
+// slideshow, or while it's off screen. Arrows and dots restart the full 3s.
 let paused=false,offscreen=false;
 function reset(){if(reduceMotion)return;dots.forEach(d=>d.classList.remove('run'));void dotsWrap.offsetWidth;dots[idx].classList.add('run');hold();}
 function hold(){dotsWrap.classList.toggle('hold',paused||offscreen);}
 dots.forEach(d=>d.addEventListener('animationend',e=>{if(e.target===d&&d.classList.contains('run')){go(idx+1);reset();}}));
-slider.addEventListener('mouseenter',()=>{paused=true;hold();});
-slider.addEventListener('mouseleave',()=>{paused=false;hold();});
-slider.addEventListener('focusin',()=>{paused=true;hold();});
+slider.addEventListener('focusin',e=>{if(e.target.matches(':focus-visible')){paused=true;hold();}});
 slider.addEventListener('focusout',()=>{paused=false;hold();});
 new IntersectionObserver(es=>{offscreen=!es[0].isIntersecting;hold();},{threshold:.35}).observe(slider);
 document.getElementById('next').addEventListener('click',()=>{go(idx+1);reset();});

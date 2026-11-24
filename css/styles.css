@@ -872,7 +872,7 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 .home .h-foot .dots button:hover::before{background:rgba(255,255,255,.4);}
 .home .h-foot .dots button::after{background:var(--coral);transform:scaleX(0);transform-origin:left center;}
 .home .h-foot .dots.static button.active::after{transform:none;}
-.home .h-foot .dots button.run::after{animation:dotfill 5s linear forwards;}
+.home .h-foot .dots button.run::after{animation:dotfill 3s linear forwards;} /* 3s per slide (Max 11-23) */
 .home .h-foot .dots.hold button.run::after{animation-play-state:paused;}
 @keyframes dotfill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
 /* Slide arrows go dark over light slides (js/slide-arrows.js) */
