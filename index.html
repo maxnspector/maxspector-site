@@ -53,8 +53,8 @@
 </section>
 
 <!-- FEATURED WORK -->
-<section id="featured" class="h-featured" data-rise="180">
-  <div class="h-wrap">
+<section id="featured" class="h-featured">
+  <div class="h-wrap" data-rise="180"><!-- rise moved off the section (Max 11-23): the snap measures the section, so it must never be drawn out of place -->
     <div class="slider h-slider" id="slider">
       <div class="slides" id="slides">
         <!-- SLIDES: href = page or section (e.g. /fandom-brand.html#state-of-fandom); data-title = italic
@@ -85,7 +85,7 @@
     <div class="h-meta">
       <p class="h-label">Case Study</p>
       <h3 class="h-title"><a href="/alex.html">Alex AI</a></h3>
-      <p class="h-desc">DRAFT — Alex description to come.</p>
+      <p class="h-desc">Alex is an end to end AI recruiter that lives in the ATS, interviews every applicant, and takes over the busywork so hiring teams can focus on getting people job offers.</p>
     </div>
     <a class="h-media h-alex row-in stagger" href="/alex.html" tabindex="-1" aria-label="Alex AI">
       <div class="h-img big"><img src="/assets/home/alex-big.jpg" alt="Alex logo mark over a blurred office, behind vertical lines" loading="lazy"></div>
@@ -153,13 +153,13 @@ const slides=[...document.querySelectorAll('#slides .slide')];const dotsWrap=doc
 slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Go to slide '+(i+1));b.addEventListener('click',()=>{go(i);reset();});dotsWrap.appendChild(b);});
 const dots=[...dotsWrap.children];
 const caption=document.getElementById('slideCaption'),slider=document.getElementById('slider');
-function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption?slides[idx].dataset.caption+' \u2192':'';slideVideos();}
+function go(i){slides[idx].classList.remove('active');slides[idx].tabIndex=-1;dots[idx].classList.remove('active');idx=(i+slides.length)%slides.length;slides[idx].classList.add('active');slides[idx].tabIndex=0;dots[idx].classList.add('active');caption.textContent=slides[idx].dataset.caption||'';slideVideos();}
 // Video slides play only while showing, never with reduced motion (Max 11-08).
 function slideVideos(){const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;slides.forEach((s,k)=>{const v=s.querySelector('video');if(!v)return;if(k===idx&&!rm){v.play().catch(()=>{});}else{v.pause();}});}
-// Autoplay (Max 11-09, revised 11-23): every 3s, driven by the progress fill in the
+// Autoplay (Max 11-09, revised 11-23): every 4s, driven by the progress fill in the
 // active dot (its animationend advances). No pause on mouse hover (the slideshow fills
 // the screen, so it was paused all the time). Pauses only for keyboard focus inside the
-// slideshow, or while it's off screen. Arrows and dots restart the full 3s.
+// slideshow, or while it's off screen. Arrows and dots restart the full 4s.
 let paused=false,offscreen=false;
 function reset(){if(reduceMotion)return;dots.forEach(d=>d.classList.remove('run'));void dotsWrap.offsetWidth;dots[idx].classList.add('run');hold();}
 function hold(){dotsWrap.classList.toggle('hold',paused||offscreen);}
@@ -171,6 +171,10 @@ document.getElementById('next').addEventListener('click',()=>{go(idx+1);reset();
 document.getElementById('prev').addEventListener('click',()=>{go(idx-1);reset();});
 if(reduceMotion)dotsWrap.classList.add('static');
 go(0);reset();
+// Down arrow (Max 11-23): land exactly on the slideshow's snapped view. A plain #featured
+// link could overshoot while the slideshow was still rising.
+document.querySelector('.h-down').addEventListener('click',e=>{e.preventDefault();const f=document.getElementById('featured');
+  const y=f.getBoundingClientRect().top+scrollY;scrollTo({top:y,behavior:reduceMotion?'auto':'smooth'});});
 </script>
 <script>
 /* Slide title + Fig. counter under the slideshow (Max 2026-11-08, Figma 110:1762). */

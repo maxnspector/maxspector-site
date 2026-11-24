@@ -872,7 +872,7 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 .home .h-foot .dots button:hover::before{background:rgba(255,255,255,.4);}
 .home .h-foot .dots button::after{background:var(--coral);transform:scaleX(0);transform-origin:left center;}
 .home .h-foot .dots.static button.active::after{transform:none;}
-.home .h-foot .dots button.run::after{animation:dotfill 3s linear forwards;} /* 3s per slide (Max 11-23) */
+.home .h-foot .dots button.run::after{animation:dotfill 4s linear forwards;} /* 4s per slide (Max 11-23, was 3s earlier that day) */
 .home .h-foot .dots.hold button.run::after{animation-play-state:paused;}
 @keyframes dotfill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
 /* Slide arrows go dark over light slides (js/slide-arrows.js) */
@@ -896,3 +896,33 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 .dock-ready .is-docked .foot-icon[aria-label="Email"]{transition:transform .35s var(--ease) 70ms,color .2s var(--ease);}
 .dock-ready .is-docked .foot-icon[aria-label="LinkedIn"]{transition:transform .35s var(--ease) 140ms,color .2s var(--ease);}
 @media(prefers-reduced-motion:reduce){ .dock-ready .foot-icon,.dock-ready .is-docked .foot-icon[aria-label]{transition:color .2s var(--ease);} }
+
+/* ===== FEATURED SLIDESHOW, FILL THE WINDOW (Max 2026-11-23, Figma 148:651) =====
+   Wider screens: the slideshow plus its caption row fill the browser window with the
+   page's side margin (28 at 1440) on all four sides; the art crops to fill whatever shape
+   the window is. A light scroll snap (proximity: only when you stop near it, easy to
+   scroll past) settles the section into that view; the hero's down arrow lands there too.
+   Caption row (Figma): FEATURED WORK + dots at left; at right the italic title, then 28,
+   then the description (16px, the hero's Ex text style) ending on the right margin;
+   all on one baseline, 28 below the image. The Fig. counter isn't in the new design. */
+.home .h-fig{display:none;}
+@media (min-width:861px){
+  html:has(body.home){scroll-snap-type:y proximity;}
+  #featured.h-featured{scroll-snap-align:start;box-sizing:border-box;height:100vh;height:100svh;padding:var(--wide-edge) 0;display:flex;flex-direction:column;}
+  #featured .h-wrap{display:flex;flex-direction:column;flex:1;min-height:0;width:var(--wide);}
+  .home #featured .h-slider{flex:1;min-height:0;}
+  .home #featured .slides{aspect-ratio:auto;height:100%;}
+  .home #featured .h-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-top:28px;}
+  .home #featured .h-foot-left{flex-direction:row;align-items:flex-end;gap:0;}
+  .home #featured .h-foot-left .h-label{flex:none;width:181px;white-space:nowrap;}   /* dots start 181 in, as in Figma */
+  .home #featured .h-foot .dots{height:9px;align-items:flex-start;}   /* 9px box sitting on the text baseline; the taller click areas overflow without making the row taller */
+  .home #featured .h-foot .dots button{margin-top:-7.5px;}   /* dash center 4.5 above the baseline, as in Figma */
+  .home #featured .h-foot-mid{flex-direction:row;align-items:flex-end;justify-content:flex-end;gap:28px;min-width:0;}
+  .home #featured .h-cap-title{text-align:right;white-space:nowrap;}
+  .home #featured .h-cap{white-space:nowrap;}
+}
+.home #featured .h-cap{font-variation-settings:'opsz' 10,'wdth' 103,'wght' 300;font-size:16px;letter-spacing:.16px;}  /* the hero's 16px Ex text (Max 11-23) */
+/* Phones and narrow windows: a square slideshow (Max 2026-11-23); no snap. */
+@media (max-width:860px){
+  .home #featured .slides{aspect-ratio:1/1;}
+}
