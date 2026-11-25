@@ -1,20 +1,23 @@
 # maxspector.com rebuild — build log
 
 <!-- START HERE -->
-## START HERE (updated 2026-11-24, session 14 wrap)
+## START HERE (updated 2026-11-24, session 15 wrap)
 Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
 
-**Pending push:** `11-24 v3 – Alex section 1 reordered, hero animation frame fits its stage` (section 1 order is now animation, social carousel, wall art, lockups, colors, type, subway billboard; the hiring-sequence animation frame is now 1440:767, no letterbox). 11-24 v1 and both v2 commits are pushed.
+**Pending push:** `11-24 v4 – Sharper Alex social carousel` (social-carousel.jpg replaced from Max's 3840x2160 re-export, now 2400x1350, 280 KB; plus this build-log update). Everything through 11-24 v3 is pushed.
 
 **Open, in rough order:**
-0. Max pushes 11-24 v1 and reviews the footer on staging. Ask: footer bottom 42 below the icons (site) vs 53 (Figma frame)? Phone placement of the credit OK (own line under the icons)?
-1. Homepage: review the 11-23 scroll snap + phone square slideshow; Fig. counter stays hidden?; video slides at 4s.
-2. Alex page: "How can Alex help?" animation, recolored to 11c colors (ground #082900, cards #EEF2E1 / #ADDABC / #6CC396, #009B58 accent; mapping not yet confirmed); placement and full-width vs in-grid undecided; what its ending reveals.
-3. Done 11-24: the Verify ("fraud note") animation plays inside Max's laptop mockup. Max to review it on staging.
-4. Reel direction C-E for the homepage (may be moot with the window-filling slideshow).
+0. Max reviews the Alex page on staging (section 1 order: animation, social carousel, wall art, lockups, colors, type, billboard; Verify in the laptop; hiring-sequence frame with no letterbox; check the Screen step, Claude's screenshots missed it).
+1. Questions for Max: extra Next spacing on phones too (suggested about half)? "Identity & Design Language" wraps to two lines at 1440, OK? Homepage slide caption still says "Brand identity", update? Billboard slide link now lands on the animation, re-point to the billboard?
+2. Footer: bottom 42 below the icons (site) vs 53 (Figma)? Phone placement of the credit OK?
+3. Homepage: review the 11-23 scroll snap + phone square slideshow; Fig. counter stays hidden?; video slides at 4s.
+4. Alex page: "How can Alex help?" animation, recolored to 11c colors (ground #082900, cards #EEF2E1 / #ADDABC / #6CC396, #009B58 accent; mapping not confirmed); placement, full-width vs in-grid, what its ending reveals.
+5. Reel direction C-E for the homepage (may be moot with the window-filling slideshow).
 Launch comes first. Post-launch ideas are parked in Project doc `claude/post-launch-ideas.md`.
 
-**How to preview:** tar the repo (exclude .git, _scratch, _to_delete, _contact-sheets) into `_scratch/<task>/site.tgz`, stage it, extract in the cloud container, serve with `python3 -m http.server`, measure with Playwright + /usr/bin/google-chrome (getBoundingClientRect, not eyeballing). For later rounds stage only the changed files.
+**New tools this session:** `device:` option for embeds (animation inside a mockup image; see alex-ai.yml Verify block). Lesson: measure an animation's own stage before sizing its frame (anim-hero-v11 letterboxes a 1440:767 stage).
+
+**How to preview:** tar the repo (exclude .git, _scratch, _to_delete, _contact-sheets) into `_scratch/<task>/site.tgz`, stage it, extract in the cloud container, serve with `python3 -m http.server` (start it in the same command as Playwright; it doesn't survive between calls), measure with Playwright + /usr/bin/google-chrome (getBoundingClientRect, not eyeballing). For later rounds stage only the changed files.
 <!-- END START HERE -->
 
 ## 2026-11-24 (evening) — Next spacing, Alex carousel, section rename
@@ -24,6 +27,7 @@ Launch comes first. Post-launch ideas are parked in Project doc `claude/post-lau
 - **Verify animation in a laptop (Max).** The Verify product animation (`anim-verify-product.html`) now plays inside Max's laptop mockup (Dropbox Case Study Files/Alex AI/Alex_Verify_video_mock_02.png, transparent screen). Saved as `assets/alex-ai/verify-laptop-mock.webp` (2400 wide, 27 KB; the 951 KB PNG version is in _scratch). New `device:` option for embeds in build.py (img, size, screen box in the image's own pixels) plus `.cs-device` CSS: the animation sits under the mockup in the screen box, mockup on top. Screen box measured from the PNG's transparent area: 405, 335, 3037 x 1958 of 3833 x 3005. Measured at 1440: mockup 913 x 716 (same width as the row above), screen 724 x 467, animation loads and plays; corners and notch checked zoomed in, no gaps. The animation is cropped about 2% top and bottom to fill the screen (its shape is 1.50, the screen's is 1.55).
 - **Order swap (Max, later).** The brand-art wall mockup now comes before the social carousel, which closes the section.
 - **Hiring-sequence animation frame (Max, later).** Max saw a band above and below the resume cards on the Screen step. Cause: `anim-hero-v11.html` keeps its stage at a fixed 1440:767 shape and letterboxes inside anything taller; the frame was 16:10 (1440 x 900), so 67px bands of ground showed top and bottom. Measured standalone: at 1440x900 the stage is 1440x767 at y67; at 1440x700 it fills the height. Frame is now `aspect: 1440/767`, w 1440, h 767. Measured on the page at 1440: frame 913 x 486 (was 913 x 571), the stage fills the whole iframe (1440 x 767), so the cards run off the top and bottom.
+- **Sharper carousel (Max, at wrap).** Max saved a 3840x2160 export over Alex_social_carousel_01.jpg; `social-carousel.jpg` is now 2400x1350 (same 16:9 shape, 280 KB), checked by eye.
 - **Section 1 reorder (Max, later still).** Identity & Design Language now runs: hiring-sequence animation, social carousel, wall art mockup, lockup trio, colors, type sheet, subway billboard (billboard moved from second to last). Checked in the built alex.html.
 - **Section rename (Max).** "Brand Identity" is now "Identity & Design Language". `id: brand-identity` kept in alex-ai.yml so the homepage slideshow link still lands. At 1440 the label now wraps to two lines.
 
