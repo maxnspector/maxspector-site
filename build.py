@@ -46,6 +46,20 @@ def media(it, slug):
                  + (f' data-cy="{it["cy"]}"' if 'cy' in it else '')
                  + (f' data-cx="{it["cx"]}"' if 'cx' in it else ''))
         frame = f'<iframe title="{esc(it.get("alt", ""))}" scrolling="no"></iframe>'
+        dev = it.get('device')
+        if dev:
+            # Animation playing inside a device mockup (Max 2026-11-24). `device:` takes
+            # img (a PNG/WebP with a transparent screen), size [W, H] and screen
+            # [x, y, w, h] in the image's own pixels. The animation sits under the
+            # mockup in the screen's box; the mockup is drawn on top.
+            W, H = dev['size']; x, y, sw, sh = dev['screen']
+            pos = (f'left:{100*x/W:.3f}%;top:{100*y/H:.3f}%;'
+                   f'width:{100*sw/W:.3f}%;height:{100*sh/H:.3f}%')
+            st2 = ';'.join(s for s in st if not s.startswith('aspect-ratio'))
+            inner = (f'<div {attrs.replace("cs-img has-img is-embed", "cs-img has-img is-embed device-screen")} '
+                     f'style="{pos}{";" + st2 if st2 else ""}">{poster}{frame}</div>')
+            return (f'      <div class="cs-img has-img cs-device{ratio}" style="aspect-ratio:{W}/{H}">{inner}'
+                    f'<img class="device-frame" src="{src(dev["img"])}" alt="" loading="lazy"></div>')
         return f'      <div {attrs}{style}>{poster}{frame}</div>'
     if it.get('swatches'):
         # Color palette drawn as live HTML (Max 2026-10-16), so the names and hex

@@ -129,11 +129,15 @@ sections:
     items:
     - embed: anim-verify-product.html
       poster: verify-product-poster.jpg
-      alt: 'Verify: Alex breaks down a candidate''s fraud signals over video'
+      alt: 'Verify: Alex breaks down a candidate''s fraud signals over video, on a laptop'
       w: 1120
       h: 747
-      aspect: 1120/747
       fit: cover
+      # plays inside Max's laptop mockup (Max 2026-11-24); screen box measured from the PNG's transparent area at 3833 wide
+      device:
+        img: verify-laptop-mock.webp
+        size: [3833, 3005]
+        screen: [405, 335, 3037, 1958]
   - layout: full
     items:
     - embed: anim-proctor.html

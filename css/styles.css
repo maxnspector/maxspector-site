@@ -952,3 +952,9 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 @media (max-width:860px){
   .foot-credit{flex-basis:100%;order:3;margin-top:-20px;}
 }
+
+/* ===== DEVICE MOCKUP (Max 2026-11-24): an animation playing inside a mockup image.
+   The mockup (transparent screen) sits on top; the animation fills the screen box under it. */
+.cs-img.cs-device{border:0;background:none;}
+.cs-img.cs-device .device-frame{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2;}
+.cs-img.is-embed.device-screen{position:absolute;aspect-ratio:auto;border:0;z-index:1;}

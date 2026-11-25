@@ -4,13 +4,13 @@
 ## START HERE (updated 2026-11-24, session 14 wrap)
 Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
 
-**Pending push:** `11-24 v2 – More space around Next, Alex social carousel, section renamed` (+50 above Next and +100 below it at 861px and up, phones unchanged; Alex: two square social cards replaced by one 16:9 carousel image; "Brand Identity" renamed "Identity & Design Language", anchor kept as #brand-identity). 11-24 v1 is pushed.
+**Pending push:** `11-24 v2 – More space around Next, Alex carousel and laptop, section renamed` (+50 above Next and +100 below it at 861px and up, phones unchanged; Alex: two square social cards replaced by one 16:9 carousel image; "Brand Identity" renamed "Identity & Design Language", anchor kept as #brand-identity; Verify animation now plays inside Max's laptop mockup). 11-24 v1 is pushed.
 
 **Open, in rough order:**
 0. Max pushes 11-24 v1 and reviews the footer on staging. Ask: footer bottom 42 below the icons (site) vs 53 (Figma frame)? Phone placement of the credit OK (own line under the icons)?
 1. Homepage: review the 11-23 scroll snap + phone square slideshow; Fig. counter stays hidden?; video slides at 4s.
 2. Alex page: "How can Alex help?" animation, recolored to 11c colors (ground #082900, cards #EEF2E1 / #ADDABC / #6CC396, #009B58 accent; mapping not yet confirmed); placement and full-width vs in-grid undecided; what its ending reveals.
-3. Possible: Alex video ("fraud note" phone clip) played inside a laptop/iMac mockup Max supplies (asked 11-24; approach agreed in principle, nothing built).
+3. Done 11-24: the Verify ("fraud note") animation plays inside Max's laptop mockup. Max to review it on staging.
 4. Reel direction C-E for the homepage (may be moot with the window-filling slideshow).
 Launch comes first. Post-launch ideas are parked in Project doc `claude/post-launch-ideas.md`.
 
@@ -21,6 +21,7 @@ Launch comes first. Post-launch ideas are parked in Project doc `claude/post-lau
 
 - **Next spacing (Max).** At 861px and up: 50 more above Next and 100 more below it (CSS `--next-top` 28 → 78, title-to-footer 134 → 234). Measured at 1440 on Alex, Fandom and Client Brands: art-to-title +50, title-to-footer-bottom 212 → 312 on all three. Phones (860 and under) left as they were.
 - **Alex social carousel (Max).** The two square social cards (`social-recruiter.jpg`, `social-candidate.jpg`, now unused) are replaced by one full-width 16:9 image, `assets/alex-ai/social-carousel.jpg` (from Dropbox Case Study Files/Alex AI/Alex_social_carousel_01.jpg, 1920x1080, JPG q84, 200 KB). Source is 1920 wide, so no larger version exists. Measured at 1440: 913x514, same width and left edge as the type plate above it, 28 gap.
+- **Verify animation in a laptop (Max).** The Verify product animation (`anim-verify-product.html`) now plays inside Max's laptop mockup (Dropbox Case Study Files/Alex AI/Alex_Verify_video_mock_02.png, transparent screen). Saved as `assets/alex-ai/verify-laptop-mock.webp` (2400 wide, 27 KB; the 951 KB PNG version is in _scratch). New `device:` option for embeds in build.py (img, size, screen box in the image's own pixels) plus `.cs-device` CSS: the animation sits under the mockup in the screen box, mockup on top. Screen box measured from the PNG's transparent area: 405, 335, 3037 x 1958 of 3833 x 3005. Measured at 1440: mockup 913 x 716 (same width as the row above), screen 724 x 467, animation loads and plays; corners and notch checked zoomed in, no gaps. The animation is cropped about 2% top and bottom to fill the screen (its shape is 1.50, the screen's is 1.55).
 - **Section rename (Max).** "Brand Identity" is now "Identity & Design Language". `id: brand-identity` kept in alex-ai.yml so the homepage slideshow link still lands. At 1440 the label now wraps to two lines.
 
 
