@@ -1,5 +1,30 @@
 # maxspector.com rebuild — build log
 
+<!-- START HERE -->
+## START HERE (updated 2026-11-24, session 14 wrap)
+Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
+
+**Pending push:** `11-24 v2 – More space around Next, Alex social carousel, section renamed` (+50 above Next and +100 below it at 861px and up, phones unchanged; Alex: two square social cards replaced by one 16:9 carousel image; "Brand Identity" renamed "Identity & Design Language", anchor kept as #brand-identity). 11-24 v1 is pushed.
+
+**Open, in rough order:**
+0. Max pushes 11-24 v1 and reviews the footer on staging. Ask: footer bottom 42 below the icons (site) vs 53 (Figma frame)? Phone placement of the credit OK (own line under the icons)?
+1. Homepage: review the 11-23 scroll snap + phone square slideshow; Fig. counter stays hidden?; video slides at 4s.
+2. Alex page: "How can Alex help?" animation, recolored to 11c colors (ground #082900, cards #EEF2E1 / #ADDABC / #6CC396, #009B58 accent; mapping not yet confirmed); placement and full-width vs in-grid undecided; what its ending reveals.
+3. Possible: Alex video ("fraud note" phone clip) played inside a laptop/iMac mockup Max supplies (asked 11-24; approach agreed in principle, nothing built).
+4. Reel direction C-E for the homepage (may be moot with the window-filling slideshow).
+Launch comes first. Post-launch ideas are parked in Project doc `claude/post-launch-ideas.md`.
+
+**How to preview:** tar the repo (exclude .git, _scratch, _to_delete, _contact-sheets) into `_scratch/<task>/site.tgz`, stage it, extract in the cloud container, serve with `python3 -m http.server`, measure with Playwright + /usr/bin/google-chrome (getBoundingClientRect, not eyeballing). For later rounds stage only the changed files.
+<!-- END START HERE -->
+
+## 2026-11-24 (evening) — Next spacing, Alex carousel, section rename
+
+- **Next spacing (Max).** At 861px and up: 50 more above Next and 100 more below it (CSS `--next-top` 28 → 78, title-to-footer 134 → 234). Measured at 1440 on Alex, Fandom and Client Brands: art-to-title +50, title-to-footer-bottom 212 → 312 on all three. Phones (860 and under) left as they were.
+- **Alex social carousel (Max).** The two square social cards (`social-recruiter.jpg`, `social-candidate.jpg`, now unused) are replaced by one full-width 16:9 image, `assets/alex-ai/social-carousel.jpg` (from Dropbox Case Study Files/Alex AI/Alex_social_carousel_01.jpg, 1920x1080, JPG q84, 200 KB). Source is 1920 wide, so no larger version exists. Measured at 1440: 913x514, same width and left edge as the type plate above it, 28 gap.
+- **Section rename (Max).** "Brand Identity" is now "Identity & Design Language". `id: brand-identity` kept in alex-ai.yml so the homepage slideshow link still lands. At 1440 the label now wraps to two lines.
+
+
+
 A running record of the new hand-coded site. Newest entries at the top.
 
 This file also lives in the repo at `docs/build-log.md`. Edit it there and
@@ -597,7 +622,7 @@ joined 2x2 panel) on #3A434B, State of Fandom slides on #294148, GameSpot
 social cards on #002833. Verified at 1440 and 390: padding 111px (29 on
 phones), gutter 23 (12), joined panel seamless, 0px overflow.
 
-**Next session starts here**
+**(Old marker, superseded by START HERE at the top) Next session starts here**
 
 **Session 13 (11-15): homepage design resumes.** Positioning v3 is not final, but the direction is agreed (Positioning work, 11-14/15): agentic work is the through-line; working label "designer and builder"; the design engine (never named publicly) is the lead proof; hands-on craft and art direction both stay visible. Max writes the hero line and the four Ex blocks from his three options in Design & Profession `positioning_v3_working_2026-11-15.md`; Claude critiques and gives word-level fixes only. Max's top priority: get the new site up (homepage content arrangement + design).
 - Homepage mockups (static, 11-15) in `_scratch/home-mock/` (gitignored): A = short hero (label + headline) over a full-width reel, Ex row moved below the reel; B = text + Ex 2x2 in cols 1-4 beside the reel in cols 5-12 (913x514), whole first screen. Both: Alex keeps its full row; Fandom + Client Brands become two half-width rows (16:9 art, 44px titles). Reel shown as a still (Alex billboard). Nothing decided.

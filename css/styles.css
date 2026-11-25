@@ -941,8 +941,9 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 @media (min-width:861px){
   .foot-credit{position:absolute;bottom:calc(42px + 18px - .5cap);
     left:calc((100% - var(--wide)) / 2 + (var(--wide) - 11 * var(--wide-edge)) * 4 / 12 + 4 * var(--wide-edge));}
-  .dock-foot:has(.next-link){padding-top:calc(var(--next-top) + var(--next-h) + 134px);}
-  .dock-foot{--next-top:28px;--next-h:21px;}  /* the last section already ends 28 above the footer: 28 + 28 = the 56 in Figma */
+  /* Max 2026-11-24 (later): +50 above Next and +100 below it. Was 56 art-to-title and 134 title-to-icons (Figma); now 106 and 234. */
+  .dock-foot:has(.next-link){padding-top:calc(var(--next-top) + var(--next-h) + 234px);}
+  .dock-foot{--next-top:78px;--next-h:21px;}  /* the last section already ends 28 above the footer: 28 + 78 = 106 */
   .next-link{top:var(--next-top);}
 }
 .dock-ready .foot-credit{transform:translateY(140px);transition:transform .35s var(--ease);}

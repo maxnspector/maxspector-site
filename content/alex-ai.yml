@@ -17,7 +17,8 @@ intro:
       with our founding engineers."
   links_html: See more at <a href="https://alex.com" target="_blank" rel="noopener">alex.com</a>
 sections:
-- heading: Brand Identity
+- heading: Identity & Design Language
+  id: brand-identity  # keeps the homepage slideshow link working after the rename (2026-11-24)
   subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
   # interview animation (was the page lead) + subway billboard moved here first (Max 2026-11-10)
@@ -90,12 +91,12 @@ sections:
     - img: brand-plate-type-v4.jpg
       alt: DM Sans type specimen in four weights on dark green
       aspect: 2400/1356
-  - layout: grid-2
+  # social carousel replaces the two square social cards (Max 2026-11-24)
+  - layout: full
     items:
-    - img: social-recruiter.jpg
-      alt: 'Social card: interview everyone, hire the best, over a recruiter at a laptop'
-    - img: social-candidate.jpg
-      alt: 'Social card: interview everyone, hire the best, over a candidate on the phone'
+    - img: social-carousel.jpg
+      alt: 'Alex social carousel: a row of vertical posts on dark green, from hire the best to the Alex wordmark to accelerate hiring'
+      aspect: 1920/1080
   - layout: full
     items:
     - img: brand-art-wall-mock.jpg
