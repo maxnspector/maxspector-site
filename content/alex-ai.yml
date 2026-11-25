@@ -1,8 +1,8 @@
 title: Alex AI — Max Spector
 description: Designing Alex — an AI recruiter that takes a role from open to shortlist.
 output: alex
-cover: cover-keynote-7.jpg
-cover_mobile: cover-keynote-7-mobile.jpg
+cover: cover-keynote-8.jpg   # Keynote_preso_mock_1-8 (Max 2026-11-24)
+cover_mobile: cover-keynote-8-mobile.jpg
 style: wide          # full-width layout, the site design (Max 2026-10-31)
 layout: rail         # sticky label rail, the site layout (Max 2026-11-08)
 grounds_all: white
