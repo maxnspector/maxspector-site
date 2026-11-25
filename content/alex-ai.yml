@@ -91,17 +91,17 @@ sections:
     - img: brand-plate-type-v4.jpg
       alt: DM Sans type specimen in four weights on dark green
       aspect: 2400/1356
+  - layout: full
+    items:
+    - img: brand-art-wall-mock.jpg
+      alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
+      aspect: 2400/1600
   # social carousel replaces the two square social cards (Max 2026-11-24)
   - layout: full
     items:
     - img: social-carousel.jpg
       alt: 'Alex social carousel: a row of vertical posts on dark green, from hire the best to the Alex wordmark to accelerate hiring'
       aspect: 1920/1080
-  - layout: full
-    items:
-    - img: brand-art-wall-mock.jpg
-      alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
-      aspect: 2400/1600
 - heading: Product in Motion
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
