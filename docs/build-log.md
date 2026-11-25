@@ -4,7 +4,7 @@
 ## START HERE (updated 2026-11-24, session 14 wrap)
 Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
 
-**Pending push:** `11-24 v3 – Alex wall art before social carousel` (the two full-width images swap places). 11-24 v1 and both v2 commits are pushed.
+**Pending push:** `11-24 v3 – Alex section 1 reordered, hero animation frame fits its stage` (section 1 order is now animation, social carousel, wall art, lockups, colors, type, subway billboard; the hiring-sequence animation frame is now 1440:767, no letterbox). 11-24 v1 and both v2 commits are pushed.
 
 **Open, in rough order:**
 0. Max pushes 11-24 v1 and reviews the footer on staging. Ask: footer bottom 42 below the icons (site) vs 53 (Figma frame)? Phone placement of the credit OK (own line under the icons)?
@@ -23,6 +23,8 @@ Launch comes first. Post-launch ideas are parked in Project doc `claude/post-lau
 - **Alex social carousel (Max).** The two square social cards (`social-recruiter.jpg`, `social-candidate.jpg`, now unused) are replaced by one full-width 16:9 image, `assets/alex-ai/social-carousel.jpg` (from Dropbox Case Study Files/Alex AI/Alex_social_carousel_01.jpg, 1920x1080, JPG q84, 200 KB). Source is 1920 wide, so no larger version exists. Measured at 1440: 913x514, same width and left edge as the type plate above it, 28 gap.
 - **Verify animation in a laptop (Max).** The Verify product animation (`anim-verify-product.html`) now plays inside Max's laptop mockup (Dropbox Case Study Files/Alex AI/Alex_Verify_video_mock_02.png, transparent screen). Saved as `assets/alex-ai/verify-laptop-mock.webp` (2400 wide, 27 KB; the 951 KB PNG version is in _scratch). New `device:` option for embeds in build.py (img, size, screen box in the image's own pixels) plus `.cs-device` CSS: the animation sits under the mockup in the screen box, mockup on top. Screen box measured from the PNG's transparent area: 405, 335, 3037 x 1958 of 3833 x 3005. Measured at 1440: mockup 913 x 716 (same width as the row above), screen 724 x 467, animation loads and plays; corners and notch checked zoomed in, no gaps. The animation is cropped about 2% top and bottom to fill the screen (its shape is 1.50, the screen's is 1.55).
 - **Order swap (Max, later).** The brand-art wall mockup now comes before the social carousel, which closes the section.
+- **Hiring-sequence animation frame (Max, later).** Max saw a band above and below the resume cards on the Screen step. Cause: `anim-hero-v11.html` keeps its stage at a fixed 1440:767 shape and letterboxes inside anything taller; the frame was 16:10 (1440 x 900), so 67px bands of ground showed top and bottom. Measured standalone: at 1440x900 the stage is 1440x767 at y67; at 1440x700 it fills the height. Frame is now `aspect: 1440/767`, w 1440, h 767. Measured on the page at 1440: frame 913 x 486 (was 913 x 571), the stage fills the whole iframe (1440 x 767), so the cards run off the top and bottom.
+- **Section 1 reorder (Max, later still).** Identity & Design Language now runs: hiring-sequence animation, social carousel, wall art mockup, lockup trio, colors, type sheet, subway billboard (billboard moved from second to last). Checked in the built alex.html.
 - **Section rename (Max).** "Brand Identity" is now "Identity & Design Language". `id: brand-identity` kept in alex-ai.yml so the homepage slideshow link still lands. At 1440 the label now wraps to two lines.
 
 

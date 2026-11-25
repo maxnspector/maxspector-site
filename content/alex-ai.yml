@@ -21,23 +21,30 @@ sections:
   id: brand-identity  # keeps the homepage slideshow link working after the rename (2026-11-24)
   subhead: The foundation of the company voice. Logo, color, typography, and brand expressions.
   blocks:
-  # interview animation (was the page lead) + subway billboard moved here first (Max 2026-11-10)
+  # order (Max 2026-11-24): animation, social carousel, wall art, lockups, colors, type, subway billboard
   - layout: full
     items:
     - embed: anim-hero-v11.html
       poster: anim-hero-v11-poster.jpg
       alt: "Animated walkthrough of the Alex hiring sequence: initiate, match, screen, interview, verify, schedule, hire"
-      ratio: wide
+      # the animation's stage is 1440 x 767 (it letterboxes inside anything taller); the frame matches
+      # so the cards run off the top and bottom (Max 2026-11-24; was ratio: wide, 1440 x 900)
+      aspect: 1440/767
       w: 1440
-      h: 900
+      h: 767
       bg: '#EEF2E1'
       speed: 1.2
+  # social carousel replaces the two square social cards (Max 2026-11-24)
   - layout: full
     items:
-    - img: billboard-subway.jpg
-      alt: Interview everyone, hire the best subway billboard
-      ratio: wide
-      wide_aspect: 2400/1710  # shown whole in the split header (Max 2026-11-01)
+    - img: social-carousel.jpg
+      alt: 'Alex social carousel: a row of vertical posts on dark green, from hire the best to the Alex wordmark to accelerate hiring'
+      aspect: 1920/1080
+  - layout: full
+    items:
+    - img: brand-art-wall-mock.jpg
+      alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
+      aspect: 2400/1600
   - layout: feature
     class: trio
     cols: 874fr 302fr
@@ -93,15 +100,10 @@ sections:
       aspect: 2400/1356
   - layout: full
     items:
-    - img: brand-art-wall-mock.jpg
-      alt: Four Alex brand art prints hung on a wood-paneled wall, the logo construction, applied and hired, interview everyone, and a painted circle around the mark
-      aspect: 2400/1600
-  # social carousel replaces the two square social cards (Max 2026-11-24)
-  - layout: full
-    items:
-    - img: social-carousel.jpg
-      alt: 'Alex social carousel: a row of vertical posts on dark green, from hire the best to the Alex wordmark to accelerate hiring'
-      aspect: 1920/1080
+    - img: billboard-subway.jpg
+      alt: Interview everyone, hire the best subway billboard
+      ratio: wide
+      wide_aspect: 2400/1710  # shown whole in the split header (Max 2026-11-01)
 - heading: Product in Motion
   subhead: The key product concepts and value propositions, brought to life.
   blocks:
