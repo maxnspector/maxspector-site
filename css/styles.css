@@ -926,3 +926,28 @@ body:not(.cs-page) .menu-btn:hover span{background:var(--coral-hover);}
 @media (max-width:860px){
   .home #featured .slides{aspect-ratio:1/1;}
 }
+
+/* ===== FOOTER CREDIT + NEXT v2 (Max 2026-11-24, Figma 110:592 / 150:885 / 150:918) =====
+   Credit "Design by Max · Code by Claude" (roles italic, names roman; Playfair Light 16,
+   Ex-body style) starts at column 5 of the wide grid, centered on the icon row. It rises in
+   with the logo and icons at page bottom, after LinkedIn.
+   Next moves out of the footer row onto its own line above it, also at column 5:
+   title 36 (was 48); 56 from the last art to the title, 134 from the title to the icons. */
+.foot-credit{margin:0;font-family:var(--serif);font-variation-settings:'opsz' 10,'wdth' 103,'wght' 300;font-size:16px;line-height:1.3;
+  letter-spacing:.16px;white-space:nowrap;color:inherit;text-box-trim:trim-both;text-box-edge:cap alphabetic;}
+.foot-credit i{font-style:italic;}
+.foot-credit .fc-sep{margin:0 18px;}
+.next-title{font-size:36px;letter-spacing:-0.54px;}
+@media (min-width:861px){
+  .foot-credit{position:absolute;bottom:calc(42px + 18px - .5cap);
+    left:calc((100% - var(--wide)) / 2 + (var(--wide) - 11 * var(--wide-edge)) * 4 / 12 + 4 * var(--wide-edge));}
+  .dock-foot:has(.next-link){padding-top:calc(var(--next-top) + var(--next-h) + 134px);}
+  .dock-foot{--next-top:28px;--next-h:21px;}  /* the last section already ends 28 above the footer: 28 + 28 = the 56 in Figma */
+  .next-link{top:var(--next-top);}
+}
+.dock-ready .foot-credit{transform:translateY(140px);transition:transform .35s var(--ease);}
+.dock-ready .is-docked .foot-credit{transform:none;transition:transform .35s var(--ease) 210ms;}
+@media(prefers-reduced-motion:reduce){ .dock-ready .foot-credit,.dock-ready .is-docked .foot-credit{transition:none;} }
+@media (max-width:860px){
+  .foot-credit{flex-basis:100%;order:3;margin-top:-20px;}
+}
