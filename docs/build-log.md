@@ -4,7 +4,7 @@
 ## START HERE (updated 2026-11-24, session 15 wrap)
 Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
 
-**Pending push:** `11-25 v1 – Refresh keeps your place` (see the 2026-11-25 entry). Everything through 11-24 v5 (new Alex cover) is pushed.
+**Pending push:** `11-25 v2 – New Verify laptop mockup` (see the 2026-11-25 entry). Everything through 11-25 v1 (refresh keeps your place) is pushed; Max to confirm that fix in Safari on staging.
 
 **Open, in rough order:**
 0. Max reviews the Alex page on staging (section 1 order: animation, social carousel, wall art, lockups, colors, type, billboard; Verify in the laptop; hiring-sequence frame with no letterbox; check the Screen step, Claude's screenshots missed it).
@@ -19,6 +19,12 @@ Launch comes first. Post-launch ideas are parked in Project doc `claude/post-lau
 
 **How to preview:** tar the repo (exclude .git, _scratch, _to_delete, _contact-sheets) into `_scratch/<task>/site.tgz`, stage it, extract in the cloud container, serve with `python3 -m http.server` (start it in the same command as Playwright; it doesn't survive between calls), measure with Playwright + /usr/bin/google-chrome (getBoundingClientRect, not eyeballing). For later rounds stage only the changed files.
 <!-- END START HERE -->
+
+## 2026-11-25 — New Verify laptop mockup
+
+- **Swap (Max).** Verify animation now plays in Dropbox Case Study Files/Alex AI/Alex_Verify_video_mock_03.png (3498x2442) → `assets/alex-ai/verify-laptop-mock-03.webp` (2400x1675, 107 KB). Old `verify-laptop-mock.webp` left in place, unused.
+- **Screen box** measured from the PNG's transparent area: outer bounds 455, 324, 2562 x 1620. The screen tapers slightly (2556 wide at the top, 2512 at the bottom, laptop shot at a slight angle); the animation fills the outer box and the mockup covers the angled edges, so there are no gaps and at most about 1% is hidden at each bottom corner.
+- **Checked at 1440 and 390.** At 1440: mockup 913 x 638, screen 669 x 423, animation frame 669 x 446, so about 2.6% is cropped top and bottom (was 2% on the old mockup). Corners and notch checked zoomed in at 2x: no gaps. No page errors.
 
 ## 2026-11-25 — Refresh keeps your place
 

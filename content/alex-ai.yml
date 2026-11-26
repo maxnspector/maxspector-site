@@ -135,11 +135,12 @@ sections:
       w: 1120
       h: 747
       fit: cover
-      # plays inside Max's laptop mockup (Max 2026-11-24); screen box measured from the PNG's transparent area at 3833 wide
+      # plays inside Max's laptop mockup (Alex_Verify_video_mock_03.png, Max 2026-11-25); screen box = outer bounds of the
+      # PNG's transparent area at 3498 wide (the screen tapers slightly toward the bottom; the mockup covers the edges)
       device:
-        img: verify-laptop-mock.webp
-        size: [3833, 3005]
-        screen: [405, 335, 3037, 1958]
+        img: verify-laptop-mock-03.webp
+        size: [3498, 2442]
+        screen: [455, 324, 2562, 1620]
   - layout: full
     items:
     - embed: anim-proctor.html
