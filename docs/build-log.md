@@ -4,7 +4,7 @@
 ## START HERE (updated 2026-11-24, session 15 wrap)
 Read only this block at session start. Everything below is history: search it (grep) when a detail is needed, don't read it whole. Replace this block at every wrap.
 
-**Pending push:** `11-24 v5 – New Alex cover` (cover now `cover-keynote-8.jpg` + `cover-keynote-8-mobile.jpg` from Keynote_preso_mock_1-8.jpg; plus this build-log update). Everything through 11-24 v4 (sharper social carousel) is pushed.
+**Pending push:** `11-25 v1 – Refresh keeps your place` (see the 2026-11-25 entry). Everything through 11-24 v5 (new Alex cover) is pushed.
 
 **Open, in rough order:**
 0. Max reviews the Alex page on staging (section 1 order: animation, social carousel, wall art, lockups, colors, type, billboard; Verify in the laptop; hiring-sequence frame with no letterbox; check the Screen step, Claude's screenshots missed it).
@@ -19,6 +19,12 @@ Launch comes first. Post-launch ideas are parked in Project doc `claude/post-lau
 
 **How to preview:** tar the repo (exclude .git, _scratch, _to_delete, _contact-sheets) into `_scratch/<task>/site.tgz`, stage it, extract in the cloud container, serve with `python3 -m http.server` (start it in the same command as Playwright; it doesn't survive between calls), measure with Playwright + /usr/bin/google-chrome (getBoundingClientRect, not eyeballing). For later rounds stage only the changed files.
 <!-- END START HERE -->
+
+## 2026-11-25 — Refresh keeps your place
+
+- **Problem (Max).** On a case study, after the cover arrow was clicked (or after arriving from a homepage slide), every refresh jumped to that section, even from the top of the page. Cause: the arrow linked to `#intro`, which stayed in the address, and the template's load script scrolled to whatever `#section` was in the address, overriding the browser's own restore.
+- **Fix (templates/case-study.html, rebuilt alex-ai, alex-ai-share, fandom-brand, client-brands).** Arriving with a `#section` still lands on it after everything loads, then the `#section` is removed from the address (history.replaceState). The cover arrow scrolls to the intro without adding `#intro`. Tradeoff accepted: no copyable section links in the address bar.
+- **Checked in Chrome at 1440 (Playwright).** Alex, Fandom and Client Brands: arrow click lands intro top at 0 with the address unchanged; refresh at 3000 returns to 3000; refresh at the top stays at the top. Fresh tab to /alex.html#brand-identity and #intro: section top at 0, address cleared, refresh at 5000 returns to 5000, back then forward returns to 5000. No page errors. Not checked in Safari; Max to confirm on staging.
 
 ## 2026-11-24 (evening) — Next spacing, Alex carousel, section rename
 
